@@ -812,6 +812,21 @@ window.onload = () => {
   const saved = localStorage.getItem("theme") || "light";
   setTheme(saved);
 };
+
+// GA4 click tracking for every link
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const linkText = link.innerText.trim().substring(0, 50) || link.getAttribute('href');
+  const linkUrl = link.getAttribute('href');
+  if (typeof gtag === 'function') {
+    gtag('event', 'link_click', {
+      link_text: linkText,
+      link_url: linkUrl,
+      page_location: window.location.href
+    });
+  }
+});
 </script>
 
 </body>
