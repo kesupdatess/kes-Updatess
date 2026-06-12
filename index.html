@@ -16,6 +16,19 @@
 <title>KES Updates | Student Portal</title>
 <meta name="description" content="KES Updates - Student portal for notices, academic info, fees, cutoff, question papers, ERP and library services.">
 
+<!-- OG Meta Tags for WhatsApp/Instagram preview -->
+<meta property="og:title" content="KES Updates | Student Portal">
+<meta property="og:description" content="Notices, fees, cutoff, ERP, library and more — all in one place for KES students.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kesupdatess.github.io">
+<meta property="og:image" content="https://kesupdatess.github.io/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KES Updates | Student Portal">
+<meta name="twitter:description" content="Notices, fees, cutoff, ERP, library and more for KES students.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -29,23 +42,28 @@ font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
-/* LIGHT MODE (default) */
+/* LIGHT MODE */
 body {
   background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #e0f2fe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
   color: #0f172a;
   min-height: 100vh;
   transition: background 0.3s, color 0.3s;
   position: relative;
 }
 
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
     radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.08) 40%, transparent 70%),
     radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.05) 40%, transparent 70%);
   pointer-events: none;
@@ -55,6 +73,8 @@ body::before {
 /* DARK MODE */
 body.dark {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
   color: #f1f5f9;
 }
 
@@ -65,67 +85,27 @@ body.dark::before {
 }
 
 body.dark .card {
-  background: rgba(30, 41, 59, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30,41,59,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
   color: #f1f5f9;
 }
-
-body.dark .card h2 {
-  color: #93c5fd;
-}
-
-body.dark .card p {
-  color: #cbd5e1;
-}
-
-body.dark input {
-  background: #1e293b;
-  border: 1px solid #475569;
-  color: white;
-}
-
-body.dark header p {
-  color: #cbd5e1;
-}
-
-body.dark h1 {
-  background: linear-gradient(135deg, #fff, #a5f3fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-body.dark nav {
-  background: #1e293b;
-  border-right: 1px solid rgba(255,255,255,0.1);
-}
-
-body.dark nav a {
-  color: #f1f5f9;
-}
-
-body.dark .hamburger {
-  background: #1e293b;
-  color: white;
-}
-
-body.dark footer {
-  color: #94a3b8;
-}
-
-body.dark .email-box {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-body.dark .email-box span {
-  color: #93c5fd;
-}
-
-body.dark .erp-features li {
-  color: #cbd5e1;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
+body.dark .card h2 { color: #93c5fd; }
+body.dark .card p { color: #cbd5e1; }
+body.dark input { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark header p { color: #cbd5e1; }
+body.dark h1 { background: linear-gradient(135deg, #fff, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.dark nav { background: #1e293b; border-right: 1px solid rgba(255,255,255,0.1); }
+body.dark nav a { color: #f1f5f9; }
+body.dark .hamburger { background: #1e293b; color: white; }
+body.dark footer { color: #94a3b8; }
+body.dark .email-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+body.dark .email-box span { color: #93c5fd; }
+body.dark .erp-features li { color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.07); }
+body.dark .ticker-wrap { background: rgba(30,41,59,0.95); border-color: rgba(255,255,255,0.1); }
+body.dark .ticker-label { background: #3b82f6; }
+body.dark .ticker-text { color: #e2e8f0; }
+body.dark .theme-toggle { background: #1e293b; border-color: rgba(255,255,255,0.1); }
+body.dark .scroll-progress { background: rgba(30,41,59,0.5); }
 
 /* Header */
 header {
@@ -138,6 +118,7 @@ header {
 .logo {
   font-size: 60px;
   animation: float 3s ease-in-out infinite;
+  display: inline-block;
 }
 
 @keyframes float {
@@ -163,12 +144,12 @@ header p {
 }
 
 /* Buttons */
-.btn-red { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
-.btn-blue { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
-.btn-green { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+.btn-red    { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
+.btn-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+.btn-green  { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
 .btn-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
 .btn-orange { background: linear-gradient(135deg, #f97316, #ea580c) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(249,115,22,0.3); }
-.btn-cyan { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(6,182,212,0.3); }
+.btn-cyan   { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(6,182,212,0.3); }
 
 .btn, .link, nav button {
   font-weight: 600;
@@ -207,12 +188,12 @@ header p {
   padding: 24px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
 }
 
 .card h2 {
@@ -222,10 +203,7 @@ header p {
   font-weight: 700;
 }
 
-.card p {
-  color: #334155;
-  line-height: 1.5;
-}
+.card p { color: #334155; line-height: 1.5; }
 
 .link {
   display: block;
@@ -239,8 +217,54 @@ header p {
 }
 
 /* Search gap */
-.search-wrapper {
-  margin-bottom: 28px;
+.search-wrapper { margin-bottom: 28px; }
+
+/* Ticker / Marquee */
+.ticker-wrap {
+  background: white;
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 60px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.ticker-label {
+  background: #ef4444;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.ticker-inner {
+  overflow: hidden;
+  flex: 1;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker 30s linear infinite;
+  animation-delay: -8s;
+  font-size: 0.88rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* Sidebar */
@@ -255,16 +279,14 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 0.3s cubic-bezier(0.4,0,0.2,1);
   z-index: 1002;
   overflow-y: auto;
   border-right: 1px solid rgba(0,0,0,0.1);
   box-shadow: 4px 0 20px rgba(0,0,0,0.1);
 }
 
-nav.active {
-  left: 0;
-}
+nav.active { left: 0; }
 
 nav a {
   color: #1e293b;
@@ -290,9 +312,7 @@ nav a:hover {
   z-index: 1001;
 }
 
-#overlay.active {
-  display: block;
-}
+#overlay.active { display: block; }
 
 /* Hamburger */
 .hamburger {
@@ -322,17 +342,12 @@ nav a:hover {
   z-index: 999;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   background: white;
   border-radius: 50px;
-  padding: 6px 14px;
+  padding: 6px 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
   border: 1px solid rgba(59,130,246,0.2);
-}
-
-body.dark .theme-toggle {
-  background: #1e293b;
-  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .theme-toggle button {
@@ -345,13 +360,53 @@ body.dark .theme-toggle {
   transition: all 0.2s;
 }
 
-.theme-toggle button:hover {
-  background: rgba(59,130,246,0.1);
-  transform: scale(1.15);
+.theme-toggle button:hover { background: rgba(59,130,246,0.1); transform: scale(1.15); }
+.theme-toggle button.active-theme { background: rgba(59,130,246,0.15); }
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+  border-radius: 0 2px 2px 0;
 }
 
-.theme-toggle button.active-theme {
-  background: rgba(59,130,246,0.15);
+/* Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
 }
 
 /* Footer */
@@ -384,9 +439,7 @@ input:focus {
   box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
 }
 
-input::placeholder {
-  color: #94a3b8;
-}
+input::placeholder { color: #94a3b8; }
 
 /* Toast */
 .toast {
@@ -402,11 +455,12 @@ input::placeholder {
   z-index: 2000;
   animation: fadeInUp 0.3s ease;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  white-space: nowrap;
 }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 /* Email Box */
@@ -430,11 +484,7 @@ input::placeholder {
   word-break: break-all;
 }
 
-.email-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+.email-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
 .email-actions a,
 .email-actions button {
@@ -449,12 +499,9 @@ input::placeholder {
 }
 
 .email-actions a:hover,
-.email-actions button:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-}
+.email-actions button:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
-/* ERP Features List */
+/* ERP Features */
 .erp-features {
   list-style: none;
   margin-top: 14px;
@@ -475,13 +522,10 @@ input::placeholder {
   font-weight: 500;
 }
 
-.erp-features li:last-child {
-  border-bottom: none;
-}
-
-.erp-features li:nth-child(odd) {
-  background: rgba(59,130,246,0.03);
-}
+.erp-features li:last-child { border-bottom: none; }
+.erp-features li:nth-child(odd) { background: rgba(59,130,246,0.03); }
+.erp-features li a:hover { color: #2563eb; }
+body.dark .erp-features li a:hover { color: #60a5fa; }
 
 /* Report Issue Button */
 .report-btn {
@@ -498,6 +542,27 @@ input::placeholder {
   letter-spacing: 0.3px;
 }
 
+/* WhatsApp Share */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #25D366, #128C7E) !important;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
+
 /* Mobile */
 @media (max-width: 768px) {
   header { padding: 55px 15px 25px; }
@@ -510,14 +575,21 @@ input::placeholder {
   .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
   .theme-toggle button { font-size: 17px; padding: 3px 6px; }
 }
+
+@media (min-width: 769px) {
+  .container { padding-bottom: 20px; }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu" role="button">☰</div>
 
-<!-- Floating Light/Dark Toggle (right side) -->
+<!-- Floating Light/Dark Toggle -->
 <div class="theme-toggle">
   <button id="btn-light" onclick="setTheme('light')" title="Light Mode">☀️</button>
   <button id="btn-dark" onclick="setTheme('dark')" title="Dark Mode">🌙</button>
@@ -526,15 +598,15 @@ input::placeholder {
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <nav id="sidebar">
-  <a href="#notices" class="btn-red">📢 Notices</a>
-  <a href="#student" class="btn-blue">🧑‍🎓 Student Corner</a>
-  <a href="#academic" class="btn-green">📚 Academic Info</a>
-  <a href="#papers" class="btn-purple">📄 Question Papers</a>
-  <a href="#erp" class="btn-orange">💳 ERP Portal</a>
-  <a href="#library" class="btn-cyan">📚 Library</a>
-  <a href="#collab" class="btn-green">🤝 Collaboration</a>
-  <a href="#about" class="btn-purple">ℹ️ About</a>
-  <a href="#our-policy" class="btn-red">📄 Policy</a>
+  <a href="#notices" class="btn-red" onclick="toggleMenu()">📢 Notices</a>
+  <a href="#student" class="btn-blue" onclick="toggleMenu()">🧑‍🎓 Student Corner</a>
+  <a href="#academic" class="btn-green" onclick="toggleMenu()">📚 Academic Info</a>
+  <a href="#papers" class="btn-purple" onclick="toggleMenu()">📄 Question Papers</a>
+  <a href="#erp" class="btn-orange" onclick="toggleMenu()">💳 ERP Portal</a>
+  <a href="#library" class="btn-cyan" onclick="toggleMenu()">📚 Library</a>
+  <a href="#collab" class="btn-green" onclick="toggleMenu()">🤝 Collaboration</a>
+  <a href="#about" class="btn-purple" onclick="toggleMenu()">ℹ️ About</a>
+  <a href="#our-policy" class="btn-red" onclick="toggleMenu()">📄 Policy</a>
 </nav>
 
 <header>
@@ -546,7 +618,22 @@ input::placeholder {
 
 <div class="container">
 
-  <!-- SEARCH with gap -->
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <span class="ticker-label">🔴 LIVE</span>
+    <div class="ticker-inner">
+      <span class="ticker-text">
+        📢 Check latest notices on KES Updates &nbsp;|&nbsp;
+        💳 Pay your fees via ERP Portal &nbsp;|&nbsp;
+        📚 Academic Calendar 2026-27 is available &nbsp;|&nbsp;
+        📄 Previous Year Question Papers now available &nbsp;|&nbsp;
+        🤝 Want to collaborate? Email us at kesupdatess@gmail.com &nbsp;|&nbsp;
+        🎓 Welcome to KES Updates — your one-stop student portal!
+      </span>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
   <div class="search-wrapper">
     <input type="text" id="searchInput" placeholder="🔍 Search notices, fees, cutoff, library, papers..." aria-label="Search content">
   </div>
@@ -556,15 +643,21 @@ input::placeholder {
     <h2>📢 Important Notices</h2>
     <a class="link btn-red" href="https://kessc.edu.in/notices/" target="_blank">Degree College Notices</a>
     <a class="link btn-blue" href="https://kesjrsanghvi.com/enotices/" target="_blank">Junior College Notices</a>
+    <div style="margin-top:12px;">
+      <a class="whatsapp-btn" href="https://wa.me/?text=Check%20out%20KES%20Updates%20for%20latest%20notices%3A%20https%3A%2F%2Fkesupdatess.github.io" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Share on WhatsApp
+      </a>
+    </div>
   </div>
 
   <!-- STUDENT -->
   <div class="card searchable" id="student">
     <h2>🧑‍🎓 Student Corner</h2>
     <a class="link btn-green" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">😂 Submit Meme</a>
-    <a class="link btn-purple" href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt%20-%20KES%20Updates&body=Hello%20KES%20Updates%20Team%2C%0A%0AI%20have%20a%20doubt%3A%0A%0A">❓ Ask Doubt / Support</a>
+    <a class="link btn-purple" href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt">❓ Ask Doubt / Support</a>
     <a class="report-btn btn-red" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform" target="_blank">🚨 FACING ANY ISSUE IN COLLEGE? TELL US — WE WILL HELP YOU!</a>
-    <p style="margin-top:12px;">Share your feedback, memes, and suggestions here! Help us improve KES Updates and make it more useful for everyone.</p>
+    <p style="margin-top:12px;">Got a doubt, a meme to share, or facing any issue in college? Write to us — we're here to help and would love to hear from you!</p>
   </div>
 
   <!-- ACADEMIC -->
@@ -581,7 +674,14 @@ input::placeholder {
   <div class="card searchable" id="papers">
     <h2>📄 Question Papers</h2>
     <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank">📝 Previous Year Question Papers</a>
-    <p style="margin-top:12px;">Semester-wise question papers for exam preparation and revision.</p>
+    <ul class="erp-features">
+      <li>🏫 <a href="https://kessclibrary.wixsite.com/library/question-paper-junior" target="_blank" style="color:inherit;text-decoration:none;">Junior Question Papers</a></li>
+      <li>🎓 <a href="https://kessclibrary.wixsite.com/library/question-paper-ug" target="_blank" style="color:inherit;text-decoration:none;">UG Question Papers</a></li>
+      <li>📘 <a href="https://kessclibrary.wixsite.com/library/question-paper-pg" target="_blank" style="color:inherit;text-decoration:none;">PG Question Papers</a></li>
+      <li>📗 <a href="https://kessclibrary.wixsite.com/library/copy-of-aicte-pg-question-papers" target="_blank" style="color:inherit;text-decoration:none;">AICTE UG Question Papers</a></li>
+      <li>📙 <a href="https://kessclibrary.wixsite.com/library/copy-of-ug-question-papers" target="_blank" style="color:inherit;text-decoration:none;">AICTE PG Question Papers</a></li>
+    </ul>
+    <p>Semester-wise question papers for exam preparation and revision.</p>
   </div>
 
   <!-- ERP -->
@@ -589,11 +689,11 @@ input::placeholder {
     <h2>💳 ERP Portal</h2>
     <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank">🔗 Open ERP Portal</a>
     <ul class="erp-features">
-      <li>💰 Pay Fees & Download Receipt</li>
-      <li>📊 Check Result</li>
-      <li>📝 Apply for Credit Course</li>
-      <li>📋 Admission Form</li>
-      <li>🎯 Apply for ATKT</li>
+      <li>💰 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" style="color:inherit;text-decoration:none;">Pay Fees & Download Receipt</a></li>
+      <li>📊 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" style="color:inherit;text-decoration:none;">Check Result</a></li>
+      <li>📝 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" style="color:inherit;text-decoration:none;">Apply for Credit Course</a></li>
+      <li>📋 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" style="color:inherit;text-decoration:none;">Admission Form</a></li>
+      <li>🎯 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" style="color:inherit;text-decoration:none;">Apply for ATKT</a></li>
     </ul>
     <p>Official ERP system used for all student services — fees, results, registrations and more.</p>
   </div>
@@ -628,20 +728,21 @@ input::placeholder {
   <div class="card" id="our-policy">
     <h2>📄 Public Disclaimer & Policy Notice</h2>
     <p>Issued in the interest of transparency and legality, KES Updates operates under the following guidelines:</p>
-    <ol style="margin-left: 20px; margin-top: 12px; margin-bottom: 12px;">
+    <ol style="margin-left:20px;margin-top:12px;margin-bottom:12px;">
       <li><strong>Independent Platform:</strong> KES Updates is a student-managed page and not an official body; references to the college are for identification only.</li>
       <li><strong>Legal Compliance:</strong> Content is shared under Article 19(1)(a) of the Constitution of India, IT Act 2000, Digital Media Ethics, and applicable laws.</li>
       <li><strong>Consent & Content Control:</strong> No content is published without free, informed consent; defamatory, unlawful, obscene, hateful, or privacy-violating material is strictly avoided.</li>
       <li><strong>Collaborations:</strong> Mentions, reposts, or collaborations do not imply endorsement or legal association.</li>
-      <li><strong>Liability & Purpose:</strong> KES Updates disclaims liability for third-party views; content is shared in good faith for informational and recreational purposes. Grievances can be addressed via direct communication.</li>
+      <li><strong>Liability & Purpose:</strong> KES Updates disclaims liability for third-party views; content is shared in good faith for informational and recreational purposes.</li>
     </ol>
     <a class="btn-purple" href="https://www.instagram.com/p/DSUYS6ujFoW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" style="display:inline-block;padding:10px 24px;border-radius:50px;text-decoration:none;margin-top:10px;color:white;">📜 Read the full KES Updates Policy</a>
   </div>
 </div>
 
-<footer>
-  © 2026 KES Updates
-</footer>
+<footer>© 2026 KES Updates</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 const sidebar = document.getElementById("sidebar");
@@ -654,47 +755,36 @@ function toggleMenu() {
 }
 
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && sidebar.classList.contains('active')) {
-    toggleMenu();
-  }
+  if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleMenu();
 });
 
 function setTheme(mode) {
   document.body.classList.remove("light", "dark");
-  if (mode === 'dark') {
-    document.body.classList.add("dark");
-  }
+  if (mode === 'dark') document.body.classList.add("dark");
   localStorage.setItem("theme", mode);
-
-  // Update active button highlight
   document.getElementById('btn-light').classList.toggle('active-theme', mode === 'light');
   document.getElementById('btn-dark').classList.toggle('active-theme', mode === 'dark');
-
   showToast(mode === 'dark' ? '🌙 Dark mode' : '☀️ Light mode', 1500);
 }
 
 function showToast(message, duration = 2000) {
-  let existingToast = document.querySelector('.toast');
-  if (existingToast) existingToast.remove();
-  let toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), duration);
+  let t = document.querySelector('.toast');
+  if (t) t.remove();
+  t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = message;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), duration);
 }
 
 function copyEmail() {
-  navigator.clipboard.writeText('kesupdatess@gmail.com').then(() => {
-    showToast('📋 Email copied!', 2000);
-  });
+  navigator.clipboard.writeText('kesupdatess@gmail.com').then(() => showToast('📋 Email copied!', 2000));
 }
 
 function searchContent() {
   let input = document.getElementById("searchInput").value.toLowerCase();
-  let cards = document.querySelectorAll(".searchable");
-  cards.forEach(card => {
-    let cardText = card.innerText.toLowerCase();
-    card.style.display = cardText.includes(input) ? "block" : "none";
+  document.querySelectorAll(".searchable").forEach(card => {
+    card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
   });
 }
 
@@ -707,8 +797,19 @@ if (searchInputElem) {
   });
 }
 
+// Scroll progress bar + back to top
+window.addEventListener('scroll', function() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+  const btn = document.getElementById('backToTop');
+  if (scrollTop > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
 window.onload = () => {
-  let saved = localStorage.getItem("theme") || "light";
+  const saved = localStorage.getItem("theme") || "light";
   setTheme(saved);
 };
 </script>
