@@ -106,6 +106,7 @@ body.dark .ticker-label { background: #3b82f6; }
 body.dark .ticker-text { color: #e2e8f0; }
 body.dark .theme-toggle { background: #1e293b; border-color: rgba(255,255,255,0.1); }
 body.dark .scroll-progress { background: rgba(30,41,59,0.5); }
+body.dark .attendance-result { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #f1f5f9; }
 
 /* Header */
 header {
@@ -608,6 +609,193 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
 
 .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
 
+/* Attendance Calculator */
+.attendance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.attendance-grid label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #1e40af;
+}
+
+body.dark .attendance-grid label { color: #93c5fd; }
+
+.field-hint {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+body.dark .field-hint { color: #94a3b8; }
+
+.attendance-stat-box {
+  margin-top: 14px;
+  display: none;
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+.attendance-stat-box.active { display: block; }
+
+.attendance-stat-box.safe {
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.3);
+}
+
+body.dark .attendance-stat-box.safe { background: rgba(16,185,129,0.15); }
+
+.attendance-stat-box.warning {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.3);
+}
+
+body.dark .attendance-stat-box.warning { background: rgba(239,68,68,0.15); }
+
+.attendance-stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1e40af;
+}
+
+.attendance-stat-box.safe .attendance-stat-number { color: #059669; }
+body.dark .attendance-stat-box.safe .attendance-stat-number { color: #34d399; }
+
+.attendance-stat-box.warning .attendance-stat-number { color: #dc2626; }
+body.dark .attendance-stat-box.warning .attendance-stat-number { color: #f87171; }
+
+.attendance-stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #334155;
+}
+
+body.dark .attendance-stat-label { color: #cbd5e1; }
+
+.attendance-result {
+  margin-top: 14px;
+  background: #f0f9ff;
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e40af;
+  display: none;
+}
+
+.attendance-result.active { display: block; }
+
+.attendance-result.safe {
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.3);
+  color: #059669;
+}
+
+body.dark .attendance-result.safe {
+  background: rgba(16,185,129,0.15);
+  color: #34d399;
+}
+
+.attendance-result.warning {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #dc2626;
+}
+
+body.dark .attendance-result.warning {
+  background: rgba(239,68,68,0.15);
+  color: #f87171;
+}
+
+/* Attendance Progress Bar */
+.attendance-progress-wrap {
+  margin-top: 14px;
+  display: none;
+}
+
+.attendance-progress-wrap.active { display: block; }
+
+.attendance-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 6px;
+}
+
+body.dark .attendance-progress-labels { color: #93c5fd; }
+
+.attendance-progress-track {
+  width: 100%;
+  height: 14px;
+  border-radius: 50px;
+  background: rgba(59,130,246,0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark .attendance-progress-track { background: rgba(255,255,255,0.08); }
+
+.attendance-progress-fill {
+  height: 100%;
+  border-radius: 50px;
+  transition: width 0.5s ease, background 0.5s ease;
+  width: 0%;
+}
+
+.attendance-progress-fill.safe {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.attendance-progress-fill.warning {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.attendance-progress-marker {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  background: #1e293b;
+}
+
+body.dark .attendance-progress-marker { background: #f1f5f9; }
+
+/* Card scroll-in animation */
+.card.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   header { padding: 55px 15px 25px; }
@@ -619,6 +807,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   .btn, .link { padding: 10px 18px; font-size: 0.85rem; }
   .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
   .theme-toggle button { font-size: 17px; padding: 3px 6px; }
+  .attendance-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 769px) {
@@ -649,6 +838,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   <a href="#papers" class="btn-purple" onclick="toggleMenu()">📄 Question Papers</a>
   <a href="#erp" class="btn-orange" onclick="toggleMenu()">💳 ERP Portal</a>
   <a href="#library" class="btn-cyan" onclick="toggleMenu()">📚 Library</a>
+  <a href="#attendance" class="btn-blue" onclick="toggleMenu()">📊 Attendance Calculator</a>
   <a href="#collab" class="btn-green" onclick="toggleMenu()">🤝 Collaboration</a>
   <a href="#about" class="btn-purple" onclick="toggleMenu()">ℹ️ About</a>
   <a href="#our-policy" class="btn-red" onclick="toggleMenu()">📄 Policy</a>
@@ -685,7 +875,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- NOTICES -->
-  <div class="card searchable" id="notices">
+  <div class="card searchable reveal" id="notices">
     <h2>📢 Important Notices</h2>
     <a class="link btn-red" href="https://kessc.edu.in/notices/" target="_blank">Degree College Notices</a>
     <a class="link btn-blue" href="https://kesjrsanghvi.com/enotices/" target="_blank">Junior College Notices</a>
@@ -698,7 +888,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- STUDENT -->
-  <div class="card searchable" id="student">
+  <div class="card searchable reveal" id="student">
     <h2>🧑‍🎓 Student Corner</h2>
     <a class="link btn-green" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank">😂 Submit Meme</a>
     <a class="link btn-purple" href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt">❓ Ask Doubt / Support</a>
@@ -707,7 +897,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- ACADEMIC -->
-  <div class="card searchable" id="academic">
+  <div class="card searchable reveal" id="academic">
     <h2>📚 Academic Info</h2>
     <a class="link btn-blue" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">📅 Academic Calendar 2026-27</a>
     <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">🏫 Junior College Fees Details</a>
@@ -717,7 +907,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- PAPERS -->
-  <div class="card searchable" id="papers">
+  <div class="card searchable reveal" id="papers">
     <h2>📄 Question Papers</h2>
     <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank">📝 Previous Year Question Papers</a>
     <ul class="erp-features">
@@ -731,7 +921,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- ERP -->
-  <div class="card searchable" id="erp">
+  <div class="card searchable reveal" id="erp">
     <h2>💳 ERP Portal</h2>
     <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank">🔗 Open ERP Portal</a>
     <ul class="erp-features">
@@ -745,14 +935,58 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- LIBRARY -->
-  <div class="card searchable" id="library">
+  <div class="card searchable reveal" id="library">
     <h2>📚 KES Shroff College Library</h2>
     <a class="link btn-cyan" href="https://kessclibrary.ourlib.in/" target="_blank">📖 KES Shroff College Library Catalogue</a>
     <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
   </div>
 
+  <!-- ATTENDANCE CALCULATOR -->
+  <div class="card searchable reveal" id="attendance">
+    <h2>📊 Attendance Calculator</h2>
+    <p style="margin-bottom:12px;">Find out how many lectures you need to attend to reach the required attendance percentage (default 75%).</p>
+    <div class="attendance-grid">
+      <div>
+        <label for="totalLectures">Total Lectures Held</label>
+        <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
+      </div>
+      <div>
+        <label for="attendedLectures">Lectures Attended</label>
+        <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
+      </div>
+    </div>
+    <div class="attendance-grid">
+      <div>
+        <label for="requiredPercent">Required Attendance %</label>
+        <input type="number" id="requiredPercent" min="1" max="100" value="75">
+      </div>
+      <div>
+        <label for="graceAttendance">Grace Attendance (NSS, Sports, Cultural, etc.)
+          <span class="field-hint">Extra attendance your college gives for NSS, sports, or cultural participation.</span>
+        </label>
+        <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
+      </div>
+    </div>
+    <button class="link btn-blue" onclick="calculateAttendance()" style="cursor:pointer;border:none;width:100%;">🧮 Calculate</button>
+    <div id="attendanceProgressWrap" class="attendance-progress-wrap">
+      <div class="attendance-progress-labels">
+        <span id="progressCurrentLabel">0%</span>
+        <span id="progressRequiredLabel">Target: 75%</span>
+      </div>
+      <div class="attendance-progress-track">
+        <div id="attendanceProgressFill" class="attendance-progress-fill"></div>
+        <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
+      </div>
+    </div>
+    <div id="attendanceStatBox" class="attendance-stat-box">
+      <div id="attendanceStatNumber" class="attendance-stat-number">0</div>
+      <div id="attendanceStatLabel" class="attendance-stat-label">lecture(s) needed</div>
+    </div>
+    <div id="attendanceResult" class="attendance-result"></div>
+  </div>
+
   <!-- COLLABORATION -->
-  <div class="card searchable" id="collab">
+  <div class="card searchable reveal" id="collab">
     <h2>🤝 Collaboration</h2>
     <p>Want to collaborate with KES Updates? Reach out to us directly!</p>
     <div class="email-box">
@@ -765,13 +999,13 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
   </div>
 
   <!-- ABOUT -->
-  <div class="card" id="about">
+  <div class="card reveal" id="about">
     <h2>ℹ️ About KES Updates</h2>
     <p>KES Updates is an independent, student-managed page created to share notices, resources, and fun campus content. We are not an official college page, but our goal is to keep students informed, connected, and entertained 💙.</p>
   </div>
 
   <!-- POLICY -->
-  <div class="card" id="our-policy">
+  <div class="card reveal" id="our-policy">
     <h2>📄 Public Disclaimer & Policy Notice</h2>
     <p>Issued in the interest of transparency and legality, KES Updates operates under the following guidelines:</p>
     <ol style="margin-left:20px;margin-top:12px;margin-bottom:12px;">
@@ -834,7 +1068,7 @@ function searchContent() {
   });
 }
 
-const suggestionTerms = ["Notices", "Student Corner", "Academic Info", "Question Papers", "ERP Portal", "Library", "Collaboration", "Fees", "Cutoff"];
+const suggestionTerms = ["Notices", "Student Corner", "Academic Info", "Question Papers", "ERP Portal", "Library", "Attendance Calculator", "Grace Attendance", "NSS", "Collaboration", "Fees", "Cutoff"];
 
 function showSuggestions() {
   const box = document.getElementById("suggestionsBox");
@@ -888,6 +1122,18 @@ window.onload = () => {
   setTheme(saved);
 };
 
+// Card scroll-in reveal animation
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.card.reveal').forEach(card => revealObserver.observe(card));
+
 // GA4 click tracking for every link
 document.addEventListener('click', function(e) {
   const link = e.target.closest('a');
@@ -902,6 +1148,82 @@ document.addEventListener('click', function(e) {
     });
   }
 });
+
+// Attendance Calculator
+function calculateAttendance() {
+  const total = parseFloat(document.getElementById('totalLectures').value);
+  const attendedRaw = parseFloat(document.getElementById('attendedLectures').value);
+  const required = parseFloat(document.getElementById('requiredPercent').value) || 75;
+  const grace = parseFloat(document.getElementById('graceAttendance').value) || 0;
+  const resultBox = document.getElementById('attendanceResult');
+  const progressWrap = document.getElementById('attendanceProgressWrap');
+  const progressFill = document.getElementById('attendanceProgressFill');
+  const progressMarker = document.getElementById('attendanceProgressMarker');
+  const currentLabel = document.getElementById('progressCurrentLabel');
+  const requiredLabel = document.getElementById('progressRequiredLabel');
+
+  const statBox = document.getElementById('attendanceStatBox');
+  const statNumber = document.getElementById('attendanceStatNumber');
+  const statLabel = document.getElementById('attendanceStatLabel');
+
+  resultBox.classList.remove('safe', 'warning');
+  statBox.classList.remove('safe', 'warning', 'active');
+
+  if (isNaN(total) || isNaN(attendedRaw) || total <= 0 || attendedRaw < 0 || attendedRaw > total) {
+    resultBox.textContent = "⚠️ Please enter valid lecture numbers (Attended ≤ Total).";
+    resultBox.classList.add('active', 'warning');
+    progressWrap.classList.remove('active');
+    return;
+  }
+
+  // Add grace attendance to attended count, capped at total
+  const attended = Math.min(attendedRaw + grace, total);
+
+  const currentPercent = (attended / total) * 100;
+  const isSafe = currentPercent >= required;
+
+  // Update progress bar
+  const fillPercent = Math.min(currentPercent, 100);
+  progressFill.style.width = fillPercent + '%';
+  progressFill.classList.remove('safe', 'warning');
+  progressFill.classList.add(isSafe ? 'safe' : 'warning');
+  progressMarker.style.left = Math.min(required, 100) + '%';
+  currentLabel.textContent = currentPercent.toFixed(2) + '%';
+  requiredLabel.textContent = 'Target: ' + required + '%';
+  progressWrap.classList.add('active');
+
+  const graceNote = grace > 0 ? ` (includes ${grace} grace lecture${grace > 1 ? 's' : ''})` : '';
+
+  if (isSafe) {
+    let maxSkippable = 0;
+    let a = attended, t = total;
+    while (((a) / (t + 1)) * 100 >= required) {
+      maxSkippable++;
+      t++;
+    }
+    resultBox.textContent = `✅ You're at ${currentPercent.toFixed(2)}% attendance${graceNote}, which meets the ${required}% requirement. You can afford to miss up to ${maxSkippable} more lecture(s) (assuming total lectures keep increasing) and still stay at or above ${required}%.`;
+    resultBox.classList.add('safe');
+
+    statBox.classList.add('safe', 'active');
+    statNumber.textContent = maxSkippable;
+    statLabel.textContent = `lecture(s) you can still miss`;
+  } else {
+    let needed = 0;
+    let a = attended, t = total;
+    while (((a + needed) / (t + needed)) * 100 < required) {
+      needed++;
+      if (needed > 100000) break;
+    }
+    resultBox.textContent = `⚠️ You're at ${currentPercent.toFixed(2)}% attendance${graceNote}, below the ${required}% requirement. You need to attend ${needed} more consecutive lecture(s) without missing any to reach ${required}%.`;
+    resultBox.classList.add('warning');
+
+    statBox.classList.add('warning', 'active');
+    statNumber.textContent = needed;
+    statLabel.textContent = `more lecture(s) needed to reach ${required}%`;
+  }
+
+  resultBox.classList.add('active');
+}
 </script>
 
 </body>
