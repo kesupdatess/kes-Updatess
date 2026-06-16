@@ -44,10 +44,10 @@ scroll-behavior:smooth;
 
 /* LIGHT MODE */
 body {
-  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #e0f2fe 100%);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #e0f2fe 75%, #f0f9ff 100%);
   background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
-  color: #0f172a;
+  animation: gradientShift 15s ease infinite;
+  color: #1e293b;
   min-height: 100vh;
   transition: background 0.3s, color 0.3s;
   position: relative;
@@ -64,49 +64,53 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.08) 40%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.05) 40%, transparent 70%);
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(14,165,233,0.1) 0%, rgba(14,165,233,0.03) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* DARK MODE */
 body.dark {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1e293b 50%, #1e1b4b 70%, #0f172a 100%);
   background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
-  color: #f1f5f9;
+  animation: gradientShift 15s ease infinite;
+  color: #f8fafc;
 }
 
 body.dark::before {
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(99,102,241,0.25) 0%, rgba(99,102,241,0.08) 40%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.05) 40%, transparent 70%);
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.06) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 70%);
 }
 
 body.dark .card {
-  background: rgba(30,41,59,0.95);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #f1f5f9;
+  background: rgba(30,41,59,0.85);
+  border: 1px solid rgba(99,102,241,0.15);
+  color: #f8fafc;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
 }
 body.dark .card h2 { color: #93c5fd; }
 body.dark .card p { color: #cbd5e1; }
 body.dark input { background: #1e293b; border: 1px solid #475569; color: white; }
-body.dark header p { color: #cbd5e1; }
-body.dark h1 { background: linear-gradient(135deg, #fff, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
-body.dark nav { background: #1e293b; border-right: 1px solid rgba(255,255,255,0.1); }
+body.dark header p { color: #94a3b8; }
+body.dark h1 { background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.dark nav { background: rgba(30,41,59,0.95); border-right: 1px solid rgba(99,102,241,0.15); backdrop-filter: blur(12px); }
 body.dark nav a { color: #f1f5f9; }
-body.dark .hamburger { background: #1e293b; color: white; }
+body.dark .hamburger { background: rgba(30,41,59,0.9); color: white; border-color: rgba(99,102,241,0.2); }
 body.dark footer { color: #94a3b8; }
-body.dark .email-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+body.dark .email-box { background: rgba(30,41,59,0.6); border: 1px solid rgba(99,102,241,0.15); }
 body.dark .email-box span { color: #93c5fd; }
 body.dark .erp-features li { color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.07); }
-body.dark .ticker-wrap { background: rgba(30,41,59,0.95); border-color: rgba(255,255,255,0.1); }
+body.dark .ticker-wrap { background: rgba(30,41,59,0.8); border-color: rgba(99,102,241,0.15); backdrop-filter: blur(8px); }
 body.dark .ticker-label { background: #3b82f6; }
 body.dark .ticker-text { color: #e2e8f0; }
-body.dark .theme-toggle { background: #1e293b; border-color: rgba(255,255,255,0.1); }
+body.dark .theme-toggle { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.2); }
 body.dark .scroll-progress { background: rgba(30,41,59,0.5); }
-body.dark .attendance-result { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #f1f5f9; }
+body.dark .attendance-result { background: rgba(30,41,59,0.6); border: 1px solid rgba(99,102,241,0.15); color: #f8fafc; }
 
 /* Header */
 header {
@@ -131,16 +135,16 @@ h1 {
   font-size: 2.5rem;
   margin-top: 10px;
   font-weight: 800;
-  background: linear-gradient(135deg, #1e40af, #2563eb);
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 header p {
-  opacity: 0.75;
+  opacity: 0.85;
   margin-top: 8px;
-  color: #1e40af;
+  color: #334155;
   font-weight: 500;
 }
 
@@ -183,18 +187,20 @@ header p {
 
 /* Cards */
 .card {
-  background: white;
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 28px;
   padding: 24px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 24px rgba(30,58,138,0.06), 0 1px 3px rgba(30,58,138,0.04);
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 40px rgba(30,58,138,0.1), 0 4px 12px rgba(30,58,138,0.06);
+  border-color: rgba(59,130,246,0.25);
 }
 
 .card h2 {
@@ -223,13 +229,14 @@ header p {
 .suggestions-box {
   display: none;
   margin-top: 8px;
-  background: white;
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 30px rgba(30,58,138,0.08);
   padding: 10px;
   flex-wrap: wrap;
   gap: 8px;
+  backdrop-filter: blur(10px);
 }
 
 .suggestions-box.active { display: flex; }
@@ -267,8 +274,8 @@ body.dark .suggestions-box span:hover {
 
 /* Ticker / Marquee */
 .ticker-wrap {
-  background: white;
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 60px;
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -276,9 +283,10 @@ body.dark .suggestions-box span:hover {
   align-items: center;
   gap: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.06);
   position: relative;
   z-index: 1;
+  backdrop-filter: blur(8px);
 }
 
 .ticker-label {
@@ -320,7 +328,7 @@ nav {
   left: -300px;
   width: 280px;
   height: 100%;
-  background: white;
+  background: rgba(255,255,255,0.95);
   padding: 80px 16px 24px;
   display: flex;
   flex-direction: column;
@@ -328,8 +336,9 @@ nav {
   transition: 0.3s cubic-bezier(0.4,0,0.2,1);
   z-index: 1002;
   overflow-y: auto;
-  border-right: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(59,130,246,0.1);
+  box-shadow: 4px 0 30px rgba(30,58,138,0.08);
+  backdrop-filter: blur(12px);
 }
 
 nav.active { left: 0; }
@@ -368,8 +377,8 @@ nav a:hover {
   font-size: 28px;
   cursor: pointer;
   z-index: 1003;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
   width: 50px;
   height: 50px;
   display: flex;
@@ -378,6 +387,8 @@ nav a:hover {
   border-radius: 50%;
   transition: 0.2s;
   color: #1e40af;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59,130,246,0.15);
 }
 
 /* Floating Theme Toggle */
@@ -389,11 +400,12 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 4px;
-  background: white;
+  background: rgba(255,255,255,0.9);
   border-radius: 50px;
   padding: 6px 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  border: 1px solid rgba(59,130,246,0.2);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  border: 1px solid rgba(59,130,246,0.15);
+  backdrop-filter: blur(8px);
 }
 
 .theme-toggle button {
@@ -415,11 +427,12 @@ nav a:hover {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
   z-index: 9999;
   width: 0%;
   transition: width 0.1s;
   border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(59,130,246,0.3);
 }
 
 /* Back to Top */
@@ -460,10 +473,10 @@ footer {
   text-align: center;
   padding: 30px;
   font-size: 13px;
-  opacity: 0.6;
+  opacity: 0.7;
   position: relative;
   z-index: 1;
-  color: #334155;
+  color: #475569;
 }
 
 /* Search Input */
@@ -473,16 +486,16 @@ input {
   border: 1px solid #cbd5e1;
   border-radius: 60px;
   font-size: 16px;
-  background: white;
-  color: #0f172a;
+  background: rgba(255,255,255,0.9);
+  color: #1e293b;
   transition: 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.06), inset 0 1px 2px rgba(255,255,255,0.8);
 }
 
 input:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.15), 0 4px 16px rgba(59,130,246,0.08);
 }
 
 input::placeholder { color: #94a3b8; }
@@ -514,13 +527,14 @@ input::placeholder { color: #94a3b8; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f0f9ff;
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(240,249,255,0.8);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 16px;
   padding: 14px 18px;
   margin-top: 14px;
   flex-wrap: wrap;
   gap: 10px;
+  backdrop-filter: blur(8px);
 }
 
 .email-box span {
@@ -643,8 +657,9 @@ body.dark .field-hint { color: #94a3b8; }
   text-align: center;
   padding: 16px;
   border-radius: 16px;
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(59,130,246,0.06);
+  border: 1px solid rgba(59,130,246,0.15);
+  backdrop-filter: blur(8px);
 }
 
 .attendance-stat-box.active { display: block; }
@@ -654,14 +669,14 @@ body.dark .field-hint { color: #94a3b8; }
   border: 1px solid rgba(16,185,129,0.3);
 }
 
-body.dark .attendance-stat-box.safe { background: rgba(16,185,129,0.15); }
+body.dark .attendance-stat-box.safe { background: rgba(16,185,129,0.12); }
 
 .attendance-stat-box.warning {
   background: rgba(239,68,68,0.08);
   border: 1px solid rgba(239,68,68,0.3);
 }
 
-body.dark .attendance-stat-box.warning { background: rgba(239,68,68,0.15); }
+body.dark .attendance-stat-box.warning { background: rgba(239,68,68,0.12); }
 
 .attendance-stat-number {
   font-size: 2.2rem;
@@ -687,14 +702,15 @@ body.dark .attendance-stat-label { color: #cbd5e1; }
 
 .attendance-result {
   margin-top: 14px;
-  background: #f0f9ff;
-  border: 1px solid rgba(59,130,246,0.2);
+  background: rgba(240,249,255,0.85);
+  border: 1px solid rgba(59,130,246,0.15);
   border-radius: 16px;
   padding: 14px 18px;
   font-size: 1.05rem;
   font-weight: 700;
   color: #1e40af;
   display: none;
+  backdrop-filter: blur(8px);
 }
 
 .attendance-result.active { display: block; }
@@ -813,7 +829,530 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
 @media (min-width: 769px) {
   .container { padding-bottom: 20px; }
 }
+
+/* College Details Section */
+.building-card {
+  background: rgba(59,130,246,0.04);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.building-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.25);
+}
+
+.building-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.building-info {
+  flex: 1;
+}
+
+.building-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 8px;
+}
+
+.building-name {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.contact-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.contact-text {
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Dark mode for College Details */
+body.dark .building-card {
+  background: rgba(30,41,59,0.6);
+  border-color: rgba(255,255,255,0.08);
+}
+
+body.dark .building-card:hover {
+  box-shadow: 0 8px 25px rgba(99,102,241,0.15);
+  border-color: rgba(99,102,241,0.2);
+}
+
+body.dark .building-info h3 {
+  color: #93c5fd;
+}
+
+body.dark .building-name {
+  color: #cbd5e1;
+}
+
+body.dark .contact-link {
+  color: #60a5fa;
+}
+
+body.dark .contact-link:hover {
+  color: #93c5fd;
+}
+
+body.dark .contact-text {
+  color: #94a3b8;
+}
+
+/* Premium Attendance Calculator */
+.attendance-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+body.dark .attendance-desc {
+  color: #94a3b8;
+}
+
+.attendance-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-card {
+  background: rgba(59,130,246,0.04);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 20px;
+  padding: 18px;
+  transition: all 0.3s ease;
+}
+
+.input-card:hover {
+  border-color: rgba(59,130,246,0.3);
+  box-shadow: 0 4px 15px rgba(59,130,246,0.08);
+}
+
+.input-card .input-icon {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.input-card label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 8px;
+}
+
+.input-card input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(59,130,246,0.2);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: white;
+  color: #0f172a;
+  transition: all 0.2s ease;
+  margin-bottom: 6px;
+}
+
+.input-card input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
+}
+
+.input-hint {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+.calculate-btn {
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37,99,235,0.4);
+  filter: brightness(1.05);
+}
+
+.calculate-btn .btn-icon {
+  font-size: 1.3rem;
+}
+
+.calculate-btn .btn-text {
+  letter-spacing: 0.3px;
+}
+
+/* Dark mode for Attendance Calculator */
+body.dark .input-card {
+  background: rgba(30,41,59,0.6);
+  border-color: rgba(255,255,255,0.08);
+}
+
+body.dark .input-card:hover {
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 4px 15px rgba(99,102,241,0.1);
+}
+
+body.dark .input-card label {
+  color: #93c5fd;
+}
+
+body.dark .input-card input {
+  background: #1e293b;
+  border-color: rgba(255,255,255,0.12);
+  color: #f1f5f9;
+}
+
+body.dark .input-card input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
+}
+
+body.dark .input-hint {
+  color: #94a3b8;
+}
+
+body.dark .calculate-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+}
+
+body.dark .calculate-btn:hover {
+  box-shadow: 0 8px 30px rgba(37,99,235,0.4);
+}
+
+/* Mobile responsive for new sections */
+@media (max-width: 768px) {
+  .attendance-inputs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .input-card {
+    padding: 14px;
+  }
+
+  .building-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .building-icon {
+    font-size: 1.8rem;
+  }
+
+  .building-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .calculate-btn {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+}
+
+
+/* Enhanced Building Cards UI/UX */
+.building-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.building-icon {
+  font-size: 2.4rem;
+  margin-top: 4px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.building-badge {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+}
+
+.main-building-card {
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
+  border: 2px solid rgba(59,130,246,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-building-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.main-building-card .building-badge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 2px 8px rgba(124,58,237,0.3);
+}
+
+.building-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background: rgba(59,130,246,0.1);
+  color: #2563eb;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(59,130,246,0.15);
+}
+
+.building-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.building-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  color: white !important;
+}
+
+.building-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.building-btn span {
+  font-size: 1rem;
+}
+
+/* Dark mode enhancements */
+body.dark .building-icon {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+body.dark .main-building-card {
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.06));
+  border-color: rgba(99,102,241,0.25);
+}
+
+body.dark .main-building-card::before {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1);
+}
+
+body.dark .tag {
+  background: rgba(99,102,241,0.15);
+  color: #93c5fd;
+  border-color: rgba(99,102,241,0.2);
+}
+
+body.dark .building-badge {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+}
+
+body.dark .main-building-card .building-badge {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  box-shadow: 0 2px 8px rgba(139,92,246,0.3);
+}
+
+/* Mobile responsive for building cards */
+@media (max-width: 768px) {
+  .building-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .building-icon-wrapper {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .building-icon {
+    font-size: 2.4rem;
+  }
+
+  .building-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+
+  .building-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .building-name {
+    font-size: 0.9rem;
+  }
+
+  .building-tags {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+
+  .contact-row {
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .contact-icon {
+    font-size: 1rem;
+  }
+
+  .contact-link, .contact-text {
+    font-size: 0.85rem;
+  }
+
+  .building-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .building-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.88rem;
+    padding: 12px 16px;
+  }
+}
+
+
+/* Instagram Button with Logo */
+.instagram-btn {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px !important;
+}
+
+.instagram-icon {
+  width: 22px;
+  height: 22px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.instagram-btn span {
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .instagram-btn {
+    padding: 10px 22px !important;
+    font-size: 0.9rem;
+  }
+  .instagram-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 </style>
+<base target="_blank">
 </head>
 
 <body>
@@ -838,7 +1377,8 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
   <a href="#papers" class="btn-purple" onclick="toggleMenu()">📄 Question Papers</a>
   <a href="#erp" class="btn-orange" onclick="toggleMenu()">💳 ERP Portal</a>
   <a href="#library" class="btn-cyan" onclick="toggleMenu()">📚 Library</a>
-  <a href="#attendance" class="btn-blue" onclick="toggleMenu()">📊 Attendance Calculator</a>
+  <a href="#attendance" class="btn-blue" onclick="toggleMenu()">🧮 Smart Attendance Calculator</a>
+  <a href="#college-details" class="btn-orange" onclick="toggleMenu()">🏛️ College Details</a>
   <a href="#collab" class="btn-green" onclick="toggleMenu()">🤝 Collaboration</a>
   <a href="#about" class="btn-purple" onclick="toggleMenu()">ℹ️ About</a>
   <a href="#our-policy" class="btn-red" onclick="toggleMenu()">📄 Policy</a>
@@ -848,7 +1388,14 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
   <div class="logo">🎓</div>
   <h1>KES Updates</h1>
   <p>Notices • Student Support • Academic Resources</p>
-  <a class="btn btn-red" href="https://instagram.com/kes_updatess" target="_blank">📸 Follow Instagram</a>
+  <a class="btn btn-red instagram-btn" href="https://instagram.com/kes_updatess" target="_blank">
+  <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+  </svg>
+  <span>Follow Instagram</span>
+</a>
 </header>
 
 <div class="container">
@@ -900,7 +1447,7 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
   <div class="card searchable reveal" id="academic">
     <h2>📚 Academic Info</h2>
     <a class="link btn-blue" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank">📅 Academic Calendar 2026-27</a>
-    <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">🏫 Junior College Fees Details</a>
+    <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank">🏫 Junior College Fees Structure</a>
     <a class="link btn-purple" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank">🎓 Degree College Fees Structure</a>
     <a class="link btn-orange" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank">📊 Junior College Cutoff List</a>
     <p style="margin-top:12px;">All academic documents including fees, cutoff and calendar updates are available here.</p>
@@ -941,33 +1488,43 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
     <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
   </div>
 
-  <!-- ATTENDANCE CALCULATOR -->
+    <!-- ATTENDANCE CALCULATOR -->
   <div class="card searchable reveal" id="attendance">
-    <h2>📊 Attendance Calculator</h2>
-    <p style="margin-bottom:12px;">Find out how many lectures you need to attend to reach the required attendance percentage (default 75%).</p>
-    <div class="attendance-grid">
-      <div>
+    <h2>🧮 Smart Attendance Calculator</h2>
+    <p class="attendance-desc">Find out how many lectures you need to attend to reach the required attendance percentage. Includes support for grace attendance from NSS, Sports, and Cultural activities.</p>
+
+    <div class="attendance-inputs">
+      <div class="input-card">
+        <div class="input-icon">📊</div>
         <label for="totalLectures">Total Lectures Held</label>
         <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
+        <span class="input-hint">Total number of lectures conducted so far</span>
       </div>
-      <div>
+      <div class="input-card">
+        <div class="input-icon">✅</div>
         <label for="attendedLectures">Lectures Attended</label>
         <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
+        <span class="input-hint">Number of lectures you have attended</span>
       </div>
-    </div>
-    <div class="attendance-grid">
-      <div>
+      <div class="input-card">
+        <div class="input-icon">🎯</div>
         <label for="requiredPercent">Required Attendance %</label>
         <input type="number" id="requiredPercent" min="1" max="100" value="75">
+        <span class="input-hint">Minimum attendance percentage required</span>
       </div>
-      <div>
-        <label for="graceAttendance">Grace Attendance (NSS, Sports, Cultural, etc.)
-          <span class="field-hint">Extra attendance your college gives for NSS, sports, or cultural participation.</span>
-        </label>
+      <div class="input-card">
+        <div class="input-icon">⭐</div>
+        <label for="graceAttendance">Grace Attendance</label>
         <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
+        <span class="input-hint">Extra attendance for NSS, Sports, Cultural, etc.</span>
       </div>
     </div>
-    <button class="link btn-blue" onclick="calculateAttendance()" style="cursor:pointer;border:none;width:100%;">🧮 Calculate</button>
+
+    <button class="calculate-btn" onclick="calculateAttendance()">
+      <span class="btn-icon">🧮</span>
+      <span class="btn-text">Calculate Attendance</span>
+    </button>
+
     <div id="attendanceProgressWrap" class="attendance-progress-wrap">
       <div class="attendance-progress-labels">
         <span id="progressCurrentLabel">0%</span>
@@ -978,14 +1535,16 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
         <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
       </div>
     </div>
+
     <div id="attendanceStatBox" class="attendance-stat-box">
       <div id="attendanceStatNumber" class="attendance-stat-number">0</div>
       <div id="attendanceStatLabel" class="attendance-stat-label">lecture(s) needed</div>
     </div>
+
     <div id="attendanceResult" class="attendance-result"></div>
   </div>
 
-  <!-- COLLABORATION -->
+<!-- COLLABORATION -->
   <div class="card searchable reveal" id="collab">
     <h2>🤝 Collaboration</h2>
     <p>Want to collaborate with KES Updates? Reach out to us directly!</p>
@@ -994,6 +1553,90 @@ body.dark .attendance-progress-marker { background: #f1f5f9; }
       <div class="email-actions">
         <a href="mailto:kesupdatess@gmail.com?subject=Collaboration%20-%20KES%20Updates&body=Hello%20KES%20Updates%20Team%2C%0A%0AI%20would%20like%20to%20collaborate%20with%20you.%0A%0AMy%20details%3A%0A%0A" class="btn-blue" style="color:white;">✉️ Send Mail</a>
         <button class="btn-green" onclick="copyEmail()" style="color:white;">📋 Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLLEGE DETAILS -->
+  <div class="card searchable reveal" id="college-details">
+    <h2>🏛️ College Details</h2>
+    <p style="margin-bottom:16px;">Contact information and campus locations for all KES buildings.</p>
+
+    <div class="building-card main-building-card">
+      <div class="building-icon-wrapper">
+        <div class="building-icon">🏫</div>
+        <div class="building-badge">Main Campus</div>
+      </div>
+      <div class="building-info">
+        <h3>Main / Old Building</h3>
+        <p class="building-name">KES' B.K. Shroff College of Arts & M.H. Shroff College of Commerce</p>
+        <div class="building-tags">
+          <span class="tag">Autonomous</span>
+          <span class="tag">NAAC A Grade</span>
+          <span class="tag">ISO 9001:2015</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📞</span>
+          <a href="tel:022-41914500" class="contact-link">022-41914500</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📧</span>
+          <a href="mailto:principal@kessc.edu.in" class="contact-link">principal@kessc.edu.in</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📧</span>
+          <a href="mailto:office@kessc.edu.in" class="contact-link">office@kessc.edu.in</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📍</span>
+          <span class="contact-text">KES Shroff College, Bhulabhai Desai Road, Kandivali (W), Mumbai - 400067</span>
+        </div>
+        <div class="building-actions">
+          <a class="building-btn btn-blue" href="https://kessc.edu.in/" target="_blank">
+            <span>🌐</span> Visit Official Website
+          </a>
+          <a class="building-btn btn-green" href="https://kessc.edu.in/contact/" target="_blank">
+            <span>📇</span> Contact Page
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="building-card">
+      <div class="building-icon-wrapper">
+        <div class="building-icon">⚖️</div>
+        <div class="building-badge">Annex-1</div>
+      </div>
+      <div class="building-info">
+        <h3>KES Annex-1 (Law Building)</h3>
+        <p class="building-name">KES' Shri. Jayantilal H. Patel Law College</p>
+        <div class="building-tags">
+          <span class="tag">Law College</span>
+        </div>
+        <div class="building-actions">
+          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/kfNDEEYYu7NnwiF77" target="_blank">
+            <span>🗺️</span> View on Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="building-card">
+      <div class="building-icon-wrapper">
+        <div class="building-icon">🌍</div>
+        <div class="building-badge">Annex-2</div>
+      </div>
+      <div class="building-info">
+        <h3>KES Annex-2 (International Building)</h3>
+        <p class="building-name">KES International Junior College & International Programs</p>
+        <div class="building-tags">
+          <span class="tag">International</span>
+        </div>
+        <div class="building-actions">
+          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/mxfYutgvzdxdfgCNA" target="_blank">
+            <span>🗺️</span> View on Google Maps
+          </a>
+        </div>
       </div>
     </div>
   </div>
