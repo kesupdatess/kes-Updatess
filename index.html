@@ -623,33 +623,7 @@ body.dark .erp-features li a:hover { color: #60a5fa; }
 
 .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
 
-/* Attendance Calculator */
-.attendance-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.attendance-grid label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #1e40af;
-}
-
-body.dark .attendance-grid label { color: #93c5fd; }
-
-.field-hint {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: #64748b;
-  margin-top: 4px;
-}
-
-body.dark .field-hint { color: #94a3b8; }
+/* Old attendance styles removed - replaced by premium styles above */
 
 .attendance-stat-box {
   margin-top: 14px;
@@ -737,60 +711,7 @@ body.dark .attendance-result.warning {
   color: #f87171;
 }
 
-/* Attendance Progress Bar */
-.attendance-progress-wrap {
-  margin-top: 14px;
-  display: none;
-}
-
-.attendance-progress-wrap.active { display: block; }
-
-.attendance-progress-labels {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #1e40af;
-  margin-bottom: 6px;
-}
-
-body.dark .attendance-progress-labels { color: #93c5fd; }
-
-.attendance-progress-track {
-  width: 100%;
-  height: 14px;
-  border-radius: 50px;
-  background: rgba(59,130,246,0.1);
-  overflow: hidden;
-  position: relative;
-}
-
-body.dark .attendance-progress-track { background: rgba(255,255,255,0.08); }
-
-.attendance-progress-fill {
-  height: 100%;
-  border-radius: 50px;
-  transition: width 0.5s ease, background 0.5s ease;
-  width: 0%;
-}
-
-.attendance-progress-fill.safe {
-  background: linear-gradient(135deg, #10b981, #059669);
-}
-
-.attendance-progress-fill.warning {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-}
-
-.attendance-progress-marker {
-  position: absolute;
-  top: -3px;
-  bottom: -3px;
-  width: 2px;
-  background: #1e293b;
-}
-
-body.dark .attendance-progress-marker { background: #f1f5f9; }
+/* Old attendance styles removed - replaced by premium styles above */
 
 /* Card scroll-in animation */
 .card.reveal {
@@ -1351,6 +1272,664 @@ body.dark .main-building-card .building-badge {
   }
 }
 
+
+/* ================= PREMIUM ATTENDANCE CALCULATOR ================= */
+
+.attendance-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95)) !important;
+  border: 1px solid rgba(59,130,246,0.12) !important;
+  overflow: hidden;
+}
+
+body.dark .attendance-card {
+  background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9)) !important;
+  border: 1px solid rgba(99,102,241,0.15) !important;
+}
+
+.attendance-header {
+  text-align: center;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(59,130,246,0.1);
+}
+
+body.dark .attendance-header {
+  border-bottom-color: rgba(99,102,241,0.15);
+}
+
+.attendance-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(59,130,246,0.2));
+}
+
+body.dark .attendance-icon {
+  filter: drop-shadow(0 4px 12px rgba(99,102,241,0.3));
+}
+
+.attendance-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.dark .attendance-header h2 {
+  background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.attendance-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+body.dark .attendance-subtitle {
+  color: #94a3b8;
+}
+
+/* Quick Stats */
+.attendance-quick-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quick-stat {
+  background: rgba(59,130,246,0.04);
+  border: 1px solid rgba(59,130,246,0.1);
+  border-radius: 16px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.quick-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(59,130,246,0.1);
+  border-color: rgba(59,130,246,0.2);
+}
+
+body.dark .quick-stat {
+  background: rgba(99,102,241,0.08);
+  border-color: rgba(99,102,241,0.15);
+}
+
+body.dark .quick-stat:hover {
+  box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+  border-color: rgba(99,102,241,0.25);
+}
+
+.quick-stat-icon {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.quick-stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1e40af;
+  line-height: 1.2;
+}
+
+body.dark .quick-stat-value {
+  color: #93c5fd;
+}
+
+.quick-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.dark .quick-stat-label {
+  color: #94a3b8;
+}
+
+/* Input Grid */
+.attendance-input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.attendance-input-group {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(59,130,246,0.12);
+  border-radius: 20px;
+  padding: 18px;
+  transition: all 0.3s ease;
+}
+
+body.dark .attendance-input-group {
+  background: rgba(30,41,59,0.5);
+  border-color: rgba(99,102,241,0.12);
+}
+
+.attendance-input-group:hover {
+  border-color: rgba(59,130,246,0.25);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.08);
+}
+
+body.dark .attendance-input-group:hover {
+  border-color: rgba(99,102,241,0.2);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.1);
+}
+
+.input-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.input-icon-bg {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+}
+
+.input-icon-bg.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.input-icon-bg.green { background: linear-gradient(135deg, #10b981, #059669); }
+.input-icon-bg.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+.input-icon-bg.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+.input-icon-bg svg {
+  width: 18px;
+  height: 18px;
+}
+
+.attendance-input-group label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+body.dark .attendance-input-group label {
+  color: #e2e8f0;
+}
+
+.attendance-input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid rgba(59,130,246,0.15);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.9);
+  color: #0f172a;
+  transition: all 0.2s ease;
+  margin-bottom: 6px;
+}
+
+body.dark .attendance-input-group input {
+  background: rgba(15,23,42,0.7);
+  border-color: rgba(99,102,241,0.2);
+  color: #f1f5f9;
+}
+
+.attendance-input-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59,130,246,0.12), 0 4px 12px rgba(59,130,246,0.08);
+}
+
+body.dark .attendance-input-group input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.15), 0 4px 12px rgba(99,102,241,0.1);
+}
+
+.input-helper {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #64748b;
+  line-height: 1.3;
+}
+
+body.dark .input-helper {
+  color: #94a3b8;
+}
+
+/* Premium Calculate Button */
+.calculate-btn-premium {
+  width: 100%;
+  padding: 16px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
+  color: white;
+  box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculate-btn-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37,99,235,0.4), 0 0 0 1px rgba(255,255,255,0.15) inset;
+  filter: brightness(1.05);
+}
+
+.calculate-btn-premium:active {
+  transform: translateY(-1px);
+}
+
+.btn-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.calculate-btn-premium:hover .btn-glow {
+  opacity: 1;
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+.btn-text {
+  letter-spacing: 0.3px;
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+  margin-left: 4px;
+}
+
+.calculate-btn-premium:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+body.dark .calculate-btn-premium {
+  background: linear-gradient(135deg, #6366f1, #4f46e5, #4338ca);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
+}
+
+body.dark .calculate-btn-premium:hover {
+  box-shadow: 0 8px 30px rgba(99,102,241,0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
+}
+
+/* Progress Section */
+.attendance-progress-wrap {
+  margin-bottom: 24px;
+  display: none;
+}
+
+.attendance-progress-wrap.active {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+body.dark .progress-label {
+  color: #94a3b8;
+}
+
+.progress-percentage {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+body.dark .progress-percentage {
+  color: #60a5fa;
+}
+
+.attendance-progress-track {
+  width: 100%;
+  height: 16px;
+  border-radius: 50px;
+  background: rgba(59,130,246,0.08);
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+body.dark .attendance-progress-track {
+  background: rgba(255,255,255,0.06);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.attendance-progress-fill {
+  height: 100%;
+  border-radius: 50px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.6s ease;
+  width: 0%;
+  position: relative;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+.attendance-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.attendance-progress-fill.safe {
+  background: linear-gradient(135deg, #10b981, #059669, #047857);
+}
+
+.attendance-progress-fill.warning {
+  background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+}
+
+.attendance-progress-marker {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  background: #1e293b;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark .attendance-progress-marker {
+  background: #f1f5f9;
+  box-shadow: 0 0 6px rgba(255,255,255,0.2);
+}
+
+.progress-target-label {
+  position: absolute;
+  top: -24px;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  border: 1px solid rgba(59,130,246,0.15);
+}
+
+body.dark .progress-target-label {
+  color: #94a3b8;
+  background: rgba(30,41,59,0.9);
+  border-color: rgba(99,102,241,0.2);
+}
+
+/* Stat Ring */
+.attendance-stat-box {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.attendance-stat-box.active {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+}
+
+.stat-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.stat-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #3b82f6 0%, #8b5cf6 100%);
+  padding: 4px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(59,130,246,0.2);
+}
+
+.stat-ring-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark .stat-ring-inner {
+  background: rgba(15,23,42,0.95);
+}
+
+.attendance-stat-box.safe .stat-ring {
+  background: conic-gradient(from 0deg, #10b981, #059669);
+  box-shadow: 0 4px 20px rgba(16,185,129,0.2);
+}
+
+.attendance-stat-box.warning .stat-ring {
+  background: conic-gradient(from 0deg, #ef4444, #dc2626);
+  box-shadow: 0 4px 20px rgba(239,68,68,0.2);
+}
+
+.attendance-stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #1e40af;
+}
+
+body.dark .attendance-stat-number {
+  color: #93c5fd;
+}
+
+.attendance-stat-box.safe .attendance-stat-number {
+  color: #059669;
+}
+
+body.dark .attendance-stat-box.safe .attendance-stat-number {
+  color: #34d399;
+}
+
+.attendance-stat-box.warning .attendance-stat-number {
+  color: #dc2626;
+}
+
+body.dark .attendance-stat-box.warning .attendance-stat-number {
+  color: #f87171;
+}
+
+.attendance-stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 4px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+body.dark .attendance-stat-label {
+  color: #94a3b8;
+}
+
+/* Result Message */
+.attendance-result {
+  margin-top: 0;
+  background: rgba(240,249,255,0.85);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 16px;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e40af;
+  display: none;
+  line-height: 1.5;
+  backdrop-filter: blur(8px);
+}
+
+.attendance-result.active {
+  display: block;
+  animation: fadeInUp 0.4s ease;
+}
+
+.attendance-result.safe {
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.2);
+  color: #059669;
+}
+
+body.dark .attendance-result.safe {
+  background: rgba(16,185,129,0.12);
+  color: #34d399;
+}
+
+.attendance-result.warning {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  color: #dc2626;
+}
+
+body.dark .attendance-result.warning {
+  background: rgba(239,68,68,0.1);
+  color: #f87171;
+}
+
+body.dark .attendance-result {
+  background: rgba(30,41,59,0.6);
+  border-color: rgba(99,102,241,0.15);
+  color: #f8fafc;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .attendance-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .attendance-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .attendance-quick-stats {
+    gap: 8px;
+  }
+
+  .quick-stat {
+    padding: 12px 8px;
+  }
+
+  .quick-stat-icon {
+    font-size: 1.2rem;
+  }
+
+  .quick-stat-value {
+    font-size: 1.1rem;
+  }
+
+  .quick-stat-label {
+    font-size: 0.65rem;
+  }
+
+  .attendance-input-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .attendance-input-group {
+    padding: 14px;
+  }
+
+  .input-header {
+    gap: 8px;
+  }
+
+  .input-icon-bg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input-icon-bg svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .attendance-input-group label {
+    font-size: 0.85rem;
+  }
+
+  .calculate-btn-premium {
+    font-size: 0.95rem;
+    padding: 14px 20px;
+  }
+
+  .stat-ring {
+    width: 120px;
+    height: 120px;
+  }
+
+  .attendance-stat-number {
+    font-size: 1.8rem;
+  }
+
+  .attendance-result {
+    font-size: 0.9rem;
+    padding: 14px 16px;
+  }
+}
+
 </style>
 <base target="_blank">
 </head>
@@ -1488,60 +2067,116 @@ body.dark .main-building-card .building-badge {
     <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
   </div>
 
-    <!-- ATTENDANCE CALCULATOR -->
-  <div class="card searchable reveal" id="attendance">
-    <h2>🧮 Smart Attendance Calculator</h2>
-    <p class="attendance-desc">Find out how many lectures you need to attend to reach the required attendance percentage. Includes support for grace attendance from NSS, Sports, and Cultural activities.</p>
-
-    <div class="attendance-inputs">
-      <div class="input-card">
-        <div class="input-icon">📊</div>
-        <label for="totalLectures">Total Lectures Held</label>
-        <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
-        <span class="input-hint">Total number of lectures conducted so far</span>
-      </div>
-      <div class="input-card">
-        <div class="input-icon">✅</div>
-        <label for="attendedLectures">Lectures Attended</label>
-        <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
-        <span class="input-hint">Number of lectures you have attended</span>
-      </div>
-      <div class="input-card">
-        <div class="input-icon">🎯</div>
-        <label for="requiredPercent">Required Attendance %</label>
-        <input type="number" id="requiredPercent" min="1" max="100" value="75">
-        <span class="input-hint">Minimum attendance percentage required</span>
-      </div>
-      <div class="input-card">
-        <div class="input-icon">⭐</div>
-        <label for="graceAttendance">Grace Attendance</label>
-        <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
-        <span class="input-hint">Extra attendance for NSS, Sports, Cultural, etc.</span>
-      </div>
+      <!-- ATTENDANCE CALCULATOR -->
+  <div class="card searchable reveal attendance-card" id="attendance">
+    <div class="attendance-header">
+      <div class="attendance-icon">🧮</div>
+      <h2>Smart Attendance Calculator</h2>
+      <p class="attendance-subtitle">Calculate your attendance, track progress, and know exactly how many lectures you need</p>
     </div>
 
-    <button class="calculate-btn" onclick="calculateAttendance()">
-      <span class="btn-icon">🧮</span>
-      <span class="btn-text">Calculate Attendance</span>
-    </button>
-
-    <div id="attendanceProgressWrap" class="attendance-progress-wrap">
-      <div class="attendance-progress-labels">
-        <span id="progressCurrentLabel">0%</span>
-        <span id="progressRequiredLabel">Target: 75%</span>
+    <div class="attendance-dashboard">
+      <!-- Quick Stats Row -->
+      <div class="attendance-quick-stats">
+        <div class="quick-stat" id="quickStatCurrent">
+          <div class="quick-stat-icon">📊</div>
+          <div class="quick-stat-value">--%</div>
+          <div class="quick-stat-label">Current</div>
+        </div>
+        <div class="quick-stat" id="quickStatTarget">
+          <div class="quick-stat-icon">🎯</div>
+          <div class="quick-stat-value">75%</div>
+          <div class="quick-stat-label">Target</div>
+        </div>
+        <div class="quick-stat" id="quickStatNeeded">
+          <div class="quick-stat-icon">📈</div>
+          <div class="quick-stat-value">--</div>
+          <div class="quick-stat-label">Needed</div>
+        </div>
       </div>
-      <div class="attendance-progress-track">
-        <div id="attendanceProgressFill" class="attendance-progress-fill"></div>
-        <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
+
+      <!-- Input Grid -->
+      <div class="attendance-input-grid">
+        <div class="attendance-input-group">
+          <div class="input-header">
+            <div class="input-icon-bg blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <label for="totalLectures">Total Lectures Held</label>
+          </div>
+          <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
+          <span class="input-helper">Total lectures conducted so far</span>
+        </div>
+
+        <div class="attendance-input-group">
+          <div class="input-header">
+            <div class="input-icon-bg green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <label for="attendedLectures">Lectures Attended</label>
+          </div>
+          <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
+          <span class="input-helper">Number of lectures you attended</span>
+        </div>
+
+        <div class="attendance-input-group">
+          <div class="input-header">
+            <div class="input-icon-bg purple">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+            <label for="requiredPercent">Required Attendance %</label>
+          </div>
+          <input type="number" id="requiredPercent" min="1" max="100" value="75">
+          <span class="input-helper">Minimum required percentage</span>
+        </div>
+
+        <div class="attendance-input-group">
+          <div class="input-header">
+            <div class="input-icon-bg orange">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <label for="graceAttendance">Grace Attendance</label>
+          </div>
+          <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
+          <span class="input-helper">NSS, Sports, Cultural extra</span>
+        </div>
       </div>
-    </div>
 
-    <div id="attendanceStatBox" class="attendance-stat-box">
-      <div id="attendanceStatNumber" class="attendance-stat-number">0</div>
-      <div id="attendanceStatLabel" class="attendance-stat-label">lecture(s) needed</div>
-    </div>
+      <!-- Calculate Button -->
+      <button class="calculate-btn-premium" onclick="calculateAttendance()">
+        <div class="btn-glow"></div>
+        <span class="btn-icon">🧮</span>
+        <span class="btn-text">Calculate Attendance</span>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
 
-    <div id="attendanceResult" class="attendance-result"></div>
+      <!-- Progress Section -->
+      <div id="attendanceProgressWrap" class="attendance-progress-wrap">
+        <div class="progress-header">
+          <span class="progress-label">Attendance Progress</span>
+          <span class="progress-percentage" id="progressCurrentLabel">0%</span>
+        </div>
+        <div class="attendance-progress-track">
+          <div id="attendanceProgressFill" class="attendance-progress-fill"></div>
+          <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
+          <div class="progress-target-label" id="progressRequiredLabel">Target: 75%</div>
+        </div>
+      </div>
+
+      <!-- Result Cards -->
+      <div id="attendanceStatBox" class="attendance-stat-box">
+        <div class="stat-visual">
+          <div class="stat-ring" id="statRing">
+            <div class="stat-ring-inner">
+              <div id="attendanceStatNumber" class="attendance-stat-number">0</div>
+              <div id="attendanceStatLabel" class="attendance-stat-label">lectures</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="attendanceResult" class="attendance-result"></div>
+    </div>
   </div>
 
 <!-- COLLABORATION -->
@@ -1593,10 +2228,13 @@ body.dark .main-building-card .building-badge {
         </div>
         <div class="building-actions">
           <a class="building-btn btn-blue" href="https://kessc.edu.in/" target="_blank">
-            <span>🌐</span> Visit Official Website
+            <span>🌐</span> Official Website
           </a>
           <a class="building-btn btn-green" href="https://kessc.edu.in/contact/" target="_blank">
             <span>📇</span> Contact Page
+          </a>
+          <a class="building-btn btn-red" href="https://maps.app.goo.gl/r9HXYaZhCKguju41A" target="_blank">
+            <span>🗺️</span> Google Maps
           </a>
         </div>
       </div>
@@ -1809,6 +2447,11 @@ function calculateAttendance() {
   const statNumber = document.getElementById('attendanceStatNumber');
   const statLabel = document.getElementById('attendanceStatLabel');
 
+  // Quick stats
+  const quickStatCurrent = document.getElementById('quickStatCurrent');
+  const quickStatTarget = document.getElementById('quickStatTarget');
+  const quickStatNeeded = document.getElementById('quickStatNeeded');
+
   resultBox.classList.remove('safe', 'warning');
   statBox.classList.remove('safe', 'warning', 'active');
 
@@ -1816,6 +2459,11 @@ function calculateAttendance() {
     resultBox.textContent = "⚠️ Please enter valid lecture numbers (Attended ≤ Total).";
     resultBox.classList.add('active', 'warning');
     progressWrap.classList.remove('active');
+
+    // Reset quick stats
+    quickStatCurrent.querySelector('.quick-stat-value').textContent = '--%';
+    quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
+    quickStatNeeded.querySelector('.quick-stat-value').textContent = '--';
     return;
   }
 
@@ -1825,13 +2473,17 @@ function calculateAttendance() {
   const currentPercent = (attended / total) * 100;
   const isSafe = currentPercent >= required;
 
+  // Update quick stats
+  quickStatCurrent.querySelector('.quick-stat-value').textContent = currentPercent.toFixed(1) + '%';
+  quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
+
   // Update progress bar
   const fillPercent = Math.min(currentPercent, 100);
   progressFill.style.width = fillPercent + '%';
   progressFill.classList.remove('safe', 'warning');
   progressFill.classList.add(isSafe ? 'safe' : 'warning');
   progressMarker.style.left = Math.min(required, 100) + '%';
-  currentLabel.textContent = currentPercent.toFixed(2) + '%';
+  currentLabel.textContent = currentPercent.toFixed(1) + '%';
   requiredLabel.textContent = 'Target: ' + required + '%';
   progressWrap.classList.add('active');
 
@@ -1844,12 +2496,15 @@ function calculateAttendance() {
       maxSkippable++;
       t++;
     }
-    resultBox.textContent = `✅ You're at ${currentPercent.toFixed(2)}% attendance${graceNote}, which meets the ${required}% requirement. You can afford to miss up to ${maxSkippable} more lecture(s) (assuming total lectures keep increasing) and still stay at or above ${required}%.`;
+    resultBox.textContent = `✅ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, which meets the ${required}% requirement. You can afford to miss up to ${maxSkippable} more lecture(s) and still stay at or above ${required}%.`;
     resultBox.classList.add('safe');
 
     statBox.classList.add('safe', 'active');
     statNumber.textContent = maxSkippable;
-    statLabel.textContent = `lecture(s) you can still miss`;
+    statLabel.textContent = `can miss`;
+
+    quickStatNeeded.querySelector('.quick-stat-value').textContent = maxSkippable;
+    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Can Miss';
   } else {
     let needed = 0;
     let a = attended, t = total;
@@ -1857,12 +2512,15 @@ function calculateAttendance() {
       needed++;
       if (needed > 100000) break;
     }
-    resultBox.textContent = `⚠️ You're at ${currentPercent.toFixed(2)}% attendance${graceNote}, below the ${required}% requirement. You need to attend ${needed} more consecutive lecture(s) without missing any to reach ${required}%.`;
+    resultBox.textContent = `⚠️ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, below the ${required}% requirement. You need to attend ${needed} more consecutive lecture(s) without missing any to reach ${required}%.`;
     resultBox.classList.add('warning');
 
     statBox.classList.add('warning', 'active');
     statNumber.textContent = needed;
-    statLabel.textContent = `more lecture(s) needed to reach ${required}%`;
+    statLabel.textContent = `needed`;
+
+    quickStatNeeded.querySelector('.quick-stat-value').textContent = needed;
+    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Needed';
   }
 
   resultBox.classList.add('active');
