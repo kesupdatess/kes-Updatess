@@ -2140,25 +2140,25 @@ body.dark .countdown-date-note .highlight {
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <nav id="sidebar">
-  <a href="#notices" class="btn-red" onclick="toggleMenu()">📢 Notices</a>
-  <a href="#student" class="btn-blue" onclick="toggleMenu()">🧑‍🎓 Student Corner</a>
-  <a href="#academic" class="btn-green" onclick="toggleMenu()">📚 Academic Info</a>
-  <a href="#papers" class="btn-purple" onclick="toggleMenu()">📄 Question Papers</a>
-  <a href="#erp" class="btn-orange" onclick="toggleMenu()">💳 ERP Portal</a>
-  <a href="#library" class="btn-cyan" onclick="toggleMenu()">📚 Library</a>
-    <a href="#exam-countdown" class="btn-red" onclick="toggleMenu()">⏰ Exam Countdown</a>
-<a href="#attendance" class="btn-blue" onclick="toggleMenu()">🧮 Smart Attendance Calculator</a>
-  <a href="#college-details" class="btn-orange" onclick="toggleMenu()">🏛️ College Details</a>
-  <a href="#collab" class="btn-green" onclick="toggleMenu()">🤝 Collaboration</a>
-  <a href="#about" class="btn-purple" onclick="toggleMenu()">ℹ️ About</a>
-  <a href="#our-policy" class="btn-red" onclick="toggleMenu()">📄 Policy</a>
+  <a href="#notices" class="btn-red" onclick="handleNavClick(event, '#notices')">📢 Notices</a>
+  <a href="#student" class="btn-blue" onclick="handleNavClick(event, '#student')">🧑‍🎓 Student Corner</a>
+  <a href="#academic" class="btn-green" onclick="handleNavClick(event, '#academic')">📚 Academic Info</a>
+  <a href="#papers" class="btn-purple" onclick="handleNavClick(event, '#papers')">📄 Question Papers</a>
+  <a href="#erp" class="btn-orange" onclick="handleNavClick(event, '#erp')">💳 ERP Portal</a>
+  <a href="#library" class="btn-cyan" onclick="handleNavClick(event, '#library')">📚 Library</a>
+    <a href="#exam-countdown" class="btn-red" onclick="handleNavClick(event, '#exam-countdown')">⏰ Exam Countdown</a>
+<a href="#attendance" class="btn-blue" onclick="handleNavClick(event, '#attendance')">🧮 Smart Attendance Calculator</a>
+  <a href="#college-details" class="btn-orange" onclick="handleNavClick(event, '#college-details')">🏛️ College Details</a>
+  <a href="#collab" class="btn-green" onclick="handleNavClick(event, '#collab')">🤝 Collaboration</a>
+  <a href="#about" class="btn-purple" onclick="handleNavClick(event, '#about')">ℹ️ About</a>
+  <a href="#our-policy" class="btn-red" onclick="handleNavClick(event, '#our-policy')">📄 Policy</a>
 </nav>
 
 <header>
   <div class="logo">🎓</div>
   <h1>KES Updates</h1>
   <p>Notices • Student Support • Academic Resources</p>
-  <a class="btn btn-red instagram-btn" href="https://instagram.com/kes_updatess" target="_blank" rel="noopener noreferrer">
+  <a class="btn btn-red instagram-btn" href="https://instagram.com/kes_updatess">
   <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
     <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
@@ -2195,10 +2195,10 @@ body.dark .countdown-date-note .highlight {
   <!-- NOTICES -->
   <div class="card searchable reveal" id="notices">
     <h2>📢 Important Notices</h2>
-    <a class="link btn-red" href="https://kessc.edu.in/notices/" target="_blank" rel="noopener noreferrer">Degree College Notices</a>
-    <a class="link btn-blue" href="https://kesjrsanghvi.com/enotices/" target="_blank" rel="noopener noreferrer">Junior College Notices</a>
+    <a class="link btn-red" href="https://kessc.edu.in/notices/">Degree College Notices</a>
+    <a class="link btn-blue" href="https://kesjrsanghvi.com/enotices/">Junior College Notices</a>
     <div style="margin-top:12px;">
-      <a class="whatsapp-btn" href="https://wa.me/?text=Check%20out%20KES%20Updates%20for%20latest%20notices%3A%20https%3A%2F%2Fkesupdatess.github.io%2Fkes-Updatess%2F" target="_blank" rel="noopener noreferrer">
+      <a class="whatsapp-btn" href="https://wa.me/?text=Check%20out%20KES%20Updates%20for%20latest%20notices%3A%20https%3A%2F%2Fkesupdatess.github.io%2Fkes-Updatess%2F">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Share on WhatsApp
       </a>
@@ -2208,19 +2208,19 @@ body.dark .countdown-date-note .highlight {
   <!-- STUDENT -->
   <div class="card searchable reveal" id="student">
     <h2>🧑‍🎓 Student Corner</h2>
-    <a class="link btn-green" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank" rel="noopener noreferrer">😂 Submit Meme</a>
+    <a class="link btn-green" href="https://forms.gle/USmraK6T7EqH7UU9A">😂 Submit Meme</a>
     <a class="link btn-purple" href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt">❓ Ask Doubt / Support</a>
-    <a class="report-btn btn-red" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform" target="_blank" rel="noopener noreferrer">🚨 FACING ANY ISSUE IN COLLEGE? TELL US — WE WILL HELP YOU!</a>
+    <a class="report-btn btn-red" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform">🚨 FACING ANY ISSUE IN COLLEGE? TELL US — WE WILL HELP YOU!</a>
     <p style="margin-top:12px;">Got a doubt, a meme to share, or facing any issue in college? Write to us — we're here to help and would love to hear from you!</p>
   </div>
 
   <!-- ACADEMIC -->
   <div class="card searchable reveal" id="academic">
     <h2>📚 Academic Info</h2>
-    <a class="link btn-blue" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank" rel="noopener noreferrer">📅 Academic Calendar 2026-27</a>
-    <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank" rel="noopener noreferrer">🏫 Junior College Fees Structure</a>
-    <a class="link btn-purple" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank" rel="noopener noreferrer">🎓 Degree College Fees Structure</a>
-    <a class="link btn-orange" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank" rel="noopener noreferrer">📊 Junior College Cutoff List</a>
+    <a class="link btn-blue" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view">📅 Academic Calendar 2026-27</a>
+    <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view">🏫 Junior College Fees Structure</a>
+    <a class="link btn-purple" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view">🎓 Degree College Fees Structure</a>
+    <a class="link btn-orange" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view">📊 Junior College Cutoff List</a>
     <p style="margin-top:12px;">All academic documents including fees, cutoff and calendar updates are available here.</p>
   </div>
 
@@ -2265,13 +2265,13 @@ body.dark .countdown-date-note .highlight {
 <!-- PAPERS -->
   <div class="card searchable reveal" id="papers">
     <h2>📄 Question Papers</h2>
-    <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank" rel="noopener noreferrer">📝 Previous Year Question Papers</a>
+    <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers">📝 Previous Year Question Papers</a>
     <ul class="erp-features">
-      <li>🏫 <a href="https://kessclibrary.wixsite.com/library/question-paper-junior" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Junior Question Papers</a></li>
-      <li>🎓 <a href="https://kessclibrary.wixsite.com/library/question-paper-ug" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">UG Question Papers</a></li>
-      <li>📘 <a href="https://kessclibrary.wixsite.com/library/question-paper-pg" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">PG Question Papers</a></li>
-      <li>📗 <a href="https://kessclibrary.wixsite.com/library/copy-of-aicte-pg-question-papers" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">AICTE UG Question Papers</a></li>
-      <li>📙 <a href="https://kessclibrary.wixsite.com/library/copy-of-ug-question-papers" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">AICTE PG Question Papers</a></li>
+      <li>🏫 <a href="https://kessclibrary.wixsite.com/library/question-paper-junior" style="color:inherit;text-decoration:none;">Junior Question Papers</a></li>
+      <li>🎓 <a href="https://kessclibrary.wixsite.com/library/question-paper-ug" style="color:inherit;text-decoration:none;">UG Question Papers</a></li>
+      <li>📘 <a href="https://kessclibrary.wixsite.com/library/question-paper-pg" style="color:inherit;text-decoration:none;">PG Question Papers</a></li>
+      <li>📗 <a href="https://kessclibrary.wixsite.com/library/copy-of-aicte-pg-question-papers" style="color:inherit;text-decoration:none;">AICTE UG Question Papers</a></li>
+      <li>📙 <a href="https://kessclibrary.wixsite.com/library/copy-of-ug-question-papers" style="color:inherit;text-decoration:none;">AICTE PG Question Papers</a></li>
     </ul>
     <p>Semester-wise question papers for exam preparation and revision.</p>
   </div>
@@ -2279,13 +2279,13 @@ body.dark .countdown-date-note .highlight {
   <!-- ERP -->
   <div class="card searchable reveal" id="erp">
     <h2>💳 ERP Portal</h2>
-    <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer">🔗 Open ERP Portal</a>
+    <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/">🔗 Open ERP Portal</a>
     <ul class="erp-features">
-      <li>💰 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Pay Fees & Download Receipt</a></li>
-      <li>📊 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Check Result</a></li>
-      <li>📝 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Apply for Credit Course</a></li>
-      <li>📋 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Admission Form</a></li>
-      <li>🎯 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Apply for ATKT</a></li>
+      <li>💰 <a href="https://cimsstudentnewui.mastersofterp.in/" style="color:inherit;text-decoration:none;">Pay Fees & Download Receipt</a></li>
+      <li>📊 <a href="https://cimsstudentnewui.mastersofterp.in/" style="color:inherit;text-decoration:none;">Check Result</a></li>
+      <li>📝 <a href="https://cimsstudentnewui.mastersofterp.in/" style="color:inherit;text-decoration:none;">Apply for Credit Course</a></li>
+      <li>📋 <a href="https://cimsstudentnewui.mastersofterp.in/" style="color:inherit;text-decoration:none;">Admission Form</a></li>
+      <li>🎯 <a href="https://cimsstudentnewui.mastersofterp.in/" style="color:inherit;text-decoration:none;">Apply for ATKT</a></li>
     </ul>
     <p>Official ERP system used for all student services — fees, results, registrations and more.</p>
   </div>
@@ -2293,7 +2293,7 @@ body.dark .countdown-date-note .highlight {
   <!-- LIBRARY -->
   <div class="card searchable reveal" id="library">
     <h2>📚 KES Shroff College Library</h2>
-    <a class="link btn-cyan" href="https://kessclibrary.ourlib.in/" target="_blank" rel="noopener noreferrer">📖 KES Shroff College Library Catalogue</a>
+    <a class="link btn-cyan" href="https://kessclibrary.ourlib.in/">📖 KES Shroff College Library Catalogue</a>
     <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
   </div>
 
@@ -2453,13 +2453,13 @@ body.dark .countdown-date-note .highlight {
           <span class="contact-text">KES Shroff College, Bhulabhai Desai Road, Kandivali (W), Mumbai - 400067</span>
         </div>
         <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://kessc.edu.in/" target="_blank" rel="noopener noreferrer">
+          <a class="building-btn btn-blue" href="https://kessc.edu.in/">
             <span>🌐</span> Official Website
           </a>
-          <a class="building-btn btn-green" href="https://kessc.edu.in/contact/" target="_blank" rel="noopener noreferrer">
+          <a class="building-btn btn-green" href="https://kessc.edu.in/contact/">
             <span>📇</span> Contact Page
           </a>
-          <a class="building-btn btn-red" href="https://maps.app.goo.gl/r9HXYaZhCKguju41A" target="_blank" rel="noopener noreferrer">
+          <a class="building-btn btn-red" href="https://maps.app.goo.gl/r9HXYaZhCKguju41A">
             <span>🗺️</span> Google Maps
           </a>
         </div>
@@ -2478,7 +2478,7 @@ body.dark .countdown-date-note .highlight {
           <span class="tag">Law College</span>
         </div>
         <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/kfNDEEYYu7NnwiF77" target="_blank" rel="noopener noreferrer">
+          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/kfNDEEYYu7NnwiF77">
             <span>🗺️</span> View on Google Maps
           </a>
         </div>
@@ -2497,7 +2497,7 @@ body.dark .countdown-date-note .highlight {
           <span class="tag">International</span>
         </div>
         <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/mxfYutgvzdxdfgCNA" target="_blank" rel="noopener noreferrer">
+          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/mxfYutgvzdxdfgCNA">
             <span>🗺️</span> View on Google Maps
           </a>
         </div>
@@ -2522,7 +2522,7 @@ body.dark .countdown-date-note .highlight {
       <li><strong>Collaborations:</strong> Mentions, reposts, or collaborations do not imply endorsement or legal association.</li>
       <li><strong>Liability & Purpose:</strong> KES Updates disclaims liability for third-party views; content is shared in good faith for informational and recreational purposes.</li>
     </ol>
-    <a class="btn-purple" href="https://www.instagram.com/p/DSUYS6ujFoW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 24px;border-radius:50px;text-decoration:none;margin-top:10px;color:white;">📜 Read the full KES Updates Policy</a>
+    <a class="btn-purple" href="https://www.instagram.com/p/DSUYS6ujFoW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" style="display:inline-block;padding:10px 24px;border-radius:50px;text-decoration:none;margin-top:10px;color:white;">📜 Read the full KES Updates Policy</a>
   </div>
 </div>
 
@@ -2542,6 +2542,18 @@ function toggleMenu() {
   const isOpen = sidebar.classList.contains("active");
   document.body.style.overflow = isOpen ? "hidden" : "";
   hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+// Smooth scroll for nav links + close menu
+function handleNavClick(e, targetId) {
+  e.preventDefault();
+  toggleMenu();
+  const target = document.querySelector(targetId);
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300); // Wait for menu to close
+  }
 }
 
 document.addEventListener('keydown', function(e) {
