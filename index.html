@@ -1927,7 +1927,201 @@ nav a.nav-active {
 }
 .no-results.active { display: block; }
 body.dark .no-results { color: #94a3b8; }
+
+/* Compact Exam Countdown */
+.exam-countdown-compact {
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 20px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exam-countdown-compact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #ef4444, #f97316);
+  border-radius: 20px 0 0 20px;
+}
+
+.exam-countdown-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.25);
+}
+
+.countdown-icon-wrap {
+  font-size: 2rem;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.countdown-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.countdown-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.countdown-badge {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.countdown-exam-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e40af;
+  line-height: 1.3;
+}
+
+.countdown-exam-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.countdown-timer-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.countdown-unit-compact {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(59,130,246,0.12);
+  border-radius: 12px;
+  padding: 8px 12px;
+  text-align: center;
+  min-width: 52px;
+}
+
+.countdown-num-compact {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #dc2626;
+  line-height: 1;
+  display: block;
+}
+
+.countdown-text-compact {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  display: block;
+}
+
+.countdown-separator {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+.countdown-date-note {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.countdown-date-note .highlight {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* Dark mode */
+body.dark .exam-countdown-compact {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.04));
+  border-color: rgba(99,102,241,0.15);
+}
+
+body.dark .exam-countdown-compact::before {
+  background: linear-gradient(180deg, #f87171, #fb923c);
+}
+
+body.dark .countdown-exam-name {
+  color: #93c5fd;
+}
+
+body.dark .countdown-exam-sub {
+  color: #94a3b8;
+}
+
+body.dark .countdown-unit-compact {
+  background: rgba(30,41,59,0.8);
+  border-color: rgba(99,102,241,0.2);
+}
+
+body.dark .countdown-num-compact {
+  color: #f87171;
+}
+
+body.dark .countdown-text-compact {
+  color: #94a3b8;
+}
+
+body.dark .countdown-separator {
+  color: #64748b;
+}
+
+body.dark .countdown-date-note .highlight {
+  color: #f87171;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .exam-countdown-compact {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .countdown-icon-wrap {
+    font-size: 1.6rem;
+  }
+  .countdown-exam-name {
+    font-size: 0.95rem;
+  }
+  .countdown-unit-compact {
+    padding: 6px 8px;
+    min-width: 44px;
+  }
+  .countdown-num-compact {
+    font-size: 1.2rem;
+  }
+  .countdown-text-compact {
+    font-size: 0.6rem;
+  }
+}
+
 </style>
+<base target="_blank">
 </head>
 
 <body>
@@ -1952,7 +2146,8 @@ body.dark .no-results { color: #94a3b8; }
   <a href="#papers" class="btn-purple" onclick="toggleMenu()">📄 Question Papers</a>
   <a href="#erp" class="btn-orange" onclick="toggleMenu()">💳 ERP Portal</a>
   <a href="#library" class="btn-cyan" onclick="toggleMenu()">📚 Library</a>
-  <a href="#attendance" class="btn-blue" onclick="toggleMenu()">🧮 Smart Attendance Calculator</a>
+    <a href="#exam-countdown" class="btn-red" onclick="toggleMenu()">⏰ Exam Countdown</a>
+<a href="#attendance" class="btn-blue" onclick="toggleMenu()">🧮 Smart Attendance Calculator</a>
   <a href="#college-details" class="btn-orange" onclick="toggleMenu()">🏛️ College Details</a>
   <a href="#collab" class="btn-green" onclick="toggleMenu()">🤝 Collaboration</a>
   <a href="#about" class="btn-purple" onclick="toggleMenu()">ℹ️ About</a>
@@ -2029,7 +2224,45 @@ body.dark .no-results { color: #94a3b8; }
     <p style="margin-top:12px;">All academic documents including fees, cutoff and calendar updates are available here.</p>
   </div>
 
-  <!-- PAPERS -->
+  
+  <!-- EXAM COUNTDOWN -->
+  <div class="card searchable reveal exam-countdown-compact" id="exam-countdown">
+    <div class="countdown-icon-wrap">⏰</div>
+    <div class="countdown-info">
+      <div class="countdown-label-row">
+        <span class="countdown-badge">UPCOMING</span>
+        <span class="countdown-exam-sub">Exam Timetable may change</span>
+      </div>
+      <div class="countdown-exam-name">Unit Test for Term I <span style="font-size:0.85rem;opacity:0.7;">(DEGREE)</span></div>
+      <div class="countdown-timer-row" id="countdownTimerRow">
+        <div class="countdown-unit-compact">
+          <span class="countdown-num-compact" id="cd-days">--</span>
+          <span class="countdown-text-compact">Days</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-unit-compact">
+          <span class="countdown-num-compact" id="cd-hours">--</span>
+          <span class="countdown-text-compact">Hrs</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-unit-compact">
+          <span class="countdown-num-compact" id="cd-minutes">--</span>
+          <span class="countdown-text-compact">Min</span>
+        </div>
+        <span class="countdown-separator">:</span>
+        <div class="countdown-unit-compact">
+          <span class="countdown-num-compact" id="cd-seconds">--</span>
+          <span class="countdown-text-compact">Sec</span>
+        </div>
+      </div>
+      <div class="countdown-date-note">
+        📅 Expected Date: <span class="highlight" id="examDateText">August 18, 2026</span> (As per Academic Calendar 2026-27)
+      </div>
+    </div>
+  </div>
+
+
+<!-- PAPERS -->
   <div class="card searchable reveal" id="papers">
     <h2>📄 Question Papers</h2>
     <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank" rel="noopener noreferrer">📝 Previous Year Question Papers</a>
@@ -2541,6 +2774,64 @@ const spyObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -50% 0px' });
 
 sections.forEach(section => spyObserver.observe(section));
+
+
+// Exam Countdown - Compact
+function updateCompactCountdown() {
+  // EXAM DATE - Change this when timetable updates
+  // Based on Academic Calendar 2026-27: Unit Test for UG Sem I, III & V
+  // Expected around mid-August 2026
+  const examDate = new Date('2026-08-18T09:00:00');
+  const now = new Date();
+  const diff = examDate - now;
+
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minutesEl = document.getElementById('cd-minutes');
+  const secondsEl = document.getElementById('cd-seconds');
+
+  if (!daysEl) return;
+
+  if (diff <= 0) {
+    daysEl.textContent = '0';
+    hoursEl.textContent = '0';
+    minutesEl.textContent = '0';
+    secondsEl.textContent = '0';
+
+    const examDay = new Date(examDate);
+    const today = new Date();
+    if (examDay.toDateString() === today.toDateString()) {
+      document.getElementById('examDateText').innerHTML = '<span style="color:#dc2626;font-weight:800;">🔴 EXAM IS TODAY! ALL THE BEST!</span>';
+    } else {
+      document.getElementById('examDateText').textContent = 'Exam Completed';
+    }
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  daysEl.textContent = days;
+  hoursEl.textContent = hours.toString().padStart(2, '0');
+  minutesEl.textContent = minutes.toString().padStart(2, '0');
+  secondsEl.textContent = seconds.toString().padStart(2, '0');
+
+  // Update badge based on urgency
+  const badge = document.querySelector('.countdown-badge');
+  if (days <= 1) {
+    badge.textContent = 'URGENT';
+    badge.style.background = 'linear-gradient(135deg, #dc2626, #991b1b)';
+  } else if (days <= 7) {
+    badge.textContent = 'SOON';
+    badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+  }
+}
+
+setInterval(updateCompactCountdown, 1000);
+updateCompactCountdown();
+
 </script>
 
 </body>
