@@ -1807,6 +1807,9 @@ body.dark .attendance-result.warning {
   color: #f87171;
 }
 
+body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark select option { background: #1e293b; color: white; }
+
 body.dark .attendance-result {
   background: rgba(30,41,59,0.6);
   border-color: rgba(99,102,241,0.15);
@@ -2293,6 +2296,7 @@ body.dark .event-countdown.far {
 
 </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
@@ -2320,6 +2324,7 @@ body.dark .event-countdown.far {
   <a href="#erp" class="btn-orange" onclick="handleNavClick(event, '#erp')">💳 ERP Portal</a>
   <a href="#library" class="btn-cyan" onclick="handleNavClick(event, '#library')">📚 Library</a>
   <a href="#attendance" class="btn-blue" onclick="handleNavClick(event, '#attendance')">🧮 Attendance Calculator</a>
+  <a href="#fees-calculator" class="btn-green" onclick="handleNavClick(event, '#fees-calculator')">💰 Fees Calculator</a>
   <a href="#college-details" class="btn-orange" onclick="handleNavClick(event, '#college-details')">🏛️ College Details</a>
   <a href="#collab" class="btn-green" onclick="handleNavClick(event, '#collab')">🤝 Collaboration</a>
   <a href="#about" class="btn-purple" onclick="handleNavClick(event, '#about')">ℹ️ About</a>
@@ -2635,6 +2640,110 @@ body.dark .event-countdown.far {
       <div id="attendanceResult" class="attendance-result"></div>
     </div>
   </div>
+
+
+  <!-- FEES CALCULATOR -->
+  <div class="card searchable reveal" id="fees-calculator">
+    <h2>💰 KES Fees Calculator</h2>
+    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">Select your course to see the total fees amount.</p>
+
+    <div class="select-group" style="background:rgba(59,130,246,0.04);border:1px solid rgba(59,130,246,0.15);border-radius:16px;padding:16px;margin-bottom:16px;">
+      <label for="courseSelect" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:10px;">📚 Select Course</label>
+      <select id="courseSelect" onchange="showFees()" style="width:100%;padding:14px 16px;border:2px solid rgba(59,130,246,0.2);border-radius:14px;font-size:0.95rem;font-weight:600;background:white;color:#0f172a;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;font-family:'Poppins',sans-serif;">
+        <option value="">-- Select Course --</option>
+
+        <!-- FIRST YEAR -->
+        <optgroup label="🎓 First Year">
+        <option value="19140">B.Com (Aided)</option>
+        <option value="47010">B.Com (Banking & Insurance)</option>
+        <option value="48080">B.Com (Investment Management)</option>
+        <option value="47365">B.Com (Logistic Supply Chain)</option>
+        <option value="48710">B.Com (Accounting & Finance)</option>
+        <option value="48610">B.Com (Financial Markets)</option>
+        <option value="48510">BA (Multimedia & Mass Comm)</option>
+        <option value="38640">BA with Geography</option>
+        <option value="45640">BA with Psychology</option>
+        <option value="40640">BA with English Lit</option>
+        <option value="39640">BA with Economics</option>
+        <option value="55380">BSc (Finance & Technology)</option>
+        <option value="52210">B.Com-MS</option>
+        <option value="40360">B.Com (Retail Management)</option>
+        <option value="72210">BA (Film, TV & New Media)</option>
+        <option value="85510">BSc (Artificial Intelligence)</option>
+        <option value="75510">BSc (Data Science)</option>
+        <option value="53510">BSc (Information Technology)</option>
+        <option value="93400">B.Com (Certified Management Accounting)</option>
+        <option value="153380">B.Com (Digital Business)</option>
+        <option value="103380">BSc (International Finance)</option>
+        <option value="103400">BSc Cyber Security & Digital Forensics</option>
+        <option value="139180">B.Com (International Accounting)</option>
+        <option value="103600">BSc (Capital Market)</option>
+        <option value="49230">BMS - AICTE</option>
+        <option value="75270">BBA - AICTE</option>
+        <option value="60230">BCA - AICTE</option>
+        </optgroup>
+
+        <!-- SECOND YEAR -->
+        <optgroup label="📚 Second Year">
+        <option value="46630">SYBAF</option>
+        <option value="46310">SYBBI</option>
+        <option value="90000">SYBCMA</option>
+        <option value="46320">SYBFM</option>
+        <option value="44235">SYBIM</option>
+        <option value="137690">SYBIA</option>
+        <option value="44315">SYBAMMC</option>
+        <option value="63820">SYBAFTNMP</option>
+        <option value="154910">SYB.Com-DB</option>
+        <option value="52280">SYBCOM-MS</option>
+        <option value="46280">SYBLSM</option>
+        <option value="101380">SYBSC-CS&DF</option>
+        <option value="103280">SYBSC-IF</option>
+        <option value="51280">SYBSC-FT</option>
+        <option value="73990">SYBSC-DS</option>
+        <option value="49390">SYBSC-IT</option>
+        <option value="84580">SYBSC-AI</option>
+        <option value="33540">SYBA-GEO</option>
+        <option value="37540">SYBA-ENG</option>
+        <option value="39540">SYBA-PSY</option>
+        <option value="36240">SYBA-ECO</option>
+        <option value="18520">SYBCOM-A</option>
+        </optgroup>
+
+        <!-- THIRD YEAR -->
+        <optgroup label="🎓 Third Year">
+        <option value="43720">TYBAF</option>
+        <option value="43690">TYBBI</option>
+        <option value="42665">TYBFM</option>
+        <option value="42515">TYBIM</option>
+        <option value="137320">TYBIA</option>
+        <option value="76300">TYBCMA</option>
+        <option value="42710">TYBAMMC</option>
+        <option value="63070">TYBAFTNMP</option>
+        <option value="51495">TYBSC-IT</option>
+        <option value="72870">TYBSC-DS</option>
+        <option value="60130">TYBCA-AICTE</option>
+        <option value="75170">TYBBA-AICTE</option>
+        <option value="49130">TYBMS-AICTE</option>
+        <option value="153410">TYBCOM-DB</option>
+        <option value="33280">TYBA-GEO</option>
+        <option value="36280">TYBA-ENG</option>
+        <option value="41280">TYBA-PSY</option>
+        <option value="34280">TYBA-ECO</option>
+        <option value="16070">TYBCOM-A-TAX</option>
+        <option value="18070">TYBCOM-A-COMP</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div id="feesDisplay" style="margin-top:20px;background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.04));border:2px solid rgba(59,130,246,0.2);border-radius:20px;padding:24px;text-align:center;display:none;animation: fadeIn 0.4s ease;">
+      <div style="font-size:0.85rem;color:#64748b;font-weight:600;margin-bottom:8px;">Total Fees</div>
+      <div id="feesAmount" style="font-size:2.5rem;font-weight:800;color:#2563eb;line-height:1;">₹0</div>
+      <div id="feesCourseName" style="font-size:1rem;color:#1e40af;font-weight:700;margin-top:8px;"></div>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.75rem;color:#94a3b8;text-align:center;">📞 For queries: 022-41914500 | office@kessc.edu.in</p>
+  </div>
+
 
 <!-- COLLABORATION -->
   <div class="card searchable reveal" id="collab">
@@ -3129,6 +3238,24 @@ const spyObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: '-40% 0px -50% 0px' });
 
 sections.forEach(section => spyObserver.observe(section));
+
+// Fees Calculator
+function showFees() {
+  const select = document.getElementById('courseSelect');
+  const amount = select.value;
+  const name = select.options[select.selectedIndex].text;
+  const display = document.getElementById('feesDisplay');
+
+  if (!amount) {
+    display.style.display = 'none';
+    return;
+  }
+
+  document.getElementById('feesAmount').textContent = '₹' + parseInt(amount).toLocaleString('en-IN');
+  document.getElementById('feesCourseName').textContent = name;
+  display.style.display = 'block';
+}
+
 </script>
 
 </body>
