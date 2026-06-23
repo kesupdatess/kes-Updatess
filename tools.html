@@ -948,100 +948,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, .hamburger:focus-vis
   outline-offset: 2px;
 }
 
-/* Fees Calculator */
-.select-group {
-  background: rgba(59,130,246,0.04);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
-.select-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #1e40af;
-  margin-bottom: 10px;
-}
-
-body.dark .select-group label {
-  color: #93c5fd;
-}
-
-.select-group select {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid rgba(59,130,246,0.2);
-  border-radius: 14px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  background: white;
-  color: #0f172a;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  padding-right: 40px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-}
-
-body.dark .select-group select {
-  background: #1e293b;
-  border-color: rgba(99,102,241,0.2);
-  color: #f1f5f9;
-}
-
-.select-group select:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
-}
-
-body.dark .select-group select:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99,102,241,0.15);
-}
-
-#feesDisplay {
-  margin-top: 20px;
-  background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.04));
-  border: 2px solid rgba(59,130,246,0.2);
-  border-radius: 20px;
-  padding: 24px;
-  text-align: center;
-  display: none;
-  animation: fadeInUp 0.4s ease;
-}
-
-body.dark #feesDisplay {
-  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.06));
-  border-color: rgba(99,102,241,0.25);
-}
-
-#feesAmount {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #2563eb;
-  line-height: 1;
-}
-
-body.dark #feesAmount {
-  color: #60a5fa;
-}
-
-#feesCourseName {
-  font-size: 1rem;
-  color: #1e40af;
-  font-weight: 700;
-  margin-top: 8px;
-}
-
-body.dark #feesCourseName {
-  color: #93c5fd;
-}
-
 .back-link {
   display: inline-flex;
   align-items: center;
@@ -1067,6 +973,231 @@ body.dark .back-link:hover {
 }
 
 body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
+
+/* ===== NEW FEES CALCULATOR STYLES ===== */
+.calc-header { text-align:center; margin-bottom:24px; }
+.calc-icon { font-size:2.5rem; display:inline-block; margin-bottom:8px; }
+.calc-header h2 {
+  font-size:1.6rem; font-weight:800;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+body.dark .calc-header h2 {
+  background: linear-gradient(135deg, #fff, #93c5fd);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.calc-header p { color:#64748b; font-size:0.88rem; margin-top:4px; }
+body.dark .calc-header p { color:#94a3b8; }
+
+.tab-row {
+  display:flex; gap:0; margin-bottom:24px;
+  background: rgba(59,130,246,0.06);
+  border-radius:14px; padding:4px;
+  border: 1px solid rgba(59,130,246,0.12);
+}
+body.dark .tab-row { background:rgba(99,102,241,0.08); border-color:rgba(99,102,241,0.15); }
+.tab-btn {
+  flex:1; padding:10px 16px; border-radius:10px;
+  font-size:0.88rem; font-weight:700; border:none;
+  cursor:pointer; background:transparent;
+  color:#64748b; transition:all 0.25s;
+}
+.tab-btn.active {
+  background:white;
+  color:#1e40af;
+  box-shadow: 0 2px 8px rgba(30,58,138,0.1);
+}
+body.dark .tab-btn.active { background:rgba(30,41,59,0.9); color:#93c5fd; }
+body.dark .tab-btn { color:#94a3b8; }
+
+.progress-steps {
+  display:flex; align-items:center; justify-content:center;
+  gap:0; margin-bottom:28px;
+}
+.step-item { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.step-circle {
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.8rem; font-weight:700;
+  background: rgba(59,130,246,0.08);
+  border: 2px solid rgba(59,130,246,0.2);
+  color:#94a3b8; transition: all 0.3s;
+}
+.step-circle.active {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-color: #2563eb; color:white;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+.step-circle.done {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #059669; color:white;
+}
+.step-label { font-size:0.65rem; font-weight:600; color:#94a3b8; text-align:center; white-space:nowrap; }
+.step-label.active { color:#2563eb; }
+.step-label.done { color:#059669; }
+body.dark .step-label.active { color:#60a5fa; }
+body.dark .step-label.done { color:#34d399; }
+.step-line {
+  width:40px; height:2px;
+  background: rgba(59,130,246,0.15);
+  margin-bottom:16px; flex-shrink:0; transition: background 0.3s;
+}
+.step-line.done { background: linear-gradient(90deg, #10b981, #059669); }
+
+.step-panel { display:none; animation: fadeIn 0.3s ease; }
+.step-panel.active { display:block; }
+
+.option-label { font-size:0.88rem; font-weight:700; color:#1e40af; margin-bottom:12px; display:block; }
+body.dark .option-label { color:#93c5fd; }
+
+.option-grid { display:grid; gap:12px; margin-bottom:20px; }
+.option-grid.cols-2 { grid-template-columns:1fr 1fr; }
+.option-grid.cols-3 { grid-template-columns:1fr 1fr 1fr; }
+
+.option-btn {
+  padding:16px 12px; border-radius:16px;
+  border: 2px solid rgba(59,130,246,0.15);
+  background: rgba(59,130,246,0.04);
+  cursor:pointer; text-align:center;
+  transition: all 0.25s; color:#1e293b;
+}
+body.dark .option-btn { background:rgba(99,102,241,0.08); border-color:rgba(99,102,241,0.2); color:#f1f5f9; }
+.option-btn:hover { border-color:#3b82f6; box-shadow: 0 4px 16px rgba(59,130,246,0.15); transform: translateY(-2px); }
+.option-btn.selected {
+  border-color:#2563eb;
+  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(37,99,235,0.08));
+  box-shadow: 0 4px 16px rgba(37,99,235,0.2);
+}
+.option-icon { font-size:1.8rem; margin-bottom:6px; display:block; }
+.option-name { font-size:0.9rem; font-weight:700; display:block; }
+.option-sub { font-size:0.72rem; color:#64748b; display:block; margin-top:2px; }
+body.dark .option-sub { color:#94a3b8; }
+
+.select-wrap { position:relative; margin-bottom:16px; }
+.select-wrap select {
+  width:100%; padding:14px 16px;
+  border:2px solid rgba(59,130,246,0.2);
+  border-radius:16px; font-size:0.95rem; font-weight:600;
+  background:white; color:#0f172a;
+  cursor:pointer; appearance:none;
+  font-family:'Poppins',sans-serif; transition: all 0.2s;
+}
+body.dark .select-wrap select { background:#1e293b; border-color:rgba(99,102,241,0.3); color:#f1f5f9; }
+.select-wrap select:focus { outline:none; border-color:#3b82f6; box-shadow:0 0 0 4px rgba(59,130,246,0.15); }
+.select-arrow { position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none; color:#64748b; }
+
+.result-box {
+  display:none;
+  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(5,150,105,0.04));
+  border: 2px solid rgba(16,185,129,0.3);
+  border-radius:20px; padding:24px; text-align:center;
+  margin-top:16px; animation: fadeIn 0.4s ease;
+}
+.result-box.active { display:block; }
+body.dark .result-box { background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.3); }
+
+.result-label { font-size:0.82rem; font-weight:600; color:#059669; margin-bottom:6px; }
+body.dark .result-label { color:#34d399; }
+.result-course { font-size:1rem; font-weight:700; color:#1e293b; margin-bottom:12px; line-height:1.4; }
+body.dark .result-course { color:#f1f5f9; }
+.result-fees { font-size:2.4rem; font-weight:800; color:#059669; line-height:1.1; margin-bottom:4px; }
+body.dark .result-fees { color:#34d399; }
+.result-note { font-size:0.75rem; color:#64748b; margin-top:8px; }
+body.dark .result-note { color:#94a3b8; }
+
+.btn-row { display:flex; gap:10px; margin-top:16px; }
+.btn-back, .btn-next {
+  flex:1; padding:13px 20px; border-radius:14px;
+  font-weight:700; font-size:0.95rem; border:none; cursor:pointer; transition:all 0.25s;
+}
+.btn-back {
+  background:rgba(59,130,246,0.08); border:2px solid rgba(59,130,246,0.2); color:#2563eb;
+}
+body.dark .btn-back { background:rgba(99,102,241,0.1); border-color:rgba(99,102,241,0.2); color:#93c5fd; }
+.btn-back:hover { background:rgba(59,130,246,0.15); }
+.btn-next { background:linear-gradient(135deg, #3b82f6, #2563eb); color:white; box-shadow:0 4px 15px rgba(37,99,235,0.3); }
+.btn-next:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,99,235,0.4); }
+
+.btn-reset {
+  width:100%; padding:12px; border-radius:14px;
+  font-weight:700; font-size:0.9rem; border:2px solid rgba(239,68,68,0.2); cursor:pointer;
+  margin-top:12px; background:rgba(239,68,68,0.08); color:#dc2626; transition:all 0.25s;
+}
+body.dark .btn-reset { background:rgba(239,68,68,0.1); border-color:rgba(239,68,68,0.2); color:#f87171; }
+.btn-reset:hover { background:rgba(239,68,68,0.15); }
+
+.summary-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.chip {
+  background:rgba(59,130,246,0.08); color:#1e40af;
+  font-size:0.75rem; font-weight:600;
+  padding:4px 12px; border-radius:50px;
+  border:1px solid rgba(59,130,246,0.15);
+}
+body.dark .chip { background:rgba(99,102,241,0.12); color:#93c5fd; border-color:rgba(99,102,241,0.2); }
+
+.history-panel { display:none; animation: fadeIn 0.3s ease; }
+.history-panel.active { display:block; }
+
+.history-empty {
+  text-align:center; padding:40px 20px;
+  color:#94a3b8; font-size:0.9rem;
+}
+.history-empty .empty-icon { font-size:2.5rem; display:block; margin-bottom:10px; }
+
+.history-item {
+  display:flex; align-items:center; gap:14px;
+  padding:14px 16px; border-radius:16px;
+  border:1px solid rgba(59,130,246,0.12);
+  background:rgba(59,130,246,0.03);
+  margin-bottom:10px; transition:all 0.25s;
+  cursor:pointer; position:relative;
+}
+body.dark .history-item { background:rgba(99,102,241,0.06); border-color:rgba(99,102,241,0.15); }
+.history-item:hover { transform:translateX(4px); box-shadow:0 4px 16px rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.25); }
+
+.history-num {
+  width:32px; height:32px; border-radius:50%;
+  background:linear-gradient(135deg, #3b82f6, #2563eb);
+  color:white; font-size:0.8rem; font-weight:800;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.history-info { flex:1; min-width:0; }
+.history-course { font-size:0.9rem; font-weight:700; color:#1e40af; margin-bottom:3px; line-height:1.3; }
+body.dark .history-course { color:#93c5fd; }
+.history-meta { font-size:0.75rem; color:#64748b; display:flex; gap:8px; flex-wrap:wrap; }
+body.dark .history-meta { color:#94a3b8; }
+.history-fees { font-size:1.1rem; font-weight:800; color:#059669; flex-shrink:0; }
+body.dark .history-fees { color:#34d399; }
+
+.history-reuse {
+  font-size:0.72rem; font-weight:600; color:#2563eb;
+  background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2);
+  padding:3px 10px; border-radius:50px; margin-top:6px; display:inline-block;
+}
+body.dark .history-reuse { color:#60a5fa; background:rgba(99,102,241,0.1); }
+
+.history-clear-btn {
+  width:100%; padding:10px; border-radius:12px;
+  font-weight:700; font-size:0.85rem;
+  border:2px solid rgba(239,68,68,0.2);
+  background:rgba(239,68,68,0.06); color:#dc2626;
+  cursor:pointer; margin-top:6px; transition:all 0.25s;
+}
+body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgba(239,68,68,0.2); color:#f87171; }
+.history-clear-btn:hover { background:rgba(239,68,68,0.14); }
+
+.history-count-badge {
+  background:linear-gradient(135deg, #ef4444, #dc2626);
+  color:white; font-size:0.65rem; font-weight:800;
+  padding:2px 7px; border-radius:50px;
+  margin-left:6px; vertical-align:middle;
+}
+
+@media(max-width:480px) {
+  .step-line { width:20px; }
+  .option-grid.cols-3 { grid-template-columns:1fr 1fr; }
+  .result-fees { font-size:2rem; }
+}
 
 </style>
 </head>
@@ -1211,107 +1342,114 @@ body.dark textarea { background: #1e293b; border: 1px solid #475569; color: whit
     </div>
   </div>
 
-  <!-- FEES CALCULATOR -->
-  <div class="card reveal" id="fees-calculator">
-    <h2>💰 KES Fees Calculator</h2>
-    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">
-      Select your course and year to instantly see the total fees amount. 
-      All fees are as per the official KES Shroff College fee structure. 
-      For any discrepancies, contact the college office.
-    </p>
-
-    <div class="select-group">
-      <label for="courseSelect">📚 Select Course</label>
-      <select id="courseSelect" onchange="showFees()">
-        <option value="">-- Select Course --</option>
-        <optgroup label="🎓 First Year">
-        <option value="19140">B.Com (Aided)</option>
-        <option value="47010">B.Com (Banking & Insurance)</option>
-        <option value="48080">B.Com (Investment Management)</option>
-        <option value="47365">B.Com (Logistic Supply Chain)</option>
-        <option value="48710">B.Com (Accounting & Finance)</option>
-        <option value="48610">B.Com (Financial Markets)</option>
-        <option value="48510">BA (Multimedia & Mass Comm)</option>
-        <option value="38640">BA with Geography</option>
-        <option value="45640">BA with Psychology</option>
-        <option value="40640">BA with English Lit</option>
-        <option value="39640">BA with Economics</option>
-        <option value="55380">BSc (Finance & Technology)</option>
-        <option value="52210">B.Com-MS</option>
-        <option value="40360">B.Com (Retail Management)</option>
-        <option value="72210">BA (Film, TV & New Media)</option>
-        <option value="85510">BSc (Artificial Intelligence)</option>
-        <option value="75510">BSc (Data Science)</option>
-        <option value="53510">BSc (Information Technology)</option>
-        <option value="93400">B.Com (Certified Management Accounting)</option>
-        <option value="153380">B.Com (Digital Business)</option>
-        <option value="103380">BSc (International Finance)</option>
-        <option value="103400">BSc Cyber Security & Digital Forensics</option>
-        <option value="139180">B.Com (International Accounting)</option>
-        <option value="103600">BSc (Capital Market)</option>
-        <option value="49230">BMS - AICTE</option>
-        <option value="75270">BBA - AICTE</option>
-        <option value="60230">BCA - AICTE</option>
-        </optgroup>
-        <optgroup label="📚 Second Year">
-        <option value="46630">SYBAF</option>
-        <option value="46310">SYBBI</option>
-        <option value="90000">SYBCMA</option>
-        <option value="46320">SYBFM</option>
-        <option value="44235">SYBIM</option>
-        <option value="137690">SYBIA</option>
-        <option value="44315">SYBAMMC</option>
-        <option value="63820">SYBAFTNMP</option>
-        <option value="154910">SYB.Com-DB</option>
-        <option value="52280">SYBCOM-MS</option>
-        <option value="46280">SYBLSM</option>
-        <option value="101380">SYBSC-CS&DF</option>
-        <option value="103280">SYBSC-IF</option>
-        <option value="51280">SYBSC-FT</option>
-        <option value="73990">SYBSC-DS</option>
-        <option value="49390">SYBSC-IT</option>
-        <option value="84580">SYBSC-AI</option>
-        <option value="33540">SYBA-GEO</option>
-        <option value="37540">SYBA-ENG</option>
-        <option value="39540">SYBA-PSY</option>
-        <option value="36240">SYBA-ECO</option>
-        <option value="18520">SYBCOM-A</option>
-        </optgroup>
-        <optgroup label="🎓 Third Year">
-        <option value="43720">TYBAF</option>
-        <option value="43690">TYBBI</option>
-        <option value="42665">TYBFM</option>
-        <option value="42515">TYBIM</option>
-        <option value="137320">TYBIA</option>
-        <option value="76300">TYBCMA</option>
-        <option value="42710">TYBAMMC</option>
-        <option value="63070">TYBAFTNMP</option>
-        <option value="51495">TYBSC-IT</option>
-        <option value="72870">TYBSC-DS</option>
-        <option value="60130">TYBCA-AICTE</option>
-        <option value="75170">TYBBA-AICTE</option>
-        <option value="49130">TYBMS-AICTE</option>
-        <option value="153410">TYBCOM-DB</option>
-        <option value="33280">TYBA-GEO</option>
-        <option value="36280">TYBA-ENG</option>
-        <option value="41280">TYBA-PSY</option>
-        <option value="34280">TYBA-ECO</option>
-        <option value="16070">TYBCOM-A-TAX</option>
-        <option value="18070">TYBCOM-A-COMP</option>
-        </optgroup>
-      </select>
+  <!-- FEES CALCULATOR (NEW) -->
+  <div class="card reveal" id="fees-calculator" style="padding: 24px;">
+    <div class="calc-header">
+      <span class="calc-icon">💰</span>
+      <h2>KES Fees Calculator</h2>
+      <p>Check your course fees instantly with step-by-step selection</p>
     </div>
 
-    <div id="feesDisplay">
-      <div style="font-size:0.85rem;color:#64748b;font-weight:600;margin-bottom:8px;">Total Fees</div>
-      <div id="feesAmount">₹0</div>
-      <div id="feesCourseName"></div>
+    <!-- Tab Row -->
+    <div class="tab-row">
+      <button class="tab-btn active" id="tab-calc" onclick="switchFeeTab('calc')">🧮 Calculate Fees</button>
+      <button class="tab-btn" id="tab-hist" onclick="switchFeeTab('hist')">🕐 History <span class="history-count-badge" id="hist-badge" style="display:none">0</span></button>
+    </div>
+
+    <!-- ===== CALCULATOR TAB ===== -->
+    <div id="fee-calc-tab">
+      <!-- Progress Steps -->
+      <div class="progress-steps">
+        <div class="step-item">
+          <div class="step-circle active" id="sc1">1</div>
+          <div class="step-label active" id="sl1">College</div>
+        </div>
+        <div class="step-line" id="line1"></div>
+        <div class="step-item">
+          <div class="step-circle" id="sc2">2</div>
+          <div class="step-label" id="sl2">Year</div>
+        </div>
+        <div class="step-line" id="line2"></div>
+        <div class="step-item">
+          <div class="step-circle" id="sc3">3</div>
+          <div class="step-label" id="sl3">Course</div>
+        </div>
+        <div class="step-line" id="line3"></div>
+        <div class="step-item">
+          <div class="step-circle" id="sc4">4</div>
+          <div class="step-label" id="sl4">Fees</div>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-panel active" id="step1">
+        <span class="option-label">📚 Select College Type</span>
+        <div class="option-grid cols-2">
+          <div class="option-btn" onclick="selectCollege('junior')">
+            <span class="option-icon">🏫</span>
+            <span class="option-name">Junior College</span>
+            <span class="option-sub">11th & 12th (FYJC / SYJC)</span>
+          </div>
+          <div class="option-btn" onclick="selectCollege('degree')">
+            <span class="option-icon">🎓</span>
+            <span class="option-name">Degree College</span>
+            <span class="option-sub">FY / SY / TY</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" id="step2">
+        <div class="summary-chips"><span class="chip" id="chip-college"></span></div>
+        <span class="option-label" id="year-label">📅 Select Year</span>
+        <div class="option-grid" id="year-grid"></div>
+        <div class="btn-row">
+          <button class="btn-back" onclick="goFeeStep(1)">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" id="step3">
+        <div class="summary-chips">
+          <span class="chip" id="chip-college2"></span>
+          <span class="chip" id="chip-year"></span>
+        </div>
+        <span class="option-label">📖 Select Course</span>
+        <div class="select-wrap">
+          <select id="courseSelect" onchange="selectCourse()">
+            <option value="">-- Select a Course --</option>
+          </select>
+          <span class="select-arrow">▼</span>
+        </div>
+        <div class="btn-row">
+          <button class="btn-back" onclick="goFeeStep(2)">← Back</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Result -->
+      <div class="step-panel" id="step4">
+        <div class="summary-chips">
+          <span class="chip" id="chip-college3"></span>
+          <span class="chip" id="chip-year2"></span>
+        </div>
+        <div class="result-box active">
+          <div class="result-label">✅ Your Fees</div>
+          <div class="result-course" id="result-course-name"></div>
+          <div class="result-fees" id="result-fees-amount"></div>
+          <div style="font-size:0.8rem;color:#64748b;margin-top:4px;" id="result-year-label"></div>
+          <div class="result-note">⚠️ Fees may change — always check official notices</div>
+        </div>
+        <button class="btn-reset" onclick="resetFeeCalc()">🔄 Calculate Again</button>
+      </div>
+    </div>
+
+    <!-- ===== HISTORY TAB ===== -->
+    <div id="fee-hist-tab" style="display:none;">
+      <div id="history-list"></div>
     </div>
 
     <p style="margin-top:16px;font-size:0.75rem;color:#94a3b8;text-align:center;">📞 For queries: 022-41914500 | office@kessc.edu.in</p>
   </div>
-
-
 
   <!-- FEEDBACK FORM -->
   <div class="card searchable reveal" id="feedback">
@@ -1422,6 +1560,7 @@ window.addEventListener('scroll', function() {
 window.onload = () => {
   const saved = localStorage.getItem("theme") || "light";
   setTheme(saved);
+  updateFeeHistoryBadge();
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1538,20 +1677,286 @@ function calculateAttendance() {
   resultBox.classList.add('active');
 }
 
-function showFees() {
-  const select = document.getElementById('courseSelect');
-  const amount = select.value;
-  const name = select.options[select.selectedIndex].text;
-  const display = document.getElementById('feesDisplay');
+// ===== NEW FEES CALCULATOR LOGIC =====
+const feesData = {
+  junior: {
+    FY: [
+      {name:"FYJC Aided — Hindi/SP", fees:7590},
+      {name:"FYJC Aided — Hindi/Maths", fees:11615},
+      {name:"FYJC Aided — IT/Maths", fees:26643},
+      {name:"FYJC Aided — Hindi/SP (Unaided)", fees:36340},
+      {name:"FYJC Aided — Guj/SP", fees:36341},
+      {name:"FYJC Aided — Hindi/Maths (Unaided)", fees:40365},
+      {name:"FYJC Aided — Guj/Maths", fees:40366},
+      {name:"FYJC Aided — IT/SP", fees:51368},
+      {name:"FYJC Unaided — IT/Maths", fees:55393},
+      {name:"FYJC Unaided — French/SP", fees:45594},
+      {name:"FYJC Unaided — French/Maths", fees:49619},
+      {name:"FYJC Unaided — Banking/SP", fees:55180},
+      {name:"FYJC Unaided — Banking/Maths", fees:59205},
+      {name:"FYJC Unaided — Marketing/SP", fees:55182},
+      {name:"FYJC Unaided — Marketing/Maths", fees:59207},
+      {name:"FYJC Arts — Hindi/Geo/His", fees:23438},
+      {name:"FYJC Arts — IT/Geo/His", fees:38336},
+      {name:"FYJC Arts — Hindi/Maths/His", fees:27428},
+      {name:"FYJC Arts — Guj/Maths/His", fees:27430},
+      {name:"FYJC Arts — IT/Maths/His", fees:42326},
+      {name:"FYJC Arts — IT/Geo/Psy", fees:42881},
+      {name:"FYJC Arts — Hindi/Geo/Psy", fees:27984},
+      {name:"FYJC Arts — IT/Maths/Psy", fees:46871},
+      {name:"FYJC Arts — Hindi/Maths/Psy", fees:31974},
+      {name:"FYJC Arts — Guj/Geo/Psy", fees:27984},
+      {name:"FYJC Arts — French/Geo/Psy", fees:37157},
+      {name:"FYJC Arts — French/Maths/Psy", fees:41147},
+      {name:"FYJC Arts — French/Geo/His", fees:32612},
+      {name:"FYJC Arts — French/Maths/His", fees:36602},
+    ]
+  },
+  degree: {
+    FY: [
+      {name:"B.Com (Aided)", fees:19140},
+      {name:"B.Com (Banking & Insurance)", fees:47010},
+      {name:"B.Com (Investment Management)", fees:48080},
+      {name:"B.Com (Logistic Supply Chain Management)", fees:47365},
+      {name:"B.Com (Accounting & Finance)", fees:48710},
+      {name:"B.Com (Financial Markets)", fees:48610},
+      {name:"B.A. (Multimedia and Mass Communication)", fees:48510},
+      {name:"B.A. with Geography", fees:38640},
+      {name:"B.A. with Psychology", fees:45640},
+      {name:"B.A. with English Literature", fees:40640},
+      {name:"B.A. with Economics", fees:39640},
+      {name:"B.Sc (Finance & Technology)", fees:55380},
+      {name:"B.Com-MS", fees:52210},
+      {name:"B.Com (Retail Management)", fees:40360},
+      {name:"B.A. (Film, TV & New Media Production)", fees:72210},
+      {name:"B.Sc (Artificial Intelligence)", fees:85510},
+      {name:"B.Sc (Data Science)", fees:75510},
+      {name:"B.Sc (Information Technology)", fees:53510},
+      {name:"B.Com (Certified Management Accounting)", fees:93400},
+      {name:"B.Com (Digital Business)", fees:153380},
+      {name:"B.Sc (International Finance)", fees:103380},
+      {name:"BSc Cyber Security & Digital Forensics", fees:103400},
+      {name:"B.Com (International Accounting)", fees:139180},
+      {name:"B.Sc (Capital Market)", fees:103600},
+      {name:"BMS - AICTE", fees:49230},
+      {name:"BBA - AICTE", fees:75270},
+      {name:"BCA - AICTE", fees:60230},
+    ],
+    SY: [
+      {name:"SYBAF", fees:46630},{name:"SYBBI", fees:46310},{name:"SYBCMA", fees:90000},
+      {name:"SYBFM", fees:46320},{name:"SYBIM", fees:44235},{name:"SYBIA", fees:137690},
+      {name:"SYBAMMC", fees:44315},{name:"SYBAFTNMP", fees:63820},{name:"SYB.Com-DB", fees:154910},
+      {name:"SYBCOM-MS", fees:52280},{name:"SYBLSM", fees:46280},{name:"SYBSC-CS&DF", fees:101380},
+      {name:"SYBSC-IF", fees:103280},{name:"SYBSC-FT", fees:51280},{name:"SYBSC-DS", fees:73990},
+      {name:"SYBSC-IT", fees:49390},{name:"SYBSC-AI", fees:84580},{name:"SYBA-GEO", fees:33540},
+      {name:"SYBA-ENG", fees:37540},{name:"SYBA-PSY", fees:39540},{name:"SYBA-ECO", fees:36240},
+      {name:"SYBCOM-A", fees:18520},
+    ],
+    TY: [
+      {name:"TYBAF", fees:43720},{name:"TYBBI", fees:43690},{name:"TYBFM", fees:42665},
+      {name:"TYBIM", fees:42515},{name:"TYBIA", fees:137320},{name:"TYBCMA", fees:76300},
+      {name:"TYBAMMC", fees:42710},{name:"TYBAFTNMP", fees:63070},{name:"TYBSC-IT", fees:51495},
+      {name:"TYBSC-DS", fees:72870},{name:"TYBCA-AICTE", fees:60130},{name:"TYBBA-AICTE", fees:75170},
+      {name:"TYBMS-AICTE", fees:49130},{name:"TYBCOM-DB", fees:153410},{name:"TYBA-GEO", fees:33280},
+      {name:"TYBA-ENG", fees:36280},{name:"TYBA-PSY", fees:41280},{name:"TYBA-ECO", fees:34280},
+      {name:"TYBCOM-A-TAX", fees:16070},{name:"TYBCOM-A-COMP", fees:18070},
+    ]
+  }
+};
 
-  if (!amount) {
-    display.style.display = 'none';
+const feeYearNames = {FY:'First Year', SY:'Second Year', TY:'Third Year'};
+let feeState = { college:'', year:'', course:'', fees:0 };
+let feeHistory = JSON.parse(localStorage.getItem('kes_fees_history') || '[]');
+
+function switchFeeTab(tab) {
+  document.getElementById('fee-calc-tab').style.display = tab === 'calc' ? 'block' : 'none';
+  document.getElementById('fee-hist-tab').style.display  = tab === 'hist' ? 'block' : 'none';
+  document.getElementById('tab-calc').classList.toggle('active', tab === 'calc');
+  document.getElementById('tab-hist').classList.toggle('active', tab === 'hist');
+  if (tab === 'hist') renderFeeHistory();
+}
+
+function selectCollege(type) {
+  feeState.college = type;
+  document.querySelectorAll('#step1 .option-btn').forEach(b => b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  setTimeout(() => { buildYearStep(type); goFeeStep(2); }, 200);
+}
+
+function buildYearStep(type) {
+  const grid = document.getElementById('year-grid');
+  document.getElementById('chip-college').textContent = type === 'junior' ? '🏫 Junior College' : '🎓 Degree College';
+  if (type === 'junior') {
+    grid.className = 'option-grid cols-2';
+    grid.innerHTML = `
+      <div class="option-btn" onclick="selectYear('FY')">
+        <span class="option-icon">1️⃣</span><span class="option-name">FYJC</span><span class="option-sub">11th Standard</span>
+      </div>
+      <div class="option-btn" style="opacity:0.4;pointer-events:none;">
+        <span class="option-icon">2️⃣</span><span class="option-name">SYJC</span><span class="option-sub">Coming Soon</span>
+      </div>`;
+  } else {
+    grid.className = 'option-grid cols-3';
+    grid.innerHTML = `
+      <div class="option-btn" onclick="selectYear('FY')">
+        <span class="option-icon">1️⃣</span><span class="option-name">FY</span><span class="option-sub">First Year</span>
+      </div>
+      <div class="option-btn" onclick="selectYear('SY')">
+        <span class="option-icon">2️⃣</span><span class="option-name">SY</span><span class="option-sub">Second Year</span>
+      </div>
+      <div class="option-btn" onclick="selectYear('TY')">
+        <span class="option-icon">3️⃣</span><span class="option-name">TY</span><span class="option-sub">Third Year</span>
+      </div>`;
+  }
+}
+
+function selectYear(year) {
+  feeState.year = year;
+  document.querySelectorAll('#year-grid .option-btn').forEach(b => b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  setTimeout(() => { buildCourseStep(feeState.college, year); goFeeStep(3); }, 200);
+}
+
+function buildCourseStep(college, year) {
+  const select = document.getElementById('courseSelect');
+  const courses = feesData[college][year] || [];
+  document.getElementById('chip-college2').textContent = college === 'junior' ? '🏫 Junior' : '🎓 Degree';
+  document.getElementById('chip-year').textContent = '📅 ' + (feeYearNames[year] || year);
+  select.innerHTML = '<option value="">-- Select a Course --</option>';
+  courses.forEach((c, i) => {
+    const opt = document.createElement('option');
+    opt.value = i; opt.textContent = c.name;
+    select.appendChild(opt);
+  });
+}
+
+function selectCourse() {
+  const select = document.getElementById('courseSelect');
+  const idx = select.value;
+  if (idx === '') return;
+  const courses = feesData[feeState.college][feeState.year];
+  const chosen = courses[parseInt(idx)];
+  feeState.course = chosen.name;
+  feeState.fees = chosen.fees;
+
+  const collegeLabel = feeState.college === 'junior' ? '🏫 Junior College' : '🎓 Degree College';
+  document.getElementById('chip-college3').textContent = collegeLabel;
+  document.getElementById('chip-year2').textContent = '📅 ' + (feeYearNames[feeState.year] || feeState.year);
+  document.getElementById('result-course-name').textContent = chosen.name;
+  document.getElementById('result-fees-amount').textContent = '₹' + chosen.fees.toLocaleString('en-IN');
+  document.getElementById('result-year-label').textContent = 'Per Year Fees · ' + (feeYearNames[feeState.year] || feeState.year);
+
+  saveFeeHistory({
+    college: feeState.college,
+    year: feeState.year,
+    course: chosen.name,
+    fees: chosen.fees,
+    time: new Date().toLocaleString('en-IN', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})
+  });
+
+  setTimeout(() => goFeeStep(4), 150);
+}
+
+function saveFeeHistory(entry) {
+  feeHistory = feeHistory.filter(h => !(h.college === entry.college && h.year === entry.year && h.course === entry.course));
+  feeHistory.unshift(entry);
+  if (feeHistory.length > 10) feeHistory = feeHistory.slice(0, 10);
+  localStorage.setItem('kes_fees_history', JSON.stringify(feeHistory));
+  updateFeeHistoryBadge();
+}
+
+function updateFeeHistoryBadge() {
+  const badge = document.getElementById('hist-badge');
+  if (feeHistory.length > 0) {
+    badge.textContent = feeHistory.length;
+    badge.style.display = 'inline';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function renderFeeHistory() {
+  const list = document.getElementById('history-list');
+  if (feeHistory.length === 0) {
+    list.innerHTML = `
+      <div class="history-empty">
+        <span class="empty-icon">📭</span>
+        No history yet.<br>Calculate some fees first!
+      </div>`;
     return;
   }
 
-  document.getElementById('feesAmount').textContent = '₹' + parseInt(amount).toLocaleString('en-IN');
-  document.getElementById('feesCourseName').textContent = name;
-  display.style.display = 'block';
+  let html = '';
+  feeHistory.forEach((h, i) => {
+    const collegeLabel = h.college === 'junior' ? '🏫 Junior' : '🎓 Degree';
+    const yearLabel = feeYearNames[h.year] || h.year;
+    html += `
+      <div class="history-item" onclick="reuseFeeHistory(${i})">
+        <div class="history-num">${i + 1}</div>
+        <div class="history-info">
+          <div class="history-course">${h.course}</div>
+          <div class="history-meta">
+            <span>${collegeLabel}</span>
+            <span>·</span>
+            <span>${yearLabel}</span>
+            <span>·</span>
+            <span>${h.time}</span>
+          </div>
+          <span class="history-reuse">↩ Click to view again</span>
+        </div>
+        <div class="history-fees">₹${h.fees.toLocaleString('en-IN')}</div>
+      </div>`;
+  });
+
+  html += `<button class="history-clear-btn" onclick="clearFeeHistory()">🗑️ Clear All History</button>`;
+  list.innerHTML = html;
+}
+
+function reuseFeeHistory(idx) {
+  const h = feeHistory[idx];
+  feeState.college = h.college;
+  feeState.year = h.year;
+  feeState.course = h.course;
+  feeState.fees = h.fees;
+
+  const collegeLabel = h.college === 'junior' ? '🏫 Junior College' : '🎓 Degree College';
+  document.getElementById('chip-college3').textContent = collegeLabel;
+  document.getElementById('chip-year2').textContent = '📅 ' + (feeYearNames[h.year] || h.year);
+  document.getElementById('result-course-name').textContent = h.course;
+  document.getElementById('result-fees-amount').textContent = '₹' + h.fees.toLocaleString('en-IN');
+  document.getElementById('result-year-label').textContent = 'Per Year Fees · ' + (feeYearNames[h.year] || h.year);
+
+  switchFeeTab('calc');
+  goFeeStep(4);
+}
+
+function clearFeeHistory() {
+  if (!confirm('Clear all history?')) return;
+  feeHistory = [];
+  localStorage.removeItem('kes_fees_history');
+  updateFeeHistoryBadge();
+  renderFeeHistory();
+}
+
+function goFeeStep(n) {
+  for (let i=1; i<=4; i++) {
+    document.getElementById('step'+i).classList.toggle('active', i===n);
+    const circle = document.getElementById('sc'+i);
+    const label  = document.getElementById('sl'+i);
+    circle.classList.remove('active','done');
+    label.classList.remove('active','done');
+    if (i < n)       { circle.classList.add('done'); label.classList.add('done'); circle.textContent='✓'; }
+    else if (i === n){ circle.classList.add('active'); label.classList.add('active'); circle.textContent=i; }
+    else             { circle.textContent=i; }
+    if (i < 4) document.getElementById('line'+i).classList.toggle('done', i < n);
+  }
+}
+
+function resetFeeCalc() {
+  feeState = { college:'', year:'', course:'', fees:0 };
+  document.getElementById('courseSelect').value = '';
+  document.querySelectorAll('#fees-calculator .option-btn').forEach(b => b.classList.remove('selected'));
+  goFeeStep(1);
 }
 </script>
 
