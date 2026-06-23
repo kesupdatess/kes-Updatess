@@ -2,76 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669">// Home page single event countdown
-function updateHomeEventCountdown() {
-  const el = document.getElementById('home-event-cd');
-  if (!el) return;
-
-  const eventDate = new Date('2026-08-18T09:00:00');
-  const now = new Date();
-  const diff = eventDate - now;
-
-  if (diff <= 0) {
-    el.textContent = '🔴 EXAM IS TODAY!';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-  if (days <= 1) {
-    el.textContent = `🔴 ${hours}h left - VERY SOON!`;
-  } else if (days <= 7) {
-    el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
-  } else {
-    el.textContent = `📅 ${days} days left`;
-  }
-}
-
-setInterval(updateHomeEventCountdown, 60000);
-updateHomeEventCountdown();
-
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H7KVLBY669');
-</script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KES Updates | Student Portal</title>
-<meta name="description" content="KES Updates - Student portal for notices, academic info, fees, cutoff, question papers, ERP and library services.">
-
-<!-- OG Meta Tags for WhatsApp/Instagram preview -->
-<meta property="og:title" content="KES Updates | Student Portal">
-<meta property="og:description" content="Notices, fees, cutoff, ERP, library and more — all in one place for KES students.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://kesupdatess.github.io/kes-Updatess/">
-<meta property="og:image" content="https://kesupdatess.github.io/kes-Updatess/preview.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="KES Updates | Student Portal">
-<meta name="twitter:description" content="Notices, fees, cutoff, ERP, library and more for KES students.">
-
-<!-- Favicon -->
+<title>KES Updates | Upcoming Events</title>
+<meta name="description" content="KES Updates — All upcoming academic events, exams, and vacations for KES Shroff College students.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H7KVLBY669');</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
 
-/* LIGHT MODE */
 body {
   background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #e0f2fe 75%, #f0f9ff 100%);
   background-size: 400% 400%;
@@ -100,7 +42,6 @@ body::before {
   z-index: 0;
 }
 
-/* DARK MODE */
 body.dark {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1e293b 50%, #1e1b4b 70%, #0f172a 100%);
   background-size: 400% 400%;
@@ -124,24 +65,24 @@ body.dark .card {
 }
 body.dark .card h2 { color: #93c5fd; }
 body.dark .card p { color: #cbd5e1; }
-body.dark input { background: #1e293b; border: 1px solid #475569; color: white; }
 body.dark header p { color: #94a3b8; }
 body.dark h1 { background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
 body.dark nav { background: rgba(30,41,59,0.95); border-right: 1px solid rgba(99,102,241,0.15); backdrop-filter: blur(12px); }
 body.dark nav a { color: #f1f5f9; }
 body.dark .hamburger { background: rgba(30,41,59,0.9); color: white; border-color: rgba(99,102,241,0.2); }
 body.dark footer { color: #94a3b8; }
-body.dark .email-box { background: rgba(30,41,59,0.6); border: 1px solid rgba(99,102,241,0.15); }
-body.dark .email-box span { color: #93c5fd; }
-body.dark .erp-features li { color: #cbd5e1; border-bottom: 1px solid rgba(255,255,255,0.07); }
-body.dark .ticker-wrap { background: rgba(30,41,59,0.8); border-color: rgba(99,102,241,0.15); backdrop-filter: blur(8px); }
-body.dark .ticker-label { background: #3b82f6; }
-body.dark .ticker-text { color: #e2e8f0; }
 body.dark .theme-toggle { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.2); }
-body.dark .scroll-progress { background: rgba(30,41,59,0.5); }
-body.dark .attendance-result { background: rgba(30,41,59,0.6); border: 1px solid rgba(99,102,241,0.15); color: #f8fafc; }
+body.dark .back-link { color: #60a5fa; }
+body.dark .back-link:hover { color: #93c5fd; }
+body.dark .event-item { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.15); }
+body.dark .event-name { color: #93c5fd; }
+body.dark .event-date { color: #94a3b8; }
+body.dark .event-countdown { background: rgba(239,68,68,0.15); }
+body.dark .event-countdown.soon { background: rgba(245,158,11,0.15); }
+body.dark .event-countdown.far { background: rgba(16,185,129,0.15); }
+body.dark .info-box { background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.15); }
+body.dark .info-box span { color: #94a3b8; }
 
-/* Header */
 header {
   text-align: center;
   padding: 70px 20px 30px;
@@ -177,7 +118,6 @@ header p {
   font-weight: 500;
 }
 
-/* Buttons */
 .btn-red    { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
 .btn-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
 .btn-green  { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
@@ -205,7 +145,6 @@ header p {
   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* Container */
 .container {
   max-width: 1000px;
   margin: auto;
@@ -214,7 +153,6 @@ header p {
   z-index: 1;
 }
 
-/* Cards */
 .card {
   background: rgba(255,255,255,0.92);
   border: 1px solid rgba(59,130,246,0.15);
@@ -252,105 +190,6 @@ header p {
   color: white !important;
 }
 
-/* Search gap */
-.search-wrapper { margin-bottom: 28px; }
-
-.suggestions-box {
-  display: none;
-  margin-top: 8px;
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(30,58,138,0.08);
-  padding: 10px;
-  flex-wrap: wrap;
-  gap: 8px;
-  backdrop-filter: blur(10px);
-}
-
-.suggestions-box.active { display: flex; }
-
-.suggestions-box span {
-  background: rgba(59,130,246,0.08);
-  color: #1e40af;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.suggestions-box span:hover {
-  background: #2563eb;
-  color: white;
-}
-
-body.dark .suggestions-box {
-  background: #1e293b;
-  border-color: rgba(255,255,255,0.1);
-}
-
-body.dark .suggestions-box span {
-  background: rgba(59,130,246,0.15);
-  color: #93c5fd;
-}
-
-body.dark .suggestions-box span:hover {
-  background: #3b82f6;
-  color: white;
-}
-
-/* Ticker / Marquee */
-.ticker-wrap {
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 60px;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(30,58,138,0.06);
-  position: relative;
-  z-index: 1;
-  backdrop-filter: blur(8px);
-}
-
-.ticker-label {
-  background: #ef4444;
-  color: white;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 50px;
-  white-space: nowrap;
-  letter-spacing: 0.5px;
-  flex-shrink: 0;
-}
-
-.ticker-inner {
-  overflow: hidden;
-  flex: 1;
-}
-
-.ticker-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: ticker 30s linear infinite;
-  animation-delay: -8s;
-  font-size: 0.88rem;
-  color: #334155;
-  font-weight: 500;
-}
-
-@keyframes ticker {
-  0%   { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
-}
-
-/* Sidebar */
 nav {
   position: fixed;
   top: 0;
@@ -386,7 +225,6 @@ nav a:hover {
   background: rgba(37,99,235,0.1);
 }
 
-/* Overlay */
 #overlay {
   position: fixed;
   inset: 0;
@@ -398,7 +236,6 @@ nav a:hover {
 
 #overlay.active { display: block; }
 
-/* Hamburger */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -420,7 +257,6 @@ nav a:hover {
   border: 1px solid rgba(59,130,246,0.15);
 }
 
-/* Floating Theme Toggle */
 .theme-toggle {
   position: fixed;
   top: 20px;
@@ -450,7 +286,6 @@ nav a:hover {
 .theme-toggle button:hover { background: rgba(59,130,246,0.1); transform: scale(1.15); }
 .theme-toggle button.active-theme { background: rgba(59,130,246,0.15); }
 
-/* Scroll Progress Bar */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -464,7 +299,6 @@ nav a:hover {
   box-shadow: 0 0 10px rgba(59,130,246,0.3);
 }
 
-/* Back to Top */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -497,7 +331,6 @@ nav a:hover {
   box-shadow: 0 8px 20px rgba(37,99,235,0.4);
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 30px;
@@ -508,28 +341,6 @@ footer {
   color: #475569;
 }
 
-/* Search Input */
-input {
-  width: 100%;
-  padding: 16px 24px;
-  border: 1px solid #cbd5e1;
-  border-radius: 60px;
-  font-size: 16px;
-  background: rgba(255,255,255,0.9);
-  color: #1e293b;
-  transition: 0.2s;
-  box-shadow: 0 2px 12px rgba(30,58,138,0.06), inset 0 1px 2px rgba(255,255,255,0.8);
-}
-
-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.15), 0 4px 16px rgba(59,130,246,0.08);
-}
-
-input::placeholder { color: #94a3b8; }
-
-/* Toast */
 .toast {
   position: fixed;
   bottom: 30px;
@@ -551,198 +362,6 @@ input::placeholder { color: #94a3b8; }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* Email Box */
-.email-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(240,249,255,0.8);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 16px;
-  padding: 14px 18px;
-  margin-top: 14px;
-  flex-wrap: wrap;
-  gap: 10px;
-  backdrop-filter: blur(8px);
-}
-
-.email-box span {
-  font-weight: 600;
-  color: #1e40af;
-  font-size: 0.95rem;
-  word-break: break-all;
-}
-
-.email-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-
-.email-actions a,
-.email-actions button {
-  padding: 7px 16px;
-  border-radius: 50px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.email-actions a:hover,
-.email-actions button:hover { transform: translateY(-2px); filter: brightness(1.05); }
-
-/* ERP Features */
-.erp-features {
-  list-style: none;
-  margin-top: 14px;
-  margin-bottom: 10px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(59,130,246,0.12);
-}
-
-.erp-features li {
-  padding: 11px 18px;
-  font-size: 0.93rem;
-  color: #334155;
-  border-bottom: 1px solid rgba(59,130,246,0.08);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 500;
-}
-
-.erp-features li:last-child { border-bottom: none; }
-.erp-features li:nth-child(odd) { background: rgba(59,130,246,0.03); }
-.erp-features li a:hover { color: #2563eb; }
-body.dark .erp-features li a:hover { color: #60a5fa; }
-
-/* Report Issue Button */
-.report-btn {
-  display: block;
-  padding: 14px 20px;
-  margin-top: 12px;
-  border-radius: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  text-align: center;
-  color: white !important;
-  font-size: 0.88rem;
-  line-height: 1.4;
-  letter-spacing: 0.3px;
-}
-
-/* WhatsApp Share */
-.whatsapp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #25D366, #128C7E) !important;
-  color: white !important;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-decoration: none;
-  margin-top: 10px;
-  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
-  transition: all 0.3s;
-  border: none;
-  cursor: pointer;
-}
-
-.whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
-
-/* Old attendance styles removed - replaced by premium styles above */
-
-.attendance-stat-box {
-  margin-top: 14px;
-  display: none;
-  text-align: center;
-  padding: 16px;
-  border-radius: 16px;
-  background: rgba(59,130,246,0.06);
-  border: 1px solid rgba(59,130,246,0.15);
-  backdrop-filter: blur(8px);
-}
-
-.attendance-stat-box.active { display: block; }
-
-.attendance-stat-box.safe {
-  background: rgba(16,185,129,0.1);
-  border: 1px solid rgba(16,185,129,0.3);
-}
-
-body.dark .attendance-stat-box.safe { background: rgba(16,185,129,0.12); }
-
-.attendance-stat-box.warning {
-  background: rgba(239,68,68,0.08);
-  border: 1px solid rgba(239,68,68,0.3);
-}
-
-body.dark .attendance-stat-box.warning { background: rgba(239,68,68,0.12); }
-
-.attendance-stat-number {
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.1;
-  color: #1e40af;
-}
-
-.attendance-stat-box.safe .attendance-stat-number { color: #059669; }
-body.dark .attendance-stat-box.safe .attendance-stat-number { color: #34d399; }
-
-.attendance-stat-box.warning .attendance-stat-number { color: #dc2626; }
-body.dark .attendance-stat-box.warning .attendance-stat-number { color: #f87171; }
-
-.attendance-stat-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-top: 4px;
-  color: #334155;
-}
-
-body.dark .attendance-stat-label { color: #cbd5e1; }
-
-.attendance-result {
-  margin-top: 14px;
-  background: rgba(240,249,255,0.85);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 16px;
-  padding: 14px 18px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #1e40af;
-  display: none;
-  backdrop-filter: blur(8px);
-}
-
-.attendance-result.active { display: block; }
-
-.attendance-result.safe {
-  background: rgba(16,185,129,0.1);
-  border: 1px solid rgba(16,185,129,0.3);
-  color: #059669;
-}
-
-body.dark .attendance-result.safe {
-  background: rgba(16,185,129,0.15);
-  color: #34d399;
-}
-
-.attendance-result.warning {
-  background: rgba(239,68,68,0.08);
-  border: 1px solid rgba(239,68,68,0.3);
-  color: #dc2626;
-}
-
-body.dark .attendance-result.warning {
-  background: rgba(239,68,68,0.15);
-  color: #f87171;
-}
-
-/* Old attendance styles removed - replaced by premium styles above */
-
-/* Card scroll-in animation */
 .card.reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -762,7 +381,6 @@ body.dark .attendance-result.warning {
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   header { padding: 55px 15px 25px; }
   .logo { font-size: 50px; }
@@ -773,1371 +391,13 @@ body.dark .attendance-result.warning {
   .btn, .link { padding: 10px 18px; font-size: 0.85rem; }
   .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
   .theme-toggle button { font-size: 17px; padding: 3px 6px; }
-  .attendance-grid { grid-template-columns: 1fr; }
 }
 
 @media (min-width: 769px) {
   .container { padding-bottom: 20px; }
 }
 
-/* College Details Section */
-.building-card {
-  background: rgba(59,130,246,0.04);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 20px;
-  padding: 20px;
-  margin-bottom: 16px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  transition: all 0.3s ease;
-}
-
-.building-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59,130,246,0.12);
-  border-color: rgba(59,130,246,0.25);
-}
-
-.building-icon {
-  font-size: 2.2rem;
-  flex-shrink: 0;
-  margin-top: 4px;
-}
-
-.building-info {
-  flex: 1;
-}
-
-.building-info h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #1e40af;
-  margin-bottom: 8px;
-}
-
-.building-name {
-  font-weight: 600;
-  color: #334155;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-.contact-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.contact-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.contact-link {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.contact-link:hover {
-  color: #1d4ed8;
-  text-decoration: underline;
-}
-
-.contact-text {
-  color: #475569;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-/* Dark mode for College Details */
-body.dark .building-card {
-  background: rgba(30,41,59,0.6);
-  border-color: rgba(255,255,255,0.08);
-}
-
-body.dark .building-card:hover {
-  box-shadow: 0 8px 25px rgba(99,102,241,0.15);
-  border-color: rgba(99,102,241,0.2);
-}
-
-body.dark .building-info h3 {
-  color: #93c5fd;
-}
-
-body.dark .building-name {
-  color: #cbd5e1;
-}
-
-body.dark .contact-link {
-  color: #60a5fa;
-}
-
-body.dark .contact-link:hover {
-  color: #93c5fd;
-}
-
-body.dark .contact-text {
-  color: #94a3b8;
-}
-
-/* Premium Attendance Calculator */
-.attendance-desc {
-  color: #475569;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-body.dark .attendance-desc {
-  color: #94a3b8;
-}
-
-.attendance-inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.input-card {
-  background: rgba(59,130,246,0.04);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 20px;
-  padding: 18px;
-  transition: all 0.3s ease;
-}
-
-.input-card:hover {
-  border-color: rgba(59,130,246,0.3);
-  box-shadow: 0 4px 15px rgba(59,130,246,0.08);
-}
-
-.input-card .input-icon {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  display: block;
-}
-
-.input-card label {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #1e40af;
-  margin-bottom: 8px;
-}
-
-.input-card input {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid rgba(59,130,246,0.2);
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: white;
-  color: #0f172a;
-  transition: all 0.2s ease;
-  margin-bottom: 6px;
-}
-
-.input-card input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.15);
-}
-
-.input-hint {
-  display: block;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: #64748b;
-  line-height: 1.3;
-}
-
-.calculate-btn {
-  width: 100%;
-  padding: 16px 24px;
-  border-radius: 16px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: white;
-  box-shadow: 0 4px 20px rgba(37,99,235,0.3);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 16px;
-}
-
-.calculate-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(37,99,235,0.4);
-  filter: brightness(1.05);
-}
-
-.calculate-btn .btn-icon {
-  font-size: 1.3rem;
-}
-
-.calculate-btn .btn-text {
-  letter-spacing: 0.3px;
-}
-
-/* Dark mode for Attendance Calculator */
-body.dark .input-card {
-  background: rgba(30,41,59,0.6);
-  border-color: rgba(255,255,255,0.08);
-}
-
-body.dark .input-card:hover {
-  border-color: rgba(99,102,241,0.2);
-  box-shadow: 0 4px 15px rgba(99,102,241,0.1);
-}
-
-body.dark .input-card label {
-  color: #93c5fd;
-}
-
-body.dark .input-card input {
-  background: #1e293b;
-  border-color: rgba(255,255,255,0.12);
-  color: #f1f5f9;
-}
-
-body.dark .input-card input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
-}
-
-body.dark .input-hint {
-  color: #94a3b8;
-}
-
-body.dark .calculate-btn {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  box-shadow: 0 4px 20px rgba(37,99,235,0.3);
-}
-
-body.dark .calculate-btn:hover {
-  box-shadow: 0 8px 30px rgba(37,99,235,0.4);
-}
-
-/* Mobile responsive for new sections */
-@media (max-width: 768px) {
-  .attendance-inputs {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .input-card {
-    padding: 14px;
-  }
-
-  .building-card {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .building-icon {
-    font-size: 1.8rem;
-  }
-
-  .building-info h3 {
-    font-size: 1.05rem;
-  }
-
-  .calculate-btn {
-    font-size: 1rem;
-    padding: 14px 20px;
-  }
-}
-
-
-/* Enhanced Building Cards UI/UX */
-.building-icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.building-icon {
-  font-size: 2.4rem;
-  margin-top: 4px;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
-.building-badge {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 50px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.3);
-}
-
-.main-building-card {
-  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
-  border: 2px solid rgba(59,130,246,0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.main-building-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-.main-building-card .building-badge {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  box-shadow: 0 2px 8px rgba(124,58,237,0.3);
-}
-
-.building-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.tag {
-  background: rgba(59,130,246,0.1);
-  color: #2563eb;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 50px;
-  letter-spacing: 0.3px;
-  border: 1px solid rgba(59,130,246,0.15);
-}
-
-.building-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.building-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  color: white !important;
-}
-
-.building-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-}
-
-.building-btn span {
-  font-size: 1rem;
-}
-
-/* Dark mode enhancements */
-body.dark .building-icon {
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-}
-
-body.dark .main-building-card {
-  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.06));
-  border-color: rgba(99,102,241,0.25);
-}
-
-body.dark .main-building-card::before {
-  background: linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1);
-}
-
-body.dark .tag {
-  background: rgba(99,102,241,0.15);
-  color: #93c5fd;
-  border-color: rgba(99,102,241,0.2);
-}
-
-body.dark .building-badge {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
-}
-
-body.dark .main-building-card .building-badge {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  box-shadow: 0 2px 8px rgba(139,92,246,0.3);
-}
-
-/* Mobile responsive for building cards */
-@media (max-width: 768px) {
-  .building-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px;
-  }
-
-  .building-icon-wrapper {
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .building-icon {
-    font-size: 2.4rem;
-  }
-
-  .building-badge {
-    font-size: 0.7rem;
-    padding: 5px 12px;
-  }
-
-  .building-info h3 {
-    font-size: 1.1rem;
-  }
-
-  .building-name {
-    font-size: 0.9rem;
-  }
-
-  .building-tags {
-    gap: 5px;
-    margin-bottom: 10px;
-  }
-
-  .tag {
-    font-size: 0.7rem;
-    padding: 3px 10px;
-  }
-
-  .contact-row {
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-
-  .contact-icon {
-    font-size: 1rem;
-  }
-
-  .contact-link, .contact-text {
-    font-size: 0.85rem;
-  }
-
-  .building-actions {
-    width: 100%;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 12px;
-  }
-
-  .building-btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.88rem;
-    padding: 12px 16px;
-  }
-}
-
-
-/* Instagram Button with Logo */
-.instagram-btn {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 28px !important;
-}
-
-.instagram-icon {
-  width: 22px;
-  height: 22px;
-  color: white;
-  flex-shrink: 0;
-}
-
-.instagram-btn span {
-  font-weight: 600;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .instagram-btn {
-    padding: 10px 22px !important;
-    font-size: 0.9rem;
-  }
-  .instagram-icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-
-/* ================= PREMIUM ATTENDANCE CALCULATOR ================= */
-
-.attendance-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95)) !important;
-  border: 1px solid rgba(59,130,246,0.12) !important;
-  overflow: hidden;
-}
-
-body.dark .attendance-card {
-  background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9)) !important;
-  border: 1px solid rgba(99,102,241,0.15) !important;
-}
-
-.attendance-header {
-  text-align: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(59,130,246,0.1);
-}
-
-body.dark .attendance-header {
-  border-bottom-color: rgba(99,102,241,0.15);
-}
-
-.attendance-icon {
-  font-size: 2.2rem;
-  margin-bottom: 6px;
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 12px rgba(59,130,246,0.2));
-}
-
-body.dark .attendance-icon {
-  filter: drop-shadow(0 4px 12px rgba(99,102,241,0.3));
-}
-
-.attendance-header h2 {
-  font-size: 1.5rem;
-  margin-bottom: 4px;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-body.dark .attendance-header h2 {
-  background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.attendance-subtitle {
-  color: #64748b;
-  font-size: 0.85rem;
-  font-weight: 500;
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.4;
-}
-
-body.dark .attendance-subtitle {
-  color: #94a3b8;
-}
-
-/* Quick Stats */
-.attendance-quick-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.quick-stat {
-  background: rgba(59,130,246,0.04);
-  border: 1px solid rgba(59,130,246,0.1);
-  border-radius: 14px;
-  padding: 10px 8px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.quick-stat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(59,130,246,0.1);
-  border-color: rgba(59,130,246,0.2);
-}
-
-body.dark .quick-stat {
-  background: rgba(99,102,241,0.08);
-  border-color: rgba(99,102,241,0.15);
-}
-
-body.dark .quick-stat:hover {
-  box-shadow: 0 4px 16px rgba(99,102,241,0.15);
-  border-color: rgba(99,102,241,0.25);
-}
-
-.quick-stat-icon {
-  font-size: 1.1rem;
-  margin-bottom: 2px;
-}
-
-.quick-stat-value {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #1e40af;
-  line-height: 1.1;
-}
-
-body.dark .quick-stat-value {
-  color: #93c5fd;
-}
-
-.quick-stat-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #64748b;
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-body.dark .quick-stat-label {
-  color: #94a3b8;
-}
-
-/* Input Grid */
-.attendance-input-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.attendance-input-group {
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(59,130,246,0.12);
-  border-radius: 16px;
-  padding: 12px;
-  transition: all 0.3s ease;
-}
-
-body.dark .attendance-input-group {
-  background: rgba(30,41,59,0.5);
-  border-color: rgba(99,102,241,0.12);
-}
-
-.attendance-input-group:hover {
-  border-color: rgba(59,130,246,0.25);
-  box-shadow: 0 4px 20px rgba(59,130,246,0.08);
-}
-
-body.dark .attendance-input-group:hover {
-  border-color: rgba(99,102,241,0.2);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.1);
-}
-
-.input-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.input-icon-bg {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: white;
-}
-
-.input-icon-bg.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.input-icon-bg.green { background: linear-gradient(135deg, #10b981, #059669); }
-.input-icon-bg.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-.input-icon-bg.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
-
-.input-icon-bg svg {
-  width: 14px;
-  height: 14px;
-}
-
-.attendance-input-group label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-body.dark .attendance-input-group label {
-  color: #e2e8f0;
-}
-
-.attendance-input-group input {
-  width: 100%;
-  padding: 9px 12px;
-  border: 2px solid rgba(59,130,246,0.15);
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  background: rgba(255,255,255,0.9);
-  color: #0f172a;
-  transition: all 0.2s ease;
-  margin-bottom: 4px;
-}
-
-body.dark .attendance-input-group input {
-  background: rgba(15,23,42,0.7);
-  border-color: rgba(99,102,241,0.2);
-  color: #f1f5f9;
-}
-
-.attendance-input-group input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.12), 0 4px 12px rgba(59,130,246,0.08);
-}
-
-body.dark .attendance-input-group input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99,102,241,0.15), 0 4px 12px rgba(99,102,241,0.1);
-}
-
-.input-helper {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: #64748b;
-  line-height: 1.2;
-}
-
-body.dark .input-helper {
-  color: #94a3b8;
-}
-
-/* Premium Calculate Button */
-.calculate-btn-premium {
-  width: 100%;
-  padding: 12px 24px;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 0.98rem;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
-  color: white;
-  box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  position: relative;
-  overflow: hidden;
-}
-
-.calculate-btn-premium:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(37,99,235,0.4), 0 0 0 1px rgba(255,255,255,0.15) inset;
-  filter: brightness(1.05);
-}
-
-.calculate-btn-premium:active {
-  transform: translateY(-1px);
-}
-
-.btn-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-}
-
-.calculate-btn-premium:hover .btn-glow {
-  opacity: 1;
-}
-
-.btn-icon {
-  font-size: 1.3rem;
-}
-
-.btn-text {
-  letter-spacing: 0.3px;
-}
-
-.btn-arrow {
-  transition: transform 0.3s ease;
-  margin-left: 4px;
-}
-
-.calculate-btn-premium:hover .btn-arrow {
-  transform: translateX(4px);
-}
-
-body.dark .calculate-btn-premium {
-  background: linear-gradient(135deg, #6366f1, #4f46e5, #4338ca);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
-}
-
-body.dark .calculate-btn-premium:hover {
-  box-shadow: 0 8px 30px rgba(99,102,241,0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
-}
-
-/* Progress Section */
-.attendance-progress-wrap {
-  margin-bottom: 14px;
-  display: none;
-}
-
-.attendance-progress-wrap.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.progress-label {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #475569;
-}
-
-body.dark .progress-label {
-  color: #94a3b8;
-}
-
-.progress-percentage {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #2563eb;
-}
-
-body.dark .progress-percentage {
-  color: #60a5fa;
-}
-
-.attendance-progress-track {
-  width: 100%;
-  height: 16px;
-  border-radius: 50px;
-  background: rgba(59,130,246,0.08);
-  overflow: hidden;
-  position: relative;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
-}
-
-body.dark .attendance-progress-track {
-  background: rgba(255,255,255,0.06);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.attendance-progress-fill {
-  height: 100%;
-  border-radius: 50px;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.6s ease;
-  width: 0%;
-  position: relative;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-
-.attendance-progress-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shimmer 2s infinite;
-}
-
-.attendance-progress-fill.safe {
-  background: linear-gradient(135deg, #10b981, #059669, #047857);
-}
-
-.attendance-progress-fill.warning {
-  background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
-}
-
-.attendance-progress-marker {
-  position: absolute;
-  top: -4px;
-  bottom: -4px;
-  width: 3px;
-  background: #1e293b;
-  border-radius: 2px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.2);
-  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.dark .attendance-progress-marker {
-  background: #f1f5f9;
-  box-shadow: 0 0 6px rgba(255,255,255,0.2);
-}
-
-.progress-target-label {
-  position: absolute;
-  top: -24px;
-  transform: translateX(-50%);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #64748b;
-  background: rgba(255,255,255,0.9);
-  padding: 2px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  border: 1px solid rgba(59,130,246,0.15);
-}
-
-body.dark .progress-target-label {
-  color: #94a3b8;
-  background: rgba(30,41,59,0.9);
-  border-color: rgba(99,102,241,0.2);
-}
-
-/* Stat Badge (compact, replaces old ring) */
-.attendance-stat-box {
-  display: none;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.attendance-stat-box.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
-
-.stat-visual {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  padding: 6px 16px;
-  border-radius: 50px;
-  background: rgba(59,130,246,0.08);
-}
-
-.attendance-stat-box.safe .stat-visual { background: rgba(16,185,129,0.1); }
-.attendance-stat-box.warning .stat-visual { background: rgba(239,68,68,0.08); }
-
-.attendance-stat-number {
-  font-size: 1.4rem;
-  font-weight: 800;
-  line-height: 1;
-  color: #1e40af;
-}
-
-body.dark .attendance-stat-number {
-  color: #93c5fd;
-}
-
-.attendance-stat-box.safe .attendance-stat-number {
-  color: #059669;
-}
-
-body.dark .attendance-stat-box.safe .attendance-stat-number {
-  color: #34d399;
-}
-
-.attendance-stat-box.warning .attendance-stat-number {
-  color: #dc2626;
-}
-
-body.dark .attendance-stat-box.warning .attendance-stat-number {
-  color: #f87171;
-}
-
-.attendance-stat-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-body.dark .attendance-stat-label {
-  color: #94a3b8;
-}
-
-/* Result Message */
-.attendance-result {
-  margin-top: 0;
-  background: rgba(240,249,255,0.85);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 14px;
-  padding: 12px 16px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1e40af;
-  display: none;
-  line-height: 1.4;
-  backdrop-filter: blur(8px);
-}
-
-.attendance-result.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
-
-.attendance-result.safe {
-  background: rgba(16,185,129,0.08);
-  border: 1px solid rgba(16,185,129,0.2);
-  color: #059669;
-}
-
-body.dark .attendance-result.safe {
-  background: rgba(16,185,129,0.12);
-  color: #34d399;
-}
-
-.attendance-result.warning {
-  background: rgba(239,68,68,0.06);
-  border: 1px solid rgba(239,68,68,0.2);
-  color: #dc2626;
-}
-
-body.dark .attendance-result.warning {
-  background: rgba(239,68,68,0.1);
-  color: #f87171;
-}
-
-body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
-body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
-body.dark select option { background: #1e293b; color: white; }
-
-body.dark .attendance-result {
-  background: rgba(30,41,59,0.6);
-  border-color: rgba(99,102,241,0.15);
-  color: #f8fafc;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .attendance-header h2 {
-    font-size: 1.3rem;
-  }
-
-  .attendance-subtitle {
-    font-size: 0.8rem;
-  }
-
-  .attendance-quick-stats {
-    gap: 6px;
-  }
-
-  .quick-stat {
-    padding: 8px 6px;
-  }
-
-  .quick-stat-icon {
-    font-size: 1rem;
-  }
-
-  .quick-stat-value {
-    font-size: 1rem;
-  }
-
-  .quick-stat-label {
-    font-size: 0.6rem;
-  }
-
-  .attendance-input-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .attendance-input-group {
-    padding: 10px;
-  }
-
-  .input-header {
-    gap: 6px;
-    margin-bottom: 6px;
-  }
-
-  .input-icon-bg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .input-icon-bg svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .attendance-input-group label {
-    font-size: 0.72rem;
-  }
-
-  .input-helper {
-    display: none;
-  }
-
-  .calculate-btn-premium {
-    font-size: 0.9rem;
-    padding: 12px 18px;
-  }
-
-  .attendance-stat-number {
-    font-size: 1.2rem;
-  }
-
-  .attendance-result {
-    font-size: 0.85rem;
-    padding: 10px 14px;
-  }
-}
-
-/* Visible focus states for keyboard users */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-.hamburger:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-/* Active sidebar link (scrollspy) */
-nav a.nav-active {
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.5) inset;
-  transform: translateX(3px);
-}
-
-/* No results message for search */
-.no-results {
-  display: none;
-  text-align: center;
-  padding: 30px 20px;
-  color: #64748b;
-  font-weight: 500;
-}
-.no-results.active { display: block; }
-body.dark .no-results { color: #94a3b8; }
-
-
-/* ===== EXAM COUNTDOWN ===== */
-.exam-countdown-compact {
-  background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(249,115,22,0.04));
-  border: 1px solid rgba(239,68,68,0.15);
-  border-radius: 20px;
-  padding: 16px 20px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.exam-countdown-compact::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, #ef4444, #f97316);
-  border-radius: 20px 0 0 20px;
-}
-
-.exam-countdown-compact:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(239,68,68,0.12);
-  border-color: rgba(239,68,68,0.25);
-}
-
-.countdown-icon-wrap {
-  font-size: 2rem;
-  flex-shrink: 0;
-  animation: float 3s ease-in-out infinite;
-}
-
-.countdown-info {
-  flex: 1;
-  min-width: 200px;
-}
-
-.countdown-label-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.countdown-badge {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 50px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.countdown-exam-name {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #1e40af;
-  line-height: 1.3;
-}
-
-.countdown-exam-sub {
-  font-size: 0.78rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
-.countdown-timer-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.countdown-unit-compact {
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(239,68,68,0.15);
-  border-radius: 12px;
-  padding: 8px 12px;
-  text-align: center;
-  min-width: 52px;
-}
-
-.countdown-num-compact {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #dc2626;
-  line-height: 1;
-  display: block;
-}
-
-.countdown-text-compact {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 2px;
-  display: block;
-}
-
-.countdown-separator {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: #94a3b8;
-  line-height: 1;
-}
-
-.countdown-date-note {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  font-weight: 500;
-  margin-top: 4px;
-}
-
-.countdown-date-note .highlight {
-  color: #dc2626;
-  font-weight: 700;
-}
-
-body.dark .exam-countdown-compact {
-  background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(249,115,22,0.06));
-  border-color: rgba(239,68,68,0.2);
-}
-
-body.dark .countdown-exam-name {
-  color: #93c5fd;
-}
-
-body.dark .countdown-unit-compact {
-  background: rgba(30,41,59,0.8);
-  border-color: rgba(239,68,68,0.2);
-}
-
-body.dark .countdown-num-compact {
-  color: #f87171;
-}
-
-body.dark .countdown-text-compact {
-  color: #94a3b8;
-}
-
-@media (max-width: 768px) {
-  .exam-countdown-compact {
-    padding: 14px 16px;
-    gap: 12px;
-  }
-  .countdown-icon-wrap {
-    font-size: 1.6rem;
-  }
-  .countdown-exam-name {
-    font-size: 0.95rem;
-  }
-  .countdown-unit-compact {
-    padding: 6px 8px;
-    min-width: 44px;
-  }
-  .countdown-num-compact {
-    font-size: 1.2rem;
-  }
-  .countdown-text-compact {
-    font-size: 0.6rem;
-  }
-}
-
-/* ===== UPCOMING EVENTS ===== */
+/* Events List */
 .events-list {
   display: flex;
   flex-direction: column;
@@ -2271,74 +531,65 @@ body.dark .countdown-text-compact {
   border: 1px solid rgba(16,185,129,0.2);
 }
 
-body.dark .event-item {
-  background: rgba(30,41,59,0.9);
-  border-color: rgba(99,102,241,0.15);
+.info-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
+  border: 1px solid rgba(59,130,246,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-body.dark .event-name {
-  color: #93c5fd;
+.info-box span {
+  font-size: 0.8rem;
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
-body.dark .event-date {
-  color: #94a3b8;
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
 }
 
-body.dark .event-countdown {
-  background: rgba(239,68,68,0.15);
+.back-link:hover {
+  color: #1d4ed8;
+  transform: translateX(-4px);
 }
 
-body.dark .event-countdown.soon {
-  background: rgba(245,158,11,0.15);
+a:focus-visible, button:focus-visible, .hamburger:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
 }
 
-body.dark .event-countdown.far {
-  background: rgba(16,185,129,0.15);
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
-@media (max-width: 768px) {
-  .event-item {
-    padding: 10px 12px;
-    gap: 8px;
-  }
-  .event-icon {
-    font-size: 1.4rem;
-  }
-  .event-name {
-    font-size: 0.85rem;
-  }
-  .event-tag {
-    font-size: 0.55rem;
-    padding: 1px 6px;
-  }
-  .event-date {
-    font-size: 0.75rem;
-  }
-  .event-countdown {
-    font-size: 0.7rem;
-    padding: 2px 8px;
-  }
-  .event-status {
-    font-size: 0.55rem;
-    padding: 3px 6px;
-  }
-}
+body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark select option { background: #1e293b; color: white; }
 
 </style>
-<base target="_blank">
-<base target="_blank">
-<base target="_blank">
 <base target="_blank">
 </head>
 
 <body>
 
-<!-- Scroll Progress Bar -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMenu();}" aria-label="Toggle Menu" aria-expanded="false" aria-controls="sidebar" role="button" tabindex="0">☰</div>
 
-<!-- Floating Light/Dark Toggle -->
 <div class="theme-toggle">
   <button id="btn-light" onclick="setTheme('light')" title="Light Mode">☀️</button>
   <button id="btn-dark" onclick="setTheme('dark')" title="Dark Mode">🌙</button>
@@ -2347,322 +598,86 @@ body.dark .event-countdown.far {
 <div id="overlay" onclick="toggleMenu()"></div>
 
 <nav id="sidebar">
-  <a href="#notices" class="btn-red" onclick="handleNavClick(event, '#notices')">📢 Notices</a>
-  <a href="#student" class="btn-blue" onclick="handleNavClick(event, '#student')">🧑‍🎓 Student Corner</a>
-  <a href="#academic" class="btn-green" onclick="handleNavClick(event, '#academic')">📚 Academic Info</a>
-  <a href="#exam-countdown" class="btn-red" onclick="handleNavClick(event, '#exam-countdown')">⏰ Exam Countdown</a>
+  <a href="index.html" class="btn-blue">🏠 Back to Home</a>
   <a href="events.html" class="btn-orange">📅 Upcoming Events</a>
-  <a href="#papers" class="btn-purple" onclick="handleNavClick(event, '#papers')">📄 Question Papers</a>
-  
-  <a href="college.html" class="btn-orange">🏛️ College Details</a>
-  <a href="tools.html" class="btn-blue">🧮 Tools</a>
-  <a href="#erp" class="btn-orange" onclick="handleNavClick(event, '#erp')">💳 ERP Portal</a>
-  <a href="#library" class="btn-cyan" onclick="handleNavClick(event, '#library')">📚 Library</a>
-  <a href="#attendance" class="btn-blue" onclick="handleNavClick(event, '#attendance')">🧮 Attendance Calculator</a>
-  <a href="#fees-calculator" class="btn-green" onclick="handleNavClick(event, '#fees-calculator')">💰 Fees Calculator</a>
-  <a href="#college-details" class="btn-orange" onclick="handleNavClick(event, '#college-details')">🏛️ College Details</a>
-  <a href="#collab" class="btn-green" onclick="handleNavClick(event, '#collab')">🤝 Collaboration</a>
-  <a href="#about" class="btn-purple" onclick="handleNavClick(event, '#about')">ℹ️ About</a>
-  <a href="policy.html" class="btn-red">📄 Policy</a>
-  <a href="#our-policy" class="btn-red" onclick="handleNavClick(event, '#our-policy')">📄 Policy</a>
-  <a href="#feedback" class="btn-purple" onclick="handleNavClick(event, '#feedback')">💬 Feedback</a>
 </nav>
 
 <header>
-  <div class="logo">🎓</div>
-  <h1>KES Updates</h1>
-  <p>Independent Student Portal</p>
-  <a class="btn btn-red instagram-btn" href="https://instagram.com/kes_updatess" target="_blank" rel="noopener noreferrer">
-  <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
-    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-  </svg>
-  <span>Follow Instagram</span>
-</a>
+  <div class="logo">📅</div>
+  <h1>Upcoming Events</h1>
+  <p>Academic Calendar 2026-27 — All Events & Exams</p>
 </header>
 
 <div class="container">
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <span class="ticker-label">🔴 LIVE</span>
-    <div class="ticker-inner">
-      <span class="ticker-text">
-        📢 Check latest notices on KES Updates &nbsp;|&nbsp;
-        💳 Pay your fees via ERP Portal &nbsp;|&nbsp;
-        📚 Academic Calendar 2026-27 is available &nbsp;|&nbsp;
-        📄 Previous Year Question Papers now available &nbsp;|&nbsp;
-        🤝 Want to collaborate? Email us at kesupdatess@gmail.com &nbsp;|&nbsp;
-        🎓 Welcome to KES Updates — your one-stop student portal!
-      </span>
+  <div style="margin-bottom:20px;">
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div class="card reveal" id="upcoming-events">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;">
+      <span style="font-size:1.6rem;flex-shrink:0;">📅</span>
+      <h2 style="margin:0;">All Upcoming Events</h2>
+      <span style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;font-size:0.6rem;font-weight:800;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;">Live</span>
     </div>
-  </div>
+    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">Academic Calendar 2026-27 — Semester I & III (DEGREE)</p>
 
-  <!-- SEARCH -->
-  <div class="search-wrapper" style="position:relative;">
-    <input type="text" id="searchInput" placeholder="🔍 Search notices, fees, cutoff, library, papers..." aria-label="Search content" autocomplete="off" onfocus="showSuggestions()">
-    <div id="suggestionsBox" class="suggestions-box"></div>
-  </div>
-  <p id="noResultsMsg" class="no-results">😕 No matching results. Try a different keyword.</p>
-
-  <!-- NOTICES -->
-  <div class="card searchable reveal" id="notices">
-    <h2>📢 Important Notices</h2>
-    <a class="link btn-red" href="https://kessc.edu.in/notices/" target="_blank" rel="noopener noreferrer">Degree College Notices</a>
-    <a class="link btn-blue" href="https://kesjrsanghvi.com/enotices/" target="_blank" rel="noopener noreferrer">Junior College Notices</a>
-    <div style="margin-top:12px;">
-      <a class="whatsapp-btn" href="https://wa.me/?text=Check%20out%20KES%20Updates%20for%20latest%20notices%3A%20https%3A%2F%2Fkesupdatess.github.io%2Fkes-Updatess%2F" target="_blank" rel="noopener noreferrer">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Share on WhatsApp
-      </a>
-    </div>
-  </div>
-
-  <!-- STUDENT -->
-  <div class="card searchable reveal" id="student">
-    <h2>🧑‍🎓 Student Corner</h2>
-    <a class="link btn-green" href="https://forms.gle/USmraK6T7EqH7UU9A" target="_blank" rel="noopener noreferrer">😂 Submit Meme</a>
-    <a class="link btn-purple" href="mailto:kesupdatess@gmail.com?subject=Ask%20Doubt">❓ Ask Doubt / Support</a>
-    <a class="report-btn btn-red" href="https://docs.google.com/forms/d/e/1FAIpQLSdpkELaLHjghZzWYR6EPYotuRvRDa3yQq3r5y2EHkRqrQOG8g/viewform" target="_blank" rel="noopener noreferrer">🚨 FACING ANY ISSUE IN COLLEGE? TELL US — WE WILL HELP YOU!</a>
-    <p style="margin-top:12px;">Got a doubt, a meme to share, or facing any issue in college? Write to us — we're here to help and would love to hear from you!</p>
-  </div>
-
-  <!-- ACADEMIC -->
-  <div class="card searchable reveal" id="academic">
-    <h2>📚 Academic Info</h2>
-    <a class="link btn-blue" href="https://drive.google.com/file/d/1F9UqN7SbvUJEaWOy7jtvoiu1dNkEpqVX/view" target="_blank" rel="noopener noreferrer">📅 Academic Calendar 2026-27</a>
-    <a class="link btn-green" href="https://drive.google.com/file/d/1vYEIClJD7QRGKD0ANY-XlPPUl-h9RN-f/view" target="_blank" rel="noopener noreferrer">🏫 Junior College Fees Structure</a>
-    <a class="link btn-purple" href="https://drive.google.com/file/d/1VZeVNJ06mvhjIu6u6YeIpQzjxx2GiduN/view" target="_blank" rel="noopener noreferrer">🎓 Degree College Fees Structure</a>
-    <a class="link btn-orange" href="https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view" target="_blank" rel="noopener noreferrer">📊 Junior College Cutoff List</a>
-    <p style="margin-top:12px;">All academic documents including fees, cutoff and calendar updates are available here.</p>
-  </div>
-
-    
-
-  
-
-    <a class="link btn-orange" href="events.html">📅 View All Upcoming Events</a>
-  
-
-<!-- EXAM COUNTDOWN -->
-  <div class="card searchable reveal exam-countdown-compact" id="exam-countdown">
-    <div class="countdown-icon-wrap">⏰</div>
-    <div class="countdown-info">
-      <div class="countdown-label-row">
-        <span class="countdown-badge">UPCOMING</span>
-        <span class="countdown-exam-sub">Exam Timetable may change</span>
+    <div class="events-list">
+      <!-- Event 1: Unit Test Term I -->
+      <div class="event-item" data-date="2026-08-18" data-type="exam">
+        <div class="event-icon" style="flex-shrink:0;">📝</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Unit Test for Term I <span class="event-tag degree" style="display:inline-block;margin-top:2px;">DEGREE</span></div>
+          <div class="event-date">📅 August 18 - 21, 2026</div>
+          <div class="event-countdown" id="event-1-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
       </div>
-      <div class="countdown-exam-name">Unit Test for Term I <span style="font-size:0.85rem;opacity:0.7;">(DEGREE)</span></div>
-      <div class="countdown-timer-row" id="countdownTimerRow">
-        <div class="countdown-unit-compact">
-          <span class="countdown-num-compact" id="cd-days">--</span>
-          <span class="countdown-text-compact">Days</span>
+
+      <!-- Event 2: Ganapati Vacation -->
+      <div class="event-item" data-date="2026-08-27" data-type="vacation">
+        <div class="event-icon" style="flex-shrink:0;">🎉</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Ganapati Vacation</div>
+          <div class="event-date">📅 August 27 - 31, 2026</div>
+          <div class="event-countdown" id="event-2-cd">⏳ Loading...</div>
         </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-unit-compact">
-          <span class="countdown-num-compact" id="cd-hours">--</span>
-          <span class="countdown-text-compact">Hrs</span>
-        </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-unit-compact">
-          <span class="countdown-num-compact" id="cd-minutes">--</span>
-          <span class="countdown-text-compact">Min</span>
-        </div>
-        <span class="countdown-separator">:</span>
-        <div class="countdown-unit-compact">
-          <span class="countdown-num-compact" id="cd-seconds">--</span>
-          <span class="countdown-text-compact">Sec</span>
-        </div>
+        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
       </div>
-      <div class="countdown-date-note">
-        📅 Expected Date: <span class="highlight" id="examDateText">August 18, 2026</span> (As per Academic Calendar 2026-27)
-      </div>
-    </div>
-  </div>
 
-  
-
-<!-- UPCOMING EVENTS -->
-  <div class="card searchable reveal" id="upcoming-events">
-    <h2>📅 Upcoming Event</h2>
-    <p style="margin-bottom:14px;color:#475569;line-height:1.5;">
-      Stay updated with the latest academic events, exams, and vacations. 
-      Never miss an important date!
-    </p>
-
-    <div style="background:linear-gradient(135deg, rgba(239,68,68,0.06), rgba(249,115,22,0.04));border:1px solid rgba(239,68,68,0.15);border-radius:16px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg, #ef4444, #f97316);border-radius:16px 0 0 16px;"></div>
-      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div style="font-size:2rem;flex-shrink:0;animation:float 3s ease-in-out infinite;">📝</div>
-        <div style="flex:1;min-width:200px;">
-          <div style="font-weight:700;font-size:1rem;color:#1e40af;line-height:1.3;">Unit Test for Term I <span style="font-size:0.75rem;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;padding:2px 8px;border-radius:50px;margin-left:6px;">DEGREE</span></div>
-          <div style="font-size:0.82rem;color:#64748b;font-weight:500;margin-top:4px;">📅 August 18 - 21, 2026</div>
-          <div style="font-size:0.78rem;font-weight:700;color:#dc2626;background:rgba(239,68,68,0.08);padding:4px 10px;border-radius:50px;display:inline-block;margin-top:6px;" id="home-event-cd"></div>
+      <!-- Event 3: Semester Exam -->
+      <div class="event-item" data-date="2026-10-08" data-type="exam">
+        <div class="event-icon" style="flex-shrink:0;">📊</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.85rem;">Semester Exam (Sem I, III, V & PG I, III)</div>
+          <div class="event-date">📅 October 8 - 17, 2026</div>
+          <div class="event-countdown" id="event-3-cd">⏳ Loading...</div>
         </div>
-        <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b;border:1px solid rgba(239,68,68,0.2);font-size:0.6rem;font-weight:800;padding:4px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;animation:pulse 2s infinite;">EXAM</div>
+        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
+      </div>
+
+      <!-- Event 4: Diwali Vacation -->
+      <div class="event-item" data-date="2026-10-20" data-type="vacation">
+        <div class="event-icon" style="flex-shrink:0;">🪔</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Diwali Vacation</div>
+          <div class="event-date">📅 October 20 - November 5, 2026</div>
+          <div class="event-countdown" id="event-4-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
       </div>
     </div>
 
-    <a class="link btn-orange" href="events.html">📅 View All Upcoming Events</a>
-  </div>
-
-
-
-</div>
-
-<!-- PAPERS -->
-  <div class="card searchable reveal" id="papers">
-    <h2>📄 Question Papers</h2>
-    <a class="link btn-purple" href="https://kessclibrary.wixsite.com/library/copy-of-question-papers" target="_blank" rel="noopener noreferrer">📝 Previous Year Question Papers</a>
-    <ul class="erp-features">
-      <li>🏫 <a href="https://kessclibrary.wixsite.com/library/question-paper-junior" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Junior Question Papers</a></li>
-      <li>🎓 <a href="https://kessclibrary.wixsite.com/library/question-paper-ug" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">UG Question Papers</a></li>
-      <li>📘 <a href="https://kessclibrary.wixsite.com/library/question-paper-pg" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">PG Question Papers</a></li>
-      <li>📗 <a href="https://kessclibrary.wixsite.com/library/copy-of-aicte-pg-question-papers" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">AICTE UG Question Papers</a></li>
-      <li>📙 <a href="https://kessclibrary.wixsite.com/library/copy-of-ug-question-papers" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">AICTE PG Question Papers</a></li>
-    </ul>
-    <p>Semester-wise question papers for exam preparation and revision.</p>
-  </div>
-
-    <!-- TOOLS LINK -->
-  <div class="card searchable reveal" id="tools-link">
-    <h2>🧮 Student Tools</h2>
-    <p style="margin-bottom:14px;font-size:0.9rem;color:#475569;line-height:1.5;">
-      Powerful calculators designed specifically for KES students. Check your attendance status before exams 
-      and know your exact fees without visiting the office. Save time, stay informed!
-    </p>
-
-    <a href="tools.html" style="text-decoration:none;color:inherit;display:block;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;cursor:pointer;">
-      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(59,130,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="font-size:1.5rem;margin-bottom:4px;">🧮</div>
-        <div style="font-weight:700;font-size:0.85rem;color:#1e40af;margin-bottom:2px;">Attendance Calculator</div>
-        <div style="font-size:0.75rem;color:#64748b;">Check %, track progress, know how many lectures needed</div>
-      </div>
-      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(16,185,129,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="font-size:1.5rem;margin-bottom:4px;">💰</div>
-        <div style="font-weight:700;font-size:0.85rem;color:#059669;margin-bottom:2px;">Fees Calculator</div>
-        <div style="font-size:0.75rem;color:#64748b;">Select course & year to see total fees instantly</div>
-      </div>
-    </div>
-    </a>
-
-    <a class="link btn-blue" href="tools.html">🚀 Open Student Tools</a>
-  </div>
-
-<!-- ERP -->
-  <div class="card searchable reveal" id="erp">
-    <h2>💳 ERP Portal</h2>
-    <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer">🔗 Open ERP Portal</a>
-    <a class="link btn-purple" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer">🧾 Download Hall Ticket</a>
-    <ul class="erp-features">
-      <li>💰 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Pay Fees & Download Receipt</a></li>
-      <li>📊 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Check Result</a></li>
-      <li>📝 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Apply for Credit Course</a></li>
-      <li>📋 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Admission Form</a></li>
-      <li>🎯 <a href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">Apply for ATKT</a></li>
-    </ul>
-    <p>Official ERP system used for all student services — fees, results, registrations and more.</p>
-  </div>
-
-  <!-- LIBRARY -->
-  <div class="card searchable reveal" id="library">
-    <h2>📚 KES Shroff College Library</h2>
-    <a class="link btn-cyan" href="https://kessclibrary.ourlib.in/" target="_blank" rel="noopener noreferrer">📖 KES Shroff College Library Catalogue</a>
-    <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
-  </div>
-
-      <!-- COLLEGE DETAILS -->
-  <div class="card searchable reveal" id="college-details">
-    <h2>🏛️ College Details</h2>
-    <p style="margin-bottom:16px;color:#475569;line-height:1.5;">
-      Complete contact info, campus addresses & locations for all KES buildings — Main Campus, Law College (Annex-1) & International Programs (Annex-2). Phone, email & Google Maps available.
-    </p>
-
-    <a href="college.html" style="text-decoration:none;color:inherit;display:block;">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;cursor:pointer;">
-      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(59,130,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="font-size:1.8rem;margin-bottom:4px;">🏫</div>
-        <div style="font-weight:700;font-size:0.8rem;color:#1e40af;">Main Campus</div>
-        <div style="font-size:0.7rem;color:#64748b;">Arts & Commerce</div>
-      </div>
-      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(139,92,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="font-size:1.8rem;margin-bottom:4px;">⚖️</div>
-        <div style="font-weight:700;font-size:0.8rem;color:#7c3aed;">Annex-1</div>
-        <div style="font-size:0.7rem;color:#64748b;">Law College</div>
-      </div>
-      <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(6,182,212,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-        <div style="font-size:1.8rem;margin-bottom:4px;">🌍</div>
-        <div style="font-weight:700;font-size:0.8rem;color:#0891b2;">Annex-2</div>
-        <div style="font-size:0.7rem;color:#64748b;">International</div>
-      </div>
-    </div>
-    </a>
-
-    
-
-    <a class="link btn-orange" href="college.html">🏛️ View Full College Details</a>
-  </div>
-
-<!-- COLLABORATION -->
-  <div class="card searchable reveal" id="collab">
-    <h2>🤝 Collaboration</h2>
-    <p>Want to collaborate with KES Updates? Reach out to us directly!</p>
-    <div class="email-box">
-      <span>📧 kesupdatess@gmail.com</span>
-      <div class="email-actions">
-        <a href="mailto:kesupdatess@gmail.com?subject=Collaboration%20-%20KES%20Updates&body=Hello%20KES%20Updates%20Team%2C%0A%0AI%20would%20like%20to%20collaborate%20with%20you.%0A%0AMy%20details%3A%0A%0A" class="btn-blue" style="color:white;">✉️ Send Mail</a>
-        <button class="btn-green" onclick="copyEmail()" style="color:white;">📋 Copy</button>
-      </div>
+    <div class="info-box">
+      <span style="font-size:1.2rem;flex-shrink:0;">ℹ️</span>
+      <span style="font-size:0.8rem;color:#475569;font-weight:500;line-height:1.4;word-wrap:break-word;">Dates are subject to change as per official timetable. Always check notices for latest updates.</span>
     </div>
   </div>
 
-  <!-- ABOUT -->
-  <div class="card reveal" id="about">
-    <h2>ℹ️ About KES Updates</h2>
-    <p>KES Updates is an independent, student-managed page created to share notices, resources, and fun campus content. We are not an official college page, but our goal is to keep students informed, connected, and entertained 💙.</p>
-
-    <div style="margin-top:16px;padding:16px;background:rgba(59,130,246,0.04);border:1px solid rgba(59,130,246,0.12);border-radius:16px;">
-      <h3 style="font-size:1rem;color:#1e40af;margin-bottom:12px;">📬 Contact KES Updates</h3>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-size:1.2rem;">📧</span>
-          <a href="mailto:kesupdatess@gmail.com" style="color:#2563eb;font-weight:600;text-decoration:none;">kesupdatess@gmail.com</a>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-size:1.2rem;">📸</span>
-          <a href="https://instagram.com/kes_updatess" style="color:#2563eb;font-weight:600;text-decoration:none;">@kes_updatess</a>
-        </div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-size:1.2rem;">🌐</span>
-          <span style="color:#475569;font-weight:500;">kesupdatess.github.io/kes-Updatess</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- POLICY -->
-  <div class="card searchable reveal" id="our-policy">
-    <h2>📄 Policy & Disclaimer</h2>
-    <p style="margin-bottom:16px;color:#475569;line-height:1.5;">
-      KES Updates operates with full transparency and legal compliance. Our policy covers independence, 
-      consent, content control, collaborations, and liability. We are a student-managed platform — 
-      not an official college body — sharing information in good faith for students.
-    </p>
-
-    
-
-    <a class="link btn-purple" href="policy.html">📄 Read Full Policy</a>
-  </div>
 
 
-  
-
-    <p style="margin-top:16px;font-size:0.85rem;color:#94a3b8;text-align:center;">ℹ️ Dates are subject to change as per official timetable. Always check notices for latest updates.</p>
-  </div>
-
-<!-- FEEDBACK FORM -->
+  <!-- FEEDBACK FORM -->
   <div class="card searchable reveal" id="feedback">
     <h2>💬 Feedback Form</h2>
     <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">We value your feedback! Share your thoughts, suggestions, or report issues to help us improve KES Updates.</p>
@@ -2709,7 +724,6 @@ body.dark .event-countdown.far {
   <div style="font-size:0.75rem;opacity:0.6;margin-top:4px;">© 2026 KES Updates | Made with 💙 for Students</div>
 </footer>
 
-<!-- Back to Top -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
@@ -2725,14 +739,9 @@ function toggleMenu() {
   hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
 }
 
-// Smooth scroll + close menu for nav links
 function handleNavClick(e, targetId) {
   e.preventDefault();
-  // Explicitly close menu instead of toggle
-  sidebar.classList.remove("active");
-  overlay.classList.remove("active");
-  document.body.style.overflow = "";
-  hamburgerBtn.setAttribute("aria-expanded", "false");
+  toggleMenu();
   const target = document.querySelector(targetId);
   if (target) {
     setTimeout(() => {
@@ -2764,60 +773,6 @@ function showToast(message, duration = 2000) {
   setTimeout(() => t.remove(), duration);
 }
 
-function copyEmail() {
-  navigator.clipboard.writeText('kesupdatess@gmail.com').then(() => showToast('📋 Email copied!', 2000));
-}
-
-function searchContent() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let anyVisible = false;
-  document.querySelectorAll(".searchable").forEach(card => {
-    const matches = card.innerText.toLowerCase().includes(input);
-    card.style.display = matches ? "block" : "none";
-    if (matches) anyVisible = true;
-  });
-  document.getElementById("noResultsMsg").classList.toggle("active", input.length > 0 && !anyVisible);
-}
-
-const suggestionTerms = ["Notices", "Student Corner", "Academic Info", "Question Papers", "ERP Portal", "Library", "Attendance Calculator", "Grace Attendance", "NSS", "Collaboration", "Fees", "Cutoff"];
-
-function showSuggestions() {
-  const box = document.getElementById("suggestionsBox");
-  if (box.childElementCount === 0) {
-    suggestionTerms.forEach(term => {
-      const span = document.createElement("span");
-      span.textContent = term;
-      span.onclick = () => selectSuggestion(term);
-      box.appendChild(span);
-    });
-  }
-  box.classList.add("active");
-}
-
-function selectSuggestion(term) {
-  const input = document.getElementById("searchInput");
-  input.value = term;
-  searchContent();
-  document.getElementById("suggestionsBox").classList.remove("active");
-}
-
-document.addEventListener("click", function(e) {
-  const wrapper = document.querySelector(".search-wrapper");
-  if (wrapper && !wrapper.contains(e.target)) {
-    document.getElementById("suggestionsBox").classList.remove("active");
-  }
-});
-
-let searchTimeout;
-const searchInputElem = document.getElementById("searchInput");
-if (searchInputElem) {
-  searchInputElem.addEventListener('keyup', function() {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(searchContent, 200);
-  });
-}
-
-// Scroll progress bar + back to top
 window.addEventListener('scroll', function() {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -2831,11 +786,8 @@ window.addEventListener('scroll', function() {
 window.onload = () => {
   const saved = localStorage.getItem("theme") || "light";
   setTheme(saved);
-  updateHomeEventCountdown();
-  updateCompactCountdown();
 };
 
-// Card scroll-in reveal animation
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -2847,7 +799,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.card.reveal').forEach(card => revealObserver.observe(card));
 
-// GA4 click tracking for every link
 document.addEventListener('click', function(e) {
   const link = e.target.closest('a');
   if (!link) return;
@@ -2861,148 +812,6 @@ document.addEventListener('click', function(e) {
     });
   }
 });
-
-// Attendance Calculator
-function calculateAttendance() {
-  const total = parseFloat(document.getElementById('totalLectures').value);
-  const attendedRaw = parseFloat(document.getElementById('attendedLectures').value);
-  const required = parseFloat(document.getElementById('requiredPercent').value) || 75;
-  const grace = parseFloat(document.getElementById('graceAttendance').value) || 0;
-  const resultBox = document.getElementById('attendanceResult');
-  const progressWrap = document.getElementById('attendanceProgressWrap');
-  const progressFill = document.getElementById('attendanceProgressFill');
-  const progressMarker = document.getElementById('attendanceProgressMarker');
-  const currentLabel = document.getElementById('progressCurrentLabel');
-  const requiredLabel = document.getElementById('progressRequiredLabel');
-
-  const statBox = document.getElementById('attendanceStatBox');
-  const statNumber = document.getElementById('attendanceStatNumber');
-  const statLabel = document.getElementById('attendanceStatLabel');
-
-  // Quick stats
-  const quickStatCurrent = document.getElementById('quickStatCurrent');
-  const quickStatTarget = document.getElementById('quickStatTarget');
-  const quickStatNeeded = document.getElementById('quickStatNeeded');
-
-  resultBox.classList.remove('safe', 'warning');
-  statBox.classList.remove('safe', 'warning', 'active');
-
-  if (isNaN(total) || isNaN(attendedRaw) || total <= 0 || attendedRaw < 0 || attendedRaw > total) {
-    resultBox.textContent = "⚠️ Please enter valid lecture numbers (Attended ≤ Total).";
-    resultBox.classList.add('active', 'warning');
-    progressWrap.classList.remove('active');
-
-    // Reset quick stats
-    quickStatCurrent.querySelector('.quick-stat-value').textContent = '--%';
-    quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = '--';
-    return;
-  }
-
-  // Add grace attendance to attended count, capped at total
-  const attended = Math.min(attendedRaw + grace, total);
-
-  const currentPercent = (attended / total) * 100;
-  const isSafe = currentPercent >= required;
-
-  // Update quick stats
-  quickStatCurrent.querySelector('.quick-stat-value').textContent = currentPercent.toFixed(1) + '%';
-  quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
-
-  // Update progress bar
-  const fillPercent = Math.min(currentPercent, 100);
-  progressFill.style.width = fillPercent + '%';
-  progressFill.classList.remove('safe', 'warning');
-  progressFill.classList.add(isSafe ? 'safe' : 'warning');
-  progressMarker.style.left = Math.min(required, 100) + '%';
-  currentLabel.textContent = currentPercent.toFixed(1) + '%';
-  requiredLabel.textContent = 'Target: ' + required + '%';
-  progressWrap.classList.add('active');
-
-  const graceNote = grace > 0 ? ` (includes ${grace} grace lecture${grace > 1 ? 's' : ''})` : '';
-
-  if (isSafe) {
-    let maxSkippable = 0;
-    let a = attended, t = total;
-    while (((a) / (t + 1)) * 100 >= required) {
-      maxSkippable++;
-      t++;
-    }
-    resultBox.textContent = `✅ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, which meets the ${required}% requirement. You can afford to miss up to ${maxSkippable} more lecture(s) and still stay at or above ${required}%.`;
-    resultBox.classList.add('safe');
-
-    statBox.classList.add('safe', 'active');
-    statNumber.textContent = maxSkippable;
-    statLabel.textContent = `can miss`;
-
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = maxSkippable;
-    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Can Miss';
-  } else {
-    let needed = 0;
-    let a = attended, t = total;
-    while (((a + needed) / (t + needed)) * 100 < required) {
-      needed++;
-      if (needed > 100000) break;
-    }
-    resultBox.textContent = `⚠️ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, below the ${required}% requirement. You need to attend ${needed} more consecutive lecture(s) without missing any to reach ${required}%.`;
-    resultBox.classList.add('warning');
-
-    statBox.classList.add('warning', 'active');
-    statNumber.textContent = needed;
-    statLabel.textContent = `needed`;
-
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = needed;
-    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Needed';
-  }
-
-  resultBox.classList.add('active');
-}
-// Exam Countdown - Compact
-function updateCompactCountdown() {
-  const examDate = new Date('2026-08-18T09:00:00');
-  const now = new Date();
-  const diff = examDate - now;
-
-  const daysEl = document.getElementById('cd-days');
-  const hoursEl = document.getElementById('cd-hours');
-  const minutesEl = document.getElementById('cd-minutes');
-  const secondsEl = document.getElementById('cd-seconds');
-
-  if (!daysEl) return;
-
-  if (diff <= 0) {
-    daysEl.textContent = '0';
-    hoursEl.textContent = '0';
-    minutesEl.textContent = '0';
-    secondsEl.textContent = '0';
-    document.getElementById('examDateText').innerHTML = '<span style="color:#dc2626;font-weight:800;">🔴 EXAM IS TODAY! ALL THE BEST!</span>';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  daysEl.textContent = days;
-  hoursEl.textContent = hours.toString().padStart(2, '0');
-  minutesEl.textContent = minutes.toString().padStart(2, '0');
-  secondsEl.textContent = seconds.toString().padStart(2, '0');
-
-  const badge = document.querySelector('.countdown-badge');
-  if (badge) {
-    if (days <= 1) {
-      badge.textContent = 'URGENT';
-      badge.style.background = 'linear-gradient(135deg, #dc2626, #991b1b)';
-    } else if (days <= 7) {
-      badge.textContent = 'SOON';
-      badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
-    }
-  }
-}
-
-setInterval(updateCompactCountdown, 1000);
-updateCompactCountdown();
 
 // Upcoming Events Countdown
 function updateEventsCountdown() {
@@ -3030,10 +839,9 @@ function updateEventsCountdown() {
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
     if (days <= 1) {
-      el.textContent = `🔴 ${days}d ${hours}h ${minutes}m left - VERY SOON!`;
+      el.textContent = `🔴 ${hours}h left - VERY SOON!`;
       el.className = 'event-countdown';
     } else if (days <= 7) {
       el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
@@ -3045,43 +853,8 @@ function updateEventsCountdown() {
   });
 }
 
-setInterval(updateEventsCountdown, 1000);
+setInterval(updateEventsCountdown, 60000);
 updateEventsCountdown();
-
-// Scrollspy: highlight current section's nav link
-const sections = document.querySelectorAll('.container > div[id]');
-const navLinks = document.querySelectorAll('nav#sidebar a[href^="#"]');
-
-const spyObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navLinks.forEach(link => {
-        link.classList.toggle('nav-active', link.getAttribute('href') === '#' + id);
-      });
-    }
-  });
-}, { rootMargin: '-40% 0px -50% 0px' });
-
-sections.forEach(section => spyObserver.observe(section));
-
-// Fees Calculator
-function showFees() {
-  const select = document.getElementById('courseSelect');
-  const amount = select.value;
-  const name = select.options[select.selectedIndex].text;
-  const display = document.getElementById('feesDisplay');
-
-  if (!amount) {
-    display.style.display = 'none';
-    return;
-  }
-
-  document.getElementById('feesAmount').textContent = '₹' + parseInt(amount).toLocaleString('en-IN');
-  document.getElementById('feesCourseName').textContent = name;
-  display.style.display = 'block';
-}
-
 </script>
 
 </body>
