@@ -4,7 +4,36 @@
 <meta charset="UTF-8">
 
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669">// Home page single event countdown
+function updateHomeEventCountdown() {
+  const el = document.getElementById('home-event-cd');
+  if (!el) return;
+
+  const eventDate = new Date('2026-08-18T09:00:00');
+  const now = new Date();
+  const diff = eventDate - now;
+
+  if (diff <= 0) {
+    el.textContent = '🔴 EXAM IS TODAY!';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+  if (days <= 1) {
+    el.textContent = `🔴 ${hours}h left - VERY SOON!`;
+  } else if (days <= 7) {
+    el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
+  } else {
+    el.textContent = `📅 ${days} days left`;
+  }
+}
+
+setInterval(updateHomeEventCountdown, 60000);
+updateHomeEventCountdown();
+
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -2298,6 +2327,7 @@ body.dark .event-countdown.far {
 </style>
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
@@ -2322,6 +2352,9 @@ body.dark .event-countdown.far {
   <a href="#exam-countdown" class="btn-red" onclick="handleNavClick(event, '#exam-countdown')">⏰ Exam Countdown</a>
   <a href="#upcoming-events" class="btn-orange" onclick="handleNavClick(event, '#upcoming-events')">📅 Upcoming Events</a>
   <a href="#papers" class="btn-purple" onclick="handleNavClick(event, '#papers')">📄 Question Papers</a>
+  <a href="events.html" class="btn-orange">📅 Upcoming Events</a>
+  <a href="college.html" class="btn-orange">🏛️ College Details</a>
+  <a href="tools.html" class="btn-blue">🧮 Tools</a>
   <a href="#erp" class="btn-orange" onclick="handleNavClick(event, '#erp')">💳 ERP Portal</a>
   <a href="#library" class="btn-cyan" onclick="handleNavClick(event, '#library')">📚 Library</a>
   <a href="#attendance" class="btn-blue" onclick="handleNavClick(event, '#attendance')">🧮 Attendance Calculator</a>
@@ -2329,6 +2362,7 @@ body.dark .event-countdown.far {
   <a href="#college-details" class="btn-orange" onclick="handleNavClick(event, '#college-details')">🏛️ College Details</a>
   <a href="#collab" class="btn-green" onclick="handleNavClick(event, '#collab')">🤝 Collaboration</a>
   <a href="#about" class="btn-purple" onclick="handleNavClick(event, '#about')">ℹ️ About</a>
+  <a href="policy.html" class="btn-red">📄 Policy</a>
   <a href="#our-policy" class="btn-red" onclick="handleNavClick(event, '#our-policy')">📄 Policy</a>
   <a href="#feedback" class="btn-purple" onclick="handleNavClick(event, '#feedback')">💬 Feedback</a>
 </nav>
@@ -2441,63 +2475,26 @@ body.dark .event-countdown.far {
 
   <!-- UPCOMING EVENTS -->
   <div class="card searchable reveal" id="upcoming-events">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;">
-      <span style="font-size:1.6rem;flex-shrink:0;">📅</span>
-      <h2 style="margin:0;">Upcoming Events</h2>
-      <span style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;font-size:0.6rem;font-weight:800;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;">Live</span>
-    </div>
-    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">Academic Calendar 2026-27 — Semester I & III (DEGREE)</p>
+    <h2>📅 Upcoming Event</h2>
+    <p style="margin-bottom:14px;color:#475569;line-height:1.5;">
+      Stay updated with the latest academic events, exams, and vacations. 
+      Never miss an important date!
+    </p>
 
-    <div class="events-list">
-      <!-- Event 1: Unit Test Term I -->
-      <div class="event-item" data-date="2026-08-18" data-type="exam">
-        <div class="event-icon" style="flex-shrink:0;">📝</div>
-        <div class="event-details" style="min-width:0;overflow:hidden;">
-          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Unit Test for Term I <span class="event-tag degree" style="display:inline-block;margin-top:2px;">DEGREE</span></div>
-          <div class="event-date">📅 August 18 - 21, 2026</div>
-          <div class="event-countdown" id="event-1-cd">⏳ Loading...</div>
+    <div style="background:linear-gradient(135deg, rgba(239,68,68,0.06), rgba(249,115,22,0.04));border:1px solid rgba(239,68,68,0.15);border-radius:16px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg, #ef4444, #f97316);border-radius:16px 0 0 16px;"></div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <div style="font-size:2rem;flex-shrink:0;animation:float 3s ease-in-out infinite;">📝</div>
+        <div style="flex:1;min-width:200px;">
+          <div style="font-weight:700;font-size:1rem;color:#1e40af;line-height:1.3;">Unit Test for Term I <span style="font-size:0.75rem;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;padding:2px 8px;border-radius:50px;margin-left:6px;">DEGREE</span></div>
+          <div style="font-size:0.82rem;color:#64748b;font-weight:500;margin-top:4px;">📅 August 18 - 21, 2026</div>
+          <div style="font-size:0.78rem;font-weight:700;color:#dc2626;background:rgba(239,68,68,0.08);padding:4px 10px;border-radius:50px;display:inline-block;margin-top:6px;" id="home-event-cd">⏳ Loading...</div>
         </div>
-        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
-      </div>
-
-      <!-- Event 2: Ganapati Vacation -->
-      <div class="event-item" data-date="2026-08-27" data-type="vacation">
-        <div class="event-icon" style="flex-shrink:0;">🎉</div>
-        <div class="event-details" style="min-width:0;overflow:hidden;">
-          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Ganapati Vacation</div>
-          <div class="event-date">📅 August 27 - 31, 2026</div>
-          <div class="event-countdown" id="event-2-cd">⏳ Loading...</div>
-        </div>
-        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
-      </div>
-
-      <!-- Event 3: Semester Exam -->
-      <div class="event-item" data-date="2026-10-08" data-type="exam">
-        <div class="event-icon" style="flex-shrink:0;">📊</div>
-        <div class="event-details" style="min-width:0;overflow:hidden;">
-          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.85rem;">Semester Exam (Sem I, III, V & PG I, III)</div>
-          <div class="event-date">📅 October 8 - 17, 2026</div>
-          <div class="event-countdown" id="event-3-cd">⏳ Loading...</div>
-        </div>
-        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
-      </div>
-
-      <!-- Event 4: Diwali Vacation -->
-      <div class="event-item" data-date="2026-10-20" data-type="vacation">
-        <div class="event-icon" style="flex-shrink:0;">🪔</div>
-        <div class="event-details" style="min-width:0;overflow:hidden;">
-          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Diwali Vacation</div>
-          <div class="event-date">📅 October 20 - November 5, 2026</div>
-          <div class="event-countdown" id="event-4-cd">⏳ Loading...</div>
-        </div>
-        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
+        <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b;border:1px solid rgba(239,68,68,0.2);font-size:0.6rem;font-weight:800;padding:4px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;animation:pulse 2s infinite;">EXAM</div>
       </div>
     </div>
 
-    <div style="margin-top:16px;padding:12px 16px;background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(139,92,246,0.04));border:1px solid rgba(59,130,246,0.12);border-radius:12px;display:flex;align-items:flex-start;gap:10px;">
-      <span style="font-size:1.2rem;flex-shrink:0;">ℹ️</span>
-      <span style="font-size:0.8rem;color:#475569;font-weight:500;line-height:1.4;word-wrap:break-word;">Dates are subject to change as per official timetable. Always check notices for latest updates.</span>
-    </div>
+    <a class="link btn-orange" href="events.html">📅 View All Upcoming Events</a>
   </div>
 
 <!-- PAPERS -->
@@ -2514,7 +2511,31 @@ body.dark .event-countdown.far {
     <p>Semester-wise question papers for exam preparation and revision.</p>
   </div>
 
-  <!-- ERP -->
+    <!-- TOOLS LINK -->
+  <div class="card searchable reveal" id="tools-link">
+    <h2>🧮 Student Tools</h2>
+    <p style="margin-bottom:14px;font-size:0.9rem;color:#475569;line-height:1.5;">
+      Powerful calculators designed specifically for KES students. Check your attendance status before exams 
+      and know your exact fees without visiting the office. Save time, stay informed!
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:4px;">🧮</div>
+        <div style="font-weight:700;font-size:0.85rem;color:#1e40af;margin-bottom:2px;">Attendance Calculator</div>
+        <div style="font-size:0.75rem;color:#64748b;">Check %, track progress, know how many lectures needed</div>
+      </div>
+      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:14px;padding:12px;text-align:center;">
+        <div style="font-size:1.5rem;margin-bottom:4px;">💰</div>
+        <div style="font-weight:700;font-size:0.85rem;color:#059669;margin-bottom:2px;">Fees Calculator</div>
+        <div style="font-size:0.75rem;color:#64748b;">Select course & year to see total fees instantly</div>
+      </div>
+    </div>
+
+    <a class="link btn-blue" href="tools.html">🚀 Open Student Tools</a>
+  </div>
+
+<!-- ERP -->
   <div class="card searchable reveal" id="erp">
     <h2>💳 ERP Portal</h2>
     <a class="link btn-orange" href="https://cimsstudentnewui.mastersofterp.in/" target="_blank" rel="noopener noreferrer">🔗 Open ERP Portal</a>
@@ -2535,306 +2556,43 @@ body.dark .event-countdown.far {
     <p style="margin-top:12px;">KES Shroff College Library resources for books, catalogue search, and academic material.</p>
   </div>
 
-      <!-- ATTENDANCE CALCULATOR -->
-  <div class="card searchable reveal attendance-card" id="attendance">
-    <div class="attendance-header">
-      <div class="attendance-icon">🧮</div>
-      <h2>Smart Attendance Calculator</h2>
-      <p class="attendance-subtitle">Calculate your attendance, track progress, and know exactly how many lectures you need</p>
-    </div>
-
-    <div class="attendance-dashboard">
-      <!-- Quick Stats Row -->
-      <div class="attendance-quick-stats">
-        <div class="quick-stat" id="quickStatCurrent">
-          <div class="quick-stat-icon">📊</div>
-          <div class="quick-stat-value">--%</div>
-          <div class="quick-stat-label">Current</div>
-        </div>
-        <div class="quick-stat" id="quickStatTarget">
-          <div class="quick-stat-icon">🎯</div>
-          <div class="quick-stat-value">75%</div>
-          <div class="quick-stat-label">Target</div>
-        </div>
-        <div class="quick-stat" id="quickStatNeeded">
-          <div class="quick-stat-icon">📈</div>
-          <div class="quick-stat-value">--</div>
-          <div class="quick-stat-label">Needed</div>
-        </div>
-      </div>
-
-      <!-- Input Grid -->
-      <div class="attendance-input-grid">
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg blue">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <label for="totalLectures">Total Lectures Held</label>
-          </div>
-          <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
-          <span class="input-helper">Total lectures conducted so far</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg green">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <label for="attendedLectures">Lectures Attended</label>
-          </div>
-          <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
-          <span class="input-helper">Number of lectures you attended</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg purple">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            </div>
-            <label for="requiredPercent">Required Attendance %</label>
-          </div>
-          <input type="number" id="requiredPercent" min="1" max="100" value="75">
-          <span class="input-helper">Minimum required percentage</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg orange">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <label for="graceAttendance">Grace Attendance</label>
-          </div>
-          <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
-          <span class="input-helper">NSS, Sports, Cultural extra</span>
-        </div>
-      </div>
-
-      <!-- Calculate Button -->
-      <button class="calculate-btn-premium" onclick="calculateAttendance()">
-        <div class="btn-glow"></div>
-        <span class="btn-icon">🧮</span>
-        <span class="btn-text">Calculate Attendance</span>
-        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-
-      <!-- Progress Section -->
-      <div id="attendanceProgressWrap" class="attendance-progress-wrap">
-        <div class="progress-header">
-          <span class="progress-label">Attendance Progress</span>
-          <span class="progress-percentage" id="progressCurrentLabel">0%</span>
-        </div>
-        <div class="attendance-progress-track">
-          <div id="attendanceProgressFill" class="attendance-progress-fill"></div>
-          <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
-          <div class="progress-target-label" id="progressRequiredLabel">Target: 75%</div>
-        </div>
-      </div>
-
-      <!-- Result Cards -->
-      <div id="attendanceStatBox" class="attendance-stat-box">
-        <div class="stat-visual">
-          <span id="attendanceStatNumber" class="attendance-stat-number">0</span>
-          <span id="attendanceStatLabel" class="attendance-stat-label">lectures</span>
-        </div>
-      </div>
-
-      <div id="attendanceResult" class="attendance-result"></div>
-    </div>
-  </div>
-
-
-  <!-- FEES CALCULATOR -->
-  <div class="card searchable reveal" id="fees-calculator">
-    <h2>💰 KES Fees Calculator</h2>
-    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">Select your course to see the total fees amount.</p>
-
-    <div class="select-group" style="background:rgba(59,130,246,0.04);border:1px solid rgba(59,130,246,0.15);border-radius:16px;padding:16px;margin-bottom:16px;">
-      <label for="courseSelect" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:10px;">📚 Select Course</label>
-      <select id="courseSelect" onchange="showFees()" style="width:100%;padding:14px 16px;border:2px solid rgba(59,130,246,0.2);border-radius:14px;font-size:0.95rem;font-weight:600;background:white;color:#0f172a;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;cursor:pointer;font-family:'Poppins',sans-serif;">
-        <option value="">-- Select Course --</option>
-
-        <!-- FIRST YEAR -->
-        <optgroup label="🎓 First Year">
-        <option value="19140">B.Com (Aided)</option>
-        <option value="47010">B.Com (Banking & Insurance)</option>
-        <option value="48080">B.Com (Investment Management)</option>
-        <option value="47365">B.Com (Logistic Supply Chain)</option>
-        <option value="48710">B.Com (Accounting & Finance)</option>
-        <option value="48610">B.Com (Financial Markets)</option>
-        <option value="48510">BA (Multimedia & Mass Comm)</option>
-        <option value="38640">BA with Geography</option>
-        <option value="45640">BA with Psychology</option>
-        <option value="40640">BA with English Lit</option>
-        <option value="39640">BA with Economics</option>
-        <option value="55380">BSc (Finance & Technology)</option>
-        <option value="52210">B.Com-MS</option>
-        <option value="40360">B.Com (Retail Management)</option>
-        <option value="72210">BA (Film, TV & New Media)</option>
-        <option value="85510">BSc (Artificial Intelligence)</option>
-        <option value="75510">BSc (Data Science)</option>
-        <option value="53510">BSc (Information Technology)</option>
-        <option value="93400">B.Com (Certified Management Accounting)</option>
-        <option value="153380">B.Com (Digital Business)</option>
-        <option value="103380">BSc (International Finance)</option>
-        <option value="103400">BSc Cyber Security & Digital Forensics</option>
-        <option value="139180">B.Com (International Accounting)</option>
-        <option value="103600">BSc (Capital Market)</option>
-        <option value="49230">BMS - AICTE</option>
-        <option value="75270">BBA - AICTE</option>
-        <option value="60230">BCA - AICTE</option>
-        </optgroup>
-
-        <!-- SECOND YEAR -->
-        <optgroup label="📚 Second Year">
-        <option value="46630">SYBAF</option>
-        <option value="46310">SYBBI</option>
-        <option value="90000">SYBCMA</option>
-        <option value="46320">SYBFM</option>
-        <option value="44235">SYBIM</option>
-        <option value="137690">SYBIA</option>
-        <option value="44315">SYBAMMC</option>
-        <option value="63820">SYBAFTNMP</option>
-        <option value="154910">SYB.Com-DB</option>
-        <option value="52280">SYBCOM-MS</option>
-        <option value="46280">SYBLSM</option>
-        <option value="101380">SYBSC-CS&DF</option>
-        <option value="103280">SYBSC-IF</option>
-        <option value="51280">SYBSC-FT</option>
-        <option value="73990">SYBSC-DS</option>
-        <option value="49390">SYBSC-IT</option>
-        <option value="84580">SYBSC-AI</option>
-        <option value="33540">SYBA-GEO</option>
-        <option value="37540">SYBA-ENG</option>
-        <option value="39540">SYBA-PSY</option>
-        <option value="36240">SYBA-ECO</option>
-        <option value="18520">SYBCOM-A</option>
-        </optgroup>
-
-        <!-- THIRD YEAR -->
-        <optgroup label="🎓 Third Year">
-        <option value="43720">TYBAF</option>
-        <option value="43690">TYBBI</option>
-        <option value="42665">TYBFM</option>
-        <option value="42515">TYBIM</option>
-        <option value="137320">TYBIA</option>
-        <option value="76300">TYBCMA</option>
-        <option value="42710">TYBAMMC</option>
-        <option value="63070">TYBAFTNMP</option>
-        <option value="51495">TYBSC-IT</option>
-        <option value="72870">TYBSC-DS</option>
-        <option value="60130">TYBCA-AICTE</option>
-        <option value="75170">TYBBA-AICTE</option>
-        <option value="49130">TYBMS-AICTE</option>
-        <option value="153410">TYBCOM-DB</option>
-        <option value="33280">TYBA-GEO</option>
-        <option value="36280">TYBA-ENG</option>
-        <option value="41280">TYBA-PSY</option>
-        <option value="34280">TYBA-ECO</option>
-        <option value="16070">TYBCOM-A-TAX</option>
-        <option value="18070">TYBCOM-A-COMP</option>
-        </optgroup>
-      </select>
-    </div>
-
-    <div id="feesDisplay" style="margin-top:20px;background:linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.04));border:2px solid rgba(59,130,246,0.2);border-radius:20px;padding:24px;text-align:center;display:none;animation: fadeIn 0.4s ease;">
-      <div style="font-size:0.85rem;color:#64748b;font-weight:600;margin-bottom:8px;">Total Fees</div>
-      <div id="feesAmount" style="font-size:2.5rem;font-weight:800;color:#2563eb;line-height:1;">₹0</div>
-      <div id="feesCourseName" style="font-size:1rem;color:#1e40af;font-weight:700;margin-top:8px;"></div>
-    </div>
-
-    <p style="margin-top:16px;font-size:0.75rem;color:#94a3b8;text-align:center;">📞 For queries: 022-41914500 | office@kessc.edu.in</p>
-  </div>
-
-
-<!-- COLLEGE DETAILS -->
+      <!-- COLLEGE DETAILS -->
   <div class="card searchable reveal" id="college-details">
     <h2>🏛️ College Details</h2>
-    <p style="margin-bottom:16px;">Contact information and campus locations for all KES buildings.</p>
+    <p style="margin-bottom:16px;color:#475569;line-height:1.5;">
+      Get complete contact information, campus addresses, and location details for all KES buildings 
+      including the Main Campus, Law College (Annex-1), and International Programs (Annex-2). 
+      Direct phone numbers, email addresses, and Google Maps links available.
+    </p>
 
-    <div class="building-card main-building-card">
-      <div class="building-icon-wrapper">
-        <div class="building-icon">🏫</div>
-        <div class="building-badge">Main Campus</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:4px;">🏫</div>
+        <div style="font-weight:700;font-size:0.8rem;color:#1e40af;">Main Campus</div>
+        <div style="font-size:0.7rem;color:#64748b;">Arts & Commerce</div>
       </div>
-      <div class="building-info">
-        <h3>Main / Old Building</h3>
-        <p class="building-name">KES' B.K. Shroff College of Arts & M.H. Shroff College of Commerce</p>
-        <div class="building-tags">
-          <span class="tag">Autonomous</span>
-          <span class="tag">NAAC A Grade</span>
-          <span class="tag">ISO 9001:2015</span>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📞</span>
-          <a href="tel:022-41914500" class="contact-link">022-41914500</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📧</span>
-          <a href="mailto:principal@kessc.edu.in" class="contact-link">principal@kessc.edu.in</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📧</span>
-          <a href="mailto:office@kessc.edu.in" class="contact-link">office@kessc.edu.in</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-icon">📍</span>
-          <span class="contact-text">KES Shroff College, Bhulabhai Desai Road, Kandivali (W), Mumbai - 400067</span>
-        </div>
-        <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://kessc.edu.in/" target="_blank" rel="noopener noreferrer">
-            <span>🌐</span> Official Website
-          </a>
-          <a class="building-btn btn-green" href="https://kessc.edu.in/contact/" target="_blank" rel="noopener noreferrer">
-            <span>📇</span> Contact Page
-          </a>
-          <a class="building-btn btn-red" href="https://maps.app.goo.gl/r9HXYaZhCKguju41A" target="_blank" rel="noopener noreferrer">
-            <span>🗺️</span> Google Maps
-          </a>
-        </div>
+      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:4px;">⚖️</div>
+        <div style="font-weight:700;font-size:0.8rem;color:#7c3aed;">Annex-1</div>
+        <div style="font-size:0.7rem;color:#64748b;">Law College</div>
+      </div>
+      <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:14px;padding:12px;text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:4px;">🌍</div>
+        <div style="font-weight:700;font-size:0.8rem;color:#0891b2;">Annex-2</div>
+        <div style="font-size:0.7rem;color:#64748b;">International</div>
       </div>
     </div>
 
-    <div class="building-card">
-      <div class="building-icon-wrapper">
-        <div class="building-icon">⚖️</div>
-        <div class="building-badge">Annex-1</div>
-      </div>
-      <div class="building-info">
-        <h3>KES Annex-1 (Law Building)</h3>
-        <p class="building-name">KES' Shri. Jayantilal H. Patel Law College</p>
-        <div class="building-tags">
-          <span class="tag">Law College</span>
-        </div>
-        <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/kfNDEEYYu7NnwiF77" target="_blank" rel="noopener noreferrer">
-            <span>🗺️</span> View on Google Maps
-          </a>
-        </div>
-      </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+      <span style="background:rgba(59,130,246,0.08);color:#1e40af;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">📞 022-41914500</span>
+      <span style="background:rgba(16,185,129,0.08);color:#059669;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">📧 office@kessc.edu.in</span>
+      <span style="background:rgba(239,68,68,0.08);color:#dc2626;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">📍 Kandivali (W), Mumbai</span>
     </div>
 
-    <div class="building-card">
-      <div class="building-icon-wrapper">
-        <div class="building-icon">🌍</div>
-        <div class="building-badge">Annex-2</div>
-      </div>
-      <div class="building-info">
-        <h3>KES Annex-2 (International Building)</h3>
-        <p class="building-name">KES International Junior College & International Programs</p>
-        <div class="building-tags">
-          <span class="tag">International</span>
-        </div>
-        <div class="building-actions">
-          <a class="building-btn btn-blue" href="https://maps.app.goo.gl/mxfYutgvzdxdfgCNA" target="_blank" rel="noopener noreferrer">
-            <span>🗺️</span> View on Google Maps
-          </a>
-        </div>
-      </div>
-    </div>
+    <a class="link btn-orange" href="college.html">🏛️ View Full College Details</a>
   </div>
 
-  <!-- COLLABORATION -->
+<!-- COLLABORATION -->
   <div class="card searchable reveal" id="collab">
     <h2>🤝 Collaboration</h2>
     <p>Want to collaborate with KES Updates? Reach out to us directly!</p>
@@ -2872,20 +2630,25 @@ body.dark .event-countdown.far {
   </div>
 
   <!-- POLICY -->
-  <div class="card reveal" id="our-policy">
-    <h2>📄 Public Disclaimer & Policy Notice</h2>
-    <p>Issued in the interest of transparency and legality, KES Updates operates under the following guidelines:</p>
-    <ol style="margin-left:20px;margin-top:12px;margin-bottom:12px;">
-      <li><strong>Independent Platform:</strong> KES Updates is a student-managed page and not an official body; references to the college are for identification only.</li>
-      <li><strong>Legal Compliance:</strong> Content is shared under Article 19(1)(a) of the Constitution of India, IT Act 2000, Digital Media Ethics, and applicable laws.</li>
-      <li><strong>Consent & Content Control:</strong> No content is published without free, informed consent; defamatory, unlawful, obscene, hateful, or privacy-violating material is strictly avoided.</li>
-      <li><strong>Collaborations:</strong> Mentions, reposts, or collaborations do not imply endorsement or legal association.</li>
-      <li><strong>Liability & Purpose:</strong> KES Updates disclaims liability for third-party views; content is shared in good faith for informational and recreational purposes.</li>
-    </ol>
-    <a class="btn-purple" href="https://www.instagram.com/p/DSUYS6ujFoW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 24px;border-radius:50px;text-decoration:none;margin-top:10px;color:white;">📜 Read the full KES Updates Policy</a>
+  <div class="card searchable reveal" id="our-policy">
+    <h2>📄 Policy & Disclaimer</h2>
+    <p style="margin-bottom:16px;color:#475569;line-height:1.5;">
+      KES Updates operates with full transparency and legal compliance. Our policy covers independence, 
+      consent, content control, collaborations, and liability. We are a student-managed platform — 
+      not an official college body — sharing information in good faith for students.
+    </p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+      <span style="background:rgba(59,130,246,0.08);color:#1e40af;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">✅ Independent Platform</span>
+      <span style="background:rgba(16,185,129,0.08);color:#059669;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">⚖️ Legal Compliance</span>
+      <span style="background:rgba(139,92,246,0.08);color:#7c3aed;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">🤝 Consent Based</span>
+      <span style="background:rgba(239,68,68,0.08);color:#dc2626;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">📢 Transparency</span>
+    </div>
+
+    <a class="link btn-purple" href="policy.html">📄 Read Full Policy</a>
   </div>
 
-  <!-- FEEDBACK FORM -->
+<!-- FEEDBACK FORM -->
   <div class="card searchable reveal" id="feedback">
     <h2>💬 Feedback Form</h2>
     <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">We value your feedback! Share your thoughts, suggestions, or report issues to help us improve KES Updates.</p>

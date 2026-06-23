@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KES Updates | Upcoming Events</title>
+<meta name="description" content="KES Updates — All upcoming academic events, exams, and vacations for KES Shroff College students.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H7KVLBY669');</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+
+body {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #e0f2fe 75%, #f0f9ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #1e293b;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(14,165,233,0.1) 0%, rgba(14,165,233,0.03) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1e293b 50%, #1e1b4b 70%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #f8fafc;
+}
+
+body.dark::before {
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.06) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 70%);
+}
+
+body.dark .card {
+  background: rgba(30,41,59,0.85);
+  border: 1px solid rgba(99,102,241,0.15);
+  color: #f8fafc;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+body.dark .card h2 { color: #93c5fd; }
+body.dark .card p { color: #cbd5e1; }
+body.dark header p { color: #94a3b8; }
+body.dark h1 { background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.dark nav { background: rgba(30,41,59,0.95); border-right: 1px solid rgba(99,102,241,0.15); backdrop-filter: blur(12px); }
+body.dark nav a { color: #f1f5f9; }
+body.dark .hamburger { background: rgba(30,41,59,0.9); color: white; border-color: rgba(99,102,241,0.2); }
+body.dark footer { color: #94a3b8; }
+body.dark .theme-toggle { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.2); }
+body.dark .back-link { color: #60a5fa; }
+body.dark .back-link:hover { color: #93c5fd; }
+body.dark .event-item { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.15); }
+body.dark .event-name { color: #93c5fd; }
+body.dark .event-date { color: #94a3b8; }
+body.dark .event-countdown { background: rgba(239,68,68,0.15); }
+body.dark .event-countdown.soon { background: rgba(245,158,11,0.15); }
+body.dark .event-countdown.far { background: rgba(16,185,129,0.15); }
+body.dark .info-box { background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.15); }
+body.dark .info-box span { color: #94a3b8; }
+
+header {
+  text-align: center;
+  padding: 70px 20px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 60px;
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 10px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+header p {
+  opacity: 0.85;
+  margin-top: 8px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.btn-red    { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
+.btn-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+.btn-green  { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+.btn-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
+.btn-orange { background: linear-gradient(135deg, #f97316, #ea580c) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(249,115,22,0.3); }
+.btn-cyan   { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(6,182,212,0.3); }
+
+.btn, .link, nav button {
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn:hover, .link:hover, nav button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(30,58,138,0.06), 0 1px 3px rgba(30,58,138,0.04);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30,58,138,0.1), 0 4px 12px rgba(30,58,138,0.06);
+  border-color: rgba(59,130,246,0.25);
+}
+
+.card h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.card p { color: #334155; line-height: 1.5; }
+
+.link {
+  display: block;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: white !important;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  padding: 80px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1002;
+  overflow-y: auto;
+  border-right: 1px solid rgba(59,130,246,0.1);
+  box-shadow: 4px 0 30px rgba(30,58,138,0.08);
+  backdrop-filter: blur(12px);
+}
+
+nav.active { left: 0; }
+
+nav a {
+  color: #1e293b;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 50px;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+nav a:hover {
+  transform: translateX(5px);
+  background: rgba(37,99,235,0.1);
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: none;
+  z-index: 1001;
+}
+
+#overlay.active { display: block; }
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1003;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.2s;
+  color: #1e40af;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59,130,246,0.15);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  border: 1px solid rgba(59,130,246,0.15);
+  backdrop-filter: blur(8px);
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 4px 8px;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.theme-toggle button:hover { background: rgba(59,130,246,0.1); transform: scale(1.15); }
+.theme-toggle button.active-theme { background: rgba(59,130,246,0.15); }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(59,130,246,0.3);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  color: #475569;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 60px;
+  font-weight: 500;
+  z-index: 2000;
+  animation: fadeInUp 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.card.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  header { padding: 55px 15px 25px; }
+  .logo { font-size: 50px; }
+  h1 { font-size: 1.8rem; }
+  .container { padding: 15px; }
+  .card { padding: 18px; }
+  .card h2 { font-size: 1.3rem; }
+  .btn, .link { padding: 10px 18px; font-size: 0.85rem; }
+  .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
+  .theme-toggle button { font-size: 17px; padding: 3px 6px; }
+}
+
+@media (min-width: 769px) {
+  .container { padding-bottom: 20px; }
+}
+
+/* Events List */
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(59,130,246,0.12);
+  border-radius: 16px;
+  padding: 14px 18px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 16px 0 0 16px;
+}
+
+.event-item[data-type="exam"]::before { background: linear-gradient(180deg, #ef4444, #dc2626); }
+.event-item[data-type="vacation"]::before { background: linear-gradient(180deg, #10b981, #059669); }
+.event-item[data-type="event"]::before { background: linear-gradient(180deg, #3b82f6, #2563eb); }
+
+.event-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.25);
+}
+
+.event-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.event-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1e40af;
+  margin-bottom: 4px;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.event-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.event-tag.degree {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.event-date {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.event-countdown {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #dc2626;
+  background: rgba(239,68,68,0.08);
+  padding: 4px 10px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.event-countdown.soon {
+  color: #d97706;
+  background: rgba(245,158,11,0.1);
+}
+
+.event-countdown.far {
+  color: #059669;
+  background: rgba(16,185,129,0.1);
+}
+
+.event-status {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.event-status.upcoming {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+  border: 1px solid rgba(59,130,246,0.2);
+}
+
+.event-status.exam {
+  background: linear-gradient(135deg, #fee2e2, #fecaca);
+  color: #991b1b;
+  border: 1px solid rgba(239,68,68,0.2);
+  animation: pulse 2s infinite;
+}
+
+.event-status.vacation {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  color: #065f46;
+  border: 1px solid rgba(16,185,129,0.2);
+}
+
+.info-box {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
+  border: 1px solid rgba(59,130,246,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-box span {
+  font-size: 0.8rem;
+  color: #475569;
+  font-weight: 500;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  color: #1d4ed8;
+  transform: translateX(-4px);
+}
+
+a:focus-visible, button:focus-visible, .hamburger:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark select option { background: #1e293b; color: white; }
+
+</style>
+<base target="_blank">
+</head>
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMenu();}" aria-label="Toggle Menu" aria-expanded="false" aria-controls="sidebar" role="button" tabindex="0">☰</div>
+
+<div class="theme-toggle">
+  <button id="btn-light" onclick="setTheme('light')" title="Light Mode">☀️</button>
+  <button id="btn-dark" onclick="setTheme('dark')" title="Dark Mode">🌙</button>
+</div>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<nav id="sidebar">
+  <a href="index.html" class="btn-blue">🏠 Back to Home</a>
+  <a href="events.html" class="btn-orange">📅 Upcoming Events</a>
+</nav>
+
+<header>
+  <div class="logo">📅</div>
+  <h1>Upcoming Events</h1>
+  <p>Academic Calendar 2026-27 — All Events & Exams</p>
+</header>
+
+<div class="container">
+
+  <div style="margin-bottom:20px;">
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div class="card reveal" id="upcoming-events">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap;">
+      <span style="font-size:1.6rem;flex-shrink:0;">📅</span>
+      <h2 style="margin:0;">All Upcoming Events</h2>
+      <span style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;font-size:0.6rem;font-weight:800;padding:2px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;">Live</span>
+    </div>
+    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">Academic Calendar 2026-27 — Semester I & III (DEGREE)</p>
+
+    <div class="events-list">
+      <!-- Event 1: Unit Test Term I -->
+      <div class="event-item" data-date="2026-08-18" data-type="exam">
+        <div class="event-icon" style="flex-shrink:0;">📝</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Unit Test for Term I <span class="event-tag degree" style="display:inline-block;margin-top:2px;">DEGREE</span></div>
+          <div class="event-date">📅 August 18 - 21, 2026</div>
+          <div class="event-countdown" id="event-1-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
+      </div>
+
+      <!-- Event 2: Ganapati Vacation -->
+      <div class="event-item" data-date="2026-08-27" data-type="vacation">
+        <div class="event-icon" style="flex-shrink:0;">🎉</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Ganapati Vacation</div>
+          <div class="event-date">📅 August 27 - 31, 2026</div>
+          <div class="event-countdown" id="event-2-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
+      </div>
+
+      <!-- Event 3: Semester Exam -->
+      <div class="event-item" data-date="2026-10-08" data-type="exam">
+        <div class="event-icon" style="flex-shrink:0;">📊</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.85rem;">Semester Exam (Sem I, III, V & PG I, III)</div>
+          <div class="event-date">📅 October 8 - 17, 2026</div>
+          <div class="event-countdown" id="event-3-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status exam" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">EXAM</div>
+      </div>
+
+      <!-- Event 4: Diwali Vacation -->
+      <div class="event-item" data-date="2026-10-20" data-type="vacation">
+        <div class="event-icon" style="flex-shrink:0;">🪔</div>
+        <div class="event-details" style="min-width:0;overflow:hidden;">
+          <div class="event-name" style="word-wrap:break-word;overflow-wrap:break-word;font-size:0.9rem;">Diwali Vacation</div>
+          <div class="event-date">📅 October 20 - November 5, 2026</div>
+          <div class="event-countdown" id="event-4-cd">⏳ Loading...</div>
+        </div>
+        <div class="event-status vacation" style="flex-shrink:0;font-size:0.6rem;padding:4px 8px;">VACATION</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <span style="font-size:1.2rem;flex-shrink:0;">ℹ️</span>
+      <span style="font-size:0.8rem;color:#475569;font-weight:500;line-height:1.4;word-wrap:break-word;">Dates are subject to change as per official timetable. Always check notices for latest updates.</span>
+    </div>
+  </div>
+
+
+
+  <!-- FEEDBACK FORM -->
+  <div class="card searchable reveal" id="feedback">
+    <h2>💬 Feedback Form</h2>
+    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">We value your feedback! Share your thoughts, suggestions, or report issues to help us improve KES Updates.</p>
+    <form action="https://formspree.io/f/xaqzreol" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <label for="feedbackName" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Name</label>
+          <input type="text" id="feedbackName" name="name" placeholder="Enter your name" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+        </div>
+        <div>
+          <label for="feedbackEmail" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Email Address</label>
+          <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+        </div>
+      </div>
+      <div>
+        <label for="feedbackCategory" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Feedback Category</label>
+        <select id="feedbackCategory" name="category" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;cursor:pointer;font-family:'Poppins',sans-serif;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+          <option value="" disabled selected>Select a category</option>
+          <option value="suggestion">💡 Suggestion</option>
+          <option value="bug">🐛 Bug Report</option>
+          <option value="feature">✨ Feature Request</option>
+          <option value="content">📄 Content Update</option>
+          <option value="other">📝 Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="feedbackMessage" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Message</label>
+        <textarea id="feedbackMessage" name="message" rows="5" placeholder="Tell us what you think..." required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:500;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;resize:vertical;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'"></textarea>
+      </div>
+      <button type="submit" class="calculate-btn-premium" style="margin-bottom:0;">
+        <div class="btn-glow"></div>
+        <span class="btn-icon">📨</span>
+        <span class="btn-text">Submit Feedback</span>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div style="font-weight:700;font-size:1.1rem;margin-bottom:4px;">🎓 KES Updates</div>
+  <div style="font-size:0.85rem;opacity:0.8;">Independent Student Portal for KES Shroff College</div>
+  <div style="font-size:0.75rem;opacity:0.6;margin-top:4px;">© 2026 KES Updates | Made with 💙 for Students</div>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+
+function toggleMenu() {
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  const isOpen = sidebar.classList.contains("active");
+  document.body.style.overflow = isOpen ? "hidden" : "";
+  hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function handleNavClick(e, targetId) {
+  e.preventDefault();
+  toggleMenu();
+  const target = document.querySelector(targetId);
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleMenu();
+});
+
+function setTheme(mode) {
+  document.body.classList.remove("light", "dark");
+  if (mode === 'dark') document.body.classList.add("dark");
+  localStorage.setItem("theme", mode);
+  document.getElementById('btn-light').classList.toggle('active-theme', mode === 'light');
+  document.getElementById('btn-dark').classList.toggle('active-theme', mode === 'dark');
+  showToast(mode === 'dark' ? '🌙 Dark mode' : '☀️ Light mode', 1500);
+}
+
+function showToast(message, duration = 2000) {
+  let t = document.querySelector('.toast');
+  if (t) t.remove();
+  t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = message;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), duration);
+}
+
+window.addEventListener('scroll', function() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+  const btn = document.getElementById('backToTop');
+  if (scrollTop > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+window.onload = () => {
+  const saved = localStorage.getItem("theme") || "light";
+  setTheme(saved);
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.card.reveal').forEach(card => revealObserver.observe(card));
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const linkText = link.innerText.trim().substring(0, 50) || link.getAttribute('href');
+  const linkUrl = link.getAttribute('href');
+  if (typeof gtag === 'function') {
+    gtag('event', 'link_click', {
+      link_text: linkText,
+      link_url: linkUrl,
+      page_location: window.location.href
+    });
+  }
+});
+
+// Upcoming Events Countdown
+function updateEventsCountdown() {
+  const events = [
+    { id: 'event-1-cd', date: '2026-08-18', name: 'Unit Test' },
+    { id: 'event-2-cd', date: '2026-08-27', name: 'Ganapati Vacation' },
+    { id: 'event-3-cd', date: '2026-10-08', name: 'Semester Exam' },
+    { id: 'event-4-cd', date: '2026-10-20', name: 'Diwali Vacation' }
+  ];
+
+  const now = new Date();
+
+  events.forEach(event => {
+    const el = document.getElementById(event.id);
+    if (!el) return;
+
+    const eventDate = new Date(event.date + 'T09:00:00');
+    const diff = eventDate - now;
+
+    if (diff <= 0) {
+      el.textContent = '✅ Started / Completed';
+      el.className = 'event-countdown far';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    if (days <= 1) {
+      el.textContent = `🔴 ${hours}h left - VERY SOON!`;
+      el.className = 'event-countdown';
+    } else if (days <= 7) {
+      el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
+      el.className = 'event-countdown soon';
+    } else {
+      el.textContent = `📅 ${days} days left`;
+      el.className = 'event-countdown far';
+    }
+  });
+}
+
+setInterval(updateEventsCountdown, 60000);
+updateEventsCountdown();
+</script>
+
+</body>
+</html>

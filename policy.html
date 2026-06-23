@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KES Updates | Policy</title>
+<meta name="description" content="KES Updates — Public Disclaimer, Policy Notice, and Legal Guidelines for the student portal.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H7KVLBY669');</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+
+body {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #e0f2fe 75%, #f0f9ff 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #1e293b;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(14,165,233,0.1) 0%, rgba(14,165,233,0.03) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1e293b 50%, #1e1b4b 70%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #f8fafc;
+}
+
+body.dark::before {
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.06) 45%, transparent 80%),
+    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.04) 45%, transparent 80%),
+    radial-gradient(ellipse 50% 35% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 70%);
+}
+
+body.dark .card {
+  background: rgba(30,41,59,0.85);
+  border: 1px solid rgba(99,102,241,0.15);
+  color: #f8fafc;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
+}
+body.dark .card h2 { color: #93c5fd; }
+body.dark .card p { color: #cbd5e1; }
+body.dark .card li { color: #cbd5e1; }
+body.dark header p { color: #94a3b8; }
+body.dark h1 { background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+body.dark nav { background: rgba(30,41,59,0.95); border-right: 1px solid rgba(99,102,241,0.15); backdrop-filter: blur(12px); }
+body.dark nav a { color: #f1f5f9; }
+body.dark .hamburger { background: rgba(30,41,59,0.9); color: white; border-color: rgba(99,102,241,0.2); }
+body.dark footer { color: #94a3b8; }
+body.dark .theme-toggle { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.2); }
+body.dark .back-link { color: #60a5fa; }
+body.dark .back-link:hover { color: #93c5fd; }
+body.dark .policy-number {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+}
+body.dark .policy-item { border-bottom-color: rgba(255,255,255,0.08); }
+
+header {
+  text-align: center;
+  padding: 70px 20px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  font-size: 60px;
+  animation: float 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 10px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+header p {
+  opacity: 0.85;
+  margin-top: 8px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.btn-red    { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
+.btn-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
+.btn-green  { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
+.btn-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
+.btn-orange { background: linear-gradient(135deg, #f97316, #ea580c) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(249,115,22,0.3); }
+.btn-cyan   { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(6,182,212,0.3); }
+
+.btn, .link, nav button {
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn:hover, .link:hover, nav button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 28px;
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(30,58,138,0.06), 0 1px 3px rgba(30,58,138,0.04);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30,58,138,0.1), 0 4px 12px rgba(30,58,138,0.06);
+  border-color: rgba(59,130,246,0.25);
+}
+
+.card h2 {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  color: #1e40af;
+  font-weight: 700;
+}
+
+.card p { color: #334155; line-height: 1.5; }
+.card li { color: #334155; line-height: 1.6; }
+
+.link {
+  display: block;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: white !important;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 280px;
+  height: 100%;
+  background: rgba(255,255,255,0.95);
+  padding: 80px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1002;
+  overflow-y: auto;
+  border-right: 1px solid rgba(59,130,246,0.1);
+  box-shadow: 4px 0 30px rgba(30,58,138,0.08);
+  backdrop-filter: blur(12px);
+}
+
+nav.active { left: 0; }
+
+nav a {
+  color: #1e293b;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 50px;
+  transition: 0.2s;
+  font-weight: 500;
+}
+
+nav a:hover {
+  transform: translateX(5px);
+  background: rgba(37,99,235,0.1);
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: none;
+  z-index: 1001;
+}
+
+#overlay.active { display: block; }
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1003;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.2s;
+  color: #1e40af;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59,130,246,0.15);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
+  border: 1px solid rgba(59,130,246,0.15);
+  backdrop-filter: blur(8px);
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 4px 8px;
+  border-radius: 50px;
+  transition: all 0.2s;
+}
+
+.theme-toggle button:hover { background: rgba(59,130,246,0.1); transform: scale(1.15); }
+.theme-toggle button.active-theme { background: rgba(59,130,246,0.15); }
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(59,130,246,0.3);
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 13px;
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  color: #475569;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 60px;
+  font-weight: 500;
+  z-index: 2000;
+  animation: fadeInUp 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.card.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  header { padding: 55px 15px 25px; }
+  .logo { font-size: 50px; }
+  h1 { font-size: 1.8rem; }
+  .container { padding: 15px; }
+  .card { padding: 18px; }
+  .card h2 { font-size: 1.3rem; }
+  .btn, .link { padding: 10px 18px; font-size: 0.85rem; }
+  .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
+  .theme-toggle button { font-size: 17px; padding: 3px 6px; }
+}
+
+@media (min-width: 769px) {
+  .container { padding-bottom: 20px; }
+}
+
+/* Policy Styles */
+.policy-intro {
+  background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(139,92,246,0.04));
+  border: 1px solid rgba(59,130,246,0.15);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.policy-intro p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+body.dark .policy-intro {
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.06));
+  border-color: rgba(99,102,241,0.2);
+}
+
+body.dark .policy-intro p {
+  color: #94a3b8;
+}
+
+.policy-list {
+  list-style: none;
+  counter-reset: policy-counter;
+}
+
+.policy-item {
+  display: flex;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(59,130,246,0.1);
+}
+
+.policy-item:last-child {
+  border-bottom: none;
+}
+
+.policy-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+
+.policy-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 6px;
+}
+
+body.dark .policy-content h3 {
+  color: #93c5fd;
+}
+
+.policy-content p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+body.dark .policy-content p {
+  color: #cbd5e1;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.back-link:hover {
+  color: #1d4ed8;
+  transform: translateX(-4px);
+}
+
+a:focus-visible, button:focus-visible, .hamburger:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
+body.dark select option { background: #1e293b; color: white; }
+
+</style>
+</head>
+
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMenu();}" aria-label="Toggle Menu" aria-expanded="false" aria-controls="sidebar" role="button" tabindex="0">☰</div>
+
+<div class="theme-toggle">
+  <button id="btn-light" onclick="setTheme('light')" title="Light Mode">☀️</button>
+  <button id="btn-dark" onclick="setTheme('dark')" title="Dark Mode">🌙</button>
+</div>
+
+<div id="overlay" onclick="toggleMenu()"></div>
+
+<nav id="sidebar">
+  <a href="index.html" class="btn-blue">🏠 Back to Home</a>
+  <a href="policy.html#our-policy" class="btn-red" onclick="handleNavClick(event, '#our-policy')">📄 Policy</a>
+</nav>
+
+<header>
+  <div class="logo">📄</div>
+  <h1>Policy & Disclaimer</h1>
+  <p>Legal guidelines, transparency, and operating principles</p>
+</header>
+
+<div class="container">
+
+  <div style="margin-bottom:20px;">
+    <a href="index.html" class="back-link">← Back to Home</a>
+  </div>
+
+  <!-- POLICY -->
+  <div class="card reveal" id="our-policy">
+    <h2>📄 Public Disclaimer & Policy Notice</h2>
+
+    <div class="policy-intro">
+      <p>
+        Issued in the interest of transparency and legality, KES Updates operates under the following guidelines. 
+        This policy ensures that all students, visitors, and collaborators understand the nature, scope, and limitations of this platform.
+      </p>
+    </div>
+
+    <ol class="policy-list">
+      <li class="policy-item">
+        <span class="policy-number">1</span>
+        <div class="policy-content">
+          <h3>Independent Platform</h3>
+          <p>KES Updates is a student-managed page and not an official body; references to the college are for identification only.</p>
+        </div>
+      </li>
+      <li class="policy-item">
+        <span class="policy-number">2</span>
+        <div class="policy-content">
+          <h3>Legal Compliance</h3>
+          <p>Content is shared under Article 19(1)(a) of the Constitution of India, IT Act 2000, Digital Media Ethics, and applicable laws.</p>
+        </div>
+      </li>
+      <li class="policy-item">
+        <span class="policy-number">3</span>
+        <div class="policy-content">
+          <h3>Consent & Content Control</h3>
+          <p>No content is published without free, informed consent; defamatory, unlawful, obscene, hateful, or privacy-violating material is strictly avoided.</p>
+        </div>
+      </li>
+      <li class="policy-item">
+        <span class="policy-number">4</span>
+        <div class="policy-content">
+          <h3>Collaborations</h3>
+          <p>Mentions, reposts, or collaborations do not imply endorsement or legal association.</p>
+        </div>
+      </li>
+      <li class="policy-item">
+        <span class="policy-number">5</span>
+        <div class="policy-content">
+          <h3>Liability & Purpose</h3>
+          <p>KES Updates disclaims liability for third-party views; content is shared in good faith for informational and recreational purposes.</p>
+        </div>
+      </li>
+    </ol>
+
+    <a class="btn-purple" href="https://www.instagram.com/p/DSUYS6ujFoW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 24px;border-radius:50px;text-decoration:none;margin-top:20px;color:white;">📜 Read the full KES Updates Policy on Instagram</a>
+  </div>
+
+
+
+  <!-- FEEDBACK FORM -->
+  <div class="card searchable reveal" id="feedback">
+    <h2>💬 Feedback Form</h2>
+    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">We value your feedback! Share your thoughts, suggestions, or report issues to help us improve KES Updates.</p>
+    <form action="https://formspree.io/f/xaqzreol" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <label for="feedbackName" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Name</label>
+          <input type="text" id="feedbackName" name="name" placeholder="Enter your name" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+        </div>
+        <div>
+          <label for="feedbackEmail" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Email Address</label>
+          <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+        </div>
+      </div>
+      <div>
+        <label for="feedbackCategory" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Feedback Category</label>
+        <select id="feedbackCategory" name="category" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;cursor:pointer;font-family:'Poppins',sans-serif;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+          <option value="" disabled selected>Select a category</option>
+          <option value="suggestion">💡 Suggestion</option>
+          <option value="bug">🐛 Bug Report</option>
+          <option value="feature">✨ Feature Request</option>
+          <option value="content">📄 Content Update</option>
+          <option value="other">📝 Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="feedbackMessage" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Message</label>
+        <textarea id="feedbackMessage" name="message" rows="5" placeholder="Tell us what you think..." required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:500;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;resize:vertical;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'"></textarea>
+      </div>
+      <button type="submit" class="calculate-btn-premium" style="margin-bottom:0;">
+        <div class="btn-glow"></div>
+        <span class="btn-icon">📨</span>
+        <span class="btn-text">Submit Feedback</span>
+        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div style="font-weight:700;font-size:1.1rem;margin-bottom:4px;">🎓 KES Updates</div>
+  <div style="font-size:0.85rem;opacity:0.8;">Independent Student Portal for KES Shroff College</div>
+  <div style="font-size:0.75rem;opacity:0.6;margin-top:4px;">© 2026 KES Updates | Made with 💙 for Students</div>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+
+function toggleMenu() {
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  const isOpen = sidebar.classList.contains("active");
+  document.body.style.overflow = isOpen ? "hidden" : "";
+  hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function handleNavClick(e, targetId) {
+  e.preventDefault();
+  toggleMenu();
+  const target = document.querySelector(targetId);
+  if (target) {
+    setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleMenu();
+});
+
+function setTheme(mode) {
+  document.body.classList.remove("light", "dark");
+  if (mode === 'dark') document.body.classList.add("dark");
+  localStorage.setItem("theme", mode);
+  document.getElementById('btn-light').classList.toggle('active-theme', mode === 'light');
+  document.getElementById('btn-dark').classList.toggle('active-theme', mode === 'dark');
+  showToast(mode === 'dark' ? '🌙 Dark mode' : '☀️ Light mode', 1500);
+}
+
+function showToast(message, duration = 2000) {
+  let t = document.querySelector('.toast');
+  if (t) t.remove();
+  t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = message;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), duration);
+}
+
+window.addEventListener('scroll', function() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = progress + '%';
+  const btn = document.getElementById('backToTop');
+  if (scrollTop > 300) btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+window.onload = () => {
+  const saved = localStorage.getItem("theme") || "light";
+  setTheme(saved);
+};
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.card.reveal').forEach(card => revealObserver.observe(card));
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a');
+  if (!link) return;
+  const linkText = link.innerText.trim().substring(0, 50) || link.getAttribute('href');
+  const linkUrl = link.getAttribute('href');
+  if (typeof gtag === 'function') {
+    gtag('event', 'link_click', {
+      link_text: linkText,
+      link_url: linkUrl,
+      page_location: window.location.href
+    });
+  }
+});
+</script>
+
+</body>
+</html>
