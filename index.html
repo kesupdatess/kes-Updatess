@@ -2327,7 +2327,6 @@ body.dark .event-countdown.far {
 </style>
 <base target="_blank">
 <base target="_blank">
-<base target="_blank">
 </head>
 
 <body>
@@ -2352,7 +2351,7 @@ body.dark .event-countdown.far {
   <a href="#exam-countdown" class="btn-red" onclick="handleNavClick(event, '#exam-countdown')">⏰ Exam Countdown</a>
   <a href="#upcoming-events" class="btn-orange" onclick="handleNavClick(event, '#upcoming-events')">📅 Upcoming Events</a>
   <a href="#papers" class="btn-purple" onclick="handleNavClick(event, '#papers')">📄 Question Papers</a>
-  <a href="events.html" class="btn-orange">📅 Upcoming Events</a>
+  <a href="#all-events" class="btn-orange" onclick="handleNavClick(event,'#all-events')">📅 All Events</a>
   <a href="college.html" class="btn-orange">🏛️ College Details</a>
   <a href="tools.html" class="btn-blue">🧮 Tools</a>
   <a href="#erp" class="btn-orange" onclick="handleNavClick(event, '#erp')">💳 ERP Portal</a>
@@ -2488,13 +2487,13 @@ body.dark .event-countdown.far {
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:1rem;color:#1e40af;line-height:1.3;">Unit Test for Term I <span style="font-size:0.75rem;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;padding:2px 8px;border-radius:50px;margin-left:6px;">DEGREE</span></div>
           <div style="font-size:0.82rem;color:#64748b;font-weight:500;margin-top:4px;">📅 August 18 - 21, 2026</div>
-          <div style="font-size:0.78rem;font-weight:700;color:#dc2626;background:rgba(239,68,68,0.08);padding:4px 10px;border-radius:50px;display:inline-block;margin-top:6px;" id="home-event-cd">⏳ Loading...</div>
+          <div style="font-size:0.78rem;font-weight:700;color:#dc2626;background:rgba(239,68,68,0.08);padding:4px 10px;border-radius:50px;display:inline-block;margin-top:6px;" id="home-event-cd">⏳ Calculating...</div>
         </div>
         <div style="background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b;border:1px solid rgba(239,68,68,0.2);font-size:0.6rem;font-weight:800;padding:4px 8px;border-radius:50px;text-transform:uppercase;letter-spacing:1px;flex-shrink:0;animation:pulse 2s infinite;">EXAM</div>
       </div>
     </div>
 
-    <a class="link btn-orange" href="events.html">📅 View All Upcoming Events</a>
+    <a class="link btn-orange" href="#all-events" onclick="handleNavClick(event,'#all-events')">📅 View All Upcoming Events</a>
   </div>
 
 <!-- PAPERS -->
@@ -2519,18 +2518,20 @@ body.dark .event-countdown.far {
       and know your exact fees without visiting the office. Save time, stay informed!
     </p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+    <a href="tools.html" style="text-decoration:none;color:inherit;display:block;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;cursor:pointer;">
+      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(59,130,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="font-size:1.5rem;margin-bottom:4px;">🧮</div>
         <div style="font-weight:700;font-size:0.85rem;color:#1e40af;margin-bottom:2px;">Attendance Calculator</div>
         <div style="font-size:0.75rem;color:#64748b;">Check %, track progress, know how many lectures needed</div>
       </div>
-      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:14px;padding:12px;text-align:center;">
+      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(16,185,129,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="font-size:1.5rem;margin-bottom:4px;">💰</div>
         <div style="font-weight:700;font-size:0.85rem;color:#059669;margin-bottom:2px;">Fees Calculator</div>
         <div style="font-size:0.75rem;color:#64748b;">Select course & year to see total fees instantly</div>
       </div>
     </div>
+    </a>
 
     <a class="link btn-blue" href="tools.html">🚀 Open Student Tools</a>
   </div>
@@ -2565,23 +2566,25 @@ body.dark .event-countdown.far {
       Direct phone numbers, email addresses, and Google Maps links available.
     </p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
-      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+    <a href="college.html" style="text-decoration:none;color:inherit;display:block;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;cursor:pointer;">
+      <div style="background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(59,130,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="font-size:1.8rem;margin-bottom:4px;">🏫</div>
         <div style="font-weight:700;font-size:0.8rem;color:#1e40af;">Main Campus</div>
         <div style="font-size:0.7rem;color:#64748b;">Arts & Commerce</div>
       </div>
-      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:14px;padding:12px;text-align:center;">
+      <div style="background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(139,92,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="font-size:1.8rem;margin-bottom:4px;">⚖️</div>
         <div style="font-weight:700;font-size:0.8rem;color:#7c3aed;">Annex-1</div>
         <div style="font-size:0.7rem;color:#64748b;">Law College</div>
       </div>
-      <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:14px;padding:12px;text-align:center;">
+      <div style="background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:14px;padding:12px;text-align:center;transition:all 0.3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 25px rgba(6,182,212,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
         <div style="font-size:1.8rem;margin-bottom:4px;">🌍</div>
         <div style="font-weight:700;font-size:0.8rem;color:#0891b2;">Annex-2</div>
         <div style="font-size:0.7rem;color:#64748b;">International</div>
       </div>
     </div>
+    </a>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
       <span style="background:rgba(59,130,246,0.08);color:#1e40af;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:50px;">📞 022-41914500</span>
@@ -2646,6 +2649,57 @@ body.dark .event-countdown.far {
     </div>
 
     <a class="link btn-purple" href="policy.html">📄 Read Full Policy</a>
+  </div>
+
+
+  <!-- ALL EVENTS SECTION (same page) -->
+  <div class="card searchable reveal" id="all-events">
+    <h2>📅 All Upcoming Events</h2>
+    <p style="margin-bottom:14px;color:#475569;line-height:1.5;">Complete list of academic events, exams, and vacations for the year.</p>
+
+    <div class="events-list">
+      <div class="event-item" data-type="exam">
+        <div class="event-icon">📝</div>
+        <div class="event-details">
+          <div class="event-name">Unit Test for Term I <span class="event-tag degree">DEGREE</span></div>
+          <div class="event-date">📅 August 18 - 21, 2026</div>
+          <div class="event-countdown" id="event-1-cd">⏳ Calculating...</div>
+        </div>
+        <div class="event-status exam">EXAM</div>
+      </div>
+
+      <div class="event-item" data-type="vacation">
+        <div class="event-icon">🎉</div>
+        <div class="event-details">
+          <div class="event-name">Ganapati Vacation</div>
+          <div class="event-date">📅 August 27 - 31, 2026</div>
+          <div class="event-countdown" id="event-2-cd">⏳ Calculating...</div>
+        </div>
+        <div class="event-status vacation">VACATION</div>
+      </div>
+
+      <div class="event-item" data-type="exam">
+        <div class="event-icon">📊</div>
+        <div class="event-details">
+          <div class="event-name">Semester Exam (Sem I, III, V & PG I, III)</div>
+          <div class="event-date">📅 October 8 - 17, 2026</div>
+          <div class="event-countdown" id="event-3-cd">⏳ Calculating...</div>
+        </div>
+        <div class="event-status exam">EXAM</div>
+      </div>
+
+      <div class="event-item" data-type="vacation">
+        <div class="event-icon">🪔</div>
+        <div class="event-details">
+          <div class="event-name">Diwali Vacation</div>
+          <div class="event-date">📅 October 20 - November 5, 2026</div>
+          <div class="event-countdown" id="event-4-cd">⏳ Calculating...</div>
+        </div>
+        <div class="event-status vacation">VACATION</div>
+      </div>
+    </div>
+
+    <p style="margin-top:16px;font-size:0.85rem;color:#94a3b8;text-align:center;">ℹ️ Dates are subject to change as per official timetable. Always check notices for latest updates.</p>
   </div>
 
 <!-- FEEDBACK FORM -->
@@ -3010,9 +3064,10 @@ function updateEventsCountdown() {
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
     if (days <= 1) {
-      el.textContent = `🔴 ${hours}h left - VERY SOON!`;
+      el.textContent = `🔴 ${days}d ${hours}h ${minutes}m left - VERY SOON!`;
       el.className = 'event-countdown';
     } else if (days <= 7) {
       el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
@@ -3024,7 +3079,7 @@ function updateEventsCountdown() {
   });
 }
 
-setInterval(updateEventsCountdown, 60000);
+setInterval(updateEventsCountdown, 1000);
 updateEventsCountdown();
 
 // Scrollspy: highlight current section's nav link
