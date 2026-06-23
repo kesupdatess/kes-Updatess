@@ -2327,6 +2327,7 @@ body.dark .event-countdown.far {
 </style>
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
@@ -2369,7 +2370,7 @@ body.dark .event-countdown.far {
 <header>
   <div class="logo">🎓</div>
   <h1>KES Updates</h1>
-  <p>Notices • Student Support • Academic Resources</p>
+  <p>Independent Student Portal</p>
   <a class="btn btn-red instagram-btn" href="https://instagram.com/kes_updatess" target="_blank" rel="noopener noreferrer">
   <svg class="instagram-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
@@ -2768,7 +2769,11 @@ function toggleMenu() {
 // Smooth scroll + close menu for nav links
 function handleNavClick(e, targetId) {
   e.preventDefault();
-  toggleMenu();
+  // Explicitly close menu instead of toggle
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.style.overflow = "";
+  hamburgerBtn.setAttribute("aria-expanded", "false");
   const target = document.querySelector(targetId);
   if (target) {
     setTimeout(() => {
