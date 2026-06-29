@@ -3,1360 +3,1222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KES Updates | Tools</title>
-<meta name="description" content="KES Updates — Attendance calculator and fees calculator for KES students.">
+<title>Student Tools | KES Updates</title>
+<meta name="description" content="Attendance Calculator & Fees Calculator for KES students.">
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H7KVLBY669');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H7KVLBY669');
+</script>
+
+<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-body {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #e0f2fe 75%, #f0f9ff 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  color: #1e293b;
-  min-height: 100vh;
-  transition: background 0.3s, color 0.3s;
-  position: relative;
+<style>
+/* ============ VARIABLES ============ */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --primary-light: #dbeafe;
+  --primary-bg: #eff6ff;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --shadow: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --success: #059669;
+  --danger: #dc2626;
+  --warning: #d97706;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body.dark {
+  --primary: #60a5fa;
+  --primary-dark: #93c5fd;
+  --primary-light: #1e3a8a;
+  --primary-bg: #1e293b;
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border: #334155;
+  --border-hover: #475569;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  transition: background 0.25s, color 0.25s;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  padding-bottom: 100px;
 }
 
 body::before {
   content: '';
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background:
-    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.04) 45%, transparent 80%),
-    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(14,165,233,0.1) 0%, rgba(14,165,233,0.03) 45%, transparent 80%),
-    radial-gradient(ellipse 50% 35% at 80% 50%, rgba(99,102,241,0.06) 0%, transparent 70%);
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 10%, rgba(37,99,235,0.04) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(37,99,235,0.03) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
 }
 
-body.dark {
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 30%, #1e293b 50%, #1e1b4b 70%, #0f172a 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
-  color: #f8fafc;
-}
-
 body.dark::before {
-  background:
-    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.06) 45%, transparent 80%),
-    radial-gradient(ellipse 65% 45% at 50% 110%, rgba(56,189,248,0.12) 0%, rgba(56,189,248,0.04) 45%, transparent 80%),
-    radial-gradient(ellipse 50% 35% at 20% 50%, rgba(139,92,246,0.08) 0%, transparent 70%);
-}
-
-body.dark .card {
-  background: rgba(30,41,59,0.85);
-  border: 1px solid rgba(99,102,241,0.15);
-  color: #f8fafc;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.15);
-  backdrop-filter: blur(10px);
-}
-body.dark .card h2 { color: #93c5fd; }
-body.dark .card p { color: #cbd5e1; }
-body.dark input { background: #1e293b; border: 1px solid #475569; color: white; }
-body.dark header p { color: #94a3b8; }
-body.dark h1 { background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
-body.dark nav { background: rgba(30,41,59,0.95); border-right: 1px solid rgba(99,102,241,0.15); backdrop-filter: blur(12px); }
-body.dark nav a { color: #f1f5f9; }
-body.dark .hamburger { background: rgba(30,41,59,0.9); color: white; border-color: rgba(99,102,241,0.2); }
-body.dark footer { color: #94a3b8; }
-body.dark .theme-toggle { background: rgba(30,41,59,0.9); border-color: rgba(99,102,241,0.2); }
-body.dark .attendance-result { background: rgba(30,41,59,0.6); border: 1px solid rgba(99,102,241,0.15); color: #f8fafc; }
-body.dark select { background: #1e293b; border: 1px solid #475569; color: white; }
-body.dark select option { background: #1e293b; color: white; }
-
-header {
-  text-align: center;
-  padding: 70px 20px 30px;
-  position: relative;
-  z-index: 1;
-}
-
-.logo {
-  font-size: 60px;
-  animation: float 3s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-top: 10px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-header p {
-  opacity: 0.85;
-  margin-top: 8px;
-  color: #334155;
-  font-weight: 500;
-}
-
-.btn-red    { background: linear-gradient(135deg, #ef4444, #dc2626) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(239,68,68,0.3); }
-.btn-blue   { background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(37,99,235,0.3); }
-.btn-green  { background: linear-gradient(135deg, #10b981, #059669) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(16,185,129,0.3); }
-.btn-purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(124,58,237,0.3); }
-.btn-orange { background: linear-gradient(135deg, #f97316, #ea580c) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(249,115,22,0.3); }
-.btn-cyan   { background: linear-gradient(135deg, #06b6d4, #0891b2) !important; color: #fff !important; box-shadow: 0 4px 15px rgba(6,182,212,0.3); }
-
-.btn, .link, nav button {
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  border: none;
-  margin: 4px 0;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-}
-
-.btn:hover, .link:hover, nav button:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  background-image: 
+    radial-gradient(circle at 20% 10%, rgba(96,165,250,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(96,165,250,0.04) 0%, transparent 40%);
 }
 
 .container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
   position: relative;
   z-index: 1;
 }
 
-.card {
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 28px;
-  padding: 24px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 24px rgba(30,58,138,0.06), 0 1px 3px rgba(30,58,138,0.04);
-  backdrop-filter: blur(10px);
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(30,58,138,0.1), 0 4px 12px rgba(30,58,138,0.06);
-  border-color: rgba(59,130,246,0.25);
-}
-
-.card h2 {
-  margin-bottom: 16px;
-  font-size: 1.5rem;
-  color: #1e40af;
-  font-weight: 700;
-}
-
-.card p { color: #334155; line-height: 1.5; }
-
-.link {
-  display: block;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  text-align: center;
-  color: white !important;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: -300px;
-  width: 280px;
-  height: 100%;
-  background: rgba(255,255,255,0.95);
-  padding: 80px 16px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: 0.3s cubic-bezier(0.4,0,0.2,1);
-  z-index: 1002;
-  overflow-y: auto;
-  border-right: 1px solid rgba(59,130,246,0.1);
-  box-shadow: 4px 0 30px rgba(30,58,138,0.08);
-  backdrop-filter: blur(12px);
-}
-
-nav.active { left: 0; }
-
-nav a {
-  color: #1e293b;
-  text-decoration: none;
-  padding: 12px 16px;
-  border-radius: 50px;
-  transition: 0.2s;
-  font-weight: 500;
-}
-
-nav a:hover {
-  transform: translateX(5px);
-  background: rgba(37,99,235,0.1);
-}
-
-#overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
-  display: none;
-  z-index: 1001;
-}
-
-#overlay.active { display: block; }
-
-.hamburger {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1003;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: 0.2s;
-  color: #1e40af;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(59,130,246,0.15);
-}
-
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 50px;
-  padding: 6px 12px;
-  box-shadow: 0 2px 12px rgba(30,58,138,0.08);
-  border: 1px solid rgba(59,130,246,0.15);
-  backdrop-filter: blur(8px);
-}
-
-.theme-toggle button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 4px 8px;
-  border-radius: 50px;
-  transition: all 0.2s;
-}
-
-.theme-toggle button:hover { background: rgba(59,130,246,0.1); transform: scale(1.15); }
-.theme-toggle button.active-theme { background: rgba(59,130,246,0.15); }
-
-.scroll-progress {
+/* ============ TOP BAR ============ */
+.top-bar {
   position: fixed;
   top: 0;
   left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
-  z-index: 9999;
-  width: 0%;
-  transition: width 0.1s;
-  border-radius: 0 2px 2px 0;
-  box-shadow: 0 0 10px rgba(59,130,246,0.3);
-}
-
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  width: 46px;
-  height: 46px;
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(37,99,235,0.35);
+  right: 0;
+  height: 56px;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 998;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 100;
+  backdrop-filter: blur(12px);
 }
 
-.back-to-top.visible {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.back-to-top:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 13px;
-  opacity: 0.7;
-  position: relative;
-  z-index: 1;
-  color: #475569;
-}
-
-.toast {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #1e293b;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 60px;
-  font-weight: 500;
-  z-index: 2000;
-  animation: fadeInUp 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  white-space: nowrap;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-.card.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.card.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .card.reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-@media (max-width: 768px) {
-  header { padding: 55px 15px 25px; }
-  .logo { font-size: 50px; }
-  h1 { font-size: 1.8rem; }
-  .container { padding: 15px; }
-  .card { padding: 18px; }
-  .card h2 { font-size: 1.3rem; }
-  .btn, .link { padding: 10px 18px; font-size: 0.85rem; }
-  .theme-toggle { top: 16px; right: 16px; padding: 5px 10px; }
-  .theme-toggle button { font-size: 17px; padding: 3px 6px; }
-}
-
-@media (min-width: 769px) {
-  .container { padding-bottom: 20px; }
-}
-
-/* Attendance Calculator */
-.attendance-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95)) !important;
-  border: 1px solid rgba(59,130,246,0.12) !important;
-  overflow: hidden;
-}
-
-body.dark .attendance-card {
-  background: linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.9)) !important;
-  border: 1px solid rgba(99,102,241,0.15) !important;
-}
-
-.attendance-header {
-  text-align: center;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(59,130,246,0.1);
-}
-
-body.dark .attendance-header {
-  border-bottom-color: rgba(99,102,241,0.15);
-}
-
-.attendance-icon {
-  font-size: 2.2rem;
-  margin-bottom: 6px;
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 4px 12px rgba(59,130,246,0.2));
-}
-
-body.dark .attendance-icon {
-  filter: drop-shadow(0 4px 12px rgba(99,102,241,0.3));
-}
-
-.attendance-header h2 {
-  font-size: 1.5rem;
-  margin-bottom: 4px;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-body.dark .attendance-header h2 {
-  background: linear-gradient(135deg, #fff, #93c5fd, #a5f3fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.attendance-subtitle {
-  color: #64748b;
-  font-size: 0.85rem;
-  font-weight: 500;
-  max-width: 500px;
-  margin: 0 auto;
-  line-height: 1.4;
-}
-
-body.dark .attendance-subtitle {
-  color: #94a3b8;
-}
-
-.attendance-quick-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.quick-stat {
-  background: rgba(59,130,246,0.04);
-  border: 1px solid rgba(59,130,246,0.1);
-  border-radius: 14px;
-  padding: 10px 8px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.quick-stat:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(59,130,246,0.1);
-  border-color: rgba(59,130,246,0.2);
-}
-
-body.dark .quick-stat {
-  background: rgba(99,102,241,0.08);
-  border-color: rgba(99,102,241,0.15);
-}
-
-body.dark .quick-stat:hover {
-  box-shadow: 0 4px 16px rgba(99,102,241,0.15);
-  border-color: rgba(99,102,241,0.25);
-}
-
-.quick-stat-icon {
-  font-size: 1.1rem;
-  margin-bottom: 2px;
-}
-
-.quick-stat-value {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #1e40af;
-  line-height: 1.1;
-}
-
-body.dark .quick-stat-value {
-  color: #93c5fd;
-}
-
-.quick-stat-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #64748b;
-  margin-top: 2px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-body.dark .quick-stat-label {
-  color: #94a3b8;
-}
-
-.attendance-input-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.attendance-input-group {
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(59,130,246,0.12);
-  border-radius: 16px;
-  padding: 12px;
-  transition: all 0.3s ease;
-}
-
-body.dark .attendance-input-group {
-  background: rgba(30,41,59,0.5);
-  border-color: rgba(99,102,241,0.12);
-}
-
-.attendance-input-group:hover {
-  border-color: rgba(59,130,246,0.25);
-  box-shadow: 0 4px 20px rgba(59,130,246,0.08);
-}
-
-body.dark .attendance-input-group:hover {
-  border-color: rgba(99,102,241,0.2);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.1);
-}
-
-.input-header {
+.top-bar-brand {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  text-decoration: none;
 }
 
-.input-icon-bg {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
+.top-bar-brand span:first-child { font-size: 1.3rem; }
+
+.top-bar-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  background: var(--primary-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text);
+  transition: all 0.15s;
+}
+
+.icon-btn:hover {
+  background: var(--primary);
   color: white;
+  border-color: var(--primary);
 }
 
-.input-icon-bg.blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-.input-icon-bg.green { background: linear-gradient(135deg, #10b981, #059669); }
-.input-icon-bg.purple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-.input-icon-bg.orange { background: linear-gradient(135deg, #f59e0b, #d97706); }
-
-.input-icon-bg svg {
-  width: 14px;
-  height: 14px;
+/* ============ PAGE HEADER ============ */
+.page-header {
+  margin-top: 72px;
+  padding: 24px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
 }
 
-.attendance-input-group label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #1e293b;
+.page-header .logo {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  display: inline-block;
 }
 
-body.dark .attendance-input-group label {
-  color: #e2e8f0;
-}
-
-.attendance-input-group input {
-  width: 100%;
-  padding: 9px 12px;
-  border: 2px solid rgba(59,130,246,0.15);
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  background: rgba(255,255,255,0.9);
-  color: #0f172a;
-  transition: all 0.2s ease;
+.page-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
   margin-bottom: 4px;
 }
 
-body.dark .attendance-input-group input {
-  background: rgba(15,23,42,0.7);
-  border-color: rgba(99,102,241,0.2);
-  color: #f1f5f9;
+.page-header p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
 }
 
-.attendance-input-group input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 4px rgba(59,130,246,0.12), 0 4px 12px rgba(59,130,246,0.08);
+/* ============ BACK LINK ============ */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: all 0.15s;
 }
 
-body.dark .attendance-input-group input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 4px rgba(99,102,241,0.15), 0 4px 12px rgba(99,102,241,0.1);
+.back-link:hover {
+  transform: translateX(-3px);
+  color: var(--primary-dark);
 }
 
-.input-helper {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: #64748b;
-  line-height: 1.2;
-}
-
-body.dark .input-helper {
-  color: #94a3b8;
-}
-
-.calculate-btn-premium {
-  width: 100%;
-  padding: 12px 24px;
-  border-radius: 14px;
-  font-weight: 700;
-  font-size: 0.98rem;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8);
-  color: white;
-  box-shadow: 0 4px 20px rgba(37,99,235,0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
-  transition: all 0.3s ease;
-  display: flex;
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  position: relative;
-  overflow: hidden;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  white-space: nowrap;
 }
 
-.calculate-btn-premium:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(37,99,235,0.4), 0 0 0 1px rgba(255,255,255,0.15) inset;
-  filter: brightness(1.05);
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); box-shadow: var(--shadow-md); }
+
+.btn-outline {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+.btn-full { width: 100%; padding: 12px; }
+
+.btn-success { background: var(--success); color: white; }
+
+/* ============ CARDS ============ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
 }
 
-.calculate-btn-premium:active {
-  transform: translateY(-1px);
+.card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
 }
 
-.btn-glow {
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.calculate-btn-premium:hover .btn-glow {
-  opacity: 1;
+.card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin: 8px 0;
 }
 
-.btn-icon {
-  font-size: 1.3rem;
+/* ============ INPUTS ============ */
+input, select, textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--card);
+  color: var(--text);
+  transition: all 0.15s;
 }
 
-.btn-text {
-  letter-spacing: 0.3px;
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
 }
 
-.btn-arrow {
-  transition: transform 0.3s ease;
+input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-group { margin-bottom: 12px; }
+
+/* ============ TABS ============ */
+.tab-row {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  background: var(--primary-bg);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  border: 1px solid var(--border);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.25s;
+  font-family: inherit;
+}
+
+.tab-btn.active {
+  background: var(--card);
+  color: var(--primary-dark);
+  box-shadow: var(--shadow);
+}
+
+.history-count-badge {
+  background: var(--danger);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 50px;
   margin-left: 4px;
 }
 
-.calculate-btn-premium:hover .btn-arrow {
-  transform: translateX(4px);
-}
-
-body.dark .calculate-btn-premium {
-  background: linear-gradient(135deg, #6366f1, #4f46e5, #4338ca);
-  box-shadow: 0 4px 20px rgba(99,102,241,0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
-}
-
-body.dark .calculate-btn-premium:hover {
-  box-shadow: 0 8px 30px rgba(99,102,241,0.4), 0 0 0 1px rgba(255,255,255,0.1) inset;
-}
-
-.attendance-progress-wrap {
+/* ============ ATTENDANCE CALCULATOR ============ */
+.attendance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   margin-bottom: 14px;
+}
+
+.att-input {
+  background: var(--primary-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  transition: all 0.2s;
+}
+
+.att-input:hover {
+  border-color: var(--primary);
+}
+
+.att-input label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.att-input input {
+  padding: 9px 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--card);
+}
+
+.att-input .helper {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.att-progress {
+  margin: 14px 0;
   display: none;
 }
 
-.attendance-progress-wrap.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
+.att-progress.active { display: block; }
 
 .progress-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.progress-label {
+  margin-bottom: 6px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #475569;
 }
 
-body.dark .progress-label {
-  color: #94a3b8;
-}
-
-.progress-percentage {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #2563eb;
-}
-
-body.dark .progress-percentage {
-  color: #60a5fa;
-}
-
-.attendance-progress-track {
-  width: 100%;
-  height: 16px;
-  border-radius: 50px;
-  background: rgba(59,130,246,0.08);
+.progress-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
 }
 
-body.dark .attendance-progress-track {
-  background: rgba(255,255,255,0.06);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-}
-
-.attendance-progress-fill {
+.progress-fill {
   height: 100%;
-  border-radius: 50px;
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), background 0.6s ease;
+  border-radius: 4px;
+  transition: width 0.4s, background 0.3s;
   width: 0%;
-  position: relative;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
-.attendance-progress-fill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  animation: shimmer 2s infinite;
-}
+.progress-fill.safe { background: var(--success); }
+.progress-fill.warning { background: var(--danger); }
 
-.attendance-progress-fill.safe {
-  background: linear-gradient(135deg, #10b981, #059669, #047857);
-}
-
-.attendance-progress-fill.warning {
-  background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
-}
-
-.attendance-progress-marker {
-  position: absolute;
-  top: -4px;
-  bottom: -4px;
-  width: 3px;
-  background: #1e293b;
-  border-radius: 2px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.2);
-  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.dark .attendance-progress-marker {
-  background: #f1f5f9;
-  box-shadow: 0 0 6px rgba(255,255,255,0.2);
-}
-
-.progress-target-label {
-  position: absolute;
-  top: -24px;
-  transform: translateX(-50%);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #64748b;
-  background: rgba(255,255,255,0.9);
-  padding: 2px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  border: 1px solid rgba(59,130,246,0.15);
-}
-
-body.dark .progress-target-label {
-  color: #94a3b8;
-  background: rgba(30,41,59,0.9);
-  border-color: rgba(99,102,241,0.2);
-}
-
-.attendance-stat-box {
+.att-result {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 12px;
   display: none;
-  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.att-result.active { display: block; }
+
+.att-result.safe {
+  background: rgba(5,150,105,0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+
+.att-result.warning {
+  background: rgba(220,38,38,0.1);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+/* ============ FEES CALCULATOR ============ */
+.calc-header {
   text-align: center;
+  margin-bottom: 16px;
 }
 
-.attendance-stat-box.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
+.calc-header .icon {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
-.stat-visual {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  padding: 6px 16px;
-  border-radius: 50px;
-  background: rgba(59,130,246,0.08);
+.calc-header h2 {
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 4px;
 }
 
-.attendance-stat-box.safe .stat-visual { background: rgba(16,185,129,0.1); }
-.attendance-stat-box.warning .stat-visual { background: rgba(239,68,68,0.08); }
-
-.attendance-stat-number {
-  font-size: 1.4rem;
-  font-weight: 800;
-  line-height: 1;
-  color: #1e40af;
+.calc-header p {
+  font-size: 0.85rem;
+  margin: 0;
 }
 
-body.dark .attendance-stat-number {
-  color: #93c5fd;
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.attendance-stat-box.safe .attendance-stat-number {
-  color: #059669;
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-body.dark .attendance-stat-box.safe .attendance-stat-number {
-  color: #34d399;
-}
-
-.attendance-stat-box.warning .attendance-stat-number {
-  color: #dc2626;
-}
-
-body.dark .attendance-stat-box.warning .attendance-stat-number {
-  color: #f87171;
-}
-
-.attendance-stat-label {
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--primary-bg);
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.step-circle.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+
+.step-circle.done {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.step-label {
+  font-size: 0.65rem;
   font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
 }
 
-body.dark .attendance-stat-label {
-  color: #94a3b8;
+.step-label.active { color: var(--primary); }
+.step-label.done { color: var(--success); }
+
+.step-line {
+  width: 30px;
+  height: 2px;
+  background: var(--border);
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  transition: background 0.3s;
 }
 
-.attendance-result {
-  margin-top: 0;
-  background: rgba(240,249,255,0.85);
-  border: 1px solid rgba(59,130,246,0.15);
-  border-radius: 14px;
-  padding: 12px 16px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1e40af;
-  display: none;
-  line-height: 1.4;
-  backdrop-filter: blur(8px);
-}
+.step-line.done { background: var(--success); }
 
-.attendance-result.active {
-  display: block;
-  animation: fadeInUp 0.4s ease;
-}
+.step-panel { display: none; }
+.step-panel.active { display: block; animation: fadeIn 0.3s ease; }
 
-.attendance-result.safe {
-  background: rgba(16,185,129,0.08);
-  border: 1px solid rgba(16,185,129,0.2);
-  color: #059669;
-}
-
-body.dark .attendance-result.safe {
-  background: rgba(16,185,129,0.12);
-  color: #34d399;
-}
-
-.attendance-result.warning {
-  background: rgba(239,68,68,0.06);
-  border: 1px solid rgba(239,68,68,0.2);
-  color: #dc2626;
-}
-
-body.dark .attendance-result.warning {
-  background: rgba(239,68,68,0.1);
-  color: #f87171;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(12px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .attendance-header h2 { font-size: 1.3rem; }
-  .attendance-subtitle { font-size: 0.8rem; }
-  .attendance-quick-stats { gap: 6px; }
-  .quick-stat { padding: 8px 6px; }
-  .quick-stat-icon { font-size: 1rem; }
-  .quick-stat-value { font-size: 1rem; }
-  .quick-stat-label { font-size: 0.6rem; }
-  .attendance-input-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .attendance-input-group { padding: 10px; }
-  .input-header { gap: 6px; margin-bottom: 6px; }
-  .input-icon-bg { width: 24px; height: 24px; }
-  .input-icon-bg svg { width: 13px; height: 13px; }
-  .attendance-input-group label { font-size: 0.72rem; }
-  .input-helper { display: none; }
-  .calculate-btn-premium { font-size: 0.9rem; padding: 12px 18px; }
-  .attendance-stat-number { font-size: 1.2rem; }
-  .attendance-result { font-size: 0.85rem; padding: 10px 14px; }
+.option-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+  display: block;
 }
 
-a:focus-visible, button:focus-visible, input:focus-visible, .hamburger:focus-visible {
-  outline: 3px solid #3b82f6;
+.option-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.option-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.option-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+.option-btn {
+  padding: 14px 10px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  background: var(--primary-bg);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s;
+  color: var(--text);
+  font-family: inherit;
+}
+
+.option-btn:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.option-btn.selected {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.2);
+}
+
+.option-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.option-icon { font-size: 1.5rem; margin-bottom: 4px; display: block; }
+.option-name { font-size: 0.85rem; font-weight: 700; display: block; }
+.option-sub { font-size: 0.7rem; color: var(--text-muted); display: block; margin-top: 2px; }
+
+.summary-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.chip {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.btn-back, .btn-next {
+  flex: 1;
+  padding: 11px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-back {
+  background: var(--primary-bg);
+  border: 1px solid var(--border);
+  color: var(--primary-dark);
+}
+
+.btn-back:hover { background: var(--primary-light); }
+
+.btn-next {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+
+.btn-next:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.result-box {
+  display: none;
+  background: linear-gradient(135deg, rgba(5,150,105,0.08), rgba(16,185,129,0.04));
+  border: 2px solid var(--success);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.result-box.active { display: block; animation: fadeIn 0.4s ease; }
+
+.result-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 6px;
+}
+
+.result-course {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.result-fees {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--success);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.result-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.btn-reset {
+  width: 100%;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid rgba(220,38,38,0.2);
+  cursor: pointer;
+  margin-top: 12px;
+  background: rgba(220,38,38,0.06);
+  color: var(--danger);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn-reset:hover { background: rgba(220,38,38,0.12); }
+
+/* ============ HISTORY ============ */
+.history-empty {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.history-empty .empty-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--primary-bg);
+  margin-bottom: 8px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.history-item:hover {
+  transform: translateX(3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.history-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.history-info { flex: 1; min-width: 0; }
+
+.history-course {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+.history-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.history-fees {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+.history-clear-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.82rem;
+  border: 1px solid rgba(220,38,38,0.2);
+  background: rgba(220,38,38,0.06);
+  color: var(--danger);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.history-clear-btn:hover { background: rgba(220,38,38,0.12); }
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 270px;
+  height: 100%;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  padding: 70px 14px 20px;
+  overflow-y: auto;
+  z-index: 1001;
+  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar.active { left: 0; }
+
+.sidebar-header {
+  padding: 0 10px 14px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.sidebar-header p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.sidebar a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar a:hover {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+  transform: translateX(2px);
+}
+
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  display: none;
+  z-index: 1000;
+}
+
+.overlay.active { display: block; }
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+  z-index: 998;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+  font-size: 18px;
+}
+
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { transform: translateY(-3px); }
+
+/* ============ BOTTOM NAV ============ */
+.bottom-nav {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  background: color-mix(in srgb, var(--card) 90%, transparent);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 8px 4px;
+  display: none;
+  justify-content: space-around;
+  z-index: 997;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s;
+  flex: 1;
+  max-width: 80px;
+}
+
+.bottom-nav a .nav-icon {
+  font-size: 20px;
+  transition: transform 0.2s;
+}
+
+.bottom-nav a .nav-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.bottom-nav a:hover, .bottom-nav a.active {
+  color: var(--primary);
+}
+
+.bottom-nav a.active .nav-icon {
+  transform: translateY(-2px);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 30px 16px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.footer-brand h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ============ TOAST ============ */
+.toast {
+  position: fixed;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: var(--bg);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  z-index: 2000;
+  animation: toastIn 0.2s;
+  box-shadow: var(--shadow-md);
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ============ SCROLL PROGRESS ============ */
+.scroll-progress {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), #8b5cf6);
+  z-index: 1100;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ============ DONATION BAR ============ */
+.donation-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: white;
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 20px rgba(5, 150, 105, 0.25);
+  z-index: 999;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.donation-bar-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.donation-bar-content { flex: 1; min-width: 0; }
+
+.donation-bar-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.donation-bar-title .tree-icon {
+  font-size: 1.25rem;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.donation-bar-subtitle {
+  font-size: 0.73rem;
+  font-weight: 500;
+  opacity: 0.95;
+  line-height: 1.3;
+}
+
+.donation-bar-btn {
+  background: white;
+  color: #059669;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.donation-bar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+  .page-header h1 { font-size: 1.3rem; }
+  .page-header .logo { font-size: 2rem; }
+  .card { padding: 16px; }
+  .card h2 { font-size: 1rem; }
+  .attendance-grid { grid-template-columns: 1fr; }
+  .option-grid.cols-3 { grid-template-columns: 1fr 1fr; }
+  .result-fees { font-size: 1.7rem; }
+  .bottom-nav { display: flex; }
+  .back-to-top { bottom: 180px; }
+  .step-line { width: 20px; }
+  
+  .donation-bar { padding: 12px 14px calc(12px + env(safe-area-inset-bottom)); }
+  .donation-bar-inner { flex-direction: column; text-align: center; gap: 10px; }
+  .donation-bar-title { font-size: 0.85rem; justify-content: center; }
+  .donation-bar-subtitle { font-size: 0.7rem; }
+  .donation-bar-btn { width: 100%; justify-content: center; padding: 10px 16px; font-size: 0.82rem; }
+}
+
+@media (min-width: 641px) {
+  .bottom-nav { display: none; }
+  .back-to-top { bottom: 30px; }
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  color: #2563eb;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s;
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
-
-.back-link:hover {
-  color: #1d4ed8;
-  transform: translateX(-4px);
-}
-
-body.dark .back-link {
-  color: #60a5fa;
-}
-
-body.dark .back-link:hover {
-  color: #93c5fd;
-}
-
-body.dark textarea { background: #1e293b; border: 1px solid #475569; color: white; }
-
-/* ===== NEW FEES CALCULATOR STYLES ===== */
-.calc-header { text-align:center; margin-bottom:24px; }
-.calc-icon { font-size:2.5rem; display:inline-block; margin-bottom:8px; }
-.calc-header h2 {
-  font-size:1.6rem; font-weight:800;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-body.dark .calc-header h2 {
-  background: linear-gradient(135deg, #fff, #93c5fd);
-  -webkit-background-clip:text; background-clip:text; color:transparent;
-}
-.calc-header p { color:#64748b; font-size:0.88rem; margin-top:4px; }
-body.dark .calc-header p { color:#94a3b8; }
-
-.tab-row {
-  display:flex; gap:0; margin-bottom:24px;
-  background: rgba(59,130,246,0.06);
-  border-radius:14px; padding:4px;
-  border: 1px solid rgba(59,130,246,0.12);
-}
-body.dark .tab-row { background:rgba(99,102,241,0.08); border-color:rgba(99,102,241,0.15); }
-.tab-btn {
-  flex:1; padding:10px 16px; border-radius:10px;
-  font-size:0.88rem; font-weight:700; border:none;
-  cursor:pointer; background:transparent;
-  color:#64748b; transition:all 0.25s;
-}
-.tab-btn.active {
-  background:white;
-  color:#1e40af;
-  box-shadow: 0 2px 8px rgba(30,58,138,0.1);
-}
-body.dark .tab-btn.active { background:rgba(30,41,59,0.9); color:#93c5fd; }
-body.dark .tab-btn { color:#94a3b8; }
-
-.progress-steps {
-  display:flex; align-items:center; justify-content:center;
-  gap:0; margin-bottom:28px;
-}
-.step-item { display:flex; flex-direction:column; align-items:center; gap:4px; }
-.step-circle {
-  width:36px; height:36px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:0.8rem; font-weight:700;
-  background: rgba(59,130,246,0.08);
-  border: 2px solid rgba(59,130,246,0.2);
-  color:#94a3b8; transition: all 0.3s;
-}
-.step-circle.active {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
-  border-color: #2563eb; color:white;
-  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-}
-.step-circle.done {
-  background: linear-gradient(135deg, #10b981, #059669);
-  border-color: #059669; color:white;
-}
-.step-label { font-size:0.65rem; font-weight:600; color:#94a3b8; text-align:center; white-space:nowrap; }
-.step-label.active { color:#2563eb; }
-.step-label.done { color:#059669; }
-body.dark .step-label.active { color:#60a5fa; }
-body.dark .step-label.done { color:#34d399; }
-.step-line {
-  width:40px; height:2px;
-  background: rgba(59,130,246,0.15);
-  margin-bottom:16px; flex-shrink:0; transition: background 0.3s;
-}
-.step-line.done { background: linear-gradient(90deg, #10b981, #059669); }
-
-.step-panel { display:none; animation: fadeIn 0.3s ease; }
-.step-panel.active { display:block; }
-
-.option-label { font-size:0.88rem; font-weight:700; color:#1e40af; margin-bottom:12px; display:block; }
-body.dark .option-label { color:#93c5fd; }
-
-.option-grid { display:grid; gap:12px; margin-bottom:20px; }
-.option-grid.cols-2 { grid-template-columns:1fr 1fr; }
-.option-grid.cols-3 { grid-template-columns:1fr 1fr 1fr; }
-
-.option-btn {
-  padding:16px 12px; border-radius:16px;
-  border: 2px solid rgba(59,130,246,0.15);
-  background: rgba(59,130,246,0.04);
-  cursor:pointer; text-align:center;
-  transition: all 0.25s; color:#1e293b;
-}
-body.dark .option-btn { background:rgba(99,102,241,0.08); border-color:rgba(99,102,241,0.2); color:#f1f5f9; }
-.option-btn:hover { border-color:#3b82f6; box-shadow: 0 4px 16px rgba(59,130,246,0.15); transform: translateY(-2px); }
-.option-btn.selected {
-  border-color:#2563eb;
-  background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(37,99,235,0.08));
-  box-shadow: 0 4px 16px rgba(37,99,235,0.2);
-}
-.option-icon { font-size:1.8rem; margin-bottom:6px; display:block; }
-.option-name { font-size:0.9rem; font-weight:700; display:block; }
-.option-sub { font-size:0.72rem; color:#64748b; display:block; margin-top:2px; }
-body.dark .option-sub { color:#94a3b8; }
-
-.select-wrap { position:relative; margin-bottom:16px; }
-.select-wrap select {
-  width:100%; padding:14px 16px;
-  border:2px solid rgba(59,130,246,0.2);
-  border-radius:16px; font-size:0.95rem; font-weight:600;
-  background:white; color:#0f172a;
-  cursor:pointer; appearance:none;
-  font-family:'Poppins',sans-serif; transition: all 0.2s;
-}
-body.dark .select-wrap select { background:#1e293b; border-color:rgba(99,102,241,0.3); color:#f1f5f9; }
-.select-wrap select:focus { outline:none; border-color:#3b82f6; box-shadow:0 0 0 4px rgba(59,130,246,0.15); }
-.select-arrow { position:absolute; right:16px; top:50%; transform:translateY(-50%); pointer-events:none; color:#64748b; }
-
-.result-box {
-  display:none;
-  background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(5,150,105,0.04));
-  border: 2px solid rgba(16,185,129,0.3);
-  border-radius:20px; padding:24px; text-align:center;
-  margin-top:16px; animation: fadeIn 0.4s ease;
-}
-.result-box.active { display:block; }
-body.dark .result-box { background:rgba(16,185,129,0.12); border-color:rgba(16,185,129,0.3); }
-
-.result-label { font-size:0.82rem; font-weight:600; color:#059669; margin-bottom:6px; }
-body.dark .result-label { color:#34d399; }
-.result-course { font-size:1rem; font-weight:700; color:#1e293b; margin-bottom:12px; line-height:1.4; }
-body.dark .result-course { color:#f1f5f9; }
-.result-fees { font-size:2.4rem; font-weight:800; color:#059669; line-height:1.1; margin-bottom:4px; }
-body.dark .result-fees { color:#34d399; }
-.result-note { font-size:0.75rem; color:#64748b; margin-top:8px; }
-body.dark .result-note { color:#94a3b8; }
-
-.btn-row { display:flex; gap:10px; margin-top:16px; }
-.btn-back, .btn-next {
-  flex:1; padding:13px 20px; border-radius:14px;
-  font-weight:700; font-size:0.95rem; border:none; cursor:pointer; transition:all 0.25s;
-}
-.btn-back {
-  background:rgba(59,130,246,0.08); border:2px solid rgba(59,130,246,0.2); color:#2563eb;
-}
-body.dark .btn-back { background:rgba(99,102,241,0.1); border-color:rgba(99,102,241,0.2); color:#93c5fd; }
-.btn-back:hover { background:rgba(59,130,246,0.15); }
-.btn-next { background:linear-gradient(135deg, #3b82f6, #2563eb); color:white; box-shadow:0 4px 15px rgba(37,99,235,0.3); }
-.btn-next:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,99,235,0.4); }
-
-.btn-reset {
-  width:100%; padding:12px; border-radius:14px;
-  font-weight:700; font-size:0.9rem; border:2px solid rgba(239,68,68,0.2); cursor:pointer;
-  margin-top:12px; background:rgba(239,68,68,0.08); color:#dc2626; transition:all 0.25s;
-}
-body.dark .btn-reset { background:rgba(239,68,68,0.1); border-color:rgba(239,68,68,0.2); color:#f87171; }
-.btn-reset:hover { background:rgba(239,68,68,0.15); }
-
-.summary-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-.chip {
-  background:rgba(59,130,246,0.08); color:#1e40af;
-  font-size:0.75rem; font-weight:600;
-  padding:4px 12px; border-radius:50px;
-  border:1px solid rgba(59,130,246,0.15);
-}
-body.dark .chip { background:rgba(99,102,241,0.12); color:#93c5fd; border-color:rgba(99,102,241,0.2); }
-
-.history-panel { display:none; animation: fadeIn 0.3s ease; }
-.history-panel.active { display:block; }
-
-.history-empty {
-  text-align:center; padding:40px 20px;
-  color:#94a3b8; font-size:0.9rem;
-}
-.history-empty .empty-icon { font-size:2.5rem; display:block; margin-bottom:10px; }
-
-.history-item {
-  display:flex; align-items:center; gap:14px;
-  padding:14px 16px; border-radius:16px;
-  border:1px solid rgba(59,130,246,0.12);
-  background:rgba(59,130,246,0.03);
-  margin-bottom:10px; transition:all 0.25s;
-  cursor:pointer; position:relative;
-}
-body.dark .history-item { background:rgba(99,102,241,0.06); border-color:rgba(99,102,241,0.15); }
-.history-item:hover { transform:translateX(4px); box-shadow:0 4px 16px rgba(59,130,246,0.1); border-color:rgba(59,130,246,0.25); }
-
-.history-num {
-  width:32px; height:32px; border-radius:50%;
-  background:linear-gradient(135deg, #3b82f6, #2563eb);
-  color:white; font-size:0.8rem; font-weight:800;
-  display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.history-info { flex:1; min-width:0; }
-.history-course { font-size:0.9rem; font-weight:700; color:#1e40af; margin-bottom:3px; line-height:1.3; }
-body.dark .history-course { color:#93c5fd; }
-.history-meta { font-size:0.75rem; color:#64748b; display:flex; gap:8px; flex-wrap:wrap; }
-body.dark .history-meta { color:#94a3b8; }
-.history-fees { font-size:1.1rem; font-weight:800; color:#059669; flex-shrink:0; }
-body.dark .history-fees { color:#34d399; }
-
-.history-reuse {
-  font-size:0.72rem; font-weight:600; color:#2563eb;
-  background:rgba(59,130,246,0.08); border:1px solid rgba(59,130,246,0.2);
-  padding:3px 10px; border-radius:50px; margin-top:6px; display:inline-block;
-}
-body.dark .history-reuse { color:#60a5fa; background:rgba(99,102,241,0.1); }
-
-.history-clear-btn {
-  width:100%; padding:10px; border-radius:12px;
-  font-weight:700; font-size:0.85rem;
-  border:2px solid rgba(239,68,68,0.2);
-  background:rgba(239,68,68,0.06); color:#dc2626;
-  cursor:pointer; margin-top:6px; transition:all 0.25s;
-}
-body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgba(239,68,68,0.2); color:#f87171; }
-.history-clear-btn:hover { background:rgba(239,68,68,0.14); }
-
-.history-count-badge {
-  background:linear-gradient(135deg, #ef4444, #dc2626);
-  color:white; font-size:0.65rem; font-weight:800;
-  padding:2px 7px; border-radius:50px;
-  margin-left:6px; vertical-align:middle;
-}
-
-@media(max-width:480px) {
-  .step-line { width:20px; }
-  .option-grid.cols-3 { grid-template-columns:1fr 1fr; }
-  .result-fees { font-size:2rem; }
-}
-
 </style>
+  <script src="analytics-tracker.js"></script>
 </head>
 
 <body>
 
+<!-- Scroll Progress -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<div class="hamburger" id="hamburgerBtn" onclick="toggleMenu()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleMenu();}" aria-label="Toggle Menu" aria-expanded="false" aria-controls="sidebar" role="button" tabindex="0">☰</div>
-
-<div class="theme-toggle">
-  <button id="btn-light" onclick="setTheme('light')" title="Light Mode">☀️</button>
-  <button id="btn-dark" onclick="setTheme('dark')" title="Dark Mode">🌙</button>
+<!-- Top Bar -->
+<div class="top-bar">
+  <a href="index.html" class="top-bar-brand">
+    <span>🧮</span>
+    <span>Student Tools</span>
+  </a>
+  <div class="top-bar-actions">
+    <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+    <button class="icon-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
 </div>
 
-<div id="overlay" onclick="toggleMenu()"></div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<nav id="sidebar">
-  <a href="index.html" class="btn-blue">🏠 Back to Home</a>
-  <a href="tools.html#attendance" class="btn-blue" onclick="handleNavClick(event, '#attendance')">🧮 Attendance Calculator</a>
-  <a href="tools.html#fees-calculator" class="btn-green" onclick="handleNavClick(event, '#fees-calculator')">💰 Fees Calculator</a>
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3>🧮 Student Tools</h3>
+    <p>Calculators for KES students</p>
+  </div>
+  <a href="index.html">🏠 Back to Home</a>
+  <div class="sidebar-divider"></div>
+  <a href="#attendance">🧮 Attendance Calculator</a>
+  <a href="#fees-calculator">💰 Fees Calculator</a>
+  <div class="sidebar-divider"></div>
+  <a href="#feedback">💬 Feedback</a>
 </nav>
 
-<header>
-  <div class="logo">🧮</div>
-  <h1>Student Tools</h1>
-  <p>Attendance Calculator & Fees Calculator</p>
-</header>
-
+<!-- Main Content -->
 <div class="container">
 
-  <div style="margin-bottom:20px;">
-    <a href="index.html" class="back-link">← Back to Home</a>
-  </div>
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="logo">🧮</div>
+    <h1>Student Tools</h1>
+    <p>Attendance Calculator & Fees Calculator</p>
+  </header>
+
+  <a href="index.html" class="back-link">← Back to Home</a>
 
   <!-- ATTENDANCE CALCULATOR -->
-  <div class="card reveal attendance-card" id="attendance">
-    <div class="attendance-header">
-      <div class="attendance-icon">🧮</div>
-      <h2>Smart Attendance Calculator</h2>
-      <p class="attendance-subtitle">Calculate your attendance, track progress, and know exactly how many lectures you need</p>
+  <div class="card" id="attendance">
+    <h2>🧮 Attendance Calculator</h2>
+    <p>Check your attendance status, track progress, and know exactly how many lectures you need.</p>
+
+    <div class="attendance-grid">
+      <div class="att-input">
+        <label for="totalLectures">📅 Total Lectures</label>
+        <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
+        <span class="helper">Total lectures conducted</span>
+      </div>
+      <div class="att-input">
+        <label for="attendedLectures">✅ Attended</label>
+        <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
+        <span class="helper">Lectures you attended</span>
+      </div>
+      <div class="att-input">
+        <label for="requiredPercent">🎯 Required %</label>
+        <input type="number" id="requiredPercent" min="1" max="100" value="75">
+        <span class="helper">Minimum required</span>
+      </div>
+      <div class="att-input">
+        <label for="graceAttendance">⭐ Grace Lectures</label>
+        <input type="number" id="graceAttendance" min="0" placeholder="0" value="0">
+        <span class="helper">NSS, Sports, Cultural</span>
+      </div>
     </div>
 
-    <p style="margin-bottom:16px;color:#64748b;font-size:0.9rem;line-height:1.5;">
-      📊 Enter your total lectures, attended lectures, and grace attendance to instantly see your current percentage, 
-      how many more lectures you need to reach the target, or how many you can safely skip. 
-      Perfect for tracking attendance before exams and avoiding ATKT situations!
-    </p>
+    <button class="btn btn-primary btn-full" onclick="calculateAttendance()">🧮 Calculate Attendance</button>
 
-    <div class="attendance-dashboard">
-      <div class="attendance-quick-stats">
-        <div class="quick-stat" id="quickStatCurrent">
-          <div class="quick-stat-icon">📊</div>
-          <div class="quick-stat-value">--%</div>
-          <div class="quick-stat-label">Current</div>
-        </div>
-        <div class="quick-stat" id="quickStatTarget">
-          <div class="quick-stat-icon">🎯</div>
-          <div class="quick-stat-value">75%</div>
-          <div class="quick-stat-label">Target</div>
-        </div>
-        <div class="quick-stat" id="quickStatNeeded">
-          <div class="quick-stat-icon">📈</div>
-          <div class="quick-stat-value">--</div>
-          <div class="quick-stat-label">Needed</div>
-        </div>
+    <div class="att-progress" id="attProgress">
+      <div class="progress-header">
+        <span>Attendance Progress</span>
+        <span id="progressPercent">0%</span>
       </div>
-
-      <div class="attendance-input-grid">
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg blue">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            </div>
-            <label for="totalLectures">Total Lectures Held</label>
-          </div>
-          <input type="number" id="totalLectures" min="0" placeholder="e.g. 100">
-          <span class="input-helper">Total lectures conducted so far</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg green">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-            <label for="attendedLectures">Lectures Attended</label>
-          </div>
-          <input type="number" id="attendedLectures" min="0" placeholder="e.g. 60">
-          <span class="input-helper">Number of lectures you attended</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg purple">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-            </div>
-            <label for="requiredPercent">Required Attendance %</label>
-          </div>
-          <input type="number" id="requiredPercent" min="1" max="100" value="75">
-          <span class="input-helper">Minimum required percentage</span>
-        </div>
-
-        <div class="attendance-input-group">
-          <div class="input-header">
-            <div class="input-icon-bg orange">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </div>
-            <label for="graceAttendance">Grace Attendance</label>
-          </div>
-          <input type="number" id="graceAttendance" min="0" placeholder="e.g. 5">
-          <span class="input-helper">NSS, Sports, Cultural extra</span>
-        </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
       </div>
-
-      <button class="calculate-btn-premium" onclick="calculateAttendance()">
-        <div class="btn-glow"></div>
-        <span class="btn-icon">🧮</span>
-        <span class="btn-text">Calculate Attendance</span>
-        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
-
-      <div id="attendanceProgressWrap" class="attendance-progress-wrap">
-        <div class="progress-header">
-          <span class="progress-label">Attendance Progress</span>
-          <span class="progress-percentage" id="progressCurrentLabel">0%</span>
-        </div>
-        <div class="attendance-progress-track">
-          <div id="attendanceProgressFill" class="attendance-progress-fill"></div>
-          <div id="attendanceProgressMarker" class="attendance-progress-marker"></div>
-          <div class="progress-target-label" id="progressRequiredLabel">Target: 75%</div>
-        </div>
-      </div>
-
-      <div id="attendanceStatBox" class="attendance-stat-box">
-        <div class="stat-visual">
-          <span id="attendanceStatNumber" class="attendance-stat-number">0</span>
-          <span id="attendanceStatLabel" class="attendance-stat-label">lectures</span>
-        </div>
-      </div>
-
-      <div id="attendanceResult" class="attendance-result"></div>
     </div>
+
+    <div class="att-result" id="attResult"></div>
   </div>
 
-  <!-- FEES CALCULATOR (NEW) -->
-  <div class="card reveal" id="fees-calculator" style="padding: 24px;">
+  <!-- FEES CALCULATOR -->
+  <div class="card" id="fees-calculator">
     <div class="calc-header">
-      <span class="calc-icon">💰</span>
+      <span class="icon">💰</span>
       <h2>KES Fees Calculator</h2>
-      <p>Check your course fees instantly with step-by-step selection</p>
+      <p>Check your course fees instantly</p>
     </div>
 
-    <!-- Tab Row -->
+    <!-- Tabs -->
     <div class="tab-row">
-      <button class="tab-btn active" id="tab-calc" onclick="switchFeeTab('calc')">🧮 Calculate Fees</button>
+      <button class="tab-btn active" id="tab-calc" onclick="switchFeeTab('calc')">🧮 Calculate</button>
       <button class="tab-btn" id="tab-hist" onclick="switchFeeTab('hist')">🕐 History <span class="history-count-badge" id="hist-badge" style="display:none">0</span></button>
     </div>
 
-    <!-- ===== CALCULATOR TAB ===== -->
+    <!-- CALCULATOR TAB -->
     <div id="fee-calc-tab">
       <!-- Progress Steps -->
       <div class="progress-steps">
@@ -1385,23 +1247,23 @@ body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgb
       <div class="step-panel active" id="step1">
         <span class="option-label">📚 Select College Type</span>
         <div class="option-grid cols-2">
-          <div class="option-btn" onclick="selectCollege('junior')">
+          <button class="option-btn" onclick="selectCollege('junior', this)">
             <span class="option-icon">🏫</span>
             <span class="option-name">Junior College</span>
-            <span class="option-sub">11th & 12th (FYJC / SYJC)</span>
-          </div>
-          <div class="option-btn" onclick="selectCollege('degree')">
+            <span class="option-sub">11th & 12th</span>
+          </button>
+          <button class="option-btn" onclick="selectCollege('degree', this)">
             <span class="option-icon">🎓</span>
             <span class="option-name">Degree College</span>
             <span class="option-sub">FY / SY / TY</span>
-          </div>
+          </button>
         </div>
       </div>
 
       <!-- STEP 2 -->
       <div class="step-panel" id="step2">
         <div class="summary-chips"><span class="chip" id="chip-college"></span></div>
-        <span class="option-label" id="year-label">📅 Select Year</span>
+        <span class="option-label">📅 Select Year</span>
         <div class="option-grid" id="year-grid"></div>
         <div class="btn-row">
           <button class="btn-back" onclick="goFeeStep(1)">← Back</button>
@@ -1415,18 +1277,17 @@ body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgb
           <span class="chip" id="chip-year"></span>
         </div>
         <span class="option-label">📖 Select Course</span>
-        <div class="select-wrap">
+        <div class="form-group">
           <select id="courseSelect" onchange="selectCourse()">
             <option value="">-- Select a Course --</option>
           </select>
-          <span class="select-arrow">▼</span>
         </div>
         <div class="btn-row">
           <button class="btn-back" onclick="goFeeStep(2)">← Back</button>
         </div>
       </div>
 
-      <!-- STEP 4: Result -->
+      <!-- STEP 4 -->
       <div class="step-panel" id="step4">
         <div class="summary-chips">
           <span class="chip" id="chip-college3"></span>
@@ -1436,40 +1297,40 @@ body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgb
           <div class="result-label">✅ Your Fees</div>
           <div class="result-course" id="result-course-name"></div>
           <div class="result-fees" id="result-fees-amount"></div>
-          <div style="font-size:0.8rem;color:#64748b;margin-top:4px;" id="result-year-label"></div>
+          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:4px;" id="result-year-label"></div>
           <div class="result-note">⚠️ Fees may change — always check official notices</div>
         </div>
         <button class="btn-reset" onclick="resetFeeCalc()">🔄 Calculate Again</button>
       </div>
     </div>
 
-    <!-- ===== HISTORY TAB ===== -->
+    <!-- HISTORY TAB -->
     <div id="fee-hist-tab" style="display:none;">
       <div id="history-list"></div>
     </div>
 
-    <p style="margin-top:16px;font-size:0.75rem;color:#94a3b8;text-align:center;">📞 For queries: 022-41914500 | office@kessc.edu.in</p>
+    <p style="margin-top:16px;font-size:0.72rem;color:var(--text-muted);text-align:center;">📞 For queries: 022-41914500 | office@kessc.edu.in</p>
   </div>
 
-  <!-- FEEDBACK FORM -->
-  <div class="card searchable reveal" id="feedback">
-    <h2>💬 Feedback Form</h2>
-    <p style="margin-bottom:16px;color:#64748b;font-size:0.85rem;line-height:1.4;">We value your feedback! Share your thoughts, suggestions, or report issues to help us improve KES Updates.</p>
-    <form action="https://formspree.io/f/xaqzreol" method="POST" style="display:flex;flex-direction:column;gap:14px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-        <div>
-          <label for="feedbackName" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Name</label>
-          <input type="text" id="feedbackName" name="name" placeholder="Enter your name" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+  <!-- FEEDBACK -->
+  <div class="card" id="feedback">
+    <h2>💬 Feedback</h2>
+    <p>Share your thoughts or report issues.</p>
+    <form action="https://formspree.io/f/xaqzreol" method="POST" style="margin-top:12px;">
+      <div class="attendance-grid">
+        <div class="form-group">
+          <label for="feedbackName">Your Name</label>
+          <input type="text" id="feedbackName" name="name" placeholder="Your name" required>
         </div>
-        <div>
-          <label for="feedbackEmail" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Email Address</label>
-          <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
+        <div class="form-group">
+          <label for="feedbackEmail">Email</label>
+          <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com" required>
         </div>
       </div>
-      <div>
-        <label for="feedbackCategory" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Feedback Category</label>
-        <select id="feedbackCategory" name="category" required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:600;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;cursor:pointer;font-family:'Poppins',sans-serif;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'">
-          <option value="" disabled selected>Select a category</option>
+      <div class="form-group">
+        <label for="feedbackCategory">Category</label>
+        <select id="feedbackCategory" name="category" required>
+          <option value="" disabled selected>Select category</option>
           <option value="suggestion">💡 Suggestion</option>
           <option value="bug">🐛 Bug Report</option>
           <option value="feature">✨ Feature Request</option>
@@ -1477,207 +1338,209 @@ body.dark .history-clear-btn { background:rgba(239,68,68,0.08); border-color:rgb
           <option value="other">📝 Other</option>
         </select>
       </div>
-      <div>
-        <label for="feedbackMessage" style="display:block;font-size:0.85rem;font-weight:700;color:#1e40af;margin-bottom:6px;">Your Message</label>
-        <textarea id="feedbackMessage" name="message" rows="5" placeholder="Tell us what you think..." required style="width:100%;padding:12px 16px;border:2px solid rgba(59,130,246,0.15);border-radius:14px;font-size:0.95rem;font-weight:500;background:rgba(255,255,255,0.9);color:#0f172a;transition:all 0.2s ease;resize:vertical;font-family:'Poppins',sans-serif;" onfocus="this.style.borderColor='#3b82f6';this.style.boxShadow='0 0 0 4px rgba(59,130,246,0.15)'" onblur="this.style.borderColor='rgba(59,130,246,0.15)';this.style.boxShadow='none'"></textarea>
+      <div class="form-group">
+        <label for="feedbackMessage">Your Message</label>
+        <textarea id="feedbackMessage" name="message" rows="4" placeholder="Tell us what you think..." required></textarea>
       </div>
-      <button type="submit" class="calculate-btn-premium" style="margin-bottom:0;">
-        <div class="btn-glow"></div>
-        <span class="btn-icon">📨</span>
-        <span class="btn-text">Submit Feedback</span>
-        <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </button>
+      <button type="submit" class="btn btn-primary btn-full">📨 Submit Feedback</button>
     </form>
   </div>
 
 </div>
 
+<!-- Footer -->
 <footer>
-  <div style="font-weight:700;font-size:1.1rem;margin-bottom:4px;">🎓 KES Updates</div>
-  <div style="font-size:0.85rem;opacity:0.8;">Independent Student Portal for KES Shroff College</div>
-  <div style="font-size:0.75rem;opacity:0.6;margin-top:4px;">© 2026 KES Updates | Made with 💙 for Students</div>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>🎓 KES Updates</h3>
+      <p>Independent Student Portal for KES Shroff College</p>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 KES Updates | Made with 💙 for Students</div>
+    </div>
+  </div>
 </footer>
 
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+  <a href="index.html">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Home</span>
+  </a>
+  <a href="#attendance">
+    <span class="nav-icon">🧮</span>
+    <span class="nav-label">Attend</span>
+  </a>
+  <a href="#fees-calculator">
+    <span class="nav-icon">💰</span>
+    <span class="nav-label">Fees</span>
+  </a>
+  <a href="#feedback">
+    <span class="nav-icon">💬</span>
+    <span class="nav-label">Feedback</span>
+  </a>
+</nav>
+
+<!-- ============ DONATION BAR - START ============ -->
+<div class="donation-bar">
+  <div class="donation-bar-inner">
+    <div class="donation-bar-content">
+      <div class="donation-bar-title">
+        <span class="tree-icon">🌳</span>
+        PLANT A TREE WITH KES UPDATES
+      </div>
+      <div class="donation-bar-subtitle">
+        🎓 Certificate + Receipt | Join Green Mission
+      </div>
+    </div>
+    <a href="https://kesupdatess.github.io/KES-UPDATESS-FOUNDATION/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="donation-bar-btn"
+       id="donateBarBtn">
+      💚 Plant Now
+    </a>
+  </div>
+</div>
 
 <script>
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
-const hamburgerBtn = document.getElementById("hamburgerBtn");
+(function() {
+  const btn = document.getElementById('donateBarBtn');
+  if (!btn) return;
 
-function toggleMenu() {
-  sidebar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  const isOpen = sidebar.classList.contains("active");
-  document.body.style.overflow = isOpen ? "hidden" : "";
-  hamburgerBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-}
+  btn.addEventListener('click', function() {
+    const trackData = {
+      event_category: 'Donation',
+      event_label: 'Bottom Bar - Plant Now',
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+      page_title: document.title,
+      source: document.referrer || 'Direct',
+      screen_size: `${window.innerWidth}x${window.innerHeight}`,
+      device_type: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+      timestamp: new Date().toISOString(),
+      value: 1
+    };
 
-function handleNavClick(e, targetId) {
-  e.preventDefault();
-  toggleMenu();
-  const target = document.querySelector(targetId);
-  if (target) {
-    setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
-  }
-}
+    if (typeof gtag === 'function') {
+      gtag('event', 'donate_bar_click', trackData);
+      console.log('📊 GA4 Event Sent:', trackData);
+    }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && sidebar.classList.contains('active')) toggleMenu();
-});
+    try {
+      const key = 'kes_donate_clicks_v1';
+      let history = JSON.parse(localStorage.getItem(key) || '[]');
+      history.push(trackData);
+      if (history.length > 500) history = history.slice(-500);
+      localStorage.setItem(key, JSON.stringify(history));
+    } catch(e) {}
 
+    console.log('🌳 Plant Now Click Tracked!');
+    console.log('📄 Page:', trackData.page_path);
+    console.log('⏰ Time:', new Date().toLocaleString());
+    console.log('📱 Device:', trackData.device_type);
+  });
+})();
+</script>
+<!-- ============ DONATION BAR - END ============ -->
+
+<script>
+/* ============ THEME ============ */
 function setTheme(mode) {
-  document.body.classList.remove("light", "dark");
-  if (mode === 'dark') document.body.classList.add("dark");
-  localStorage.setItem("theme", mode);
-  document.getElementById('btn-light').classList.toggle('active-theme', mode === 'light');
-  document.getElementById('btn-dark').classList.toggle('active-theme', mode === 'dark');
-  showToast(mode === 'dark' ? '🌙 Dark mode' : '☀️ Light mode', 1500);
+  document.body.classList.toggle('dark', mode === 'dark');
+  localStorage.setItem('theme', mode);
+  document.getElementById('themeBtn').textContent = mode === 'dark' ? '☀️' : '🌙';
 }
 
-function showToast(message, duration = 2000) {
-  let t = document.querySelector('.toast');
-  if (t) t.remove();
-  t = document.createElement('div');
+function toggleTheme() {
+  const isDark = document.body.classList.contains('dark');
+  setTheme(isDark ? 'light' : 'dark');
+  showToast(isDark ? '☀️ Light mode' : '🌙 Dark mode');
+}
+
+function showToast(msg, duration = 1500) {
+  const old = document.querySelector('.toast');
+  if (old) old.remove();
+  const t = document.createElement('div');
   t.className = 'toast';
-  t.textContent = message;
+  t.textContent = msg;
   document.body.appendChild(t);
   setTimeout(() => t.remove(), duration);
 }
 
-window.addEventListener('scroll', function() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = (scrollTop / docHeight) * 100;
-  document.getElementById('scrollProgress').style.width = progress + '%';
-  const btn = document.getElementById('backToTop');
-  if (scrollTop > 300) btn.classList.add('visible');
-  else btn.classList.remove('visible');
-});
+/* ============ MENU ============ */
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('active');
+  document.getElementById('overlay').classList.toggle('active');
+}
 
-window.onload = () => {
-  const saved = localStorage.getItem("theme") || "light";
-  setTheme(saved);
-  updateFeeHistoryBadge();
-};
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
-    }
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (document.getElementById('sidebar').classList.contains('active')) toggleMenu();
   });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('.card.reveal').forEach(card => revealObserver.observe(card));
-
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('a');
-  if (!link) return;
-  const linkText = link.innerText.trim().substring(0, 50) || link.getAttribute('href');
-  const linkUrl = link.getAttribute('href');
-  if (typeof gtag === 'function') {
-    gtag('event', 'link_click', {
-      link_text: linkText,
-      link_url: linkUrl,
-      page_location: window.location.href
-    });
-  }
 });
 
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('sidebar').classList.contains('active')) toggleMenu();
+});
+
+/* ============ SCROLL ============ */
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('scrollProgress').style.width = ((scrolled / total) * 100) + '%';
+  document.getElementById('backToTop').classList.toggle('visible', scrolled > 300);
+});
+
+/* ============ ATTENDANCE CALCULATOR ============ */
 function calculateAttendance() {
   const total = parseFloat(document.getElementById('totalLectures').value);
   const attendedRaw = parseFloat(document.getElementById('attendedLectures').value);
   const required = parseFloat(document.getElementById('requiredPercent').value) || 75;
   const grace = parseFloat(document.getElementById('graceAttendance').value) || 0;
-  const resultBox = document.getElementById('attendanceResult');
-  const progressWrap = document.getElementById('attendanceProgressWrap');
-  const progressFill = document.getElementById('attendanceProgressFill');
-  const progressMarker = document.getElementById('attendanceProgressMarker');
-  const currentLabel = document.getElementById('progressCurrentLabel');
-  const requiredLabel = document.getElementById('progressRequiredLabel');
+  const result = document.getElementById('attResult');
+  const progress = document.getElementById('attProgress');
+  const fill = document.getElementById('progressFill');
 
-  const statBox = document.getElementById('attendanceStatBox');
-  const statNumber = document.getElementById('attendanceStatNumber');
-  const statLabel = document.getElementById('attendanceStatLabel');
-
-  const quickStatCurrent = document.getElementById('quickStatCurrent');
-  const quickStatTarget = document.getElementById('quickStatTarget');
-  const quickStatNeeded = document.getElementById('quickStatNeeded');
-
-  resultBox.classList.remove('safe', 'warning');
-  statBox.classList.remove('safe', 'warning', 'active');
+  result.classList.remove('safe', 'warning', 'active');
+  progress.classList.remove('active');
 
   if (isNaN(total) || isNaN(attendedRaw) || total <= 0 || attendedRaw < 0 || attendedRaw > total) {
-    resultBox.textContent = "⚠️ Please enter valid lecture numbers (Attended ≤ Total).";
-    resultBox.classList.add('active', 'warning');
-    progressWrap.classList.remove('active');
-
-    quickStatCurrent.querySelector('.quick-stat-value').textContent = '--%';
-    quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = '--';
+    result.textContent = '⚠️ Please enter valid numbers (Attended ≤ Total)';
+    result.classList.add('active', 'warning');
     return;
   }
 
-  const attended = Math.min(attendedRaw + grace, total);
-  const currentPercent = (attended / total) * 100;
-  const isSafe = currentPercent >= required;
+  const effective = Math.min(attendedRaw + grace, total);
+  const percent = (effective / total) * 100;
+  const isSafe = percent >= required;
 
-  quickStatCurrent.querySelector('.quick-stat-value').textContent = currentPercent.toFixed(1) + '%';
-  quickStatTarget.querySelector('.quick-stat-value').textContent = required + '%';
+  fill.style.width = Math.min(percent, 100) + '%';
+  fill.classList.toggle('safe', isSafe);
+  fill.classList.toggle('warning', !isSafe);
+  document.getElementById('progressPercent').textContent = percent.toFixed(1) + '%';
+  progress.classList.add('active');
 
-  const fillPercent = Math.min(currentPercent, 100);
-  progressFill.style.width = fillPercent + '%';
-  progressFill.classList.remove('safe', 'warning');
-  progressFill.classList.add(isSafe ? 'safe' : 'warning');
-  progressMarker.style.left = Math.min(required, 100) + '%';
-  currentLabel.textContent = currentPercent.toFixed(1) + '%';
-  requiredLabel.textContent = 'Target: ' + required + '%';
-  progressWrap.classList.add('active');
-
-  const graceNote = grace > 0 ? ` (includes ${grace} grace lecture${grace > 1 ? 's' : ''})` : '';
+  const graceNote = grace > 0 ? ` (incl. ${grace} grace)` : '';
 
   if (isSafe) {
-    let maxSkippable = 0;
-    let a = attended, t = total;
-    while (((a) / (t + 1)) * 100 >= required) {
-      maxSkippable++;
-      t++;
-    }
-    resultBox.textContent = `✅ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, which meets the ${required}% requirement. You can afford to miss up to ${maxSkippable} more lecture(s) and still stay at or above ${required}%.`;
-    resultBox.classList.add('safe');
-
-    statBox.classList.add('safe', 'active');
-    statNumber.textContent = maxSkippable;
-    statLabel.textContent = `can miss`;
-
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = maxSkippable;
-    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Can Miss';
+    let skip = 0, t = total, a = effective;
+    while (((a) / (t + 1)) * 100 >= required) { skip++; t++; }
+    result.textContent = `✅ You're at ${percent.toFixed(1)}%${graceNote}. You can miss ${skip} more lecture(s).`;
+    result.classList.add('safe');
   } else {
-    let needed = 0;
-    let a = attended, t = total;
-    while (((a + needed) / (t + needed)) * 100 < required) {
-      needed++;
-      if (needed > 100000) break;
-    }
-    resultBox.textContent = `⚠️ You're at ${currentPercent.toFixed(1)}% attendance${graceNote}, below the ${required}% requirement. You need to attend ${needed} more consecutive lecture(s) without missing any to reach ${required}%.`;
-    resultBox.classList.add('warning');
-
-    statBox.classList.add('warning', 'active');
-    statNumber.textContent = needed;
-    statLabel.textContent = `needed`;
-
-    quickStatNeeded.querySelector('.quick-stat-value').textContent = needed;
-    quickStatNeeded.querySelector('.quick-stat-label').textContent = 'Needed';
+    let needed = 0, t = total, a = effective;
+    while (((a + needed) / (t + needed)) * 100 < required) { needed++; if (needed > 10000) break; }
+    result.textContent = `⚠️ You're at ${percent.toFixed(1)}%${graceNote}. Attend ${needed} more lecture(s).`;
+    result.classList.add('warning');
   }
-
-  resultBox.classList.add('active');
+  result.classList.add('active');
 }
 
-// ===== NEW FEES CALCULATOR LOGIC =====
+/* ============ FEES CALCULATOR ============ */
 const feesData = {
   junior: {
     FY: [
@@ -1709,7 +1572,7 @@ const feesData = {
       {name:"FYJC Arts — French/Geo/Psy", fees:37157},
       {name:"FYJC Arts — French/Maths/Psy", fees:41147},
       {name:"FYJC Arts — French/Geo/His", fees:32612},
-      {name:"FYJC Arts — French/Maths/His", fees:36602},
+      {name:"FYJC Arts — French/Maths/His", fees:36602}
     ]
   },
   degree: {
@@ -1740,7 +1603,7 @@ const feesData = {
       {name:"B.Sc (Capital Market)", fees:103600},
       {name:"BMS - AICTE", fees:49230},
       {name:"BBA - AICTE", fees:75270},
-      {name:"BCA - AICTE", fees:60230},
+      {name:"BCA - AICTE", fees:60230}
     ],
     SY: [
       {name:"SYBAF", fees:46630},{name:"SYBBI", fees:46310},{name:"SYBCMA", fees:90000},
@@ -1750,7 +1613,7 @@ const feesData = {
       {name:"SYBSC-IF", fees:103280},{name:"SYBSC-FT", fees:51280},{name:"SYBSC-DS", fees:73990},
       {name:"SYBSC-IT", fees:49390},{name:"SYBSC-AI", fees:84580},{name:"SYBA-GEO", fees:33540},
       {name:"SYBA-ENG", fees:37540},{name:"SYBA-PSY", fees:39540},{name:"SYBA-ECO", fees:36240},
-      {name:"SYBCOM-A", fees:18520},
+      {name:"SYBCOM-A", fees:18520}
     ],
     TY: [
       {name:"TYBAF", fees:43720},{name:"TYBBI", fees:43690},{name:"TYBFM", fees:42665},
@@ -1759,7 +1622,7 @@ const feesData = {
       {name:"TYBSC-DS", fees:72870},{name:"TYBCA-AICTE", fees:60130},{name:"TYBBA-AICTE", fees:75170},
       {name:"TYBMS-AICTE", fees:49130},{name:"TYBCOM-DB", fees:153410},{name:"TYBA-GEO", fees:33280},
       {name:"TYBA-ENG", fees:36280},{name:"TYBA-PSY", fees:41280},{name:"TYBA-ECO", fees:34280},
-      {name:"TYBCOM-A-TAX", fees:16070},{name:"TYBCOM-A-COMP", fees:18070},
+      {name:"TYBCOM-A-TAX", fees:16070},{name:"TYBCOM-A-COMP", fees:18070}
     ]
   }
 };
@@ -1770,16 +1633,16 @@ let feeHistory = JSON.parse(localStorage.getItem('kes_fees_history') || '[]');
 
 function switchFeeTab(tab) {
   document.getElementById('fee-calc-tab').style.display = tab === 'calc' ? 'block' : 'none';
-  document.getElementById('fee-hist-tab').style.display  = tab === 'hist' ? 'block' : 'none';
+  document.getElementById('fee-hist-tab').style.display = tab === 'hist' ? 'block' : 'none';
   document.getElementById('tab-calc').classList.toggle('active', tab === 'calc');
   document.getElementById('tab-hist').classList.toggle('active', tab === 'hist');
   if (tab === 'hist') renderFeeHistory();
 }
 
-function selectCollege(type) {
+function selectCollege(type, btn) {
   feeState.college = type;
   document.querySelectorAll('#step1 .option-btn').forEach(b => b.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
+  btn.classList.add('selected');
   setTimeout(() => { buildYearStep(type); goFeeStep(2); }, 200);
 }
 
@@ -1789,31 +1652,31 @@ function buildYearStep(type) {
   if (type === 'junior') {
     grid.className = 'option-grid cols-2';
     grid.innerHTML = `
-      <div class="option-btn" onclick="selectYear('FY')">
+      <button class="option-btn" onclick="selectYear('FY', this)">
         <span class="option-icon">1️⃣</span><span class="option-name">FYJC</span><span class="option-sub">11th Standard</span>
-      </div>
-      <div class="option-btn" style="opacity:0.4;pointer-events:none;">
+      </button>
+      <button class="option-btn disabled">
         <span class="option-icon">2️⃣</span><span class="option-name">SYJC</span><span class="option-sub">Coming Soon</span>
-      </div>`;
+      </button>`;
   } else {
     grid.className = 'option-grid cols-3';
     grid.innerHTML = `
-      <div class="option-btn" onclick="selectYear('FY')">
+      <button class="option-btn" onclick="selectYear('FY', this)">
         <span class="option-icon">1️⃣</span><span class="option-name">FY</span><span class="option-sub">First Year</span>
-      </div>
-      <div class="option-btn" onclick="selectYear('SY')">
+      </button>
+      <button class="option-btn" onclick="selectYear('SY', this)">
         <span class="option-icon">2️⃣</span><span class="option-name">SY</span><span class="option-sub">Second Year</span>
-      </div>
-      <div class="option-btn" onclick="selectYear('TY')">
+      </button>
+      <button class="option-btn" onclick="selectYear('TY', this)">
         <span class="option-icon">3️⃣</span><span class="option-name">TY</span><span class="option-sub">Third Year</span>
-      </div>`;
+      </button>`;
   }
 }
 
-function selectYear(year) {
+function selectYear(year, btn) {
   feeState.year = year;
   document.querySelectorAll('#year-grid .option-btn').forEach(b => b.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
+  btn.classList.add('selected');
   setTimeout(() => { buildCourseStep(feeState.college, year); goFeeStep(3); }, 200);
 }
 
@@ -1902,7 +1765,6 @@ function renderFeeHistory() {
             <span>·</span>
             <span>${h.time}</span>
           </div>
-          <span class="history-reuse">↩ Click to view again</span>
         </div>
         <div class="history-fees">₹${h.fees.toLocaleString('en-IN')}</div>
       </div>`;
@@ -1942,12 +1804,20 @@ function goFeeStep(n) {
   for (let i=1; i<=4; i++) {
     document.getElementById('step'+i).classList.toggle('active', i===n);
     const circle = document.getElementById('sc'+i);
-    const label  = document.getElementById('sl'+i);
+    const label = document.getElementById('sl'+i);
     circle.classList.remove('active','done');
     label.classList.remove('active','done');
-    if (i < n)       { circle.classList.add('done'); label.classList.add('done'); circle.textContent='✓'; }
-    else if (i === n){ circle.classList.add('active'); label.classList.add('active'); circle.textContent=i; }
-    else             { circle.textContent=i; }
+    if (i < n) {
+      circle.classList.add('done');
+      label.classList.add('done');
+      circle.textContent = '✓';
+    } else if (i === n) {
+      circle.classList.add('active');
+      label.classList.add('active');
+      circle.textContent = i;
+    } else {
+      circle.textContent = i;
+    }
     if (i < 4) document.getElementById('line'+i).classList.toggle('done', i < n);
   }
 }
@@ -1958,6 +1828,23 @@ function resetFeeCalc() {
   document.querySelectorAll('#fees-calculator .option-btn').forEach(b => b.classList.remove('selected'));
   goFeeStep(1);
 }
+
+/* ============ INIT ============ */
+window.addEventListener('load', () => {
+  setTheme(localStorage.getItem('theme') || 'light');
+  updateFeeHistoryBadge();
+});
+
+/* ============ GA4 CLICK TRACKING ============ */
+document.addEventListener('click', e => {
+  const link = e.target.closest('a');
+  if (!link || typeof gtag !== 'function') return;
+  gtag('event', 'link_click', {
+    link_text: link.innerText.trim().substring(0, 50) || link.getAttribute('href'),
+    link_url: link.getAttribute('href'),
+    page_location: window.location.href
+  });
+});
 </script>
 
 </body>
