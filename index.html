@@ -226,9 +226,6 @@ body.dark::before {
   background: linear-gradient(135deg, var(--card), var(--primary-bg));
 }
 
-/* ═══════════════════════════════════════════════════════
-   NOTICES SECTION - UNCHANGED
-   ═══════════════════════════════════════════════════════ */
 .notice-college-section {
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -250,6 +247,35 @@ body.dark::before {
 
 .notice-college-header .college-icon { font-size: 1.3rem; }
 .notice-college-header h3 { font-size: 0.98rem; font-weight: 700; color: var(--text); }
+
+.kes-live-list { list-style: none; margin-bottom: 14px; }
+.kes-live-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    transition: background 0.2s;
+}
+.kes-live-item:last-child { border-bottom: none; }
+.kes-live-item:hover { background: var(--primary-bg); margin: 0 -10px; padding-left: 10px; padding-right: 10px; border-radius: 6px; }
+.kes-live-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 100px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.kes-live-title a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+.kes-live-title a:hover { color: var(--primary); text-decoration: underline; }
+.kes-loading { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.85rem; }
 
 .notice-card {
   background: var(--card);
@@ -367,9 +393,6 @@ body.dark::before {
 .view-all-btn .arrow { transition: transform 0.2s; }
 .view-all-btn:hover .arrow { transform: translateX(4px); }
 
-/* ═══════════════════════════════════════════════════════
-   DYNAMIC EVENTS SECTION - NEW CSS (Matching your style)
-   ═══════════════════════════════════════════════════════ */
 .live-badge {
   background: var(--danger);
   color: white;
@@ -498,7 +521,6 @@ body.dark::before {
   font-weight: 700;
 }
 
-/* Events List in Index */
 .events-list {
   display: flex;
   flex-direction: column;
@@ -616,9 +638,6 @@ body.dark::before {
   flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════════════════════════
-   OTHER STYLES - UNCHANGED
-   ═══════════════════════════════════════════════════════ */
 .link-list {
   display: flex;
   flex-direction: column;
@@ -1124,6 +1143,17 @@ footer {
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
+.degree-scrape-divider {
+  text-align: center;
+  padding: 15px 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-top: 1px dashed var(--border);
+  margin: 10px 0;
+  display: none;
+}
+
 @media (max-width: 640px) {
   body { font-size: 14px; }
   .page-header h1 { font-size: 1.3rem; }
@@ -1235,11 +1265,42 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <p id="noResults" class="no-results">😕 No matching results found.</p>
 
   <!-- ═══════════════════════════════════════════════════════
-       NOTICES SECTION - UNCHANGED
+       NOTICES SECTION - DEGREE TOP, JUNIOR BOTTOM
        ═══════════════════════════════════════════════════════ -->
   <div class="card card-featured searchable" id="notices">
     <h2>📢 Important Notices</h2>
     
+    <!-- DEGREE COLLEGE (TOP) - Admin + Scraped Both -->
+    <div class="notice-college-section">
+      <div class="notice-college-header">
+        <span class="college-icon">🎓</span>
+        <h3>Degree College Notices</h3>
+      </div>
+      
+      <!-- Admin Panel Custom Notices (Supabase) -->
+      <div id="degree-custom-notices"></div>
+      
+      <!-- Divider (shown only when custom notices exist) -->
+      <div id="degree-scrape-divider" class="degree-scrape-divider">
+        🌐 LIVE NOTICES FROM KES WEBSITE
+      </div>
+      
+      <!-- Scraped Notices from kessc.edu.in -->
+      <ul id="kes-live-notices" class="kes-live-list">
+        <li class="kes-loading">Fetching latest notices...</li>
+      </ul>
+      
+      <a href="https://kessc.edu.in/notices/" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="view-all-btn">
+        <span>🌐</span>
+        <span>View All Degree College Notices</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <!-- JUNIOR COLLEGE (BOTTOM) - Admin Only -->
     <div class="notice-college-section">
       <div class="notice-college-header">
         <span class="college-icon">🏫</span>
@@ -1252,22 +1313,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
          class="view-all-btn">
         <span>🌐</span>
         <span>View All Junior College Notices</span>
-        <span class="arrow">→</span>
-      </a>
-    </div>
-
-    <div class="notice-college-section">
-      <div class="notice-college-header">
-        <span class="college-icon">🎓</span>
-        <h3>Degree College Notices</h3>
-      </div>
-      <div id="degree-notices"></div>
-      <a href="https://kessc.edu.in/notices/" 
-         target="_blank" 
-         rel="noopener noreferrer"
-         class="view-all-btn">
-        <span>🌐</span>
-        <span>View All Degree College Notices</span>
         <span class="arrow">→</span>
       </a>
     </div>
@@ -1318,14 +1363,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>All academic documents in one place.</p>
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       🔥 FEATURED EVENT COUNTDOWN - DYNAMIC (Replaces hardcoded)
-       ═══════════════════════════════════════════════════════ -->
   <div id="featured-event-container"></div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       📅 UPCOMING EVENTS LIST - DYNAMIC (Replaces hardcoded)
-       ═══════════════════════════════════════════════════════ -->
   <div class="card searchable" id="upcoming-events">
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
       <h2 style="margin:0;">📅 Upcoming Events</h2>
@@ -1338,7 +1377,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <a class="btn btn-primary btn-full" href="events.html">📅 View All Upcoming Events</a>
   </div>
 
-  <!-- UNCHANGED SECTIONS -->
   <div class="card searchable" id="papers">
     <h2>📄 Question Papers</h2>
     <div class="link-list">
@@ -1586,7 +1624,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 // ═══════════════════════════════════════════════════════
-// DYNAMIC NOTICES - OLD SUPABASE (unchanged)
+// SUPABASE NOTICES - FOR BOTH JUNIOR & DEGREE
 // ═══════════════════════════════════════════════════════
 const NOTICES_URL = 'https://jbyctjddlbyddzavmczg.supabase.co';
 const NOTICES_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpieWN0amRkbGJ5ZGR6YXZtY3pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNzE2NzYsImV4cCI6MjA5Nzk0NzY3Nn0.klEa0-zSGbHZYA-fYiHYg4ceoL1PQ87gowGEbvVmhqU';
@@ -1604,25 +1642,34 @@ async function loadNotices() {
   } catch(e) {
     console.error('Failed to load notices:', e);
     document.getElementById('junior-notices').innerHTML = '';
-    document.getElementById('degree-notices').innerHTML = '';
+    document.getElementById('degree-custom-notices').innerHTML = '';
   }
 }
 
 function renderNotices() {
+  // Junior College Notices
   const juniorNotices = allNotices.filter(n => n.college_type === 'junior' || n.college_type === 'both');
-  const degreeNotices = allNotices.filter(n => n.college_type === 'degree' || n.college_type === 'both');
-
   document.getElementById('junior-notices').innerHTML = juniorNotices.length
     ? juniorNotices.map(n => renderNoticeCard(n)).join('')
-    : '';
+    : '<p style="color:var(--text-muted);font-size:.85rem;text-align:center;padding:10px;">No Junior College notices added yet.</p>';
 
-  document.getElementById('degree-notices').innerHTML = degreeNotices.length
-    ? degreeNotices.map(n => renderNoticeCard(n)).join('')
-    : '';
+  // Degree College Custom Notices (from Admin Panel)
+  const degreeNotices = allNotices.filter(n => n.college_type === 'degree' || n.college_type === 'both');
+  const degreeCustomContainer = document.getElementById('degree-custom-notices');
+  
+  if (degreeNotices.length > 0) {
+    degreeCustomContainer.innerHTML = degreeNotices.map(n => renderNoticeCard(n, true)).join('');
+    // Show divider before scraped notices
+    document.getElementById('degree-scrape-divider').style.display = 'block';
+  } else {
+    degreeCustomContainer.innerHTML = '';
+    document.getElementById('degree-scrape-divider').style.display = 'none';
+  }
 }
 
-function renderNoticeCard(n) {
+function renderNoticeCard(n, isDegree = false) {
   const pinnedBadge = n.is_pinned ? `<div class="notice-pinned-badge">📌 Pinned</div>` : '';
+  const customBadge = isDegree ? `<span style="background:rgba(37,99,235,0.1);color:var(--primary);padding:2px 8px;border-radius:99px;font-size:0.6rem;font-weight:700;margin-left:8px;">⭐ Custom</span>` : '';
   const image = n.image_url ? `<img src="${n.image_url}" class="notice-img" alt="${escapeHtml(n.title)}" loading="lazy" />` : '';
   const link = n.link ? `<a href="${n.link}" target="_blank" class="notice-link-btn">Read more →</a>` : '';
   
@@ -1631,7 +1678,7 @@ function renderNoticeCard(n) {
       ${pinnedBadge}
       ${image}
       <div class="notice-header">
-        <span class="notice-category cat-${n.category}">${catIcon(n.category)} ${n.category}</span>
+        <span class="notice-category cat-${n.category}">${catIcon(n.category)} ${n.category}${customBadge}</span>
         <span class="notice-date">${fDate(n.created_at)}</span>
       </div>
       <div class="notice-title">${escapeHtml(n.title)}</div>
@@ -1657,7 +1704,85 @@ setInterval(loadNotices, 30000);
 
 <script>
 // ═══════════════════════════════════════════════════════
-// 🆕 DYNAMIC EVENTS - NEW SUPABASE (Only this is new)
+// LIVE KES DEGREE COLLEGE NOTICES SCRAPER
+// ═══════════════════════════════════════════════════════
+const KES_NOTICES_PAGE = 'https://kessc.edu.in/notices/';
+const KES_PROXIES = [
+  'https://corsproxy.io/?',
+  'https://api.allorigins.win/get?url=',
+  'https://api.codetabs.com/v1/proxy?quest='
+];
+
+async function loadKESNotices() {
+  const container = document.getElementById('kes-live-notices');
+  if (!container) return;
+
+  for (const proxy of KES_PROXIES) {
+    try {
+      let response;
+      let htmlText;
+
+      if (proxy.includes('allorigins')) {
+        response = await fetch(proxy + encodeURIComponent(KES_NOTICES_PAGE));
+        if (!response.ok) continue;
+        const data = await response.json();
+        htmlText = data.contents;
+      } else {
+        response = await fetch(proxy + encodeURIComponent(KES_NOTICES_PAGE));
+        if (!response.ok) continue;
+        htmlText = await response.text();
+      }
+
+      if (!htmlText) continue;
+
+      // FAST REGEX PARSING
+      const blockRegex = /<li class="wp-block-post[^>]*>[\s\S]*?<\/li>/g;
+      const blocks = htmlText.match(blockRegex);
+
+      if (!blocks || blocks.length === 0) continue;
+
+      const notices = [];
+      for (let i = 0; i < Math.min(blocks.length, 10); i++) {
+        const block = blocks[i];
+        const linkMatch = block.match(/<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
+        if (!linkMatch) continue;
+
+        const href = linkMatch[1];
+        const title = linkMatch[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
+        if (!title || title.toLowerCase() === 'notices') continue;
+        notices.push({ title, href });
+      }
+
+      if (notices.length === 0) continue;
+
+      container.innerHTML = notices.map(n => `
+        <li class="kes-live-item">
+          <span class="kes-live-date">New</span>
+          <div class="kes-live-title">
+            <a href="${n.href}" target="_blank" rel="noopener noreferrer">${n.title}</a>
+          </div>
+        </li>
+      `).join('');
+
+      return;
+
+    } catch (err) {
+      console.warn(`KES Proxy failed: ${proxy}`, err.message);
+      continue;
+    }
+  }
+
+  container.innerHTML = `<li class="kes-loading">Unable to load notices. <button onclick="loadKESNotices()" style="background:none;border:none;color:var(--primary);cursor:pointer;text-decoration:underline;">Retry</button></li>`;
+}
+
+loadKESNotices();
+setInterval(loadKESNotices, 300000);
+</script>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// DYNAMIC EVENTS
 // ═══════════════════════════════════════════════════════
 const EVENTS_URL = 'https://uegdizdnminwhkxcdcle.supabase.co';
 const EVENTS_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlZ2RpemRubWlud2hreGNkY2xlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwODk2MjgsImV4cCI6MjA5NzY2NTYyOH0.2wiAHbaoNoDva_tRseDAywVMu_6AioCGlVLgoVb0d6s';
@@ -1695,7 +1820,6 @@ function renderFeaturedEvent() {
   const targetDate = new Date(end || start);
   const diff = targetDate - now;
   
-  // Badge
   let badgeText = 'UPCOMING';
   let badgeBg = 'var(--danger)';
   
@@ -1710,22 +1834,18 @@ function renderFeaturedEvent() {
     badgeBg = 'var(--warning)';
   }
   
-  // College label
   const collegeLabel = featured.college_type === 'degree' ? '🎓 Degree College' : 
                        featured.college_type === 'junior' ? '🏫 Junior College' : '🎓 Both Colleges';
   const locationText = featured.location ? ` • 📍 ${featured.location}` : '';
   
-  // Date text
   let dateText = `📅 Expected: <span class="highlight">${start.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'})}</span>`;
   if (end && start.toDateString() !== end.toDateString()) {
     dateText = `📅 ${start.toLocaleDateString('en-IN', {day:'numeric', month:'short'})} - ${end.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'})}`;
   }
   
-  // Store target for live countdown
   window._featuredTarget = targetDate;
   window._featuredEvent = featured;
   
-  // Calculate initial countdown
   const days = Math.max(0, Math.floor(diff / 86400000));
   const hours = Math.max(0, Math.floor((diff % 86400000) / 3600000));
   const mins = Math.max(0, Math.floor((diff % 3600000) / 60000));
@@ -1785,16 +1905,13 @@ function renderUpcomingEventsList() {
     const month = d.toLocaleDateString('en-IN', {month:'short'});
     const day = d.getDate();
     
-    // Type for color
     let dataType = 'event';
     if (e.category === 'exam') dataType = 'exam';
     else if (e.category === 'holiday') dataType = 'vacation';
     
-    // College tag
     const collegeTag = e.college_type === 'degree' ? '🎓 Degree' : 
                        e.college_type === 'junior' ? '🏫 Junior' : '🎓 Both';
     
-    // Countdown text
     const diff = d - now;
     let countdownText = '';
     let countdownClass = 'event-countdown';
@@ -1833,13 +1950,12 @@ function renderUpcomingEventsList() {
   }).join('');
 }
 
-// Live countdown update (every second)
 function updateFeaturedCountdown() {
   if (!window._featuredTarget) return;
   const diff = window._featuredTarget - new Date();
   
   if (diff <= 0) {
-    loadEvents(); // Refresh when done
+    loadEvents();
     return;
   }
   
@@ -1859,12 +1975,12 @@ function updateFeaturedCountdown() {
 
 setInterval(updateFeaturedCountdown, 1000);
 loadEvents();
-setInterval(loadEvents, 120000); // Refresh every 2 minutes
+setInterval(loadEvents, 120000);
 </script>
 
 <script>
 // ═══════════════════════════════════════════════════════
-// OTHER FUNCTIONS - UNCHANGED
+// OTHER FUNCTIONS
 // ═══════════════════════════════════════════════════════
 function setTheme(mode) {
   document.body.classList.toggle('dark', mode === 'dark');
