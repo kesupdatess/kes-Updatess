@@ -277,6 +277,18 @@ body.dark::before {
 .kes-live-title a:hover { color: var(--primary); text-decoration: underline; }
 .kes-loading { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.85rem; }
 
+.scrape-divider {
+  text-align: center;
+  padding: 15px 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-top: 1px dashed var(--border);
+  margin: 10px 0;
+  display: none;
+  letter-spacing: 0.5px;
+}
+
 .notice-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -1143,17 +1155,6 @@ footer {
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.degree-scrape-divider {
-  text-align: center;
-  padding: 15px 0;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-top: 1px dashed var(--border);
-  margin: 10px 0;
-  display: none;
-}
-
 @media (max-width: 640px) {
   body { font-size: 14px; }
   .page-header h1 { font-size: 1.3rem; }
@@ -1186,8 +1187,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   * { animation: none !important; transition: none !important; }
 }
 </style>
-
-<script src="analytics-tracker.js"></script>
 </head>
 
 <body>
@@ -1264,28 +1263,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
   <p id="noResults" class="no-results">😕 No matching results found.</p>
 
-  <!-- ═══════════════════════════════════════════════════════
-       NOTICES SECTION - DEGREE TOP, JUNIOR BOTTOM
-       ═══════════════════════════════════════════════════════ -->
+  <!-- NOTICES SECTION -->
   <div class="card card-featured searchable" id="notices">
     <h2>📢 Important Notices</h2>
     
-    <!-- DEGREE COLLEGE (TOP) - Admin + Scraped Both -->
+    <!-- DEGREE COLLEGE (TOP) -->
     <div class="notice-college-section">
       <div class="notice-college-header">
         <span class="college-icon">🎓</span>
         <h3>Degree College Notices</h3>
       </div>
       
-      <!-- Admin Panel Custom Notices (Supabase) -->
       <div id="degree-custom-notices"></div>
       
-      <!-- Divider (shown only when custom notices exist) -->
-      <div id="degree-scrape-divider" class="degree-scrape-divider">
+      <div id="degree-scrape-divider" class="scrape-divider">
         🌐 LIVE NOTICES FROM KES WEBSITE
       </div>
       
-      <!-- Scraped Notices from kessc.edu.in -->
       <ul id="kes-live-notices" class="kes-live-list">
         <li class="kes-loading">Fetching latest notices...</li>
       </ul>
@@ -1300,13 +1294,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </a>
     </div>
 
-    <!-- JUNIOR COLLEGE (BOTTOM) - Admin Only -->
+    <!-- JUNIOR COLLEGE (BOTTOM) -->
     <div class="notice-college-section">
       <div class="notice-college-header">
         <span class="college-icon">🏫</span>
         <h3>Junior College Notices</h3>
       </div>
-      <div id="junior-notices"></div>
+      
+      <div id="junior-custom-notices"></div>
+      
+      <div id="junior-scrape-divider" class="scrape-divider">
+        🌐 LIVE NOTICES FROM JUNIOR COLLEGE WEBSITE
+      </div>
+      
+      <div id="junior-live-notices">
+        <div class="kes-loading">Fetching latest notices...</div>
+      </div>
+      
       <a href="https://kesjrsanghvi.com/enotices/" 
          target="_blank" 
          rel="noopener noreferrer"
@@ -1320,7 +1324,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <a class="btn whatsapp-btn btn-full" href="https://wa.me/?text=Check%20out%20KES%20Updates%3A%20https%3A%2F%2Fkesupdatess.github.io%2Fkes-Updatess%2F" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">📱 Share on WhatsApp</a>
   </div>
 
-  <!-- UNCHANGED SECTIONS -->
+  <!-- Student Corner -->
   <div class="card searchable" id="student">
     <h2>🧑‍🎓 Student Corner</h2>
     <div class="link-list">
@@ -1340,6 +1344,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>Got a doubt, meme, or facing any issue? We're here to help!</p>
   </div>
 
+  <!-- Academic Info -->
   <div class="card searchable" id="academic">
     <h2>📚 Academic Info</h2>
     <div class="link-list">
@@ -1365,6 +1370,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   <div id="featured-event-container"></div>
 
+  <!-- Upcoming Events -->
   <div class="card searchable" id="upcoming-events">
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
       <h2 style="margin:0;">📅 Upcoming Events</h2>
@@ -1377,6 +1383,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <a class="btn btn-primary btn-full" href="events.html">📅 View All Upcoming Events</a>
   </div>
 
+  <!-- Question Papers -->
   <div class="card searchable" id="papers">
     <h2>📄 Question Papers</h2>
     <div class="link-list">
@@ -1395,6 +1402,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>Semester-wise question papers for exam preparation and revision.</p>
   </div>
 
+  <!-- Tools -->
   <div class="card searchable" id="tools-link">
     <h2>🧮 Student Tools</h2>
     <p>Powerful calculators designed for KES students.</p>
@@ -1413,6 +1421,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <a class="btn btn-primary btn-full" href="tools.html">🚀 Open Student Tools</a>
   </div>
 
+  <!-- ERP -->
   <div class="card searchable" id="erp">
     <h2>💳 ERP Portal</h2>
     <div class="link-list">
@@ -1435,6 +1444,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>Official ERP system used for all student services — fees, results, registrations and more.</p>
   </div>
 
+  <!-- Library -->
   <div class="card searchable" id="library">
     <h2>📚 KES Shroff College Library</h2>
     <div class="link-list">
@@ -1446,6 +1456,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>Books, catalogue search, and academic material.</p>
   </div>
 
+  <!-- College Details -->
   <div class="card searchable" id="college-details">
     <h2>🏛️ College Details</h2>
     <p>Contact info, addresses & locations for all KES buildings.</p>
@@ -1469,6 +1480,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <a class="btn btn-primary btn-full" href="college.html">🏛️ View Full Details</a>
   </div>
 
+  <!-- Collaboration -->
   <div class="card searchable" id="collab">
     <h2>🤝 Collaboration</h2>
     <p>Want to collaborate with KES Updates? Reach out!</p>
@@ -1481,6 +1493,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </div>
 
+  <!-- About -->
   <div class="card" id="about">
     <h2>ℹ️ About KES Updates</h2>
     <p>KES Updates is an independent, student-managed page created to share notices, resources, and fun campus content. We are not an official college page, but our goal is to keep students informed, connected, and entertained 💙.</p>
@@ -1500,12 +1513,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </div>
 
+  <!-- Policy -->
   <div class="card searchable" id="our-policy">
     <h2>📄 Policy & Disclaimer</h2>
     <p>KES Updates operates with full transparency and legal compliance. We are a student-managed platform — not an official college body — sharing information in good faith for students.</p>
     <a class="btn btn-outline btn-full" href="policy.html" style="margin-top:12px;">📄 Read Full Policy</a>
   </div>
 
+  <!-- Feedback -->
   <div class="card searchable" id="feedback">
     <h2>💬 Feedback Form</h2>
     <p>Share your thoughts, suggestions, or report issues.</p>
@@ -1589,35 +1604,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </div>
 
 <script>
+// Donation tracking
 (function() {
   const btn = document.getElementById('donateBarBtn');
   if (!btn) return;
-
   btn.addEventListener('click', function() {
     const trackData = {
       event_category: 'Donation',
       event_label: 'Bottom Bar - Plant Now',
       page_location: window.location.href,
-      page_path: window.location.pathname,
-      page_title: document.title,
-      source: document.referrer || 'Direct',
-      screen_size: `${window.innerWidth}x${window.innerHeight}`,
-      device_type: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
       timestamp: new Date().toISOString(),
       value: 1
     };
-
     if (typeof gtag === 'function') {
       gtag('event', 'donate_bar_click', trackData);
     }
-
-    try {
-      const key = 'kes_donate_clicks_v1';
-      let history = JSON.parse(localStorage.getItem(key) || '[]');
-      history.push(trackData);
-      if (history.length > 500) history = history.slice(-500);
-      localStorage.setItem(key, JSON.stringify(history));
-    } catch(e) {}
   });
 })();
 </script>
@@ -1641,25 +1642,25 @@ async function loadNotices() {
     renderNotices();
   } catch(e) {
     console.error('Failed to load notices:', e);
-    document.getElementById('junior-notices').innerHTML = '';
-    document.getElementById('degree-custom-notices').innerHTML = '';
   }
 }
 
 function renderNotices() {
-  // Junior College Notices
+  // Junior College Custom Notices
   const juniorNotices = allNotices.filter(n => n.college_type === 'junior' || n.college_type === 'both');
-  document.getElementById('junior-notices').innerHTML = juniorNotices.length
-    ? juniorNotices.map(n => renderNoticeCard(n)).join('')
-    : '<p style="color:var(--text-muted);font-size:.85rem;text-align:center;padding:10px;">No Junior College notices added yet.</p>';
+  const juniorCustomContainer = document.getElementById('junior-custom-notices');
+  if (juniorCustomContainer) {
+    juniorCustomContainer.innerHTML = juniorNotices.length
+      ? juniorNotices.map(n => renderNoticeCard(n)).join('')
+      : '';
+  }
 
-  // Degree College Custom Notices (from Admin Panel)
+  // Degree College Custom Notices
   const degreeNotices = allNotices.filter(n => n.college_type === 'degree' || n.college_type === 'both');
   const degreeCustomContainer = document.getElementById('degree-custom-notices');
   
   if (degreeNotices.length > 0) {
     degreeCustomContainer.innerHTML = degreeNotices.map(n => renderNoticeCard(n, true)).join('');
-    // Show divider before scraped notices
     document.getElementById('degree-scrape-divider').style.display = 'block';
   } else {
     degreeCustomContainer.innerHTML = '';
@@ -1735,7 +1736,6 @@ async function loadKESNotices() {
 
       if (!htmlText) continue;
 
-      // FAST REGEX PARSING
       const blockRegex = /<li class="wp-block-post[^>]*>[\s\S]*?<\/li>/g;
       const blocks = htmlText.match(blockRegex);
 
@@ -1778,6 +1778,115 @@ async function loadKESNotices() {
 
 loadKESNotices();
 setInterval(loadKESNotices, 300000);
+</script>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// LIVE JUNIOR COLLEGE NOTICES SCRAPER (JSON API)
+// ═══════════════════════════════════════════════════════
+const JUNIOR_JSON_URL = 'https://kesjrsanghvi.com/notices/newsupdate.json';
+const JUNIOR_SOURCE_BASE = 'https://kesjrsanghvi.com/enotices/';
+
+const JUNIOR_PROXIES = [
+  { label: 'direct', url: JUNIOR_JSON_URL, unwrap: null },
+  { label: 'allorigins-get', url: `https://api.allorigins.win/get?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: 'contents' },
+  { label: 'codetabs', url: `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null },
+  { label: 'corsproxy.io', url: `https://corsproxy.io/?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null },
+  { label: 'allorigins-raw', url: `https://api.allorigins.win/raw?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null }
+];
+
+function resolveJuniorLink(raw) {
+  if (!raw) return null;
+  try { return new URL(raw, JUNIOR_SOURCE_BASE).href; }
+  catch(e) { return null; }
+}
+
+function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
+  const timeout = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error('timed out')), timeoutMs)
+  );
+  return Promise.race([fetch(url, options), timeout]);
+}
+
+async function loadJuniorLiveNotices() {
+  const container = document.getElementById('junior-live-notices');
+  const divider = document.getElementById('junior-scrape-divider');
+  if (!container) return;
+
+  for (const attempt of JUNIOR_PROXIES) {
+    try {
+      const res = await fetchWithTimeout(attempt.url, {
+        headers: { 'Accept': 'application/json' }
+      });
+      
+      if (!res.ok) continue;
+      
+      const text = await res.text();
+      let payload = text;
+      
+      if (attempt.unwrap) {
+        const wrapper = JSON.parse(text);
+        payload = wrapper[attempt.unwrap];
+      }
+      
+      const data = JSON.parse(payload);
+      const arr = Array.isArray(data) ? data : (data.notices || data.data || []);
+      
+      if (!arr || arr.length === 0) continue;
+
+      // Render notices exactly as returned - no filtering/rewriting
+      const notices = arr.slice(0, 15).map((item, idx) => {
+        const title = (item.title || '(untitled)').toString();
+        const description = (item.description || '').toString();
+        const attachment = (item.attachment || item.link || '').toString();
+        const link = resolveJuniorLink(attachment);
+        
+        return {
+          index: idx + 1,
+          title,
+          description,
+          link
+        };
+      });
+
+      if (notices.length === 0) continue;
+
+      // Show divider if custom notices exist
+      const customContainer = document.getElementById('junior-custom-notices');
+      if (customContainer && customContainer.innerHTML.trim().length > 0 && divider) {
+        divider.style.display = 'block';
+      }
+
+      container.innerHTML = notices.map(n => `
+        <a href="${n.link || '#'}" ${n.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="notice-card" ${!n.link ? 'onclick="event.preventDefault()"' : ''}>
+          <div class="notice-header">
+            <span class="notice-category cat-general">📢 Notice #${n.index}</span>
+            <span class="notice-date">New</span>
+          </div>
+          <div class="notice-title">${escapeHtml(n.title)}</div>
+          ${n.description ? `<div class="notice-desc">${escapeHtml(n.description)}</div>` : ''}
+          ${n.link ? `<span class="notice-link-btn">View / Download →</span>` : ''}
+        </a>
+      `).join('');
+
+      console.log(`✅ Loaded ${notices.length} Junior notices`);
+      return;
+
+    } catch (err) {
+      console.warn(`Junior proxy failed (${attempt.label}):`, err.message);
+      continue;
+    }
+  }
+
+  // All proxies failed
+  container.innerHTML = `<div class="kes-loading">
+    ⚠️ Unable to load notices. 
+    <button onclick="loadJuniorLiveNotices()" style="background:none;border:none;color:var(--primary);cursor:pointer;text-decoration:underline;font-weight:600;">Retry</button>
+  </div>`;
+}
+
+loadJuniorLiveNotices();
+setInterval(loadJuniorLiveNotices, 120000);
 </script>
 
 <script>
