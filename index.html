@@ -1219,7 +1219,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <div class="sidebar-divider"></div>
   <a href="#papers">📄 Question Papers</a>
   <a href="#erp">💳 ERP Portal</a>
-  <a href="#library">📚 Library</a>
+  <!-- UPDATED LIBRARY LINK -->
+  <a href="library.html">📚 Library</a>
   <a href="tools.html">🧮 Tools</a>
   <div class="sidebar-divider"></div>
   <a href="college.html">🏛️ College Details</a>
@@ -1444,16 +1445,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>Official ERP system used for all student services — fees, results, registrations and more.</p>
   </div>
 
-  <!-- Library -->
+  <!-- UPDATED LIBRARY SECTION -->
   <div class="card searchable" id="library">
     <h2>📚 KES Shroff College Library</h2>
     <div class="link-list">
-      <a href="https://kessclibrary.ourlib.in/" target="_blank" rel="noopener noreferrer">
-        <span>📖 Library Catalogue</span>
+      <a href="library.html">
+        <span>📖 Visit Library Page</span>
         <span class="arrow">→</span>
       </a>
+      <a href="https://kessclibrary.ourlib.in/" target="_blank" rel="noopener noreferrer" style="margin-top:8px; font-size:0.8rem; color:var(--text-muted);">
+        <span>🔗 Direct Catalogue Link</span>
+      </a>
     </div>
-    <p>Books, catalogue search, and academic material.</p>
+    <p>Timings, rules, past papers & catalogue — all in one place.</p>
   </div>
 
   <!-- College Details -->
@@ -1570,7 +1574,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <li><a href="#erp">💳 ERP Portal</a></li>
           <li><a href="tools.html">🧮 Tools</a></li>
           <li><a href="#papers">📄 Question Papers</a></li>
-          <li><a href="#library">📚 Library</a></li>
+          <li><a href="library.html">📚 Library</a></li>
         </ul>
       </div>
     </div>
@@ -1705,188 +1709,103 @@ setInterval(loadNotices, 30000);
 
 <script>
 // ═══════════════════════════════════════════════════════
-// LIVE KES DEGREE COLLEGE NOTICES SCRAPER
+// DEGREE COLLEGE NOTICES - Embedded (10 latest)
+// Update: Re-scrape from server and replace this array
 // ═══════════════════════════════════════════════════════
-const KES_NOTICES_PAGE = 'https://kessc.edu.in/notices/';
-const KES_PROXIES = [
-  'https://corsproxy.io/?',
-  'https://api.allorigins.win/get?url=',
-  'https://api.codetabs.com/v1/proxy?quest='
+const DEGREE_NOTICES = [
+  {"title":"SECOND & THIRD YEAR ADMISSION DEGREE & SELF FINANCE PROGRAMS A.Y 2026-27","link":"https://drive.google.com/file/d/1hp2Wq4k4sYDJgpSU4HllfZR14O6QWqCw/view?usp=sharing"},
+  {"title":"SECOND YEAR PG AICTE PROGRAMS ADMISSION NOTICE A.Y. 2026-27","link":"https://drive.google.com/file/d/13oQtCR32P1qUyzf26fE-1sAWRdO3ni7d/view?usp=drive_link"},
+  {"title":"FY UPDATED TENTATIVE ROLL CALL AS ON 27.06.26","link":"https://drive.google.com/file/d/19j0ZXiwLKpE4m-K1zEJEZ9DA_84CZaJG/view?usp=drive_link"},
+  {"title":"Fourth Years Hons Student List- 3rd list","link":"https://drive.google.com/file/d/1b-88cbZ68yd1HB5S8f0a2gvx3qo49mfB/view?usp=sharing"},
+  {"title":"FY BA TENTATIVE ROLL CALL FOR A.Y. 2026-27 UPDATED AS ON 22-06-2026","link":"https://drive.google.com/file/d/1EXEgqcOjq0eTb2ttwOupTFwi8IjCVkHi/view?usp=sharing"},
+  {"title":"FY BCOM TENTATIVE ROLL CALL FOR A.Y. 2026-27 UPDATED AS ON 22-06-2026","link":"https://drive.google.com/file/d/1H-81CUaV2lW8L_0vAXr6Bk9lk8Vefo5f/view?usp=sharing"},
+  {"title":"SFC FY UPDATED TENTATIVE ROLL CALL AS ON 20.06.26","link":"https://kessc.edu.in/wp-content/uploads/2026/06/SFC-FY-UPDATED-TENTATIVE-ROLL-CALL-AS-ON-20.06.26.pdf"},
+  {"title":"MSC, MCOM AND MA LECTURE WILL START FROM 22-06-2026","link":"https://drive.google.com/file/d/1GUL7xtDDz4wfYZNrBxCEm5xSxbK6-o1z/view?usp=sharing"},
+  {"title":"BA Psycho 4th Four 2nd list","link":"https://drive.google.com/file/d/1QzEjzKXpMFAqyCHTwFGgWjsmuCM6B03W/view?usp=sharing"},
+  {"title":"SFC FY UPDATED TENTATIVE ROLL CALL PDF AS ON 19.06.2026","link":"https://kessc.edu.in/wp-content/uploads/2026/06/SFC-FY-UPDATED-TENTATIVE-ROLL-CALL-PDF-AS-ON-19.06.2026.pdf"}
 ];
 
-async function loadKESNotices() {
+function loadKESNotices() {
   const container = document.getElementById('kes-live-notices');
   if (!container) return;
 
-  for (const proxy of KES_PROXIES) {
-    try {
-      let response;
-      let htmlText;
-
-      if (proxy.includes('allorigins')) {
-        response = await fetch(proxy + encodeURIComponent(KES_NOTICES_PAGE));
-        if (!response.ok) continue;
-        const data = await response.json();
-        htmlText = data.contents;
-      } else {
-        response = await fetch(proxy + encodeURIComponent(KES_NOTICES_PAGE));
-        if (!response.ok) continue;
-        htmlText = await response.text();
-      }
-
-      if (!htmlText) continue;
-
-      const blockRegex = /<li class="wp-block-post[^>]*>[\s\S]*?<\/li>/g;
-      const blocks = htmlText.match(blockRegex);
-
-      if (!blocks || blocks.length === 0) continue;
-
-      const notices = [];
-      for (let i = 0; i < Math.min(blocks.length, 10); i++) {
-        const block = blocks[i];
-        const linkMatch = block.match(/<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
-        if (!linkMatch) continue;
-
-        const href = linkMatch[1];
-        const title = linkMatch[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-
-        if (!title || title.toLowerCase() === 'notices') continue;
-        notices.push({ title, href });
-      }
-
-      if (notices.length === 0) continue;
-
-      container.innerHTML = notices.map(n => `
-        <li class="kes-live-item">
-          <span class="kes-live-date">New</span>
-          <div class="kes-live-title">
-            <a href="${n.href}" target="_blank" rel="noopener noreferrer">${n.title}</a>
-          </div>
-        </li>
-      `).join('');
-
-      return;
-
-    } catch (err) {
-      console.warn(`KES Proxy failed: ${proxy}`, err.message);
-      continue;
-    }
+  if (!DEGREE_NOTICES || DEGREE_NOTICES.length === 0) {
+    container.innerHTML = '<li class="kes-loading">No degree notices available.</li>';
+    return;
   }
 
-  container.innerHTML = `<li class="kes-loading">Unable to load notices. <button onclick="loadKESNotices()" style="background:none;border:none;color:var(--primary);cursor:pointer;text-decoration:underline;">Retry</button></li>`;
+  container.innerHTML = DEGREE_NOTICES.map(n => `
+    <li class="kes-live-item">
+      <span class="kes-live-date">New</span>
+      <div class="kes-live-title">
+        <a href="${n.link}" target="_blank" rel="noopener noreferrer">${escapeHtml(n.title)}</a>
+      </div>
+    </li>
+  `).join('');
+
+  console.log(`✅ Loaded ${DEGREE_NOTICES.length} Degree notices`);
 }
 
 loadKESNotices();
-setInterval(loadKESNotices, 300000);
 </script>
 
 <script>
 // ═══════════════════════════════════════════════════════
-// LIVE JUNIOR COLLEGE NOTICES SCRAPER (JSON API)
+// JUNIOR COLLEGE NOTICES - Embedded (10 latest)
+// Update: Re-scrape from server and replace this array
 // ═══════════════════════════════════════════════════════
-const JUNIOR_JSON_URL = 'https://kesjrsanghvi.com/notices/newsupdate.json';
-const JUNIOR_SOURCE_BASE = 'https://kesjrsanghvi.com/enotices/';
-
-const JUNIOR_PROXIES = [
-  { label: 'direct', url: JUNIOR_JSON_URL, unwrap: null },
-  { label: 'allorigins-get', url: `https://api.allorigins.win/get?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: 'contents' },
-  { label: 'codetabs', url: `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null },
-  { label: 'corsproxy.io', url: `https://corsproxy.io/?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null },
-  { label: 'allorigins-raw', url: `https://api.allorigins.win/raw?url=${encodeURIComponent(JUNIOR_JSON_URL)}`, unwrap: null }
+const JUNIOR_NOTICES = [
+  {"title":"JUNIOR COLLEGE","description":"FYJC CAP ROUND 3 MERIT LIST WITH NOTICE AND CUTOFF","attachment":"https://drive.google.com/file/d/1OqryUc3UkWcN5zBH_QcC9JiGSfcgVJyq/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"SYJC ATTENDANCE NOTICE 2026-27","attachment":"https://drive.google.com/file/d/1RFYjvdRxHEbCQc1RoCX0PCbWL-6_E6ot/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-2 NOTICE A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1zKBmXoaqK1ay1wh0uqFSf8tH4-K6xR7K/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-2 CUT OFF A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1l-JCd2ntw_akA8e-08Au7mePK65ZmUd3/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-2 ARTS MERIT LIST A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1wkS-LwMUoiyTTfPfzLjVej_Qx9TBchxO/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-2 UNAIDED MERIT LIST A.Y. 2026-27","attachment":"https://drive.google.com/file/d/14uijIAmUWr5OVzY3shcVUtUQBNxs7MiZ/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-2 AIDED MERIT LIST A.Y. 2026-27","attachment":"https://drive.google.com/file/d/17Q6AX9KFpRUwoLVv_bn0A5Rb9jmhJ60u/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC ZERO ROUND AIDED INHOUSE LATEST CUT OFF  A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1WiArgwO71DpbvxSaP0AohcPuMsyFGX22/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-1 NOTICE A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1k5uIYicD89HbPvN2WVJX1_m4x8HelnvT/view?usp=sharing"},
+  {"title":"JUNIOR COLLEGE","description":"FYJC GOVT. CAP ROUND-1 CUT OFF A.Y. 2026-27","attachment":"https://drive.google.com/file/d/1QCLLe0cetbMmHujWD_AL95FE70TCJrF5/view?usp=sharing"}
 ];
 
-function resolveJuniorLink(raw) {
-  if (!raw) return null;
-  try { return new URL(raw, JUNIOR_SOURCE_BASE).href; }
-  catch(e) { return null; }
-}
-
-function fetchWithTimeout(url, options = {}, timeoutMs = 10000) {
-  const timeout = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error('timed out')), timeoutMs)
-  );
-  return Promise.race([fetch(url, options), timeout]);
-}
-
-async function loadJuniorLiveNotices() {
+function loadJuniorLiveNotices() {
   const container = document.getElementById('junior-live-notices');
   const divider = document.getElementById('junior-scrape-divider');
   if (!container) return;
 
-  for (const attempt of JUNIOR_PROXIES) {
-    try {
-      const res = await fetchWithTimeout(attempt.url, {
-        headers: { 'Accept': 'application/json' }
-      });
-      
-      if (!res.ok) continue;
-      
-      const text = await res.text();
-      let payload = text;
-      
-      if (attempt.unwrap) {
-        const wrapper = JSON.parse(text);
-        payload = wrapper[attempt.unwrap];
-      }
-      
-      const data = JSON.parse(payload);
-      const arr = Array.isArray(data) ? data : (data.notices || data.data || []);
-      
-      if (!arr || arr.length === 0) continue;
-
-      // Render notices exactly as returned - no filtering/rewriting
-      const notices = arr.slice(0, 15).map((item, idx) => {
-        const title = (item.title || '(untitled)').toString();
-        const description = (item.description || '').toString();
-        const attachment = (item.attachment || item.link || '').toString();
-        const link = resolveJuniorLink(attachment);
-        
-        return {
-          index: idx + 1,
-          title,
-          description,
-          link
-        };
-      });
-
-      if (notices.length === 0) continue;
-
-      // Show divider if custom notices exist
-      const customContainer = document.getElementById('junior-custom-notices');
-      if (customContainer && customContainer.innerHTML.trim().length > 0 && divider) {
-        divider.style.display = 'block';
-      }
-
-      container.innerHTML = notices.map(n => `
-        <a href="${n.link || '#'}" ${n.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="notice-card" ${!n.link ? 'onclick="event.preventDefault()"' : ''}>
-          <div class="notice-header">
-            <span class="notice-category cat-general">📢 Notice #${n.index}</span>
-            <span class="notice-date">New</span>
-          </div>
-          <div class="notice-title">${escapeHtml(n.title)}</div>
-          ${n.description ? `<div class="notice-desc">${escapeHtml(n.description)}</div>` : ''}
-          ${n.link ? `<span class="notice-link-btn">View / Download →</span>` : ''}
-        </a>
-      `).join('');
-
-      console.log(`✅ Loaded ${notices.length} Junior notices`);
-      return;
-
-    } catch (err) {
-      console.warn(`Junior proxy failed (${attempt.label}):`, err.message);
-      continue;
-    }
+  if (!JUNIOR_NOTICES || JUNIOR_NOTICES.length === 0) {
+    container.innerHTML = '<div class="kes-loading">No junior notices available right now.</div>';
+    if (divider) divider.style.display = 'none';
+    return;
   }
 
-  // All proxies failed
-  container.innerHTML = `<div class="kes-loading">
-    ⚠️ Unable to load notices. 
-    <button onclick="loadJuniorLiveNotices()" style="background:none;border:none;color:var(--primary);cursor:pointer;text-decoration:underline;font-weight:600;">Retry</button>
-  </div>`;
+  // Show divider if custom notices exist
+  const customContainer = document.getElementById('junior-custom-notices');
+  if (customContainer && customContainer.innerHTML.trim().length > 0 && divider) {
+    divider.style.display = 'block';
+  }
+
+  container.innerHTML = JUNIOR_NOTICES.map((n, idx) => {
+    const title = (n.title || '(untitled)').toString();
+    const description = (n.description || '').toString();
+    const link = (n.attachment || n.link || '').toString();
+
+    return `
+      <a href="${link || '#'}" ${link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="notice-card" ${!link ? 'onclick="event.preventDefault()"' : ''}>
+        <div class="notice-header">
+          <span class="notice-category cat-general">📢 Notice #${idx + 1}</span>
+          <span class="notice-date">New</span>
+        </div>
+        <div class="notice-title">${escapeHtml(title)}</div>
+        ${description ? `<div class="notice-desc">${escapeHtml(description)}</div>` : ''}
+        ${link ? `<span class="notice-link-btn">View / Download →</span>` : ''}
+      </a>
+    `;
+  }).join('');
+
+  console.log(`✅ Loaded ${JUNIOR_NOTICES.length} Junior notices`);
 }
 
 loadJuniorLiveNotices();
-setInterval(loadJuniorLiveNotices, 120000);
 </script>
 
 <script>
