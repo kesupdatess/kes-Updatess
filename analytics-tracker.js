@@ -1,133 +1,68 @@
-// KES Analytics Tracker - FIXED VERSION
+// KES Analytics Tracker - SIMPLE VERSION
 const SUPABASE_URL = "https://jbyctjddlbyddzavmczg.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpieWN0amRkbGJ5ZGR6YXZtY3pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIzNzE2NzYsImV4cCI6MjA5Nzk0NzY3Nn0.klEa0-zSGbHZYA-fYiHYg4ceoL1PQ87gowGEbvVmhqU";
 
-console.log('📊 KES Analytics Tracker loading...');
-console.log(' Supabase URL:', SUPABASE_URL);
+console.log('📊 KES Analytics loading...');
 
+// Simple session data
 const session = {
   page: window.location.pathname.split('/').pop() || 'index.html',
-  referrer: (function(){
-    try { return document.referrer ? new URL(document.referrer).hostname : 'Direct'; }
-    catch(e) { return 'Direct'; }
-  })(),
-  device: getDevice(),
-  browser: getBrowser(),
-  os: getOS(),
+  referrer: document.referrer ? new URL(document.referrer).hostname : 'Direct',
+  device: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+  browser: /Chrome/.test(navigator.userAgent) ? 'Chrome' : /Firefox/.test(navigator.userAgent) ? 'Firefox' : /Safari/.test(navigator.userAgent) ? 'Safari' : 'Other',
+  os: /Windows/.test(navigator.userAgent) ? 'Windows' : /Mac/.test(navigator.userAgent) ? 'macOS' : /Linux/.test(navigator.userAgent) ? 'Linux' : /Android/.test(navigator.userAgent) ? 'Android' : 'Other',
   screen_size: window.screen.width + 'x' + window.screen.height,
-  network_speed: getNetwork(),
-  language: navigator.language || 'unknown',
+  language: navigator.language,
   scroll_depth: 0,
   active_time_seconds: 0,
   total_time_seconds: 0,
   clicks: [],
   sections_seen: [],
   search_queries: [],
-  is_returning: isReturning(),
+  is_returning: localStorage.getItem('kes_visited') === 'true',
   theme_used: localStorage.getItem('theme') || 'light'
 };
 
-function getDevice() {
-  const ua = navigator.userAgent;
-  if (/tablet|ipad|playbook|silk/i.test(ua)) return 'Tablet';
-  if (/Mobile|Android|iP(hone|od)|IEMobile|Opera Mini/i.test(ua)) return 'Mobile';
-  return 'Desktop';
-}
-
-function getBrowser() {
-  const ua = navigator.userAgent;
-  if (ua.indexOf("Edg") > -1) return 'Edge';
-  if (ua.indexOf("Chrome") > -1) return 'Chrome';
-  if (ua.indexOf("Safari") > -1) return 'Safari';
-  if (ua.indexOf("Firefox") > -1) return 'Firefox';
-  if (ua.indexOf("MSIE") > -1 || ua.indexOf("Trident") > -1) return 'Internet Explorer';
-  return 'Other';
-}
-
-function getOS() {
-  const ua = navigator.userAgent;
-  if (ua.indexOf("Win") > -1) return 'Windows';
-  if (ua.indexOf("Mac") > -1) return 'macOS';
-  if (ua.indexOf("Linux") > -1) return 'Linux';
-  if (ua.indexOf("Android") > -1) return 'Android';
-  if (ua.indexOf("like Mac") > -1) return 'iOS';
-  return 'Other';
-}
-
-function getNetwork() {
-  if (navigator.connection && navigator.connection.effectiveType) {
-    return navigator.connection.effectiveType.toUpperCase();
-  }
-  return 'Unknown';
-}
-
-function isReturning() {
-  const visited = localStorage.getItem('kes_visited');
-  if (visited) return true;
+// Mark as visited
+if (!session.is_returning) {
   localStorage.setItem('kes_visited', 'true');
-  return false;
 }
 
-// Time tracking
+// Track time
 let activeSeconds = 0;
 let totalSeconds = 0;
-let isActive = !document.hidden;
-let idleTimer;
+let isActive = true;
 
 setInterval(() => {
   totalSeconds++;
   if (isActive) activeSeconds++;
 }, 1000);
 
-document.addEventListener('visibilitychange', () => {
-  isActive = !document.hidden;
-});
-
-function resetIdle() {
-  isActive = true;
-  clearTimeout(idleTimer);
-  idleTimer = setTimeout(() => { isActive = false; }, 30000);
-}
-
-['mousemove', 'keydown', 'touchstart', 'click', 'scroll'].forEach(evt => {
-  document.addEventListener(evt, resetIdle, { passive: true });
-});
-resetIdle();
-
-// Scroll tracking
+// Track scroll
 window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  if (docHeight > 0) {
-    const scrollPercent = Math.round((scrollTop / docHeight) * 100);
-    if (scrollPercent > session.scroll_depth) session.scroll_depth = scrollPercent;
-  }
+  const scrolled = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+  if (scrolled > session.scroll_depth) session.scroll_depth = scrolled;
 }, { passive: true });
 
-// Click tracking
+// Track clicks
 document.addEventListener('click', (e) => {
-  const target = e.target.closest('a, button, [onclick]');
+  const target = e.target.closest('a, button');
   if (target) {
-    let label = target.textContent.trim().substring(0, 50);
-    if (!label && target.id) label = '#' + target.id;
-    if (!label && target.className) label = '.' + target.className.split(' ')[0];
+    const label = target.textContent.trim().substring(0, 50);
     if (label) {
       session.clicks.push({ label: label, time: new Date().toISOString() });
     }
   }
 });
 
-// Save to Supabase - FIXED
+// Save to Supabase
 async function saveToSupabase() {
   session.active_time_seconds = activeSeconds;
   session.total_time_seconds = totalSeconds;
   session.timestamp = new Date().toISOString();
 
-  const url = SUPABASE_URL + '/rest/v1/analytics';
-  console.log('📤 Sending to:', url);
-
   try {
-    const res = await fetch(url, {
+    const res = await fetch(SUPABASE_URL + '/rest/v1/analytics', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -139,20 +74,17 @@ async function saveToSupabase() {
     });
     
     if (res.ok) {
-      console.log('✅ Analytics saved:', res.status);
+      console.log('✅ Analytics saved');
     } else {
-      console.error('❌ Save failed:', res.status, await res.text());
+      console.error('❌ Save failed:', res.status);
     }
   } catch (e) {
-    console.error('❌ Save error:', e);
+    console.error('❌ Error:', e);
   }
 }
 
-// Save on page leave
+// Save when leaving page
 window.addEventListener('beforeunload', saveToSupabase);
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) saveToSupabase();
-});
 
 // Save every 60 seconds
 setInterval(saveToSupabase, 60000);
@@ -160,4 +92,4 @@ setInterval(saveToSupabase, 60000);
 // Initial save after 5 seconds
 setTimeout(saveToSupabase, 5000);
 
-console.log(' KES Analytics Tracker loaded successfully!');
+console.log('✅ KES Analytics ready!');
