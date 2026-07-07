@@ -3,984 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upcoming Events | KES Updates</title>
-<meta name="description" content="All upcoming academic events, exams, and vacations for KES Shroff College students.">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7KVLBY669"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H7KVLBY669');
-</script>
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<title>KES Updates | Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #2563eb;
-  --primary-dark: #1e40af;
-  --primary-light: #dbeafe;
-  --primary-bg: #eff6ff;
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
-  --border-hover: #cbd5e1;
-  --shadow: 0 1px 3px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
-  --success: #059669;
-  --danger: #dc2626;
-  --warning: #d97706;
-  --radius: 14px;
-  --radius-sm: 10px;
-}
-
-body.dark {
-  --primary: #60a5fa;
-  --primary-dark: #93c5fd;
-  --primary-light: #1e3a8a;
-  --primary-bg: #1e293b;
-  --bg: #0f172a;
-  --card: #1e293b;
-  --text: #f1f5f9;
-  --text-muted: #94a3b8;
-  --border: #334155;
-  --border-hover: #475569;
-  --shadow: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.6;
-  transition: background 0.25s, color 0.25s;
-  -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  padding-bottom: 100px;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 10%, rgba(37,99,235,0.04) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(37,99,235,0.03) 0%, transparent 40%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body.dark::before {
-  background-image: 
-    radial-gradient(circle at 20% 10%, rgba(96,165,250,0.06) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(96,165,250,0.04) 0%, transparent 40%);
-}
-
-.container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 0 16px 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 56px;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  z-index: 100;
-  backdrop-filter: blur(12px);
-}
-
-.top-bar-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.top-bar-brand span:first-child { font-size: 1.3rem; }
-
-.top-bar-actions {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-.icon-btn {
-  width: 38px;
-  height: 38px;
-  background: var(--primary-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 16px;
-  color: var(--text);
-  transition: all 0.15s;
-}
-
-.icon-btn:hover {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.page-header {
-  margin-top: 72px;
-  padding: 24px 0;
-  text-align: center;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 20px;
-}
-
-.page-header .logo { font-size: 2.5rem; margin-bottom: 8px; display: inline-block; }
-.page-header h1 { font-size: 1.5rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin-bottom: 4px; }
-.page-header p { color: var(--text-muted); font-size: 0.88rem; }
-
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-decoration: none;
-  margin-bottom: 16px;
-  transition: all 0.15s;
-}
-
-.back-link:hover { transform: translateX(-3px); color: var(--primary-dark); }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 10px 18px;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
-  white-space: nowrap;
-}
-
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--primary); color: white; }
-.btn-primary:hover { background: var(--primary-dark); box-shadow: var(--shadow-md); }
-.btn-full { width: 100%; padding: 12px; }
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 16px;
-  box-shadow: var(--shadow);
-  transition: all 0.2s;
-}
-
-.card:hover { border-color: var(--border-hover); box-shadow: var(--shadow-md); }
-.card h2 { font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
-.card p { color: var(--text-muted); font-size: 0.88rem; margin: 8px 0; }
-
-.live-badge {
-  background: var(--danger);
-  color: white;
-  font-size: 0.62rem;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.live-badge::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-.events-list { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
-
-.event-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--primary-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-  transition: all 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-
-.event-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 14px 0 0 14px;
-}
-
-.event-item[data-type="exam"]::before { background: var(--danger); }
-.event-item[data-type="vacation"]::before { background: var(--success); }
-.event-item[data-type="event"]::before { background: var(--primary); }
-
-.event-item:hover { transform: translateX(3px); border-color: var(--primary); box-shadow: var(--shadow-md); }
-
-.event-icon { font-size: 1.6rem; flex-shrink: 0; }
-.event-details { flex: 1; min-width: 0; }
-
-.event-name {
-  font-weight: 700;
-  font-size: 0.88rem;
-  color: var(--text);
-  margin-bottom: 3px;
-  line-height: 1.3;
-  word-wrap: break-word;
-}
-
-.event-tag {
-  display: inline-block;
-  font-size: 0.6rem;
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 50px;
-  margin-left: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  background: var(--primary);
-  color: white;
-  vertical-align: middle;
-}
-
-.event-date { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-bottom: 4px; }
-
-.event-countdown {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--danger);
-  background: rgba(220,38,38,0.08);
-  padding: 3px 9px;
-  border-radius: 50px;
-  display: inline-block;
-}
-
-.event-countdown.soon { color: var(--warning); background: rgba(217,119,6,0.1); }
-.event-countdown.far { color: var(--success); background: rgba(5,150,105,0.1); }
-
-.event-status {
-  font-size: 0.6rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-.event-status.exam { background: rgba(220,38,38,0.1); color: var(--danger); border: 1px solid rgba(220,38,38,0.2); }
-.event-status.vacation { background: rgba(5,150,105,0.1); color: var(--success); border: 1px solid rgba(5,150,105,0.2); }
-.event-status.event { background: rgba(37,99,235,0.1); color: var(--primary); border: 1px solid rgba(37,99,235,0.2); }
-
-.info-box {
-  margin-top: 14px;
-  padding: 12px 14px;
-  background: var(--primary-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.info-box .icon { font-size: 1.1rem; flex-shrink: 0; }
-.info-box span { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; line-height: 1.4; }
-
-.loader { text-align: center; padding: 30px; color: var(--text-muted); }
-
-.spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid var(--border);
-  border-top-color: var(--primary);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto 10px;
-}
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.empty-state { text-align: center; padding: 30px 20px; color: var(--text-muted); }
-.empty-state .e-ico { font-size: 3rem; margin-bottom: 1rem; opacity: 0.5; }
-
-input, select, textarea {
-  width: 100%;
-  padding: 11px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-family: inherit;
-  background: var(--card);
-  color: var(--text);
-  transition: all 0.15s;
-}
-
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
-}
-
-input::placeholder, textarea::placeholder { color: var(--text-muted); }
-
-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-.form-group { margin-bottom: 12px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 270px;
-  height: 100%;
-  background: var(--card);
-  border-right: 1px solid var(--border);
-  padding: 70px 14px 20px;
-  overflow-y: auto;
-  z-index: 1001;
-  transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.sidebar.active { left: 0; }
-
-.sidebar-header { padding: 0 10px 14px; border-bottom: 1px solid var(--border); margin-bottom: 10px; }
-.sidebar-header h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-.sidebar-header p { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
-
-.sidebar a {
-  color: var(--text);
-  text-decoration: none;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sidebar a:hover { background: var(--primary-bg); color: var(--primary-dark); transform: translateX(2px); }
-
-.sidebar-divider { height: 1px; background: var(--border); margin: 8px 0; }
-
-.overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: none; z-index: 1000; }
-.overlay.active { display: block; }
-
-.back-to-top {
-  position: fixed;
-  bottom: 100px;
-  right: 16px;
-  width: 42px;
-  height: 42px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.2s;
-  z-index: 998;
-  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-  font-size: 18px;
-}
-
-.back-to-top.visible { opacity: 1; pointer-events: all; }
-.back-to-top:hover { transform: translateY(-3px); }
-
-.bottom-nav {
-  position: fixed;
-  bottom: 80px;
-  left: 0;
-  right: 0;
-  background: color-mix(in srgb, var(--card) 90%, transparent);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid var(--border);
-  padding: 8px 4px;
-  display: none;
-  justify-content: space-around;
-  z-index: 997;
-}
-
-.bottom-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 6px 10px;
-  color: var(--text-muted);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  transition: all 0.15s;
-  flex: 1;
-  max-width: 80px;
-}
-
-.bottom-nav a .nav-icon { font-size: 20px; transition: transform 0.2s; }
-.bottom-nav a .nav-label { font-size: 0.65rem; font-weight: 600; }
-.bottom-nav a:hover, .bottom-nav a.active { color: var(--primary); }
-.bottom-nav a.active .nav-icon { transform: translateY(-2px); }
-
-footer {
-  background: var(--card);
-  border-top: 1px solid var(--border);
-  padding: 30px 16px;
-  margin-top: 30px;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.footer-content { max-width: 760px; margin: 0 auto; }
-.footer-brand h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-.footer-brand p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
-.footer-bottom { padding-top: 16px; border-top: 1px solid var(--border); margin-top: 16px; font-size: 0.75rem; color: var(--text-muted); }
-
-.toast {
-  position: fixed;
-  bottom: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--text);
-  color: var(--bg);
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  z-index: 2000;
-  animation: toastIn 0.2s;
-  box-shadow: var(--shadow-md);
-}
-
-@keyframes toastIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-  to { opacity: 1; transform: translateX(-50%) translateY(0); }
-}
-
-.scroll-progress {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), #8b5cf6);
-  z-index: 1100;
-  width: 0%;
-  transition: width 0.1s;
-}
-
-.donation-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, #059669 0%, #047857 100%);
-  color: white;
-  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
-  box-shadow: 0 -4px 20px rgba(5, 150, 105, 0.25);
-  z-index: 999;
-  font-family: 'Inter', -apple-system, sans-serif;
-}
-
-.donation-bar-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.donation-bar-content { flex: 1; min-width: 0; }
-
-.donation-bar-title {
-  font-size: 0.92rem;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 3px;
-}
-
-.donation-bar-title .tree-icon { font-size: 1.25rem; animation: sway 3s ease-in-out infinite; }
-
-@keyframes sway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-
-.donation-bar-subtitle { font-size: 0.73rem; font-weight: 500; opacity: 0.95; line-height: 1.3; }
-
-.donation-bar-btn {
-  background: white;
-  color: #059669;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-decoration: none;
-  transition: all 0.2s;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.donation-bar-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
-
-@media (max-width: 640px) {
-  body { font-size: 14px; }
-  .page-header h1 { font-size: 1.3rem; }
-  .page-header .logo { font-size: 2rem; }
-  .card { padding: 16px; }
-  .card h2 { font-size: 1rem; }
-  .event-item { padding: 10px 12px; gap: 10px; }
-  .event-icon { font-size: 1.3rem; }
-  .event-name { font-size: 0.82rem; }
-  .event-status { font-size: 0.55rem; padding: 3px 7px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .bottom-nav { display: flex; }
-  .back-to-top { bottom: 180px; }
-  
-  .donation-bar { padding: 12px 14px calc(12px + env(safe-area-inset-bottom)); }
-  .donation-bar-inner { flex-direction: column; text-align: center; gap: 10px; }
-  .donation-bar-title { font-size: 0.85rem; justify-content: center; }
-  .donation-bar-subtitle { font-size: 0.7rem; }
-  .donation-bar-btn { width: 100%; justify-content: center; padding: 10px 16px; font-size: 0.82rem; }
-}
-
-@media (min-width: 641px) {
-  .bottom-nav { display: none; }
-  .back-to-top { bottom: 30px; }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(135deg,#f0f9ff,#e0f2fe,#f0f9ff);min-height:100vh;color:#1e293b;padding:20px;}
+body.dark{background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);color:#f8fafc;}
+.container{max-width:900px;margin:0 auto;}
+.card{background:rgba(255,255,255,0.92);border:1px solid rgba(59,130,246,0.15);border-radius:24px;padding:24px;margin-bottom:20px;box-shadow:0 4px 20px rgba(30,58,138,0.08);}
+body.dark .card{background:rgba(30,41,59,0.85);border-color:rgba(99,102,241,0.15);}
+h1{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#1e3a8a,#2563eb,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center;margin-bottom:8px;}
+h2{font-size:1.3rem;color:#1e40af;margin-bottom:14px;}
+body.dark h2{color:#93c5fd;}
+p{color:#475569;line-height:1.6;font-size:0.92rem;margin-bottom:10px;}
+body.dark p{color:#cbd5e1;}
+.theme-toggle{position:fixed;top:16px;right:16px;background:rgba(255,255,255,0.9);border-radius:50px;padding:5px 10px;border:1px solid rgba(59,130,246,0.15);z-index:99;}
+body.dark .theme-toggle{background:rgba(30,41,59,0.9);border-color:rgba(99,102,241,0.2);}
+.theme-toggle button{background:none;border:none;cursor:pointer;font-size:18px;padding:3px 6px;}
+.email-box{background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(37,99,235,0.05));border:2px solid rgba(59,130,246,0.25);border-radius:18px;padding:20px;text-align:center;margin-bottom:20px;}
+body.dark .email-box{background:rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3);}
+.email-box .icon{font-size:2.2rem;margin-bottom:6px;}
+.email-box .label{font-size:0.78rem;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:1px;}
+body.dark .email-box .label{color:#93c5fd;}
+.email-box .email{font-size:1.3rem;font-weight:800;color:#2563eb;margin-top:6px;word-break:break-all;}
+body.dark .email-box .email{color:#60a5fa;}
+.email-box .email a{color:inherit;text-decoration:none;}
+.email-box .email a:hover{text-decoration:underline;}
+.email-box .sub{font-size:0.75rem;color:#64748b;margin-top:6px;}
+body.dark .email-box .sub{color:#94a3b8;}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.badge{font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:50px;}
+.badge-green{background:rgba(16,185,129,0.1);color:#059669;border:1px solid rgba(16,185,129,0.2);}
+.badge-blue{background:rgba(59,130,246,0.1);color:#2563eb;border:1px solid rgba(59,130,246,0.2);}
+.badge-purple{background:rgba(139,92,246,0.1);color:#7c3aed;border:1px solid rgba(139,92,246,0.2);}
+.policy-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(59,130,246,0.1);}
+.policy-item:last-child{border-bottom:none;}
+.num{flex-shrink:0;width:32px;height:32px;background:linear-gradient(135deg,#3b82f6,#2563eb);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;}
+body.dark .num{background:linear-gradient(135deg,#6366f1,#4f46e5);}
+.policy-item h3{font-size:0.95rem;color:#1e40af;margin-bottom:4px;}
+body.dark .policy-item h3{color:#93c5fd;}
+.policy-item p{font-size:0.85rem;margin:0;}
+.faq-item{background:rgba(255,255,255,0.7);border:1px solid rgba(59,130,246,0.12);border-radius:12px;margin-bottom:8px;overflow:hidden;}
+body.dark .faq-item{background:rgba(30,41,59,0.5);border-color:rgba(99,102,241,0.15);}
+.faq-q{padding:12px 16px;font-weight:600;font-size:0.9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-toggle{color:#3b82f6;font-size:1.2rem;transition:transform 0.3s;}
+.faq-item.open .faq-toggle{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s,padding 0.3s;padding:0 16px;font-size:0.85rem;color:#475569;}
+body.dark .faq-a{color:#cbd5e1;}
+.faq-item.open .faq-a{max-height:300px;padding:0 16px 12px;}
+.grievance{background:linear-gradient(135deg,rgba(239,68,68,0.06),rgba(220,38,38,0.03));border:2px solid rgba(239,68,68,0.2);border-radius:18px;padding:20px;margin-top:16px;}
+body.dark .grievance{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);}
+.grievance h3{color:#dc2626;margin-bottom:10px;}
+body.dark .grievance h3{color:#fca5a5;}
+.grievance ul{list-style:none;margin:10px 0;}
+.grievance li{padding:5px 0 5px 22px;position:relative;font-size:0.85rem;color:#475569;}
+body.dark .grievance li{color:#cbd5e1;}
+.grievance li::before{content:'✓';position:absolute;left:0;color:#10b981;font-weight:700;}
+.grievance-email{display:inline-block;background:rgba(59,130,246,0.1);color:#1e40af;padding:8px 16px;border-radius:50px;font-weight:700;font-size:0.85rem;text-decoration:none;margin-top:8px;border:1px solid rgba(59,130,246,0.2);}
+body.dark .grievance-email{background:rgba(99,102,241,0.15);color:#93c5fd;border-color:rgba(99,102,241,0.25);}
+.actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.action-btn{flex:1;min-width:100px;padding:10px;border-radius:10px;background:rgba(255,255,255,0.8);border:1px solid rgba(59,130,246,0.15);color:#1e40af;font-weight:600;font-size:0.82rem;cursor:pointer;font-family:'Poppins',sans-serif;}
+body.dark .action-btn{background:rgba(30,41,59,0.7);border-color:rgba(99,102,241,0.2);color:#e2e8f0;}
+.action-btn:hover{background:rgba(59,130,246,0.1);}
+.agree-box{background:linear-gradient(135deg,rgba(16,185,129,0.08),rgba(5,150,105,0.04));border:2px solid rgba(16,185,129,0.25);border-radius:14px;padding:16px;margin-top:16px;text-align:center;}
+.agree-text{font-size:0.85rem;color:#059669;font-weight:600;margin-bottom:10px;}
+body.dark .agree-text{color:#34d399;}
+.agree-btn{background:linear-gradient(135deg,#10b981,#059669);color:white;border:none;padding:10px 24px;border-radius:50px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;}
+.agree-btn.agreed{background:#64748b;cursor:default;}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1e293b;color:white;padding:12px 24px;border-radius:50px;font-weight:500;z-index:2000;font-size:0.85rem;}
+footer{text-align:center;padding:20px;font-size:0.75rem;opacity:0.7;color:#475569;}
+@media(max-width:600px){h1{font-size:1.5rem;}.actions{flex-direction:column;}.email-box .email{font-size:1rem;}}
+@media print{.theme-toggle,.actions,.agree-box{display:none;}.card{box-shadow:none;border:1px solid #ccc;}}
 </style>
 </head>
-
 <body>
 
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<div class="top-bar">
-  <a href="index.html" class="top-bar-brand">
-    <span>📅</span>
-    <span>Events</span>
-  </a>
-  <div class="top-bar-actions">
-    <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
-    <button class="icon-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
-  </div>
+<div class="theme-toggle">
+  <button onclick="setTheme('light')">☀️</button>
+  <button onclick="setTheme('dark')">🌙</button>
 </div>
 
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-header">
-    <h3>📅 Upcoming Events</h3>
-    <p>Academic Calendar 2026-27</p>
-  </div>
-  <a href="index.html">🏠 Back to Home</a>
-  <div class="sidebar-divider"></div>
-  <a href="#events">📅 All Events</a>
-  <a href="#feedback">💬 Feedback</a>
-</nav>
-
 <div class="container">
+  <h1>📄 Policy & Disclaimer</h1>
+  <p style="text-align:center;margin-bottom:20px;">Legal guidelines & transparency for KES Updates</p>
 
-  <header class="page-header">
-    <div class="logo">📅</div>
-    <h1>Upcoming Events</h1>
-    <p>Academic Calendar 2026-27 — All Events & Exams</p>
-  </header>
-
-  <a href="index.html" class="back-link">← Back to Home</a>
-
-  <div class="card" id="events">
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
-      <h2 style="margin:0;">All Upcoming Events</h2>
-      <span class="live-badge">Live</span>
-    </div>
-    <p id="events-subtitle">Loading events...</p>
-
-    <div class="events-list" id="events-list">
-      <div class="loader">
-        <div class="spinner"></div>
-        <p>Loading events...</p>
-      </div>
+  <div class="card">
+    <h2>📄 Public Disclaimer & Policy Notice</h2>
+    
+    <div class="badges">
+      <span class="badge badge-green">🕒 Updated: June 2026</span>
+      <span class="badge badge-blue">📋 Version 3.0</span>
+      <span class="badge badge-purple">⚖️ IT Act 2000</span>
     </div>
 
-    <div class="info-box">
-      <span class="icon">ℹ️</span>
-      <span>Dates are subject to change as per official timetable. Always check notices for latest updates.</span>
+    <div class="email-box">
+      <div class="icon">📧</div>
+      <div class="label">Primary Contact</div>
+      <div class="email"><a href="mailto:kesupdatess@gmail.com">kesupdatess@gmail.com</a></div>
+      <div class="sub">✉️ We respond within 24–48 hours</div>
+    </div>
+
+    <p style="background:rgba(59,130,246,0.06);padding:14px;border-radius:12px;border:1px solid rgba(59,130,246,0.15);">
+      <strong>KES Updates</strong> is a student-managed independent portal. By using this platform, you agree to the following terms.
+    </p>
+
+    <div class="policy-item"><span class="num">1</span><div><h3>Independent Platform</h3><p>Not an official body of KES Shroff College. References are for identification only.</p></div></div>
+    <div class="policy-item"><span class="num">2</span><div><h3>Legal Compliance</h3><p>Complies with Article 19(1)(a), IT Act 2000, IT Rules 2021, Copyright Act 1957.</p></div></div>
+    <div class="policy-item"><span class="num">3</span><div><h3>Consent & Privacy</h3><p>No personal content published without free, informed consent.</p></div></div>
+    <div class="policy-item"><span class="num">4</span><div><h3>Intellectual Property</h3><p>All original content protected under Copyright Act 1957. Unauthorized use prohibited.</p></div></div>
+    <div class="policy-item"><span class="num">5</span><div><h3>Accuracy of Information</h3><p>We strive for accuracy but don't guarantee it. Verify with college for critical info.</p></div></div>
+    <div class="policy-item"><span class="num">6</span><div><h3>Third-Party Links</h3><p>Not responsible for content on external websites or social media.</p></div></div>
+    <div class="policy-item"><span class="num">7</span><div><h3>Collaborations</h3><p>Mentions/collaborations don't imply endorsement or legal association.</p></div></div>
+    <div class="policy-item"><span class="num">8</span><div><h3>Limitation of Liability</h3><p>Content shared for informational purposes only. We disclaim all liability.</p></div></div>
+    <div class="policy-item"><span class="num">9</span><div><h3>Data & Cookies</h3><p>LocalStorage stores preferences on your device only. We use Google Analytics.</p></div></div>
+    <div class="policy-item"><span class="num">10</span><div><h3>Content Removal</h3><p>Email <strong>kesupdatess@gmail.com</strong> for takedown requests. Action within 24–48 hrs.</p></div></div>
+    <div class="policy-item"><span class="num">11</span><div><h3>Termination</h3><p>We reserve the right to restrict access for violations of these terms.</p></div></div>
+    <div class="policy-item"><span class="num">12</span><div><h3>Jurisdiction</h3><p>Governed by Indian law. Mumbai courts have exclusive jurisdiction.</p></div></div>
+    <div class="policy-item"><span class="num">13</span><div><h3>Amendments</h3><p>We may update this policy anytime. Continued use = acceptance of changes.</p></div></div>
+
+    <div class="actions">
+      <button class="action-btn" onclick="window.print()">🖨️ Print</button>
+      <button class="action-btn" onclick="sharePolicy()">📤 Share</button>
+      <button class="action-btn" onclick="copyLink()">🔗 Copy Link</button>
+      <button class="action-btn" onclick="location.href='mailto:kesupdatess@gmail.com'">📧 Email</button>
+    </div>
+
+    <div class="agree-box">
+      <div class="agree-text">✅ By using KES Updates, you agree to this policy.</div>
+      <button class="agree-btn" id="agreeBtn" onclick="handleAgree()">I Have Read & Understood</button>
     </div>
   </div>
 
-  <div class="card" id="feedback">
-    <h2>💬 Feedback Form</h2>
-    <p>Share your thoughts, suggestions, or report issues.</p>
-    <form action="https://formspree.io/f/xaqzreol" method="POST" style="margin-top:12px;">
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="feedbackName">Your Name</label>
-          <input type="text" id="feedbackName" name="name" placeholder="Your name" required>
-        </div>
-        <div class="form-group">
-          <label for="feedbackEmail">Email</label>
-          <input type="email" id="feedbackEmail" name="email" placeholder="your@email.com" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="feedbackCategory">Category</label>
-        <select id="feedbackCategory" name="category" required>
-          <option value="" disabled selected>Select category</option>
-          <option value="suggestion">💡 Suggestion</option>
-          <option value="bug">🐛 Bug Report</option>
-          <option value="feature">✨ Feature Request</option>
-          <option value="content">📄 Content Update</option>
-          <option value="other">📝 Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="feedbackMessage">Your Message</label>
-        <textarea id="feedbackMessage" name="message" rows="4" placeholder="Tell us what you think..." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-full">📨 Submit Feedback</button>
-    </form>
+  <div class="card">
+    <h2>⚖️ Grievance Officer</h2>
+    <div class="grievance">
+      <h3>👨‍⚖️ As per IT Act 2000</h3>
+      <p>Designated Grievance Officer to address complaints:</p>
+      <ul>
+        <li><strong>Email:</strong> kesupdatess@gmail.com</li>
+        <li><strong>Response:</strong> Within 24–48 hours</li>
+        <li><strong>Resolution:</strong> Within 15 days</li>
+      </ul>
+      <p><strong>Contact for:</strong></p>
+      <ul>
+        <li>Content violating guidelines</li>
+        <li>Privacy breaches</li>
+        <li>Copyright infringement</li>
+        <li>Defamatory/unlawful content</li>
+      </ul>
+      <a href="mailto:kesupdatess@gmail.com?subject=Grievance%20Report" class="grievance-email">📧 Contact Grievance Officer</a>
+    </div>
   </div>
 
+  <div class="card">
+    <h2>❓ FAQs</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>🤔 Kya yeh official page hai?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Nahi, yeh independent student-run portal hai. College se officially affiliated nahi hain.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>🔒 Mera data kahan store hota hai?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Preferences aapke browser ke localStorage mein — humare servers par nahi jaata.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>📸 Photo bina permission use hogi?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Bilkul nahi. Bina written consent ke koi photo publish nahi hoti.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>🚨 Galat content kaise report karein?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Email karein kesupdatess@gmail.com par ya feedback form use karein. 24-48 hrs mein action lenge.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><span>⚖️ Legal issue ho toh?</span><span class="faq-toggle">+</span></div>
+      <div class="faq-a">Grievance Officer ko email karein. IT Act 2000 ke under 15 din mein resolution.</div>
+    </div>
+  </div>
 </div>
 
 <footer>
-  <div class="footer-content">
-    <div class="footer-brand">
-      <h3>🎓 KES Updates</h3>
-      <p>Independent Student Portal for KES Shroff College</p>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 KES Updates | Made with 💙 for Students</div>
-    </div>
-  </div>
+  <div>🎓 KES Updates</div>
+  <div>Independent Student Portal | © 2026</div>
 </footer>
 
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
-<nav class="bottom-nav">
-  <a href="index.html">
-    <span class="nav-icon">🏠</span>
-    <span class="nav-label">Home</span>
-  </a>
-  <a href="#events">
-    <span class="nav-icon">📅</span>
-    <span class="nav-label">Events</span>
-  </a>
-  <a href="#feedback">
-    <span class="nav-icon">💬</span>
-    <span class="nav-label">Feedback</span>
-  </a>
-</nav>
-
-<div class="donation-bar">
-  <div class="donation-bar-inner">
-    <div class="donation-bar-content">
-      <div class="donation-bar-title">
-        <span class="tree-icon">🌳</span>
-        PLANT A TREE WITH KES UPDATES
-      </div>
-      <div class="donation-bar-subtitle">
-        🎓 Certificate + Receipt | Join Green Mission
-      </div>
-    </div>
-    <a href="https://kesupdatess.github.io/KES-UPDATESS-FOUNDATION/"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="donation-bar-btn"
-       id="donateBarBtn">
-      💚 Plant Now
-    </a>
-  </div>
-</div>
-
 <script>
-// ═══════════════════════════════════════════════════════
-// SUPABASE CONFIGURATION
-// ═══════════════════════════════════════════════════════
-const SUPABASE_URL = 'https://uegdizdnminwhkxcdcle.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVlZ2RpemRubWlud2hreGNkY2xlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIwODk2MjgsImV4cCI6MjA5NzY2NTYyOH0.2wiAHbaoNoDva_tRseDAywVMu_6AioCGlVLgoVb0d6s';
-
-let eventsData = [];
-
-// ═══════════════════════════════════════════════════════
-// LOAD EVENTS
-// ═══════════════════════════════════════════════════════
-async function loadEvents() {
-  try {
-    const r = await fetch(`${SUPABASE_URL}/rest/v1/events?status=in.(upcoming,ongoing)&order=start_date.asc`, {
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY
-      }
-    });
-    if (!r.ok) throw new Error('Load failed');
-    eventsData = await r.json();
-    renderEvents();
-  } catch (e) {
-    console.error('Events load error:', e);
-    document.getElementById('events-list').innerHTML = `
-      <div class="empty-state">
-        <div class="e-ico">⚠️</div>
-        <h3>Unable to load events</h3>
-        <p>${e.message}</p>
-      </div>`;
-  }
+function setTheme(mode){
+  document.body.classList.remove('light','dark');
+  if(mode==='dark')document.body.classList.add('dark');
+  localStorage.setItem('theme',mode);
 }
-
-// ═══════════════════════════════════════════════════════
-// RENDER EVENTS
-// ═══════════════════════════════════════════════════════
-function renderEvents() {
-  const container = document.getElementById('events-list');
-  const subtitle = document.getElementById('events-subtitle');
-  
-  if (!eventsData.length) {
-    container.innerHTML = `
-      <div class="empty-state">
-        <div class="e-ico">📅</div>
-        <h3>No upcoming events</h3>
-        <p>Check back later for new events</p>
-      </div>`;
-    subtitle.textContent = 'No events scheduled';
-    return;
+window.onload=()=>{
+  const saved=localStorage.getItem('theme')||'light';
+  setTheme(saved);
+  if(localStorage.getItem('kes_policy_agreed')==='true'){
+    const btn=document.getElementById('agreeBtn');
+    btn.textContent='✅ Already Acknowledged';
+    btn.classList.add('agreed');
   }
-  
-  subtitle.textContent = `Academic Calendar 2026-27 — ${eventsData.length} Upcoming Events`;
-  
-  container.innerHTML = eventsData.map((e, idx) => {
-    const startDate = new Date(e.start_date);
-    const endDate = e.end_date ? new Date(e.end_date) : null;
-    
-    let dataType = 'event';
-    let statusClass = 'event';
-    let statusText = 'EVENT';
-    let icon = '📅';
-    
-    if (e.category === 'exam') {
-      dataType = 'exam';
-      statusClass = 'exam';
-      statusText = 'EXAM';
-      icon = '📝';
-    } else if (e.category === 'holiday') {
-      dataType = 'vacation';
-      statusClass = 'vacation';
-      statusText = 'VACATION';
-      icon = '🎉';
-    } else if (e.category === 'festival') {
-      icon = '🎊';
-    } else if (e.category === 'seminar') {
-      icon = '🎤';
-    } else if (e.category === 'sports') {
-      icon = '⚽';
-    } else if (e.category === 'cultural') {
-      icon = '🎭';
-    } else if (e.category === 'workshop') {
-      icon = '🔧';
-    }
-    
-    const dateStr = formatDateRange(startDate, endDate);
-    const collegeTag = e.college_type === 'degree' ? '<span class="event-tag">DEGREE</span>' :
-                       e.college_type === 'junior' ? '<span class="event-tag">JUNIOR</span>' : '';
-    
-    return `
-      <div class="event-item" data-date="${startDate.toISOString().split('T')[0]}" data-type="${dataType}" data-id="${e.id}">
-        <div class="event-icon">${icon}</div>
-        <div class="event-details">
-          <div class="event-name">${escapeHtml(e.title)} ${collegeTag}</div>
-          <div class="event-date">📅 ${dateStr}</div>
-          <div class="event-countdown" id="event-${e.id}-cd">⏳ Loading...</div>
-        </div>
-        <div class="event-status ${statusClass}">${statusText}</div>
-      </div>
-    `;
-  }).join('');
-  
-  updateEventsCountdown();
+};
+function toggleFaq(el){
+  const item=el.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
 }
-
-function formatDateRange(start, end) {
-  const opts = { day: 'numeric', month: 'long', year: 'numeric' };
-  const startStr = start.toLocaleDateString('en-IN', opts);
-  
-  if (!end) return startStr;
-  if (start.toDateString() === end.toDateString()) return startStr;
-  
-  if (start.getMonth() === end.getMonth() && start.getFullYear() === end.getFullYear()) {
-    return `${start.getDate()} - ${end.getDate()} ${start.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}`;
-  }
-  
-  return `${start.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })} - ${end.toLocaleDateString('en-IN', opts)}`;
+function sharePolicy(){
+  if(navigator.share){
+    navigator.share({title:'KES Updates Policy',text:'Check out our policy',url:location.href}).catch(()=>copyLink());
+  }else{copyLink();}
 }
-
-function updateEventsCountdown() {
-  const now = new Date();
-  
-  eventsData.forEach(e => {
-    const el = document.getElementById(`event-${e.id}-cd`);
-    if (!el) return;
-    
-    const eventDate = new Date(e.start_date);
-    const endDate = e.end_date ? new Date(e.end_date) : null;
-    
-    if (now >= eventDate && endDate && now <= endDate) {
-      el.textContent = '🔴 ONGOING NOW!';
-      el.className = 'event-countdown';
-      return;
-    }
-    
-    if (now > (endDate || eventDate)) {
-      el.textContent = '✅ Completed';
-      el.className = 'event-countdown far';
-      return;
-    }
-    
-    const targetDate = (now >= eventDate && endDate) ? endDate : eventDate;
-    const diff = targetDate - now;
-    
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    
-    if (days <= 1) {
-      el.textContent = `🔴 ${hours}h left - VERY SOON!`;
-      el.className = 'event-countdown';
-    } else if (days <= 7) {
-      el.textContent = `⚡ ${days}d ${hours}h left - SOON!`;
-      el.className = 'event-countdown soon';
-    } else {
-      el.textContent = `📅 ${days} days left`;
-      el.className = 'event-countdown far';
-    }
+function copyLink(){
+  navigator.clipboard.writeText(location.href).then(()=>showToast('✅ Link copied!')).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=location.href;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('✅ Link copied!');
   });
 }
-
-setInterval(updateEventsCountdown, 60000);
-
-// ═══════════════════════════════════════════════════════
-// THEME
-// ═══════════════════════════════════════════════════════
-function setTheme(mode) {
-  document.body.classList.toggle('dark', mode === 'dark');
-  localStorage.setItem('theme', mode);
-  document.getElementById('themeBtn').textContent = mode === 'dark' ? '☀️' : '🌙';
+function handleAgree(){
+  const btn=document.getElementById('agreeBtn');
+  if(btn.classList.contains('agreed'))return;
+  localStorage.setItem('kes_policy_agreed','true');
+  btn.textContent='✅ Acknowledged — Thank you!';
+  btn.classList.add('agreed');
+  showToast('✅ Policy acknowledged!');
 }
-
-function toggleTheme() {
-  const isDark = document.body.classList.contains('dark');
-  setTheme(isDark ? 'light' : 'dark');
+function showToast(msg){
+  let t=document.querySelector('.toast');if(t)t.remove();
+  t=document.createElement('div');t.className='toast';t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),2000);
 }
-
-// ═══════════════════════════════════════════════════════
-// MENU
-// ═══════════════════════════════════════════════════════
-function toggleMenu() {
-  document.getElementById('sidebar').classList.toggle('active');
-  document.getElementById('overlay').classList.toggle('active');
-}
-
-document.querySelectorAll('.sidebar a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (document.getElementById('sidebar').classList.contains('active')) toggleMenu();
-  });
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('sidebar').classList.contains('active')) toggleMenu();
-});
-
-// ═══════════════════════════════════════════════════════
-// SCROLL
-// ═══════════════════════════════════════════════════════
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  const total = document.documentElement.scrollHeight - window.innerHeight;
-  document.getElementById('scrollProgress').style.width = ((scrolled / total) * 100) + '%';
-  document.getElementById('backToTop').classList.toggle('visible', scrolled > 300);
-});
-
-function escapeHtml(s) {
-  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-// ═══════════════════════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════════════════════
-window.addEventListener('load', () => {
-  setTheme(localStorage.getItem('theme') || 'light');
-  loadEvents();
-});
-
-setInterval(loadEvents, 120000);
-
-document.addEventListener('click', e => {
-  const link = e.target.closest('a');
-  if (!link || typeof gtag !== 'function') return;
-  gtag('event', 'link_click', {
-    link_text: link.innerText.trim().substring(0, 50) || link.getAttribute('href'),
-    link_url: link.getAttribute('href'),
-    page_location: window.location.href
-  });
-});
 </script>
 
 </body>
